@@ -1,7 +1,7 @@
 _: {
   imports = [
     ./hyprland
-    ./nvf.nix
+    # ./nvf.nix
     ./git.nix
     ./btop.nix
     ./ghostty.nix
