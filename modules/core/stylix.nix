@@ -5,7 +5,7 @@ in {
   stylix = {
     enable = true;
     image = stylixImage;
-    # base16Scheme = "${inputs.tinted-schemes}/base16/catppuccin-macchiato.yaml";
+    base16Scheme = "${inputs.tinted-schemes}/base16/catppuccin-macchiato.yaml";
     polarity = "dark";
     opacity.terminal = 1.0;
     cursor = {
