@@ -1,4 +1,4 @@
-_: {
+{ lib, pkgs, ... }: {
   wayland.windowManager.hyprland = {
     settings = {
       env = [
@@ -16,7 +16,7 @@ _: {
         "MOZ_ENABLE_WAYLAND, 1"
         "GDK_SCALE,1"
         "QT_SCALE_FACTOR,1"
-        "EDITOR,hx"
+        "EDITOR,${lib.getExe pkgs.yazi}"
         "WLR_NO_HARDWARE_CURSORS,1"
         "LIBVA_DRIVER_NAME,nvidia"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"

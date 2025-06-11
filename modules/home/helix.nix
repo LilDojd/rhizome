@@ -12,11 +12,11 @@ in {
         bufferline = "multiple";
         color-modes = true;
         cursorline = true;
+        default-yank-register = "+";
         line-number = "relative";
         mouse = true;
         rulers = [ 80 ];
         scrolloff = 10;
-        whitespace.render = "all";
 
         indent-guides = {
           render = true;

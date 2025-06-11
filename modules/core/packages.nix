@@ -60,5 +60,6 @@
     yazi
     any-nix-shell
     delta
+    telegram-desktop
   ];
 }

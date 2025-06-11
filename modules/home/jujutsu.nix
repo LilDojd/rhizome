@@ -19,6 +19,22 @@
         pager = "delta";
       };
       git = { private-commits = "description(glob:'private:*')"; };
+
+      fix = {
+        tools = {
+          rustfmt = {
+            enabled = true;
+            command = [ "${pkgs.rustfmt}/bin/rustfmt" "--emit" "stdout" ];
+            patterns = [ "glob:'**/*.rs'" ];
+          };
+
+          nixfmt = {
+            enabled = true;
+            command = [ "${pkgs.nixfmt-classic}/bin/nixfmt" ];
+            patterns = [ "glob:'**/*.nix'" ];
+          };
+        };
+      };
     };
   };
 }
