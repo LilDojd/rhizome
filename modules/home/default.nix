@@ -11,5 +11,16 @@ _: {
     ./starship.nix
     ./jujutsu.nix
     ./helix.nix
+    ./bat.nix
+    ./fastfetch
+    ./rofi
+    ./yazi
+    ./bat.nix
+    ./eza.nix
+    ./lazygit.nix
+    ./stylix.nix
+    ./zoxide.nix
+    ./scripts
+    ./emoji.nix
   ];
 }

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ profile, pkgs, ... }:
 let
   catppuccin-fish = pkgs.fetchFromGitHub {
     owner = "catppuccin";
@@ -34,6 +34,14 @@ in {
     '';
     preferAbbrs = true;
     shellAbbrs = {
+
+      fr = "nh os switch --hostname ${profile}";
+      fu = "nh os switch --hostname ${profile} --update";
+
+      ncg =
+        "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
+      cat = "bat";
+
       lj = "lazyjj";
       lg = "lazygit";
       yy = "yazi";

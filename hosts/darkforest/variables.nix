@@ -8,7 +8,7 @@
   terminal = "ghostty";
   browser = "firefox";
 
-  stylixImage = ../../wallpapers/AnimeGirlNightSky.jpg;
+  stylixImage = ../../wallpapers/uyolIA.webp;
 
   animChoice = ../../modules/home/hyprland/animations-dynamic.nix;
   MonitorSettings = ''

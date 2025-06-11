@@ -5,6 +5,8 @@
   };
   home.file."./.config/ghostty/config".text = ''
 
+    theme = catppuccin-macchiato
+
     command = ${pkgs.fish}/bin/fish --login --interactive
 
     adjust-cell-height = 10%

@@ -21,7 +21,6 @@
     brightnessctl # For Screen Brightness Control
     docker-compose # Allows Controlling Docker From A Single File
     duf # Utility For Viewing Disk Usage In Terminal
-    eza # Beautiful ls Replacement
     ffmpeg # Terminal Video / Audio Editing
     file-roller # Archive Manager
     gimp # Great Photo Editor
@@ -32,7 +31,6 @@
     eog # For Image Viewing
     inxi # CLI System Information Tool
     killall # For Killing All Instances Of Programs
-    lazygit # Terminal Based Git GUI
     libnotify # For Notifications
     lm_sensors # Used For Getting Hardware Temps
     lolcat # Add Colors To Your Terminal Command Output
@@ -56,10 +54,9 @@
     ytmdl # Tool For Downloading Audio From YouTube
     lazyjj # jj vcs lg-like tui
     grc # Generic colouriser
-    fzf
-    yazi
     any-nix-shell
     delta
     telegram-desktop
+    cliphist
   ];
 }

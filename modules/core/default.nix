@@ -5,12 +5,12 @@
     ./boot.nix
     ./system.nix
     ./services.nix
-    ./user.nix
     ./hardware.nix
     ./xserver.nix
     ./network.nix
     ./packages.nix
     ./stylix.nix
+    ./user.nix
     inputs.stylix.nixosModules.stylix
   ];
 }

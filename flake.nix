@@ -20,7 +20,7 @@
     let
       system = "x86_64-linux";
       host = "darkforest";
-      profile = "nvidia";
+      profile = "darkforest";
       username = "yawner";
     in {
       nixosConfigurations = {

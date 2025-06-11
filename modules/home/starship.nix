@@ -43,7 +43,7 @@ _: {
 
       # Directory
       directory = {
-        format = "[ ](fg:purple)[$path](fg:magenta bold)";
+        format = "[ ](fg:green)[$path](fg:green bold)";
         truncation_length = 3;
         truncate_to_repo = false;
       };
