@@ -1,10 +1,10 @@
-{ host, config, pkgs, lib, ... }:
+{ host, config, pkgs, lib, inputs, ... }:
 let
   inherit (import ../../../hosts/${host}/variables.nix)
     keyboardLayout stylixImage;
 in {
   home.packages = with pkgs; [
-    swww
+    inputs.swww.packages.${pkgs.system}.swww
     grim
     slurp
     wl-clipboard
