@@ -1,0 +1,4 @@
+{
+  consoleKeyMap = "us";
+  keyboardLayout = "us";
+}
