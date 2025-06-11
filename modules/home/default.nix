@@ -22,5 +22,6 @@ _: {
     ./zoxide.nix
     ./scripts
     ./emoji.nix
+    ./ssh.nix
   ];
 }

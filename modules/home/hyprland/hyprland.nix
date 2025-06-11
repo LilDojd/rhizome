@@ -33,6 +33,11 @@ in {
       variables = [ "--all" ];
     };
     xwayland = { enable = true; };
+    extraConfig = ''
+      xwayland {
+        force_zero_scaling = true
+      }
+    '';
     settings = {
       exec-once = [
         "wl-paste --type text --watch cliphist store # Stores only text data"

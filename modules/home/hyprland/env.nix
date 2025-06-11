@@ -14,7 +14,7 @@
         "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
         "SDL_VIDEODRIVER, x11"
         "MOZ_ENABLE_WAYLAND, 1"
-        "GDK_SCALE,1"
+        "GDK_SCALE,2"
         "QT_SCALE_FACTOR,1"
         "EDITOR,${lib.getExe pkgs.yazi}"
         "TERMINAL,${lib.getExe pkgs.ghostty}"
