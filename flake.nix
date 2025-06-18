@@ -29,7 +29,7 @@
     };
 
     home-manager = {
-      url = "";
+      url = "github:nix-community/home-manager";
       flake = true;
       inputs.nixpkgs.follows = "nixpkgs";
     };
