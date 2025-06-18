@@ -23,5 +23,6 @@ _: {
     ./scripts
     ./emoji.nix
     ./ssh.nix
+    ./fzf.nix
   ];
 }

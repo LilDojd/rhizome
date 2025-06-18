@@ -14,9 +14,8 @@
       url = "github:tinted-theming/schemes";
     };
     agenix.url = "github:ryantm/agenix";
-    # TODO: remove rev when https://github.com/LGFae/swww/issues/445 is fixed
     swww.url =
-      "git+https://github.com/LGFae/swww?rev=7ceddc01359d4af29ec1db8a7b390290126626b8";
+      "github:LGFae/swww";
     _1password-shell-plugins.url = "github:1Password/shell-plugins";
   };
 
