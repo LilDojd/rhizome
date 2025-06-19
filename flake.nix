@@ -1,4 +1,7 @@
 {
+
+  description = "Yawner's Nix Environment";
+
   nixConfig = {
     abort-on-warn = true;
     extra-experimental-features = [ "pipe-operators" ];
@@ -14,6 +17,8 @@
     };
 
     files.url = "github:mightyiam/files";
+
+    systems.url = "github:nix-systems/default";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -48,7 +53,7 @@
 
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     nvf.url = "github:notashelf/nvf";
 
@@ -118,6 +123,8 @@
       };
     };
 
+    dedupe_systems.url = "github:nix-systems/default";
+
     dedupe_nuschtos-search = {
       url = "github:NuschtOS/search";
       inputs = {
@@ -126,12 +133,11 @@
       };
     };
 
-    dedupe_systems.url = "github:nix-systems/default";
   };
 
   outputs =
-    inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+    inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
       text.readme.parts = {
         disallow-warnings =
           # markdown

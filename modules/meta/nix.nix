@@ -1,0 +1,6 @@
+{
+  text.gitignore = ''
+    /result
+    /result.*
+  '';
+}
