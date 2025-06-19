@@ -52,6 +52,8 @@
 
     nvf.url = "github:notashelf/nvf";
 
+    nix-darwin.url = "github:LnL7/nix-darwin";
+
     _1password-shell-plugins.url = "github:1Password/shell-plugins";
 
     sink-rotate = {
