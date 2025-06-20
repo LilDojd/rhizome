@@ -1,6 +1,7 @@
-_: {
+{ lib, ... }:
+{
   flake.modules.homeManager.base =
-    { pkgs, profile, ... }:
+    { pkgs, config, ... }:
     let
       catppuccin-fish = pkgs.fetchFromGitHub {
         owner = "catppuccin";
@@ -8,6 +9,9 @@ _: {
         rev = "6a85af2ff722ad0f9fbc8424ea0a5c454661dfed";
         hash = "sha256-Oc0emnIUI4LV7QJLs4B2/FQtCFewRFVp7EDv8GawFsA=";
       };
+      shellAliasAbbrs = lib.mapAttrs (
+        _: val: builtins.baseNameOf (lib.head (lib.splitString " " val))
+      ) config.home.shellAliases;
     in
     {
       xdg.configFile."fish/themes/Catppuccin Macchiato.theme".source =
@@ -36,21 +40,10 @@ _: {
           end
         '';
         preferAbbrs = true;
-        shellAbbrs = {
-
-          fr = "nh os switch --hostname ${profile}";
-          fu = "nh os switch --hostname ${profile} --update";
+        shellAbbrs = shellAliasAbbrs // {
 
           ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
           cat = "bat";
-
-          lj = "lazyjj";
-          lg = "lazygit";
-          yy = "yazi";
-
-          ls = "eza -G";
-          ll = "eza -l -g --icons";
-          la = "ll -a";
 
           grep = "grep --color=auto";
           mtar = "tar -zcvf";
@@ -69,6 +62,7 @@ _: {
           ".4" = "cd ../../../..";
           ".5" = "cd ../../../../..";
         };
+
         plugins = [
           # Enable a plugin (here grc for colorized command output) from nixpkgs
           {
