@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+_: {
   flake.modules = {
     nixos.pc =
       { pkgs, ... }:
@@ -8,10 +7,7 @@
         users.defaultUserShell = pkgs.bash;
       };
 
-    darwin.pc =
-      { pkgs, ... }:
-      {
-        user.shell = lib.getExe pkgs.bash;
-      };
+    # Nix-darwin does not currently have a clear way to control users shell
+
   };
 }

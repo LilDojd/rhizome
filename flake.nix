@@ -16,9 +16,17 @@
       url = "github:platomav/CPUMicrocodes";
     };
 
-    files.url = "github:mightyiam/files";
+    files = {
+      url = "github:mightyiam/files";
+    };
 
-    systems.url = "github:nix-systems/default";
+    systems = {
+      url = "github:nix-systems/default";
+    };
+
+    nix-homebrew = {
+      url = "github:zhaofengli/nix-homebrew";
+    };
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";

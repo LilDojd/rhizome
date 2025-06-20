@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.modules.darwin.desktop = {
+  flake.modules.darwin.pc = {
     imports = [ inputs.home-manager.darwinModules.home-manager ];
 
     home-manager = {
