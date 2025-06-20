@@ -29,7 +29,7 @@
           # when they are managed by nix-homebrew.
           taps = builtins.attrNames taps;
 
-          casks = [ ];
+          casks = [ "ghostty" ];
 
         };
       };
