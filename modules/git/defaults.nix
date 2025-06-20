@@ -4,28 +4,26 @@
     userName = config.flake.meta.owner.githubUsername;
     userEmail = config.flake.meta.owner.email;
     extraConfig = {
-      # FOSS-friendly settings
-      push.default = "simple"; # Match modern push behavior
-      credential.helper = "cache --timeout=7200";
-      init.defaultBranch = "main"; # Set default new branches to 'main'
-
-      ignores = [
-        ".DS_Store"
-        "*.swp"
-        ".direnv"
-        ".envrc"
-        ".envrc.local"
-        ".env"
-        ".env.local"
-        ".jj"
-        "/.tool-versions"
-        "*.key"
-        "debug/"
-        "target/"
-
-        "**/*.rs.bk"
-
-      ];
+      init.defaultBranch = "main";
+      push.default = "current";
+      commit.verbose = true;
+      branch.sort = "-committerdate";
+      tag.sort = "taggerdate";
     };
+    ignores = [
+      ".DS_Store"
+      "*.swp"
+      ".direnv"
+      ".envrc"
+      ".envrc.local"
+      ".env"
+      ".env.local"
+      ".jj"
+      "/.tool-versions"
+      "*.key"
+      "debug/"
+      "target/"
+      "**/*.rs.bk"
+    ];
   };
 }
