@@ -8,7 +8,9 @@
     {
       programs.ghostty = {
         enable = true;
-        package = pkgs.ghostty;
+        enableFishIntegration = true;
+        enableZshIntegration = true;
+        package = if pkgs.stdenv.isDarwin then null else pkgs.ghostty;
       };
       home.file."./.config/ghostty/config".text = ''
 
