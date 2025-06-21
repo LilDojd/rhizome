@@ -1,16 +1,14 @@
-{ lib, ... }:
+{ lib, inputs, ... }:
 {
   flake.modules.homeManager.base =
     homeArgs@{ pkgs, ... }:
     let
-      helix =
-        (builtins.getFlake "github:helix-editor/helix/ab97585b69f11b159a447c85dfd528cc241cf1e3")
-        .packages.${pkgs.system}.default;
+      helixPkg = inputs.helix.packages.${pkgs.system}.default;
     in
     {
       programs.helix = {
         enable = true;
-        package = helix;
+        package = helixPkg;
         settings = {
           editor = {
             auto-format = true;

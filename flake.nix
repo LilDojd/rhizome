@@ -24,6 +24,11 @@
       };
     };
 
+    helix = {
+      url = "github:helix-editor/helix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     files = {
       url = "github:mightyiam/files";
     };
