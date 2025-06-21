@@ -12,6 +12,7 @@
       in
       {
         nixos.pc.nixpkgs.config.allowUnfreePredicate = predicate;
+        darwin.pc.nixpkgs.config.allowUnfreePredicate = predicate;
 
         homeManager.base = args: {
           nixpkgs.config = lib.mkIf (!(args.hasGlobalPkgs or false)) {

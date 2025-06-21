@@ -1,4 +1,7 @@
 _: {
+  flake.modules.darwin.pc = {
+    config.homebrew.casks = [ "ghostty" ];
+  };
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     {

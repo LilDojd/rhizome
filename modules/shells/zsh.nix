@@ -1,13 +1,13 @@
 { lib, ... }:
 {
   flake.modules.homeManager.base =
-    homeArgs:
+    homeArgs@{ pkgs, ... }:
     let
       fish = lib.getExe homeArgs.config.programs.fish.package;
       procps = lib.getExe' homeArgs.pkgs.procps "ps";
 
       psCommand =
-        if homeArgs.pkgs.stdenv.isDarwin then
+        if pkgs.stdenv.isDarwin then
           "${procps} -p $PPID -o comm="
         else
           "${procps} --no-header --pid=$PPID --format=comm";
