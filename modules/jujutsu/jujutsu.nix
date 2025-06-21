@@ -23,10 +23,6 @@
               bold = true;
             };
           };
-          ui = {
-            editor = "hx";
-            pager = "delta";
-          };
           git = {
             private-commits = "description(glob:'private:*')";
           };

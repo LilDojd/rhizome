@@ -2,9 +2,6 @@
 {
   flake.modules.homeManager.gui =
     homeArgs@{ pkgs, ... }:
-    let
-      fish = lib.getExe homeArgs.config.programs.fish.package;
-    in
     {
       programs.ghostty = {
         enable = true;
@@ -15,8 +12,6 @@
       home.file."./.config/ghostty/config".text = ''
 
         theme = catppuccin-macchiato
-
-        command = ${fish} --login --interactive
 
         adjust-cell-height = 10%
         window-theme = dark

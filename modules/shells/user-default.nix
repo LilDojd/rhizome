@@ -3,8 +3,8 @@ _: {
     nixos.pc =
       { pkgs, ... }:
       {
-        programs.bash.enable = true;
-        users.defaultUserShell = pkgs.bash;
+        programs.zsh.enable = true;
+        users.defaultUserShell = pkgs.zsh;
       };
 
     # Nix-darwin does not currently have a clear way to control users shell
