@@ -8,6 +8,7 @@ in
 {
   flake.modules = {
     nixos.pc = polyModule;
+    # darwin.pc = polyModule;
     homeManager.base = polyModule;
   };
 }

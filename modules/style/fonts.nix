@@ -45,6 +45,17 @@ in
         ];
       };
 
+    # darwin.pc =
+    # { pkgs, ... }:
+    # {
+    # imports = [ polyModule ];
+    # fonts.packages = with pkgs; [
+    # noto-fonts
+    # noto-fonts-cjk-sans
+    # noto-fonts-cjk-serif
+    # ];
+    # };
+
     homeManager.gui =
       { pkgs, ... }:
       {
