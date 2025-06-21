@@ -1,7 +1,7 @@
 { lib, inputs, ... }:
 {
   flake.modules.homeManager.base =
-    homeArgs@{ pkgs, ... }:
+    { pkgs, ... }:
     let
       helixPkg = inputs.helix.packages.${pkgs.system}.default;
     in
@@ -129,7 +129,7 @@
           {
             name = "nix";
             language-servers = [ "nixd" ];
-            formatter.binary = lib.getExe pkgs.nixfmt-classic;
+            formatter.binary = lib.getExe pkgs.nixfmt-rfc-style;
             formatter.command = "nixfmt";
           }
           {
@@ -175,7 +175,7 @@
           marksman
           nodePackages.typescript-language-server
           nodePackages.prettier
-          nixfmt-classic
+          nixfmt-rfc-style
           nixd
           cmake-language-server
           taplo

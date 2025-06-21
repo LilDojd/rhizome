@@ -40,7 +40,7 @@
               };
               nixfmt = {
                 enabled = true;
-                command = [ "${pkgs.nixfmt-classic}/bin/nixfmt" ];
+                command = [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
                 patterns = [ "glob:'**/*.nix'" ];
               };
             };
