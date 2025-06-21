@@ -1,4 +1,7 @@
 {
+
+  description = "Yawner's Nix Environment";
+
   nixConfig = {
     abort-on-warn = true;
     extra-experimental-features = [ "pipe-operators" ];
@@ -13,7 +16,45 @@
       url = "github:platomav/CPUMicrocodes";
     };
 
-    files.url = "github:mightyiam/files";
+    jujutsu = {
+      url = "github:martinvonz/jj";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "dedupe_flake-utils";
+      };
+    };
+
+    helix = {
+      url = "github:helix-editor/helix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    files = {
+      url = "github:mightyiam/files";
+    };
+
+    systems = {
+      url = "github:nix-systems/default";
+    };
+
+    nix-homebrew = {
+      url = "github:zhaofengli/nix-homebrew";
+    };
+
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+
+    homebrew-bundle = {
+      url = "github:homebrew/homebrew-bundle";
+      flake = false;
+    };
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -48,9 +89,19 @@
 
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    nvf.url = "github:notashelf/nvf";
+    nvf = {
+      url = "github:notashelf/nvf?ref=pull/956/merge";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+        systems.follows = "dedupe_systems";
+        flake-utils.follows = "dedupe_flake-utils";
+      };
+    };
+
+    nix-darwin.url = "github:LnL7/nix-darwin";
 
     _1password-shell-plugins.url = "github:1Password/shell-plugins";
 
@@ -116,6 +167,8 @@
       };
     };
 
+    dedupe_systems.url = "github:nix-systems/default";
+
     dedupe_nuschtos-search = {
       url = "github:NuschtOS/search";
       inputs = {
@@ -124,12 +177,11 @@
       };
     };
 
-    dedupe_systems.url = "github:nix-systems/default";
   };
 
   outputs =
-    inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+    inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
       text.readme.parts = {
         disallow-warnings =
           # markdown
