@@ -91,7 +91,15 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    nvf.url = "github:notashelf/nvf";
+    nvf = {
+      url = "github:notashelf/nvf?ref=pull/956/merge";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+        systems.follows = "dedupe_systems";
+        flake-utils.follows = "dedupe_flake-utils";
+      };
+    };
 
     nix-darwin.url = "github:LnL7/nix-darwin";
 

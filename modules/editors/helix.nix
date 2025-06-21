@@ -128,7 +128,10 @@
           }
           {
             name = "nix";
-            language-servers = [ "nixd" ];
+            language-servers = [
+              "nixd"
+              "nil"
+            ];
             formatter.binary = lib.getExe pkgs.nixfmt-rfc-style;
             formatter.command = "nixfmt";
           }
@@ -177,6 +180,7 @@
           nodePackages.prettier
           nixfmt-rfc-style
           nixd
+          nil
           cmake-language-server
           taplo
           python312Packages.python-lsp-server

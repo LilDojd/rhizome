@@ -53,8 +53,6 @@
           utar = "tar -zxvf";
           uz = "unzip";
 
-          vim = "nvim";
-
           mv = "mv -v";
           cp = "cp -vr";
           rm = "rm -vr";
