@@ -2,8 +2,8 @@
   flake.modules.darwin.pc = {
     system = {
       defaults.NSGlobalDomain = {
-        # Use F1, F2, etc. keys as standard function keys.
-        "com.apple.keyboard.fnState" = true;
+        # Don't use F1, F2, etc. keys as standard function keys.
+        "com.apple.keyboard.fnState" = false;
 
         # Mode 3 enables full keyboard control.
         AppleKeyboardUIMode = 3;
