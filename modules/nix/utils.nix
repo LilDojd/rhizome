@@ -1,6 +1,6 @@
 {
   flake.modules.homeManager.base =
-    { pkgs, ... }:
+    hmArgs@{ pkgs, ... }:
     {
       home.packages = with pkgs; [
         nix-output-monitor
@@ -9,6 +9,11 @@
         nvd
         nix-diff
       ];
-      programs.nh.enable = true;
+      programs.nh = {
+        enable = true;
+        clean.enable = true;
+        clean.extraArgs = "--keep-since 4d --keep 3";
+        flake = "${hmArgs.config.home.homeDirectory}/rhizome";
+      };
     };
 }
