@@ -1,7 +1,7 @@
 { lib, ... }:
 let
   polyModule =
-    polyArgs@{ pkgs, ... }:
+    { pkgs, ... }:
     {
       stylix = lib.mkDefault {
         cursor = {

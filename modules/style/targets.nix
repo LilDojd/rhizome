@@ -1,4 +1,4 @@
-{ lib, ... }:
+_:
 let
   polyModule = {
     stylix.autoEnable = true;

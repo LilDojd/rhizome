@@ -1,7 +1,6 @@
-{ lib, ... }:
-{
+_: {
   flake.modules.homeManager.base =
-    homeArgs@{ pkgs, ... }:
+    { pkgs, ... }:
     {
       home.packages = [ pkgs.cachix ];
     };

@@ -57,7 +57,7 @@ in
     # };
 
     homeManager.gui =
-      { pkgs, ... }:
+
       {
         imports = [ polyModule ];
       };

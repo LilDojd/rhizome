@@ -1,7 +1,6 @@
-{ lib, ... }:
-{
+_: {
   flake.modules.homeManager.gui =
-    homeArgs@{ pkgs, ... }:
+    { pkgs, ... }:
     {
       programs.ghostty = {
         enable = true;

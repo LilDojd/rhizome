@@ -13,7 +13,7 @@
         package = inputs.jujutsu.packages.${pkgs.system}.default;
         settings = {
           user = {
-            email = config.flake.meta.owner.email;
+            inherit (config.flake.meta.owner) email;
             name = config.flake.meta.owner.githubUsername;
           };
           colors = {
@@ -23,7 +23,7 @@
               bold = true;
             };
           };
-          ui.editor = lib.mkIf (homeArgs.config.programs.helix.enable) "hx";
+          ui.editor = lib.mkIf homeArgs.config.programs.helix.enable "hx";
           git = {
             private-commits = "description(glob:'private:*')";
           };

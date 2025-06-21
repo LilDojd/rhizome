@@ -1,7 +1,7 @@
 { lib, ... }:
 {
   flake.modules.homeManager.base =
-    homeArgs@{ pkgs, ... }:
+    homeArgs:
     let
       fish = lib.getExe homeArgs.config.programs.fish.package;
       procps = lib.getExe' homeArgs.pkgs.procps "ps";

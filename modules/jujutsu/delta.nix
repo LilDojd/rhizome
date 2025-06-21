@@ -1,7 +1,7 @@
 { lib, ... }:
 {
   flake.modules.homeManager.base =
-    homeArgs@{ pkgs, config, ... }:
+    { pkgs, config, ... }:
     let
       deltaPkg = pkgs.delta;
     in
