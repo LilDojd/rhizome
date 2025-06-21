@@ -13,7 +13,7 @@
   flake.modules =
     let
       flakeCommon =
-        { config, ... }:
+        { config, pkgs, ... }:
         let
           username = config.flake.meta.owner.username;
         in
@@ -24,7 +24,7 @@
             {
               enable = true;
             }
-            // lib.optionalAttrs (config.system == "nixos") {
+            // lib.optionalAttrs (pkgs.stdenv.isLinux) {
               polkitPolicyOwners = [ username ];
             };
         };
@@ -45,6 +45,7 @@
               awscli2
               cachix
             ];
+
           };
 
           programs.ssh = {

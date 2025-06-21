@@ -28,9 +28,6 @@
           # If we don't do this, nix-darwin may attempt to remove our taps even
           # when they are managed by nix-homebrew.
           taps = builtins.attrNames taps;
-
-          casks = [ "ghostty" ];
-
         };
       };
 
