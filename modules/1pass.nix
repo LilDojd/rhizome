@@ -31,27 +31,14 @@
     in
     {
       homeManager.base =
-        { pkgs, ... }:
         let
           onePassPath = "~/.1password/agent.sock";
         in
         {
-          imports = [ inputs._1password-shell-plugins.hmModules.default ];
-
-          programs._1password-shell-plugins = {
-            enable = true;
-            plugins = with pkgs; [
-              gh
-              awscli2
-              cachix
-            ];
-
-          };
-
           programs.ssh = {
             extraConfig = ''
-              Host *
-                  IdentityAgent ${onePassPath}
+            Host *
+                IdentityAgent ${onePassPath}
             '';
           };
         };

@@ -98,8 +98,6 @@ _: {
         font-feature = "ss10"
         font-feature = "liga"
 
-        title = "GhosTTY"
-
         wait-after-command = false
         shell-integration = detect
         window-save-state = always
