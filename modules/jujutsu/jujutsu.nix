@@ -23,7 +23,7 @@
               bold = true;
             };
           };
-          ui.editor = lib.mkIf (config.programs.helix.enable) "hx";
+          ui.editor = lib.mkIf (homeArgs.config.programs.helix.enable) "hx";
           git = {
             private-commits = "description(glob:'private:*')";
           };
