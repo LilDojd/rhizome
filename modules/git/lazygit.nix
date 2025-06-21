@@ -36,5 +36,6 @@
           };
         };
       };
+      hmArgs.home.shellAliases.lg = "lazygit";
     };
 }

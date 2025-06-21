@@ -15,6 +15,7 @@
     in
     {
       home.packages = with pkgs; [ grc ];
+      home.shellAliases = { };
       xdg.configFile."fish/themes/Catppuccin Macchiato.theme".source =
         "${catppuccin-fish}/themes/Catppuccin Macchiato.theme";
       programs.fish = {
