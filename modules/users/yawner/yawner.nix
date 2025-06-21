@@ -13,6 +13,8 @@
 
     modules.nixos.yawner = {
       nix.settings.trusted-users = [ config.flake.meta.yawner.username ];
+      users.users.${config.flake.meta.yawner.username}.home =
+        "/home/${config.flake.meta.yawner.username}";
     };
   };
 
