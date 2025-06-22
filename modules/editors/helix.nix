@@ -136,18 +136,6 @@
             formatter.command = "nixfmt";
           }
           {
-            name = "rust";
-            language-servers = [ "rust-analyzer" ];
-            auto-pairs = {
-              "(" = ")";
-              "{" = "}";
-              "[" = "]";
-              "\"" = ''"'';
-              "`" = "`";
-              "<" = ">";
-            };
-          }
-          {
             name = "python";
             language-servers = [
               "basedpyright"
@@ -166,7 +154,6 @@
 
         extraPackages = with pkgs; [
           llvmPackages_18.clang-tools
-          rust-analyzer
           gopls
           nodePackages.bash-language-server
           dockerfile-language-server-nodejs

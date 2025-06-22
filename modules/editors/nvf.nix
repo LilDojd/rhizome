@@ -141,10 +141,6 @@
           lua.enable = true;
           css.enable = true;
           typst.enable = true;
-          rust = {
-            enable = true;
-            crates.enable = true;
-          };
         };
         visuals = {
           nvim-web-devicons.enable = true;
