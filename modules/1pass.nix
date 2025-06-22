@@ -31,26 +31,29 @@
     in
     {
       homeManager.base =
+        { pkgs, ... }:
         let
-          onePassPath = "~/.1password/agent.sock";
+          onePassPath =
+            if pkgs.stdenv.isDarwin then
+              "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+            else
+              "~/.1password/agent.sock";
         in
         {
           programs.ssh = {
             extraConfig = ''
-            Host *
-                IdentityAgent ${onePassPath}
+              Host *
+                  IdentityAgent ${onePassPath}
             '';
           };
         };
 
-      nixos.pc =
-        {
-          imports = [ flakeCommon ];
-        };
+      nixos.pc = {
+        imports = [ flakeCommon ];
+      };
 
-      darwin.pc =
-        {
-          imports = [ flakeCommon ];
-        };
+      darwin.pc = {
+        imports = [ flakeCommon ];
+      };
     };
 }
