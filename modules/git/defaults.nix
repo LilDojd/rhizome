@@ -24,6 +24,8 @@
       "debug/"
       "target/"
       "**/*.rs.bk"
+      ".basedpyright/"
+      ".vscode"
     ];
   };
 }
