@@ -17,7 +17,7 @@ _: {
             sort_dir_first = true;
             sort_translit = false;
             linemode = "none";
-            show_hidden = false;
+            show_hidden = true;
             show_symlink = true;
             scrolloff = 5;
             mouse_events = [
