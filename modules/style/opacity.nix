@@ -1,7 +1,9 @@
 { lib, ... }:
 let
   polyModule = {
-    stylix.opacity = lib.genAttrs [ "applications" "desktop" "popups" "terminal" ] (n: 0.85);
+    stylix.opacity = (lib.genAttrs [ "applications" "desktop" "popups" ] (_: 0.85)) // {
+      terminal = 0.95;
+    };
   };
 in
 {

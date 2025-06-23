@@ -19,7 +19,7 @@ _: {
         window-theme = dark
         window-height = 32
         window-width = 110
-        background-opacity = 0.85
+        background-opacity = 0.95
         background-blur-radius = 60
         selection-background = #2d3f76
         selection-foreground = #c8d3f5
