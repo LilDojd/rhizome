@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{ config, ... }: {
   flake = {
     meta.yawner.username = "yawner";
 
@@ -13,8 +12,11 @@
 
     modules.nixos.yawner = {
       nix.settings.trusted-users = [ config.flake.meta.yawner.username ];
-      users.users.${config.flake.meta.yawner.username}.home =
-        "/home/${config.flake.meta.yawner.username}";
+      users.users.${config.flake.meta.yawner.username} = {
+        isNormalUser = true;
+        initialPassword = "";
+        home = "/home/${config.flake.meta.yawner.username}";
+      };
     };
   };
 
