@@ -1,12 +1,9 @@
 {
   flake.modules.nixos.pc = {
     boot.zfs.forceImportRoot = false;
-    services.zfs.autoScrub.enable = true;
-    services.zfs.autoScrub.interval = "monthly";
+    services.btrfs.autoScrub.enable = true;
+    services.btrfs.autoScrub.interval = "weekly";
+    services.btrfs.autoScrub.fileSystems = [ "/" ];
 
-    fileSystems."/" = {
-      device = "storage/root";
-      fsType = "zfs";
-    };
   };
 }

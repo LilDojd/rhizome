@@ -1,6 +1,10 @@
 { lib, ... }:
 {
   flake.modules.nixos.pc = nixosArgs: {
+    boot.supportedFilesystems = [
+      "btrfs"
+      "vfat"
+    ];
     boot.loader.grub.mirroredBoots =
       nixosArgs.config.storage.redundancy.range
       |> map (i: [

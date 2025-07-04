@@ -200,6 +200,26 @@
         "type": "github"
       }
     },
+    "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1751607816,
+        "narHash": "sha256-5PtrwjqCIJ4DKQhzYdm8RFePBuwb+yTzjV52wWoGSt4=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "da6109c917b48abc1f76dd5c9bf3901c8c80f662",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "disko",
+        "type": "github"
+      }
+    },
     "files": {
       "locked": {
         "lastModified": 1750263550,
@@ -447,6 +467,21 @@
       "original": {
         "owner": "homebrew",
         "repo": "homebrew-core",
+        "type": "github"
+      }
+    },
+    "impermanence": {
+      "locked": {
+        "lastModified": 1737831083,
+        "narHash": "sha256-LJggUHbpyeDvNagTUrdhe/pRVp4pnS6wVKALS782gRI=",
+        "owner": "nix-community",
+        "repo": "impermanence",
+        "rev": "4b3e914cdf97a5b536a889e939fb2fd2b043a170",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "impermanence",
         "type": "github"
       }
     },
@@ -763,6 +798,7 @@
         "dedupe_nur": "dedupe_nur",
         "dedupe_nuschtos-search": "dedupe_nuschtos-search",
         "dedupe_systems": "dedupe_systems",
+        "disko": "disko",
         "files": "files",
         "flake-parts": "flake-parts",
         "git-hooks": "git-hooks",
@@ -771,6 +807,7 @@
         "homebrew-bundle": "homebrew-bundle",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
+        "impermanence": "impermanence",
         "import-tree": "import-tree",
         "input-branches": "input-branches",
         "jujutsu": "jujutsu",

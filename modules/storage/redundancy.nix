@@ -6,7 +6,7 @@
       options.storage.redundancy = {
         count = lib.mkOption {
           type = lib.types.int;
-          default = 2;
+          default = 1;
         };
         range = lib.mkOption {
           type = lib.types.listOf lib.types.str;

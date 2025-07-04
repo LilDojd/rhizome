@@ -26,6 +26,12 @@
 
     input-branches.url = "github:mightyiam/input-branches";
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    impermanence.url = "github:nix-community/impermanence";
+
     helix = {
       url = "github:helix-editor/helix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -227,6 +233,7 @@
             > This pattern has been the inspiration of [an auto-imports library, import-tree](https://github.com/vic/import-tree).
 
           '';
+
       };
 
       imports = [ (inputs.import-tree ./modules) ];
