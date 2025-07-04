@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   flake = {
     meta.yawner.username = "yawner";
 
