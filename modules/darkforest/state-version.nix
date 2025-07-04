@@ -1,4 +1,4 @@
 {
-  flake.modules.nixos."nixosConfigurations/ganoderma".system.stateVersion =
+  flake.modules.nixos."nixosConfigurations/darkforest".system.stateVersion =
     "25.05";
 }
