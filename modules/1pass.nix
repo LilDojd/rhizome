@@ -1,5 +1,5 @@
 {
-  inputs,
+  config,
   lib,
   ...
 }:
@@ -13,7 +13,7 @@
   flake.modules =
     let
       flakeCommon =
-        { config, pkgs, ... }:
+        { pkgs, ... }:
         let
           username = config.flake.meta.owner.username;
         in

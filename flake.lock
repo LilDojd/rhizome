@@ -465,6 +465,21 @@
         "type": "github"
       }
     },
+    "input-branches": {
+      "locked": {
+        "lastModified": 1751619742,
+        "narHash": "sha256-td9YiG4uiY2DDHFn7hfuS3E0WN3mYsqTMCyZq7Qs440=",
+        "owner": "mightyiam",
+        "repo": "input-branches",
+        "rev": "ea7c54ec578fa41e41ed82abab93502c84b09a97",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mightyiam",
+        "repo": "input-branches",
+        "type": "github"
+      }
+    },
     "ixx": {
       "inputs": {
         "flake-utils": [
@@ -757,6 +772,7 @@
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
         "import-tree": "import-tree",
+        "input-branches": "input-branches",
         "jujutsu": "jujutsu",
         "make-shell": "make-shell",
         "nix-darwin": "nix-darwin",
