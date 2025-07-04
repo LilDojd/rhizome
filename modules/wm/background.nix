@@ -1,10 +1,12 @@
-{ lib, ... }: {
-  flake.modules.homeManager.gui = hmArgs:
+{ lib, ... }:
+{
+  flake.modules.homeManager.gui =
+    hmArgs:
     let
-      wpaperctl =
-        lib.getExe' hmArgs.config.services.wpaperd.package "wpaperctl";
+      wpaperctl = lib.getExe' hmArgs.config.services.wpaperd.package "wpaperctl";
       submap = "background";
-    in {
+    in
+    {
       wayland.windowManager.hyprland = {
         settings.misc.disable_hyprland_logo = true;
 

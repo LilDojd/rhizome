@@ -8,6 +8,7 @@
         "systemd.show_status=error"
       ];
       plymouth.enable = true;
+
     };
   };
 }

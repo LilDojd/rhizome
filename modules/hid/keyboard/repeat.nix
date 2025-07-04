@@ -1,7 +1,8 @@
 let
   repeat_delay = "200";
   repeat_rate = "50";
-in {
+in
+{
   flake.modules.homeManager.gui = {
     wayland.windowManager = {
       sway.config.input."type:keyboard" = { inherit repeat_delay repeat_rate; };

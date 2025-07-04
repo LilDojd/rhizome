@@ -1,4 +1,5 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
   flake.modules.homeManager.gui = {
     options.wayland.windowManager.hyprland.submapEnd = lib.mkOption {
       type = lib.types.lines;
