@@ -13,6 +13,10 @@
       };
     };
 
-    homeManager.base = { pkgs, ... }: { home.packages = [ pkgs.impala ]; };
+    homeManager.base =
+      { pkgs, ... }:
+      {
+        home.packages = [ pkgs.impala ];
+      };
   };
 }

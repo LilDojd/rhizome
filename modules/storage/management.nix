@@ -1,5 +1,7 @@
 {
-  flake.modules.homeManager.base = { pkgs, ... }: {
-    home.packages = with pkgs; [ gptfdisk ];
-  };
+  flake.modules.homeManager.base =
+    { pkgs, ... }:
+    {
+      home.packages = with pkgs; [ gptfdisk ];
+    };
 }

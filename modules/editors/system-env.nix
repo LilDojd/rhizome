@@ -4,7 +4,8 @@
       defaultEditor = {
         environment.variables.EDITOR = "hx";
       };
-    in {
+    in
+    {
       nixos.pc = defaultEditor;
       darwin.pc = defaultEditor;
     };

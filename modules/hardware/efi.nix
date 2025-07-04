@@ -5,8 +5,13 @@
       grub.efiSupport = true;
     };
 
-    homeManager.base = { pkgs, ... }: {
-      home.packages = [ pkgs.efivar pkgs.efibootmgr ];
-    };
+    homeManager.base =
+      { pkgs, ... }:
+      {
+        home.packages = [
+          pkgs.efivar
+          pkgs.efibootmgr
+        ];
+      };
   };
 }
