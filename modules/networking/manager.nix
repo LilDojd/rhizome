@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   flake.modules = {
     nixos.pc = {
@@ -16,7 +17,9 @@
     homeManager.base =
       { pkgs, ... }:
       {
-        home.packages = [ pkgs.impala ];
+        home.packages = lib.optionals pkgs.stdenv.isLinux [
+          pkgs.impala
+        ];
       };
   };
 }

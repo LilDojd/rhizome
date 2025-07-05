@@ -1,3 +1,5 @@
+{ lib, ... }:
+
 {
   flake.modules = {
     nixos.efi.boot.loader = {
@@ -8,7 +10,7 @@
     homeManager.base =
       { pkgs, ... }:
       {
-        home.packages = [
+        home.packages = lib.optionals pkgs.stdenv.isLinux [
           pkgs.efivar
           pkgs.efibootmgr
         ];

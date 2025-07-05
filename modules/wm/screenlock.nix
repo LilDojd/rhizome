@@ -4,8 +4,8 @@
     nixos.pc.security.pam.services.swaylock = { };
 
     homeManager.gui =
-      hmArgs@{ ... }:
-      {
+      hmArgs@{ pkgs, ... }:
+      lib.mkIf pkgs.stdenv.isLinux {
         programs.hyprlock = {
           enable = true;
           settings = {
@@ -28,7 +28,7 @@
                 size = 150;
                 border_size = 4;
                 border_color = "rgb(0C96F9)";
-                rounding = -1; # Negative means circle
+                rounding = -1;
                 position = "0, 200";
                 halign = "center";
                 valign = "center";

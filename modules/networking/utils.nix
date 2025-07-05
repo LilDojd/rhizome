@@ -1,15 +1,20 @@
+{ lib, ... }:
 {
   flake.modules.homeManager.base =
     { pkgs, ... }:
     {
-      home.packages = with pkgs; [
-        bandwhich
-        bind
-        curl
-        ethtool
-        gping
-        inetutils
-        socat
-      ];
+      home.packages =
+        with pkgs;
+        [
+          bandwhich
+          bind
+          curl
+          gping
+          inetutils
+          socat
+        ]
+        ++ lib.optionals pkgs.stdenv.isLinux [
+          ethtool
+        ];
     };
 }

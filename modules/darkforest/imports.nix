@@ -5,7 +5,6 @@
       pc
       efi
       yawner
-      swap
       nvidia-gpu
     ];
     nixpkgs.hostPlatform = "x86_64-linux";

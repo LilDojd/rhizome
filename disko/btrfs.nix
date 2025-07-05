@@ -3,11 +3,11 @@
     disk = {
       primary = {
         type = "disk";
-        device = "/dev/nvme1n1";
+        device = "/dev/nvme0n1";
         content = {
           type = "gpt";
           partitions = {
-            boot0 = {
+            ESP = {
               label = "boot0";
               name = "boot0";
               size = "512M";
@@ -15,7 +15,7 @@
               content = {
                 type = "filesystem";
                 format = "vfat";
-                mountpoint = "/boot0";
+                mountpoint = "/boot";
                 mountOptions = [
                   "defaults"
                   "fmask=0077"
@@ -23,9 +23,9 @@
                 ];
               };
             };
-            swap0 = {
-              label = "swap0";
-              name = "swap0";
+            swap = {
+              label = "swap";
+              name = "swap";
               size = "64G";
               content = {
                 type = "swap";
@@ -33,8 +33,6 @@
               };
             };
             root = {
-              label = "root";
-              name = "root";
               size = "100%";
               content = {
                 type = "btrfs";

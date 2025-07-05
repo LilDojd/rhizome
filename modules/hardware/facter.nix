@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 {
   flake.modules = {
     nixos.pc = {
@@ -9,7 +9,9 @@
     homeManager.base =
       { pkgs, ... }:
       {
-        home.packages = with pkgs; [ nixos-facter ];
+        home.packages = lib.optionals pkgs.stdenv.isLinux [
+          inputs.nixos-facter-modules.packages.${pkgs.system}.nixos-facter
+        ];
       };
   };
 }

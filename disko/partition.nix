@@ -1,5 +1,5 @@
 {
-  device ? "/dev/nvme1n1",
+  device ? "/dev/nvme0n1",
   encrypted ? false,
   impermanence ? true,
   ssd ? true,
