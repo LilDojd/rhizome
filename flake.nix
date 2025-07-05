@@ -187,6 +187,9 @@
 
   outputs =
     inputs@{ flake-parts, ... }:
+    let
+      diskoModule = import ./disko/btrfs.nix;
+    in
     flake-parts.lib.mkFlake { inherit inputs; } {
       text.readme.parts = {
         disallow-warnings =
@@ -236,7 +239,11 @@
 
       };
 
-      imports = [ (inputs.import-tree ./modules) ];
+      imports = [
+        (inputs.import-tree ./modules)
+      ];
+
+      flake.disko = diskoModule;
 
       _module.args.rootPath = ./.;
     };
