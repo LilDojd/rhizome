@@ -236,7 +236,9 @@
 
       };
 
-      imports = [ (inputs.import-tree ./modules) ];
+      imports = [
+        (inputs.import-tree ./modules)
+      ];
 
       _module.args.rootPath = ./.;
     };

@@ -10,7 +10,7 @@
       { pkgs, ... }:
       {
         home.packages = lib.optionals pkgs.stdenv.isLinux [
-          inputs.nixos-facter-modules.packages.${pkgs.system}.nixos-facter
+          pkgs.nixos-facter
         ];
       };
   };
