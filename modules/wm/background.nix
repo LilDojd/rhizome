@@ -16,7 +16,7 @@
           binde = , n, exec, ${wpaperctl} next-wallpaper
           binde = , p, exec, ${wpaperctl} previous-wallpaper
           ${config.wayland.windowManager.hyprland.submapEnd}
-          bind = SUPER, b, submap, ${submap}
+          bind = $modifier, b, submap, ${submap}
         '';
       };
 
