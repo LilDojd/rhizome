@@ -1,7 +1,7 @@
 
 { config, ... }:
 {
-  flake.modules.nixos.foundation =
+  flake.modules.homeManager.hyprland =
     { pkgs, ... }:
     {
       services.dunst.enable = true;
