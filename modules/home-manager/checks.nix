@@ -15,6 +15,12 @@
             base
             gui
           ];
+          hyprland = with config.flake.modules.homeManager; [
+            hyprland
+            linux
+            base
+            gui
+          ];
         }
         |> lib.mapAttrs' (
           name: modules: {

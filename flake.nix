@@ -103,7 +103,7 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     nvf = {
       url = "github:notashelf/nvf?ref=pull/956/merge";
       inputs = {

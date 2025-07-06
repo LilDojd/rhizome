@@ -1,4 +1,3 @@
-{ lib, ... }:
 {
   flake.modules = {
     nixos.foundation = {
@@ -14,12 +13,10 @@
       };
     };
 
-    homeManager.base =
+    homeManager.linux =
       { pkgs, ... }:
       {
-        home.packages = lib.optionals pkgs.stdenv.isLinux [
-          pkgs.impala
-        ];
+        home.packages = [ pkgs.impala ];
       };
   };
 }

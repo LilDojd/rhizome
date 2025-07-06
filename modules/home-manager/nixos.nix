@@ -17,7 +17,9 @@
           }
         )
         config.flake.modules.homeManager.base
-        config.flake.modules.homeManager.gui
+        config.flake.modules.homeManager.gui or { }
+        config.flake.modules.homeManager.hyprland or { }
+        config.flake.modules.homeManager.linux or { }
       ];
     };
   };

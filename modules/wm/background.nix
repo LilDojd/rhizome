@@ -1,14 +1,13 @@
 { lib, ... }:
 {
-  flake.modules.homeManager.gui =
-    { pkgs, config, ... }:
+  flake.modules.homeManager.hyprland =
+    { config, ... }:
 
     let
-      isLinux = pkgs.stdenv.isLinux;
       wpaperctl = lib.getExe' config.services.wpaperd.package "wpaperctl";
       submap = "background";
     in
-    lib.mkIf isLinux {
+    {
       wayland.windowManager.hyprland = {
         settings.misc.disable_hyprland_logo = true;
 
