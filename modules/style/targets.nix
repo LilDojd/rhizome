@@ -9,5 +9,6 @@ in
     nixos.foundation = polyModule;
     # darwin.foundation = polyModule;
     homeManager.gui = polyModule;
+    homeManager.hyprland = polyModule;
   };
 }

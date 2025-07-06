@@ -1,6 +1,6 @@
 {
   flake.modules.nixos.foundation = {
-    stylix.targets.grub.enable = false;
+    stylix.targets.grub.enable = true;
 
     boot = {
       kernelParams = [

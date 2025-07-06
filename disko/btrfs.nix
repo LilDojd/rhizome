@@ -8,8 +8,6 @@
           type = "gpt";
           partitions = {
             ESP = {
-              label = "boot0";
-              name = "boot0";
               size = "512M";
               type = "EF00";
               content = {
@@ -24,8 +22,6 @@
               };
             };
             swap = {
-              label = "swap";
-              name = "swap";
               size = "64G";
               content = {
                 type = "swap";
