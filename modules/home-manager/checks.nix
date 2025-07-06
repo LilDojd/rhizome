@@ -15,6 +15,8 @@
             base
             gui
           ];
+        }
+        // lib.optionalAttrs (pkgs.stdenv.isLinux) {
           hyprland = with config.flake.modules.homeManager; [
             hyprland
             linux
