@@ -15,7 +15,7 @@
           };
           background = lib.mkForce [
             {
-              path = "/home/${hmArgs.config.home.homeDirectory}/backgrounds/beautifulmountainscape.jpg";
+              path = "/home/${hmArgs.config.home.homeDirectory}/backgrounds/spacegoose.png";
               blur_passes = 3;
               blur_size = 8;
             }
