@@ -1,6 +1,5 @@
 {
   lib,
-  config,
   ...
 }:
 {
@@ -52,8 +51,6 @@
           ];
 
           input = {
-            kb_layout = config.flake.meta.owner.preferences.keymap;
-            kb_options = [ "grp:ctrl_space_toggle" ];
             numlock_by_default = true;
             repeat_delay = 300;
             follow_mouse = 1;

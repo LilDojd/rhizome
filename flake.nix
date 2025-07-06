@@ -16,14 +16,6 @@
       url = "github:platomav/CPUMicrocodes";
     };
 
-    jujutsu = {
-      url = "github:martinvonz/jj";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "dedupe_flake-utils";
-      };
-    };
-
     input-branches.url = "github:mightyiam/input-branches";
 
     disko = {

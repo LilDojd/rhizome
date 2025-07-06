@@ -560,30 +560,6 @@
         "type": "github"
       }
     },
-    "jujutsu": {
-      "inputs": {
-        "flake-utils": [
-          "dedupe_flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "rust-overlay": "rust-overlay_2"
-      },
-      "locked": {
-        "lastModified": 1751806304,
-        "narHash": "sha256-AuV8Kpt1Lo1DTTedHW7mjWar9lDKDBToh/BAjwzESuo=",
-        "owner": "martinvonz",
-        "repo": "jj",
-        "rev": "344aa91df6b8f6ffe84026b8fcace06c15e1500a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "martinvonz",
-        "repo": "jj",
-        "type": "github"
-      }
-    },
     "make-shell": {
       "inputs": {
         "flake-compat": [
@@ -830,7 +806,6 @@
         "impermanence": "impermanence",
         "import-tree": "import-tree",
         "input-branches": "input-branches",
-        "jujutsu": "jujutsu",
         "make-shell": "make-shell",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
@@ -869,27 +844,6 @@
       }
     },
     "rust-overlay_2": {
-      "inputs": {
-        "nixpkgs": [
-          "jujutsu",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1747967795,
-        "narHash": "sha256-76s4jDRbQzxRO+5y8ilMp5V30qVgY9R6n8U7aOap8ig=",
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "rev": "f1d5bfa8c692cacd798a3e1fb93d54c1b9ac701a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "rust-overlay_3": {
       "inputs": {
         "nixpkgs": [
           "swww",
@@ -995,7 +949,7 @@
       "inputs": {
         "flake-compat": "flake-compat_2",
         "nixpkgs": "nixpkgs_3",
-        "rust-overlay": "rust-overlay_3"
+        "rust-overlay": "rust-overlay_2"
       },
       "locked": {
         "lastModified": 1750693076,

@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  inputs,
   ...
 }:
 {
@@ -10,7 +9,7 @@
     {
       programs.jujutsu = {
         enable = true;
-        package = inputs.jujutsu.packages.${pkgs.system}.default;
+        package = pkgs.jujutsu;
         settings = {
           user = {
             inherit (config.flake.meta.owner) email;

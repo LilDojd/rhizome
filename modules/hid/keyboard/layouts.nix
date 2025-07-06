@@ -1,4 +1,9 @@
-{ lib, withSystem, ... }:
+{
+  lib,
+  config,
+  withSystem,
+  ...
+}:
 {
   perSystem =
     { pkgs, ... }:
@@ -18,12 +23,7 @@
   flake.modules.homeManager.hyprland =
     hmArgs@{ pkgs, ... }:
     let
-      layout =
-        [
-          "us"
-          "il"
-        ]
-        |> lib.concatStringsSep ",";
+      layout = config.flake.meta.owner.preferences.layout |> lib.concatStringsSep ",";
 
       hyprlandStateFile = "${hmArgs.config.xdg.stateHome}/hyprland-rotate-kb-layout";
 
@@ -38,10 +38,6 @@
     in
     {
       wayland.windowManager = {
-        sway.config.input."type:keyboard" = {
-          xkb_layout = layout;
-          xkb_options = "grp:lalt_lshift_toggle";
-        };
 
         hyprland.settings = {
           bind = [
