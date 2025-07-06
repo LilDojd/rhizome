@@ -52,7 +52,6 @@
 
           input = {
             numlock_by_default = true;
-            repeat_delay = 300;
             follow_mouse = 1;
             float_switch_override_focus = 0;
             sensitivity = 0;
