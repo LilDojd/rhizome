@@ -30,6 +30,7 @@
           "-i"
           "--no-bold"
           "--bind='enter:execute(hx {})'"
+          "--preview='bat --style=numbers --color=always --line-range :500 {}'"
           "--preview-window=right:60%:wrap"
         ];
       };

@@ -44,6 +44,8 @@
             "ALT+SHIFT, SHIFT_L, exec, ${hyprland-rotate-keyboard-layout |> lib.getExe}"
           ];
           input.kb_layout = layout;
+          # Alternative way to switch keyboard layout
+          input.kb_options = [ "grp:ctrl_space_toggle" ];
         };
       };
 
