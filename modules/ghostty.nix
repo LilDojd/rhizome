@@ -11,7 +11,7 @@ _: {
         enableZshIntegration = true;
         package = if pkgs.stdenv.isDarwin then null else pkgs.ghostty;
       };
-      home.file."./.config/ghostty/config".text = ''
+      home.file.".config/ghostty/config".text = ''
 
         theme = catppuccin-macchiato
 
