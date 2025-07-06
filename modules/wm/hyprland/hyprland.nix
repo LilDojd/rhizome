@@ -5,7 +5,7 @@
 }:
 {
   flake.modules.homeManager.hyprland =
-    { pkgs, ... }:
+    hmArgs@{ pkgs, ... }:
     {
       home.packages = with pkgs; [
         grim
@@ -81,8 +81,8 @@
             "$modifier" = "SUPER";
             layout = "dwindle";
             "col.active_border" =
-              lib.mkForce "rgb(${config.lib.stylix.colors.base08}) rgb(${config.lib.stylix.colors.base0C}) 45deg";
-            "col.inactive_border" = lib.mkForce "rgb(${config.lib.stylix.colors.base01})";
+              lib.mkForce "rgb(${hmArgs.config.lib.stylix.colors.base08}) rgb(${hmArgs.config.lib.stylix.colors.base0C}) 45deg";
+            "col.inactive_border" = lib.mkForce "rgb(${hmArgs.config.lib.stylix.colors.base01})";
           };
 
           misc = {
