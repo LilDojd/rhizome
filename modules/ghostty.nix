@@ -1,4 +1,5 @@
-_: {
+{ inputs, ... }:
+{
   flake.modules.darwin.foundation = {
     config.homebrew.casks = [ "ghostty" ];
   };
@@ -9,7 +10,11 @@ _: {
         enable = true;
         enableFishIntegration = true;
         enableZshIntegration = true;
-        package = if pkgs.stdenv.isDarwin then null else pkgs.ghostty;
+        package =
+          if pkgs.stdenv.isDarwin then
+            null
+          else
+            inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default;
       };
       home.file."./.config/ghostty/config".text = ''
 

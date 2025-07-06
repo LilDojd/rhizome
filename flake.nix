@@ -96,6 +96,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "dedupe_flake-utils";
+      inputs.flake-compat.follows = "dedupe_flake-compat";
+    };
+
     nvf = {
       url = "github:notashelf/nvf?ref=pull/956/merge";
       inputs = {
