@@ -1,6 +1,6 @@
 { config, inputs, ... }:
 {
-  flake.modules.nixos.pc = {
+  flake.modules.nixos.foundation = {
     imports = [ inputs.home-manager.nixosModules.home-manager ];
 
     home-manager = {
@@ -17,7 +17,9 @@
           }
         )
         config.flake.modules.homeManager.base
-        config.flake.modules.homeManager.gui
+        config.flake.modules.homeManager.gui or { }
+        config.flake.modules.homeManager.hyprland or { }
+        config.flake.modules.homeManager.linux or { }
       ];
     };
   };

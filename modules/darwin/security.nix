@@ -1,5 +1,5 @@
 {
-  flake.modules.darwin.pc =
+  flake.modules.darwin.foundation =
     { pkgs, ... }:
     {
       environment.systemPackages = with pkgs; [ pam-reattach ];

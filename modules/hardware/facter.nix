@@ -1,17 +1,15 @@
-{ inputs, lib, ... }:
+{ inputs, ... }:
 {
   flake.modules = {
-    nixos.pc = {
+    nixos.foundation = {
       imports = [ inputs.nixos-facter-modules.nixosModules.facter ];
       facter.detected.dhcp.enable = false;
     };
 
-    homeManager.base =
+    homeManager.linux =
       { pkgs, ... }:
       {
-        home.packages = lib.optionals pkgs.stdenv.isLinux [
-          pkgs.nixos-facter
-        ];
+        home.packages = [ pkgs.nixos-facter ];
       };
   };
 }

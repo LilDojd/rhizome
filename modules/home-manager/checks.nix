@@ -16,6 +16,14 @@
             gui
           ];
         }
+        // lib.optionalAttrs (pkgs.stdenv.isLinux) {
+          hyprland = with config.flake.modules.homeManager; [
+            hyprland
+            linux
+            base
+            gui
+          ];
+        }
         |> lib.mapAttrs' (
           name: modules: {
             name = "home-manager/${name}";

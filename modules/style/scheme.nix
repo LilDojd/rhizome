@@ -7,8 +7,8 @@ let
 in
 {
   flake.modules = {
-    nixos.pc = polyModule;
-    # darwin.pc = polyModule;
+    nixos.foundation = polyModule;
+    # darwin.foundation = polyModule;
     homeManager.base = polyModule;
   };
 }

@@ -2,7 +2,7 @@
 {
   flake.modules.nixos."nixosConfigurations/darkforest" = {
     imports = with config.flake.modules.nixos; [
-      pc
+      foundation
       efi
       yawner
       nvidia-gpu

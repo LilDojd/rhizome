@@ -15,7 +15,7 @@
       };
     };
 
-  flake.modules.homeManager.gui =
+  flake.modules.homeManager.hyprland =
     hmArgs@{ pkgs, ... }:
     let
       layout =
@@ -31,7 +31,7 @@
         name = "hyprland-rotate-kb-layout";
         runtimeInputs = with pkgs; [ hyprland ];
         text = ''
-          hyprctl switchxkblayout main next 
+          hyprctl switchxkblayout main next
           touch "${hyprlandStateFile}"
         '';
       };

@@ -4,8 +4,8 @@
       timeZone = "Asia/Dubai";
     in
     {
-      nixos.pc.services.ntpd-rs.enable = true;
+      nixos.foundation.services.ntpd-rs.enable = true;
       homeManager.base.home.sessionVariables.TZ = timeZone;
-      darwin.pc.time = { inherit timeZone; };
+      darwin.foundation.time = { inherit timeZone; };
     };
 }

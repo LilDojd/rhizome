@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  flake.modules.nixos.pc = nixosArgs: {
+  flake.modules.nixos.foundation = nixosArgs: {
     options.boot.loader.grub.skipMenuUnlessShift = lib.mkOption {
       type = lib.types.bool;
       default = true;

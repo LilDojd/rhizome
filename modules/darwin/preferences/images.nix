@@ -1,5 +1,5 @@
 {
-  flake.modules.darwin.pc = {
+  flake.modules.darwin.foundation = {
     system.defaults.CustomUserPreferences = {
       "com.apple.screensaver" = {
         # Require password immediately after sleep or screen saver begins.

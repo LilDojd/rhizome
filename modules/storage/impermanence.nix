@@ -34,7 +34,7 @@ let
     '';
 in
 {
-  flake.modules.nixos.pc = {
+  flake.modules.nixos.foundation = {
 
     imports = [ inputs.impermanence.nixosModules.impermanence ];
     config = {

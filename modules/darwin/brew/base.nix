@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.modules.darwin.pc =
+  flake.modules.darwin.foundation =
     let
       taps = {
         "homebrew/homebrew-core" = inputs.homebrew-core;

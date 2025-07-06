@@ -1,3 +1,3 @@
 {
-  flake.modules.darwin.pc.config.homebrew.casks = [ "raycast" ];
+  flake.modules.darwin.foundation.config.homebrew.casks = [ "raycast" ];
 }

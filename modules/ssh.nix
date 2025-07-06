@@ -13,7 +13,7 @@ let
 in
 {
   flake.modules = {
-    nixos.pc = {
+    nixos.foundation = {
       options.services.openssh.publicKey = lib.mkOption {
         type = lib.types.nullOr lib.types.str;
         default = null;
@@ -48,7 +48,7 @@ in
       };
     };
 
-    darwin.pc = {
+    darwin.foundation = {
       config = {
         programs.ssh = {
 
@@ -80,7 +80,7 @@ in
           |> lib.mapAttrsToList (
             _name: nixos: {
               "${nixos.config.networking.fqdn}" = {
-                identityFile = "~/.ssh/keys/infra_ed25519";
+                identityFile = "~/.ssh/keys/rhizome_ed25519";
               };
             }
           )

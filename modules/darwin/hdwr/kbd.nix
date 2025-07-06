@@ -1,5 +1,5 @@
 {
-  flake.modules.darwin.pc = {
+  flake.modules.darwin.foundation = {
     system = {
       defaults.NSGlobalDomain = {
         # Don't use F1, F2, etc. keys as standard function keys.

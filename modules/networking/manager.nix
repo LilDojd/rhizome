@@ -1,7 +1,6 @@
-{ lib, ... }:
 {
   flake.modules = {
-    nixos.pc = {
+    nixos.foundation = {
       networking = {
         wireless.iwd = {
           enable = true;
@@ -14,12 +13,10 @@
       };
     };
 
-    homeManager.base =
+    homeManager.linux =
       { pkgs, ... }:
       {
-        home.packages = lib.optionals pkgs.stdenv.isLinux [
-          pkgs.impala
-        ];
+        home.packages = [ pkgs.impala ];
       };
   };
 }

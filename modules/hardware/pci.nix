@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.base =
+  flake.modules.homeManager.linux =
     { pkgs, ... }:
     {
       home.packages = with pkgs; [ pciutils ];

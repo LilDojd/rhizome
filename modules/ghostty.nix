@@ -1,5 +1,5 @@
 _: {
-  flake.modules.darwin.pc = {
+  flake.modules.darwin.foundation = {
     config.homebrew.casks = [ "ghostty" ];
   };
   flake.modules.homeManager.gui =

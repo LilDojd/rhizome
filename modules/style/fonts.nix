@@ -34,7 +34,7 @@ let
 in
 {
   flake.modules = {
-    nixos.pc =
+    nixos.foundation =
       { pkgs, ... }:
       {
         imports = [ polyModule ];
@@ -45,7 +45,7 @@ in
         ];
       };
 
-    # darwin.pc =
+    # darwin.foundation =
     # { pkgs, ... }:
     # {
     # imports = [ polyModule ];

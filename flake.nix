@@ -99,6 +99,11 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nvf = {
       url = "github:notashelf/nvf?ref=pull/956/merge";
       inputs = {
