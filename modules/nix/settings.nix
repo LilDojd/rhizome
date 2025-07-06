@@ -13,9 +13,9 @@
       extra-system-features = [ "recursive-nix" ];
     };
     flake.modules = {
-      nixos.pc.nix = { inherit (config.nix) settings; };
+      nixos.foundation.nix = { inherit (config.nix) settings; };
 
-      darwin.pc.nix = { inherit (config.nix) settings; };
+      darwin.foundation.nix = { inherit (config.nix) settings; };
 
       homeManager.base.nix = { inherit (config.nix) settings; };
 

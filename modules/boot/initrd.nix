@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.pc.boot.initrd = {
+  flake.modules.nixos.foundation.boot.initrd = {
     systemd.enable = true;
   };
 }

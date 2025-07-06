@@ -2,7 +2,7 @@
 {
   flake.modules.darwin."darwinConfigurations/darwinforest" = {
     imports = with config.flake.modules.darwin; [
-      pc
+      foundation
       yawner
     ];
     nixpkgs.hostPlatform = "aarch64-darwin";

@@ -1,7 +1,7 @@
 { lib, ... }:
 {
   flake.modules = {
-    nixos.pc = {
+    nixos.foundation = {
       networking = {
         wireless.iwd = {
           enable = true;

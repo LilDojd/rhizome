@@ -48,11 +48,11 @@
           };
         };
 
-      nixos.pc = {
+      nixos.foundation = {
         imports = [ flakeCommon ];
       };
 
-      darwin.pc = {
+      darwin.foundation = {
         imports = [ flakeCommon ];
       };
     };

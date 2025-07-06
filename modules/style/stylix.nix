@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   flake.modules = {
-    nixos.pc = {
+    nixos.foundation = {
       imports = [ inputs.stylix.nixosModules.stylix ];
       stylix = {
         enable = true;
@@ -9,7 +9,7 @@
       };
     };
 
-    # darwin.pc = {
+    # darwin.foundation = {
     #   imports = [ inputs.stylix.nixosModules.stylix ];
     #   stylix = {
     #     enable = true;

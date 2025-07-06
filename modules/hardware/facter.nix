@@ -1,7 +1,7 @@
 { inputs, lib, ... }:
 {
   flake.modules = {
-    nixos.pc = {
+    nixos.foundation = {
       imports = [ inputs.nixos-facter-modules.nixosModules.facter ];
       facter.detected.dhcp.enable = false;
     };

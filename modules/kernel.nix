@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.pc =
+  flake.modules.nixos.foundation =
     { pkgs, ... }:
     {
 

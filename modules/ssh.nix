@@ -13,7 +13,7 @@ let
 in
 {
   flake.modules = {
-    nixos.pc = {
+    nixos.foundation = {
       options.services.openssh.publicKey = lib.mkOption {
         type = lib.types.nullOr lib.types.str;
         default = null;
@@ -48,7 +48,7 @@ in
       };
     };
 
-    darwin.pc = {
+    darwin.foundation = {
       config = {
         programs.ssh = {
 

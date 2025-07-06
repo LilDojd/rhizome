@@ -1,5 +1,5 @@
 {
-  flake.modules.darwin.pc = {
+  flake.modules.darwin.foundation = {
     system.defaults = {
       dock = {
         # display the appswitcher on all displays

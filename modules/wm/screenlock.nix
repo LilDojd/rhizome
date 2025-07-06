@@ -1,7 +1,7 @@
 { lib, ... }:
 {
   flake.modules = {
-    nixos.pc.security.pam.services.swaylock = { };
+    nixos.foundation.security.pam.services.swaylock = { };
 
     homeManager.gui =
       hmArgs@{ pkgs, ... }:

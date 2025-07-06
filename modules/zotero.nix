@@ -1,9 +1,9 @@
 _: {
   flake.modules = {
-    darwin.pc = {
+    darwin.foundation = {
       config.homebrew.casks = [ "zotero" ];
     };
-    nixos.pc =
+    nixos.foundation =
       { pkgs, ... }:
       {
         environment.systemPackages = with pkgs; [ zotero ];

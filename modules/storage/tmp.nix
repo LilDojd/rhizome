@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.pc.boot.tmp = {
+  flake.modules.nixos.foundation.boot.tmp = {
     cleanOnBoot = true;
   };
 }

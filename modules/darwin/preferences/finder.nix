@@ -1,5 +1,5 @@
 {
-  flake.modules.darwin.pc = {
+  flake.modules.darwin.foundation = {
     system.defaults = {
       finder = {
         # show the POSIX fullpath in the window title.

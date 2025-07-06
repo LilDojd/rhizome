@@ -1,5 +1,5 @@
 {
-  flake.modules.darwin.pc = {
+  flake.modules.darwin.foundation = {
     system.defaults = {
       # Use 24 hour time
       NSGlobalDomain.AppleICUForce24HourTime = false;

@@ -6,7 +6,7 @@
       };
     in
     {
-      nixos.pc = defaultEditor;
-      darwin.pc = defaultEditor;
+      nixos.foundation = defaultEditor;
+      darwin.foundation = defaultEditor;
     };
 }
