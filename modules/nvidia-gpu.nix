@@ -1,6 +1,5 @@
-{ config, ... }:
 {
-  flake.modules.nixos.nvidia-gpu = {
+  flake.modules.nixos.nvidia-gpu = { config, ... }: {
     specialisation.nvidia-gpu.configuration = {
       services.xserver.videoDrivers = [ "nvidia" ];
       hardware.nvidia = {
