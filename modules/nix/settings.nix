@@ -12,6 +12,7 @@
       ];
       extra-system-features = [ "recursive-nix" ];
       substituters = [
+        "https://cache.nixos.org"
         "https://hyprland.cachix.org"
         "https://helix.cachix.org"
       ];
