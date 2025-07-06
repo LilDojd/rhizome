@@ -15,6 +15,7 @@
       nix.settings.trusted-users = [ config.flake.meta.yawner.username ];
       users.users.${config.flake.meta.yawner.username} = {
         isNormalUser = true;
+        extraGroups = [ "wheel" ];
         initialPassword = "";
         home = "/home/${config.flake.meta.yawner.username}";
       };
