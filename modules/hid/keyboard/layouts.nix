@@ -15,7 +15,7 @@
           jq
         ];
         text = ''
-          hyprctl devices -j | jq -r '.keyboards[] | select(.main == true) | .active_keymap | select(. == "English (US)" or . == "Hebrew") | if . == "English (US)" then "us" else "il" end'
+          hyprctl devices -j | jq -r '.keyboards[] | select(.main == true) | .active_keymap | select(. == "English (US)" or . == "Russian") | if . == "English (US)" then "us" else "ru" end'
         '';
       };
     };
@@ -56,7 +56,7 @@
           driver = "sway";
           mappings = {
             "English (US)" = "EN";
-            "Hebrew (N/A)" = "HE";
+            "Russian" = "RU";
           };
         }
         {
