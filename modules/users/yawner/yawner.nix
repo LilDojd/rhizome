@@ -24,7 +24,7 @@
           "scanner"
           "wheel"
         ];
-        initialPassword = "";
+        hashedPassword = "$y$j9T$vrOwuuW6ZjyNV8U27M8Ik.$0nmFU60b0l4sQ.kRlTv71pwaZAFMJbyGnvnWvSWu/F6";
         home = "/home/${config.flake.meta.yawner.username}";
       };
     };
