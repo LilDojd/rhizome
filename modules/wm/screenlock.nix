@@ -1,15 +1,15 @@
-{ lib, withSystem, ... }:
+{ lib, ... }:
 {
   flake.modules = {
     nixos.foundation.security.pam.services.hyprlock.text = "auth include login";
-
     homeManager.hyprland =
       hmArgs@{ pkgs, ... }:
       let
         inherit (hmArgs.config.lib.stylix) colors;
       in
       {
-        home.packages = withSystem pkgs.system (psArgs: with psArgs.config.packages; [ road-rage ]);
+
+        stylix.targets.hyprlock.enable = false;
         programs.hyprlock = {
           enable = true;
           settings = {
@@ -73,7 +73,7 @@
               {
                 text = ''cmd[update:1000] echo -e "$(date +"%H")"'';
                 color = "0x80${colors.base0F}";
-                font_family = "Road Rage";
+                font_family = "Montserrat";
                 font_size = "140";
                 position = "0, 300";
                 halign = "center";
@@ -84,7 +84,7 @@
               {
                 text = ''cmd[update:1000] echo -e "$(date +"%M")"'';
                 color = "rgba(255, 255, 255, 1)";
-                font_family = "Road Rage";
+                font_family = "Montserrat";
                 font_size = "140";
                 position = "0, 75";
                 halign = "center";
