@@ -144,6 +144,7 @@ in
             "temp"
             "rhizome"
             "backgrounds"
+            ".config/fish"
 
             {
               directory = ".gnupg";
@@ -166,6 +167,8 @@ in
           files = [
             ".temp.zsh"
             ".gtasks_credentials.pickle"
+            "screen/.screenrc"
+            ".local/share/fish/fish_history "
           ];
         };
       };
