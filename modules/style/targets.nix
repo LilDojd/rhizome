@@ -10,5 +10,6 @@ in
     # darwin.foundation = polyModule;
     homeManager.gui = polyModule;
     homeManager.hyprland = polyModule;
+    homeManager.linux = polyModule;
   };
 }
