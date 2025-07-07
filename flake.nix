@@ -144,6 +144,8 @@
       };
     };
 
+    blender.url = "github:edolstra/nix-warez?dir=blender";
+
     swww.url = "github:LGFae/swww";
 
     stylix = {
