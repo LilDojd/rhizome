@@ -23,6 +23,7 @@
             };
             swap = {
               size = "64G";
+              label = "disk-primary-swap";
               content = {
                 type = "swap";
                 randomEncryption = true;
