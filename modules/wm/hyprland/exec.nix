@@ -9,6 +9,7 @@
           "nm-applet --indicator"
           "uwsm finalize"
           "[workspace special:comms silent] sleep 2s && uwsm app -- Telegram"
+          "[workspace special:comms silent] sleep 2s && uwsm app -- 1password"
           "pypr &"
           "sleep 1.5 && swww img ~/backgrounds/spacegoose.png"
         ];
