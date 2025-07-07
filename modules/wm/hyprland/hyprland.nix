@@ -18,6 +18,7 @@
         pyprland
         networkmanagerapplet
         psmisc
+        cliphist
       ];
 
       systemd.user.targets.hyprland-session.Unit.Wants = [

@@ -1,6 +1,7 @@
 {
   inputs,
   config,
+  lib,
   ...
 }:
 let
@@ -34,71 +35,130 @@ let
     '';
 in
 {
-  flake.modules.nixos.foundation =
-    { pkgs, ... }:
-    {
+  flake.modules.nixos.foundation = {
 
-      imports = [ inputs.impermanence.nixosModules.impermanence ];
-      config = {
-        security.sudo.extraConfig = "Defaults lecture=never";
-        fileSystems."/persistent".neededForBoot = true;
+    imports = [ inputs.impermanence.nixosModules.impermanence ];
+    config = {
+      security.sudo.extraConfig = "Defaults lecture=never";
+      fileSystems."/persistent".neededForBoot = true;
 
-        boot.initrd = {
-          availableKernelModules = [ "btrfs" ];
-          systemd = {
-            services.wipe-my-fs = {
-              wantedBy = [ "initrd.target" ];
-              before = [ "sysroot.mount" ];
-              after = [ "systemd-udev-settle.service" ];
-              unitConfig.DefaultDependencies = "no";
-              serviceConfig = {
-                Type = "oneshot";
-                RemainAfterExit = true;
-              };
-              script = cleanup;
-            };
-            extraBin = {
-              btrfs = "${pkgs.btrfs-progs}/bin/btrfs";
-            };
-          };
-        };
-
-        environment.persistence."/persistent" = {
-          enable = true;
-          hideMounts = true;
+      boot.initrd = {
+        postResumeCommands = lib.mkAfter cleanup;
+      };
+      environment.persistence."/persistent" = {
+        enable = true;
+        hideMounts = true;
+        directories = [
+          "/etc/nixos"
+          "/etc/secureboot"
+          "/var/log"
+          "/var/lib/nixos"
+          "/var/lib/systemd/coredump"
+          "/etc/NetworkManager/system-connections"
+          "/var/lib/sops/age"
+          "/var/lib/bluetooth"
+          "/var/lib/libvirt"
+          # Systemd requires /usr dir to be populated
+          # See: https://github.com/nix-community/impermanence/issues/253
+          "/usr/systemd-placeholder"
+        ];
+        users.${config.flake.meta.owner.username} = {
           directories = [
-            "/etc/nixos"
-            "/etc/secureboot"
-            "/var/log"
-            "/var/lib/nixos"
-            "/var/lib/systemd/coredump"
-            "/etc/NetworkManager/system-connections"
+            ".config/OpenTabletDriver"
+            ".config/kdeconnect"
+            ".config/kde.org"
+            ".config/Zulip"
 
-            # Systemd requires /usr dir to be populated
-            # See: https://github.com/nix-community/impermanence/issues/253
-            "/usr/systemd-placeholder"
+            ".local/share/task"
+            ".config/syncall"
+
+            ".local/share/Steam"
+            ".steam"
+            ".config/heroic"
+            ".config/unity3d"
+            ".config/supertuxkart"
+            ".minecraft"
+
+            ".local/share/waydroid"
+            ".local/share/applications"
+            ".local/share/fractal"
+            ".local/share/onlyoffice"
+
+            ".config/whatsapp-for-linux"
+            ".config/Slack"
+
+            ".config/google-chrome"
+            ".zen"
+            ".mozilla"
+            ".librewolf"
+
+            ".local/share/zoxide"
+            ".cache/zsh"
+
+            ".cache/nsearch"
+
+            ".local/share/nvim"
+            ".local/state/nvim"
+            ".local/state/nix/profiles/channels" # determinate nix log spam fix
+            ".config/github-copilot"
+            ".cache/nvim"
+
+            ".cache/nix-index"
+            ".android"
+
+            ".local/state/lazygit"
+            ".local/share/direnv"
+
+            ".local/state/mpv"
+
+            ".config/discord"
+
+            ".config/Proton"
+            ".config/Proton Pass"
+
+            ".local/share/TelegramDesktop"
+            ".local/share/materialgram"
+            ".cache/stylix-telegram-theme"
+
+            ".local/state/wireplumber"
+            ".config/pulse"
+            ".config/Mailspring"
+
+            "Downloads"
+            "Pictures"
+            "Documents"
+            "Videos"
+
+            "repos"
+            "work"
+            "share"
+            "temp"
+            "rhizome"
+
+            {
+              directory = ".gnupg";
+              mode = "0700";
+            }
+            {
+              directory = ".ssh";
+              mode = "0700";
+            }
+            {
+              directory = ".nixops";
+              mode = "0700";
+            }
+            {
+              directory = ".local/share/keyrings";
+              mode = "0700";
+            }
           ];
-          users.${config.flake.meta.owner.username} = {
-            directories = [
-              {
-                directory = ".gnupg";
-                mode = "0700";
-              }
-              {
-                directory = ".ssh";
-                mode = "0700";
-              }
-              {
-                directory = ".nixops";
-                mode = "0700";
-              }
-              {
-                directory = ".local/share/keyrings";
-                mode = "0700";
-              }
-            ];
-          };
+
+          files = [
+            ".temp.zsh"
+            ".gtasks_credentials.pickle"
+          ];
         };
       };
     };
+  };
 }
