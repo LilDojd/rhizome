@@ -45,7 +45,8 @@ in
         systemd = {
           services.wipe-my-fs = {
             wantedBy = [ "initrd.target" ];
-            after = [ "local-fs-pre.target" ];
+            wants = [ "-dev-disk-by\x2dpartlabel-disk\x2dprimary\x2droot" ];
+            after = [ "-dev-disk-by\x2dpartlabel-disk\x2dprimary\x2droot" ];
             before = [ "sysroot.mount" ];
             unitConfig.DefaultDependencies = "no";
             serviceConfig.Type = "oneshot";

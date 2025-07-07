@@ -8,7 +8,7 @@
           "killall -q swaync;sleep .5 && swaync"
           "nm-applet --indicator"
           "uwsm finalize"
-          "[workspace special:comms silent] sleep 2s && uwsm app -- telegram-desktop"
+          "[workspace special:comms silent] sleep 2s && uwsm app -- Telegram"
           "pypr &"
           "sleep 1.5 && swww img ~/backgrounds/spacegoose.png"
         ];

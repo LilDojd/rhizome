@@ -8,6 +8,7 @@
         devices = [ "nodev" ];
         useOSProber = true;
         memtest86.enable = true;
+        configurationLimit = 4;
       };
     };
 
