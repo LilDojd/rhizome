@@ -329,7 +329,6 @@
         swaynotificationcenter
         pavucontrol
         wlogout
-        btop
       ];
     };
 }
