@@ -56,7 +56,7 @@
       ];
 
       wayland.windowManager.hyprland = {
-        package = config.programs.hyprland.package;
+        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
         systemd = {
           enable = true;
           enableXdgAutostart = true;
