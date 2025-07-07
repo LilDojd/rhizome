@@ -1,13 +1,13 @@
 {
   inputs,
   config,
-  lib,
   ...
 }:
 let
   mount = "/dev/disk/by-partlabel/disk-primary-root";
 
-  cleanup = # bash
+  cleanup =
+    # bash
     ''
       # This script cleans the disk at boot to have clean setup
       # also keeps backup of the previous boot
@@ -36,14 +36,22 @@ let
 in
 {
   flake.modules.nixos.foundation = {
-
     imports = [ inputs.impermanence.nixosModules.impermanence ];
     config = {
       security.sudo.extraConfig = "Defaults lecture=never";
       fileSystems."/persistent".neededForBoot = true;
 
       boot.initrd = {
-        postResumeCommands = lib.mkAfter cleanup;
+        systemd = {
+          services.wipe-my-fs = {
+            wantedBy = [ "initrd.target" ];
+            after = [ "systemd-cryptsetup@cryptroot.service" ];
+            before = [ "sysroot.mount" ];
+            unitConfig.DefaultDependencies = "no";
+            serviceConfig.Type = "oneshot";
+            script = cleanup;
+          };
+        };
       };
       environment.persistence."/persistent" = {
         enable = true;
