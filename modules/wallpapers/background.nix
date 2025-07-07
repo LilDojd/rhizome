@@ -1,7 +1,7 @@
 { lib, ... }:
 {
   flake.modules.homeManager.hyprland =
-    { config, pkgs, ... }:
+    hmArgs@{ config, pkgs, ... }:
 
     let
       submap = "background";
@@ -53,7 +53,7 @@
       };
 
       # Ensure Pictures/Wallpapers directory exists for wallsetter script
-      home.activation.wallpapersDir = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      home.activation.wallpapersDir = hmArgs.lib.hm.dag.entryAfter [ "writeBoundary" ] ''
         $DRY_RUN_CMD mkdir -p $HOME/backgrounds
       '';
     };
