@@ -1,10 +1,10 @@
 {
+  nixpkgs.allowedUnfreePackages = [ "via" ];
   flake.modules = {
     nixos.foundation =
       { pkgs, ... }:
       {
         hardware.keyboard.qmk.enable = true;
-        nixpkgs.allowedUnfreePackages = [ "via" ];
 
         environment.systemPackages = with pkgs; [
           vial
