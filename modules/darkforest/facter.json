@@ -2528,7 +2528,7 @@
           "[13]",
           "[14]"
         ],
-        "bogo": 8983.18,
+        "bogo": 8983.17,
         "cache": 1024,
         "units": 32,
         "physical_id": 0,
@@ -2550,7 +2550,7 @@
     "disk": [
       {
         "index": 92,
-        "attached_to": 61,
+        "attached_to": 44,
         "class_list": ["disk", "block_device", "nvme"],
         "bus_type": {
           "hex": "0096",
@@ -2572,39 +2572,39 @@
           "value": 0
         },
         "vendor": {
-          "hex": "144d",
-          "value": 5197
+          "hex": "15b7",
+          "value": 5559
         },
         "sub_vendor": {
-          "hex": "144d",
-          "value": 5197
+          "hex": "15b7",
+          "value": 5559
         },
         "device": {
-          "hex": "a80a",
-          "name": "Samsung SSD 980 PRO 2TB",
-          "value": 43018
+          "hex": "5011",
+          "name": "WDS200T1X0E-00AFY0",
+          "value": 20497
         },
         "sub_device": {
-          "hex": "a801",
-          "value": 43009
+          "hex": "5011",
+          "value": 20497
         },
-        "serial": "S69ENL0T913752F",
-        "model": "Samsung SSD 980 PRO 2TB",
+        "serial": "22042R800806",
+        "model": "WDS200T1X0E-00AFY0",
         "sysfs_id": "/class/block/nvme0n1",
         "sysfs_bus_id": "nvme0",
-        "sysfs_device_link": "/devices/pci0000:00/0000:00:02.2/0000:12:00.0/nvme/nvme0",
+        "sysfs_device_link": "/devices/pci0000:00/0000:00:01.2/0000:02:00.0/nvme/nvme0",
         "unix_device_name": "/dev/nvme0n1",
         "unix_device_number": {
           "type": 98,
           "major": 259,
-          "minor": 0,
+          "minor": 4,
           "range": 0
         },
         "unix_device_names": [
-          "/dev/disk/by-id/nvme-Samsung_SSD_980_PRO_2TB_S69ENL0T913752F",
-          "/dev/disk/by-id/nvme-Samsung_SSD_980_PRO_2TB_S69ENL0T913752F_1",
-          "/dev/disk/by-id/nvme-eui.002538b921a11934",
-          "/dev/disk/by-path/pci-0000:12:00.0-nvme-1",
+          "/dev/disk/by-id/nvme-WDS200T1X0E-00AFY0_22042R800806",
+          "/dev/disk/by-id/nvme-WDS200T1X0E-00AFY0_22042R800806_1",
+          "/dev/disk/by-id/nvme-eui.e8238fa6bf530001001b448b45ae677c",
+          "/dev/disk/by-path/pci-0000:02:00.0-nvme-1",
           "/dev/nvme0n1"
         ],
         "resources": [
@@ -2723,7 +2723,7 @@
       },
       {
         "index": 94,
-        "attached_to": 44,
+        "attached_to": 61,
         "class_list": ["disk", "block_device", "nvme"],
         "bus_type": {
           "hex": "0096",
@@ -2745,39 +2745,39 @@
           "value": 0
         },
         "vendor": {
-          "hex": "15b7",
-          "value": 5559
+          "hex": "144d",
+          "value": 5197
         },
         "sub_vendor": {
-          "hex": "15b7",
-          "value": 5559
+          "hex": "144d",
+          "value": 5197
         },
         "device": {
-          "hex": "5011",
-          "name": "WDS200T1X0E-00AFY0",
-          "value": 20497
+          "hex": "a80a",
+          "name": "Samsung SSD 980 PRO 2TB",
+          "value": 43018
         },
         "sub_device": {
-          "hex": "5011",
-          "value": 20497
+          "hex": "a801",
+          "value": 43009
         },
-        "serial": "22042R800806",
-        "model": "WDS200T1X0E-00AFY0",
+        "serial": "S69ENL0T913752F",
+        "model": "Samsung SSD 980 PRO 2TB",
         "sysfs_id": "/class/block/nvme1n1",
         "sysfs_bus_id": "nvme1",
-        "sysfs_device_link": "/devices/pci0000:00/0000:00:01.2/0000:02:00.0/nvme/nvme1",
+        "sysfs_device_link": "/devices/pci0000:00/0000:00:02.2/0000:12:00.0/nvme/nvme1",
         "unix_device_name": "/dev/nvme1n1",
         "unix_device_number": {
           "type": 98,
           "major": 259,
-          "minor": 4,
+          "minor": 0,
           "range": 0
         },
         "unix_device_names": [
-          "/dev/disk/by-id/nvme-WDS200T1X0E-00AFY0_22042R800806",
-          "/dev/disk/by-id/nvme-WDS200T1X0E-00AFY0_22042R800806_1",
-          "/dev/disk/by-id/nvme-eui.e8238fa6bf530001001b448b45ae677c",
-          "/dev/disk/by-path/pci-0000:02:00.0-nvme-1",
+          "/dev/disk/by-id/nvme-Samsung_SSD_980_PRO_2TB_S69ENL0T913752F",
+          "/dev/disk/by-id/nvme-Samsung_SSD_980_PRO_2TB_S69ENL0T913752F_1",
+          "/dev/disk/by-id/nvme-eui.002538b921a11934",
+          "/dev/disk/by-path/pci-0000:12:00.0-nvme-1",
           "/dev/nvme1n1"
         ],
         "resources": [
@@ -3059,7 +3059,7 @@
           },
           {
             "type": "irq",
-            "base": 168,
+            "base": 165,
             "triggered": 0,
             "enabled": true
           },
@@ -3101,7 +3101,7 @@
           "command": 1031,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 168,
+          "irq": 165,
           "prog_if": 0
         },
         "driver": "nvidia",
@@ -4470,7 +4470,7 @@
           {
             "type": "mem",
             "base": 0,
-            "range": 66582749184,
+            "range": 66582753280,
             "enabled": true,
             "access": "read_write",
             "prefetch": "unknown"
@@ -5462,25 +5462,6 @@
     "network_interface": [
       {
         "index": 147,
-        "attached_to": 0,
-        "class_list": ["network_interface"],
-        "base_class": {
-          "hex": "0107",
-          "name": "Network Interface",
-          "value": 263
-        },
-        "sub_class": {
-          "hex": "0000",
-          "name": "Loopback",
-          "value": 0
-        },
-        "model": "Loopback network interface",
-        "sysfs_id": "/class/net/lo",
-        "unix_device_name": "lo",
-        "unix_device_names": ["lo"]
-      },
-      {
-        "index": 148,
         "attached_to": 39,
         "class_list": ["network_interface"],
         "base_class": {
@@ -5512,6 +5493,25 @@
         "driver_module": "iwlwifi",
         "drivers": ["iwlwifi"],
         "driver_modules": ["iwlwifi"]
+      },
+      {
+        "index": 148,
+        "attached_to": 0,
+        "class_list": ["network_interface"],
+        "base_class": {
+          "hex": "0107",
+          "name": "Network Interface",
+          "value": 263
+        },
+        "sub_class": {
+          "hex": "0000",
+          "name": "Loopback",
+          "value": 0
+        },
+        "model": "Loopback network interface",
+        "sysfs_id": "/class/net/lo",
+        "unix_device_name": "lo",
+        "unix_device_names": ["lo"]
       },
       {
         "index": 149,
@@ -5801,7 +5801,7 @@
         "resources": [
           {
             "type": "irq",
-            "base": 167,
+            "base": 168,
             "triggered": 0,
             "enabled": true
           },
@@ -5819,7 +5819,7 @@
           "command": 1030,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 167,
+          "irq": 168,
           "prog_if": 0
         },
         "driver": "snd_hda_intel",
@@ -5878,7 +5878,7 @@
         "resources": [
           {
             "type": "irq",
-            "base": 165,
+            "base": 166,
             "triggered": 0,
             "enabled": true
           },
@@ -5896,7 +5896,7 @@
           "command": 6,
           "header_type": 0,
           "secondary_bus": 0,
-          "irq": 165,
+          "irq": 166,
           "prog_if": 0
         },
         "driver": "snd_hda_intel",
@@ -6178,7 +6178,7 @@
           },
           "interface_protocol": 0,
           "interface_number": 1,
-          "interface_alternate_setting": 0
+          "interface_alternate_setting": 1
         },
         "hotplug": "usb",
         "driver": "snd-usb-audio",
@@ -6559,7 +6559,7 @@
           },
           "interface_protocol": 0,
           "interface_number": 2,
-          "interface_alternate_setting": 0
+          "interface_alternate_setting": 2
         },
         "hotplug": "usb",
         "driver": "snd-usb-audio",
@@ -7466,7 +7466,12 @@
           "minor": 65,
           "range": 1
         },
-        "unix_device_names": ["/dev/input/event1"],
+        "unix_device_names": [
+          "/dev/input/by-id/usb-Logitech_PRO_X_Wireless_Gaming_Headset-event-if03",
+          "/dev/input/by-path/pci-0000:10:00.0-usb-0:2:1.3-event",
+          "/dev/input/by-path/pci-0000:10:00.0-usbv2-0:2:1.3-event",
+          "/dev/input/event1"
+        ],
         "resources": [
           {
             "type": "baud",

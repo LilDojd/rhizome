@@ -67,6 +67,7 @@ _: {
         "keepaspectratio, title:^(Picture-in-Picture)$"
         "noblur, tag:games*"
         "suppressevent maximize, class:^(blender)$"
+        "noanim, class:^(blender)$"
         "fullscreen, tag:games*"
       ];
     };
