@@ -9,6 +9,8 @@
         environment.systemPackages = with pkgs; [
           vial
           via
+          qmk
+          qmk-udev-rules
         ];
         services.udev.packages = with pkgs; [
           qmk
