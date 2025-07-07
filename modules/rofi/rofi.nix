@@ -1,7 +1,17 @@
 {
   flake.modules.homeManager.hyprland =
     hmArgs@{ pkgs, ... }:
+    let
+      rofi-launcher = pkgs.writeShellScriptBin "rofi-launcher" ''
+        # check if rofi is already running
+        if pidof rofi > /dev/null; then
+          pkill rofi
+        fi
+        rofi -show drun
+      '';
+    in
     {
+      home.packages = [ rofi-launcher ];
       stylix.targets.rofi.enable = false;
       programs = {
         rofi = {
