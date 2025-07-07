@@ -139,6 +139,8 @@ in
             ".config/fish"
             ".config/blender"
             ".cache/nix"
+            ".config/1Password"
+            "1Password"
 
             {
               directory = ".gnupg";
