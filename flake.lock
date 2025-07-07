@@ -387,6 +387,32 @@
         "type": "github"
       }
     },
+    "fzf-preview": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": [
+          "dedupe_systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1751134699,
+        "narHash": "sha256-L6I2GsLIuCRu34qRLrl4x52Iw3Q7a1nlQzoyx8/TBok=",
+        "owner": "niksingh710",
+        "repo": "fzf-preview",
+        "rev": "422198e735c7b5f2a327e2f1a092c8c86d8c8233",
+        "type": "github"
+      },
+      "original": {
+        "owner": "niksingh710",
+        "repo": "fzf-preview",
+        "type": "github"
+      }
+    },
     "ghostty": {
       "inputs": {
         "flake-compat": [
@@ -1244,6 +1270,7 @@
         "files": "files",
         "firefox-addons": "firefox-addons",
         "flake-parts": "flake-parts",
+        "fzf-preview": "fzf-preview",
         "ghostty": "ghostty",
         "git-hooks": "git-hooks",
         "helix": "helix",

@@ -56,7 +56,7 @@
       ];
 
       wayland.windowManager.hyprland = {
-        package = inputs.hyprland.packages.${pkgs.system};
+        package = config.programs.hyprland.package;
         systemd = {
           enable = true;
           enableXdgAutostart = true;
@@ -85,8 +85,6 @@
               scroll_factor = 0.8;
             };
           };
-
-          debug.disable_logs = false;
 
           gestures = {
             workspace_swipe = 1;

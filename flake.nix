@@ -27,6 +27,14 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    fzf-preview = {
+      url = "github:niksingh710/fzf-preview";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+        systems.follows = "dedupe_systems";
+      };
+    };
     input-branches.url = "github:mightyiam/input-branches";
 
     disko = {
