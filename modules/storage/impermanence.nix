@@ -137,6 +137,7 @@ in
             "rhizome"
             "backgrounds"
             ".config/fish"
+            ".cache/nix"
 
             {
               directory = ".gnupg";
