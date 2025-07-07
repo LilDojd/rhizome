@@ -66,7 +66,7 @@ _: {
         "pin, title:^(Picture-in-Picture)$"
         "keepaspectratio, title:^(Picture-in-Picture)$"
         "noblur, tag:games*"
-        "nomaximizerequest, ^(blender)$"
+        "suppressevent maximize, class:^(blender)$"
         "fullscreen, tag:games*"
       ];
     };
