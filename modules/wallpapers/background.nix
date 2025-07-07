@@ -23,7 +23,7 @@
             done
 
             if ! [ -d "$HOME"/backgrounds ]; then notify-send -t 5000 "$HOME/backgrounds does not exist" && exit 1; fi
-            if [ "$(find "$HOME"/backgrounds -maxdepth 1 -type f | wc -l)" -lt 1 ]; then	notify-send -t 9000 "The wallpaper folder is expected to have more than 1 image. Exiting Wallsetter." && exit 1; fi
+            if [ "$(find "$HOME"/backgrounds -maxdepth 1 | wc -l)" -lt 1 ]; then	notify-send -t 9000 "The wallpaper folder is expected to have more than 1 image. Exiting Wallsetter." && exit 1; fi
 
             while true; do
             while [ "$WALLPAPER" == "$PREVIOUS" ]; do
@@ -47,7 +47,7 @@
         extraConfig = ''
           submap = ${submap}
           binde = , n, exec, ${lib.getExe wallsetter}
-          binde = , p, exec, swww img ~/.config/wallpapers/spacegoose.png
+          binde = , p, exec, swww img ~/backgrounds/spacegoose.png
           ${config.wayland.windowManager.hyprland.submapEnd}
           bind = $modifier, b, submap, ${submap}
         '';
