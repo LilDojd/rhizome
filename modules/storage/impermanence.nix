@@ -1,7 +1,6 @@
 {
   inputs,
   config,
-  pkgs,
   ...
 }:
 let
@@ -35,69 +34,71 @@ let
     '';
 in
 {
-  flake.modules.nixos.foundation = {
+  flake.modules.nixos.foundation =
+    { pkgs, ... }:
+    {
 
-    imports = [ inputs.impermanence.nixosModules.impermanence ];
-    config = {
-      security.sudo.extraConfig = "Defaults lecture=never";
-      fileSystems."/persistent".neededForBoot = true;
+      imports = [ inputs.impermanence.nixosModules.impermanence ];
+      config = {
+        security.sudo.extraConfig = "Defaults lecture=never";
+        fileSystems."/persistent".neededForBoot = true;
 
-      boot.initrd = {
-        availableKernelModules = [ "btrfs" ];
-        systemd = {
-          services.wipe-my-fs = {
-            wantedBy = [ "initrd.target" ];
-            before = [ "sysroot.mount" ];
-            after = [ "systemd-udev-settle.service" ];
-            unitConfig.DefaultDependencies = "no";
-            serviceConfig = {
-              Type = "oneshot";
-              RemainAfterExit = true;
+        boot.initrd = {
+          availableKernelModules = [ "btrfs" ];
+          systemd = {
+            services.wipe-my-fs = {
+              wantedBy = [ "initrd.target" ];
+              before = [ "sysroot.mount" ];
+              after = [ "systemd-udev-settle.service" ];
+              unitConfig.DefaultDependencies = "no";
+              serviceConfig = {
+                Type = "oneshot";
+                RemainAfterExit = true;
+              };
+              script = cleanup;
             };
-            script = cleanup;
-          };
-          extraBin = {
-            btrfs = "${pkgs.btrfs-progs}/bin/btrfs";
+            extraBin = {
+              btrfs = "${pkgs.btrfs-progs}/bin/btrfs";
+            };
           };
         };
-      };
 
-      environment.persistence."/persistent" = {
-        enable = true;
-        hideMounts = true;
-        directories = [
-          "/etc/nixos"
-          "/etc/secureboot"
-          "/var/log"
-          "/var/lib/nixos"
-          "/var/lib/systemd/coredump"
-          "/etc/NetworkManager/system-connections"
-
-          # Systemd requires /usr dir to be populated
-          # See: https://github.com/nix-community/impermanence/issues/253
-          "/usr/systemd-placeholder"
-        ];
-        users.${config.flake.meta.owner.username} = {
+        environment.persistence."/persistent" = {
+          enable = true;
+          hideMounts = true;
           directories = [
-            {
-              directory = ".gnupg";
-              mode = "0700";
-            }
-            {
-              directory = ".ssh";
-              mode = "0700";
-            }
-            {
-              directory = ".nixops";
-              mode = "0700";
-            }
-            {
-              directory = ".local/share/keyrings";
-              mode = "0700";
-            }
+            "/etc/nixos"
+            "/etc/secureboot"
+            "/var/log"
+            "/var/lib/nixos"
+            "/var/lib/systemd/coredump"
+            "/etc/NetworkManager/system-connections"
+
+            # Systemd requires /usr dir to be populated
+            # See: https://github.com/nix-community/impermanence/issues/253
+            "/usr/systemd-placeholder"
           ];
+          users.${config.flake.meta.owner.username} = {
+            directories = [
+              {
+                directory = ".gnupg";
+                mode = "0700";
+              }
+              {
+                directory = ".ssh";
+                mode = "0700";
+              }
+              {
+                directory = ".nixops";
+                mode = "0700";
+              }
+              {
+                directory = ".local/share/keyrings";
+                mode = "0700";
+              }
+            ];
+          };
         };
       };
     };
-  };
 }
