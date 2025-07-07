@@ -45,7 +45,7 @@ in
         systemd = {
           services.wipe-my-fs = {
             wantedBy = [ "initrd.target" ];
-            after = [ "systemd-cryptsetup@cryptroot.service" ];
+            after = [ "local-fs-pre.target" ];
             before = [ "sysroot.mount" ];
             unitConfig.DefaultDependencies = "no";
             serviceConfig.Type = "oneshot";
