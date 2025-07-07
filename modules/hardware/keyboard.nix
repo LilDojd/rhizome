@@ -5,7 +5,7 @@
       {
         hardware.keyboard.qmk.enable = true;
 
-        environment.systemPackages = with pkgs; [ via ];
+        environment.systemPackages = with pkgs; [ vial ];
         services.udev.packages = with pkgs; [
           qmk
           qmk-udev-rules
