@@ -12,7 +12,7 @@ let
       # This script cleans the disk at boot to have clean setup
       # also keeps backup of the previous boot
       mkdir -p /btrfs_tmp
-      mount ${mount} /btrfs_tmp
+      mount ${mount} /btrfs_tmp -t btrfs
       if [[ -e /btrfs_tmp/root ]]; then
         mkdir -p /btrfs_tmp/old_roots
         timestamp=$(date --date="@$(stat -c %Y /btrfs_tmp/root)" "+%b-%d-%Y_%H:%M:%S")
