@@ -3,6 +3,7 @@
   flake.modules.darwin.foundation = {
     config.homebrew.casks = [ "ghostty" ];
   };
+  # TODO: https://github.com/NixOS/nixpkgs/issues/421442
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     {
@@ -14,7 +15,13 @@
           if pkgs.stdenv.isDarwin then
             null
           else
-            inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default;
+            inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (_: {
+              preBuild = ''
+                shopt -s globstar
+                sed -i 's/^const xev = @import("xev");$/const xev = @import("xev").Epoll;/' **/*.zig
+                shopt -u globstar
+              '';
+            });
       };
       home.file."./.config/ghostty/config".text = ''
 
