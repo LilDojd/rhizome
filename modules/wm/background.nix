@@ -1,34 +1,60 @@
 { lib, ... }:
 {
   flake.modules.homeManager.hyprland =
-    { config, ... }:
+    { config, pkgs, ... }:
 
     let
-      wpaperctl = lib.getExe' config.services.wpaperd.package "wpaperctl";
       submap = "background";
+
+      wallsetter = pkgs.writeShellApplication {
+        name = "wallsetter";
+        runtimeInputs = with pkgs; [
+          swww
+          findutils
+          coreutils
+          libnotify
+        ];
+        text = ''
+          TIMEOUT=720
+
+          for pid in $(pidof -o %PPID -x wallsetter); do
+          	kill $pid
+          done
+
+          if ! [ -d ~/backgrounds ]; then notify-send -t 5000 "~/backgrounds does not exist" && exit 1; fi
+          if [ $(ls -1 ~/backgrounds | wc -l) -lt 1 ]; then	notify-send -t 9000 "The wallpaper folder is expected to have more than 1 image. Exiting Wallsetter." && exit 1; fi
+
+          while true; do
+            while [ "$WALLPAPER" == "$PREVIOUS" ]; do
+              WALLPAPER=$(find ~/backgrounds -name '*' | awk '!/.git/' | tail -n +2 | shuf -n 1)
+            done
+
+          	PREVIOUS=$WALLPAPER
+
+          	swww img "$WALLPAPER" --transition-type random --transition-step 1 --transition-fps 60
+          	sleep $TIMEOUT
+          done
+        '';
+      };
     in
     {
+      home.packages = [ wallsetter ];
+
       wayland.windowManager.hyprland = {
         settings.misc.disable_hyprland_logo = true;
 
         extraConfig = ''
           submap = ${submap}
-          binde = , n, exec, ${wpaperctl} next-wallpaper
-          binde = , p, exec, ${wpaperctl} previous-wallpaper
+          binde = , n, exec, ${lib.getExe wallsetter}
+          binde = , p, exec, swww img ~/.config/wallpapers/spacegoose.png
           ${config.wayland.windowManager.hyprland.submapEnd}
           bind = $modifier, b, submap, ${submap}
         '';
       };
 
-      services.wpaperd = {
-        enable = true;
-        settings.default = {
-          path = "${config.home.homeDirectory}/backgrounds";
-          duration = "4h";
-          sorting = "random";
-          queue-size = 20;
-          mode = "center";
-        };
-      };
+      # Ensure Pictures/Wallpapers directory exists for wallsetter script
+      home.activation.wallpapersDir = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        $DRY_RUN_CMD mkdir -p $HOME/backgrounds
+      '';
     };
 }
