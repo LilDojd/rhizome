@@ -3,7 +3,7 @@
   flake.modules.homeManager.hyprland =
     { pkgs, config, ... }:
     let
-      terminal = "ghostty";
+      terminal = "kitty";
     in
     {
       programs.waybar = {

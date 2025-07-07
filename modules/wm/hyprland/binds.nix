@@ -5,11 +5,10 @@
     {
       wayland.windowManager.hyprland.settings = {
         bind = [
-          "$modifier,Return,exec,${lib.getExe pkgs.ghostty}"
+          "$modifier,Return,exec,${lib.getExe pkgs.kitty}"
           "$modifier,K,exec,list-keybinds"
           "$modifier SHIFT,Return,exec,rofi-launcher"
           "$modifier,W,exec,${lib.getExe pkgs.firefox}"
-          "$modifier,Y,exec,${lib.getExe pkgs.ghostty} -e yazi"
           "$modifier,S,exec,screenshootin"
           "$modifier,D,exec,discord"
           "$modifier,O,exec,obs"
@@ -19,7 +18,6 @@
           "$modifier,M,exec,pavucontrol"
           "$modifier,Q,killactive,"
           "$modifier,P,pseudo,"
-          "$modifier,V,exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
           "$modifier SHIFT,I,togglesplit,"
           "$modifier,F,fullscreen,"
           "$modifier SHIFT,F,togglefloating,"
@@ -86,6 +84,11 @@
           ",XF86AudioPrev, exec, playerctl previous"
           ",XF86MonBrightnessDown,exec,brightnessctl set 5%-"
           ",XF86MonBrightnessUp,exec,brightnessctl set +5%"
+
+          "$modfierCTRL,h,resizeactive,-50 0"
+          "$modfierCTRL,l,resizeactive,50 0"
+          "$modfierCTRL,j,resizeactive,0 50"
+          "$modfierCTRL,k,resizeactive,0 -50"
         ];
 
         bindm = [

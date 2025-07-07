@@ -1,11 +1,46 @@
 {
   lib,
+  inputs,
+  config,
   ...
 }:
 {
+  flake.modules.nixos.foundation =
+    { pkgs, ... }:
+    {
+      programs.hyprland =
+        let
+          hyprland = inputs.hyprland.packages.${pkgs.system};
+        in
+        {
+          enable = true;
+          package = hyprland.hyprland;
+          portalPackage = hyprland.xdg-desktop-portal-hyprland;
+          withUWSM = true;
+        };
+
+      environment.sessionVariables.NIXOS_OZONE_WL = "1";
+      hardware.graphics.enable32Bit = lib.mkForce true;
+      services.getty.autologinUser = "${config.flake.meta.owner.username}";
+    };
   flake.modules.homeManager.hyprland =
     hmArgs@{ pkgs, ... }:
     {
+      xdg = {
+        userDirs = {
+          enable = true;
+          createDirectories = true;
+          extraConfig.XDG_SS_DIR = "${hmArgs.config.home.homeDirectory}/backgrounds";
+        };
+      };
+      imports = [ inputs.hyprland.homeModules.hyprland ];
+      programs.zsh = {
+        profileExtra = ''
+          if uwsm check may-start; then
+            exec uwsm start hyprland-uwsm.desktop
+          fi
+        '';
+      };
       home.packages = with pkgs; [
         grim
         slurp
@@ -18,7 +53,6 @@
         pyprland
         networkmanagerapplet
         psmisc
-        cliphist
       ];
 
       systemd.user.targets.hyprland-session.Unit.Wants = [
@@ -26,6 +60,7 @@
       ];
 
       wayland.windowManager.hyprland = {
+        package = hmArgs.config.programs.hyprland.package;
         systemd = {
           enable = true;
           enableXdgAutostart = true;
@@ -115,11 +150,6 @@
               render_power = 3;
               color = lib.mkForce "rgba(1a1a1aee)";
             };
-          };
-
-          ecosystem = {
-            no_donation_nag = true;
-            no_update_news = false;
           };
 
           cursor = {

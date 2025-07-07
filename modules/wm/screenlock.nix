@@ -1,54 +1,119 @@
-{ lib, ... }:
+{ lib, withSystem, ... }:
 {
   flake.modules = {
-    nixos.foundation.security.pam.services.swaylock = { };
+    nixos.foundation.security.pam.services.hyprlock.text = "auth include login";
 
-    homeManager.hyprland = hmArgs: {
-      programs.hyprlock = {
-        enable = true;
-        settings = {
-          general = {
-            disable_loading_bar = true;
-            grace = 10;
-            hide_cursor = true;
-            no_fade_in = false;
+    homeManager.hyprland =
+      hmArgs@{ pkgs, ... }:
+      let
+        inherit (hmArgs.config.lib.stylix) colors;
+      in
+      {
+        home.packages = withSystem pkgs.system (psArgs: with psArgs.config.packages; [ road-rage ]);
+        programs.hyprlock = {
+          enable = true;
+          settings = {
+            general = {
+              no_fade_in = true;
+              no_fade_out = true;
+              hide_cursor = false;
+              grace = 0;
+              disable_loading_bar = true;
+            };
+
+            background = [
+              {
+                path = "screenshot";
+                blur_passes = 2;
+                contrast = 0.9;
+                brightness = 0.5;
+                vibrancy = 0.17;
+                vibrancy_darkness = 0;
+              }
+            ];
+
+            image = [
+              {
+                monitor = "";
+                size = 150;
+                rounding = -1;
+                border_size = 3;
+                border_color = "0x44${colors.base0F}";
+                rotate = 0;
+                reload_time = -1;
+                reload_cmd = "";
+
+                position = "0, 70";
+                halign = "center";
+                valign = "center";
+              }
+            ];
+
+            input-field = [
+              {
+                size = "300, 40";
+                outline_thickness = 2;
+                dots_size = 0.2;
+                dots_spacing = 0.2;
+                dots_center = true;
+                outer_color = "rgba (0, 0, 0, 0)";
+                inner_color = "0x80${colors.base0F}";
+                font_color = "0xffc8c8c8";
+                fade_on_empty = false;
+                font_family = "${hmArgs.config.stylix.fonts.monospace.name}";
+                hide_input = false;
+                position = "0, -200";
+                halign = "center";
+                valign = "center";
+              }
+            ];
+
+            label = [
+              # Hour-Time
+              {
+                text = ''cmd[update:1000] echo -e "$(date +"%H")"'';
+                color = "0x80${colors.base0F}";
+                font_family = "Road Rage";
+                font_size = "140";
+                position = "0, 300";
+                halign = "center";
+                valign = "center";
+              }
+
+              # Minute-Time
+              {
+                text = ''cmd[update:1000] echo -e "$(date +"%M")"'';
+                color = "rgba(255, 255, 255, 1)";
+                font_family = "Road Rage";
+                font_size = "140";
+                position = "0, 75";
+                halign = "center";
+                valign = "center";
+              }
+
+              # Day-Date-Month
+              {
+                text = ''cmd[update:1000] echo "<span color='##ffffff00'>$(date '+%A, ')</span><span color='##928cff00'>$(date '+%d %B')</span>"'';
+                font_size = "30";
+                font_family = "${hmArgs.config.stylix.fonts.monospace.name}";
+                position = "0, 80";
+                halign = "center";
+                valign = "bottom";
+              }
+
+              # CURRENT SONG
+              {
+                text = ''cmd[update:1000] echo "$(${lib.getExe pkgs.playerctl} metadata --format '{{title}} | {{artist}}')"'';
+                color = "rgba(255, 255, 255, 1)";
+                font_size = 17;
+                font_family = "${hmArgs.config.stylix.fonts.monospace.name}";
+                position = "0, 200";
+                halign = "center";
+                valign = "bottom";
+              }
+            ];
           };
-          background = lib.mkForce [
-            {
-              path = "/home/${hmArgs.config.home.homeDirectory}/backgrounds/spacegoose.png";
-              blur_passes = 3;
-              blur_size = 8;
-            }
-          ];
-          image = [
-            {
-              path = "/home/${hmArgs.config.home.homeDirectory}/.config/hero.jpg";
-              size = 150;
-              border_size = 4;
-              border_color = "rgb(0C96F9)";
-              rounding = -1;
-              position = "0, 200";
-              halign = "center";
-              valign = "center";
-            }
-          ];
-          input-field = lib.mkForce [
-            {
-              size = "200, 50";
-              position = "0, -80";
-              monitor = "";
-              dots_center = true;
-              fade_on_empty = false;
-              font_color = "rgb(CFE6F4)";
-              inner_color = "rgb(657DC2)";
-              outer_color = "rgb(0D0E15)";
-              outline_thickness = 5;
-              placeholder_text = "Password...";
-              shadow_passes = 2;
-            }
-          ];
         };
       };
-    };
   };
 }

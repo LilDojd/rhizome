@@ -1,4 +1,15 @@
-_: {
+{ lib, ... }:
+{
+
+  flake.modules.homeManager.hyprland =
+    { pkgs, ... }:
+    {
+      wayland.windowManager.hyprland.settings = {
+        bind = [
+          "$modifier,Y,exec,${lib.getExe pkgs.kitty} -e yazi"
+        ];
+      };
+    };
   flake.modules.homeManager.base = {
     programs.yazi.keymap = {
       manager = {

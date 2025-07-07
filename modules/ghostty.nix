@@ -5,7 +5,7 @@
   };
   # TODO: https://github.com/NixOS/nixpkgs/issues/421442
   flake.modules.homeManager.gui =
-    { pkgs, ... }:
+    hmArgs@{ pkgs, ... }:
     {
       programs.ghostty = {
         enable = true;
@@ -76,10 +76,7 @@
         keybind = alt+s>e=equalize_splits
 
         font-size = 12
-        font-family = Monaspace Neon Medium
-        font-family-bold = Monaspace Neon Bold
-        font-family-italic = Monaspace Radon Medium Italic
-        font-family-bold-italic = Monaspace Radon
+        font-family = ${hmArgs.config.stylix.fonts.monospace.name}
 
         font-variation = "wght=200"
         font-variation = "wdth=100"

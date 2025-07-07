@@ -21,7 +21,7 @@
             modi = "drun,filebrowser,run";
             show-icons = true;
             icon-theme = "Papirus";
-            font = "Monaspace Neon";
+            font = hmArgs.config.stylix.fonts.monospace.name;
             drun-display-format = "{icon} {name}";
             display-drun = " Apps";
             display-run = " Run";

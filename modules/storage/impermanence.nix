@@ -134,6 +134,7 @@ in
             "share"
             "temp"
             "rhizome"
+            "backgrounds"
 
             {
               directory = ".gnupg";

@@ -11,6 +11,7 @@
         "recursive-nix"
       ];
       extra-system-features = [ "recursive-nix" ];
+      # export NIX_CONFIG="substituters = https://cache.nixos.org https://hyprland.cachix.org\ntrusted-public-keys = hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       substituters = [
         "https://cache.nixos.org"
         "https://hyprland.cachix.org"

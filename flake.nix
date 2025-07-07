@@ -15,7 +15,18 @@
       flake = false;
       url = "github:platomav/CPUMicrocodes";
     };
-
+    # Hyprland
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+    #
+    #     # Custom hyprland scripts
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     input-branches.url = "github:mightyiam/input-branches";
 
     disko = {
