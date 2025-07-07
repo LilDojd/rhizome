@@ -73,10 +73,8 @@ in
         ];
         users.${config.flake.meta.owner.username} = {
           directories = [
-            ".config/OpenTabletDriver"
             ".config/kdeconnect"
             ".config/kde.org"
-            ".config/Zulip"
 
             ".local/share/task"
             ".config/syncall"
@@ -84,16 +82,10 @@ in
             ".local/share/Steam"
             ".steam"
             ".config/heroic"
-            ".config/unity3d"
-            ".config/supertuxkart"
-            ".minecraft"
 
-            ".local/share/waydroid"
             ".local/share/applications"
-            ".local/share/fractal"
             ".local/share/onlyoffice"
 
-            ".config/whatsapp-for-linux"
             ".config/Slack"
 
             ".config/google-chrome"
@@ -168,7 +160,7 @@ in
             ".temp.zsh"
             ".gtasks_credentials.pickle"
             "screen/.screenrc"
-            ".local/share/fish/fish_history "
+            ".local/share/fish/fish_history"
           ];
         };
       };
