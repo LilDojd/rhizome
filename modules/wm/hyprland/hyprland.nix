@@ -10,7 +10,6 @@
         grim
         slurp
         wl-clipboard
-        swappy
         ydotool
         swappy
         hyprpolkitagent
