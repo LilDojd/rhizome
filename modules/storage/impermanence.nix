@@ -1,6 +1,7 @@
 {
   inputs,
   config,
+  pkgs,
   ...
 }:
 let
@@ -41,13 +42,23 @@ in
       security.sudo.extraConfig = "Defaults lecture=never";
       fileSystems."/persistent".neededForBoot = true;
 
-      boot.initrd.systemd = {
-        services.wipe-my-fs = {
-          wantedBy = [ "initrd.target" ];
-          before = [ "sysroot.mount" ];
-          unitConfig.DefaultDependencies = "no";
-          serviceConfig.Type = "oneshot";
-          script = cleanup;
+      boot.initrd = {
+        availableKernelModules = [ "btrfs" ];
+        systemd = {
+          services.wipe-my-fs = {
+            wantedBy = [ "initrd.target" ];
+            before = [ "sysroot.mount" ];
+            after = [ "systemd-udev-settle.service" ];
+            unitConfig.DefaultDependencies = "no";
+            serviceConfig = {
+              Type = "oneshot";
+              RemainAfterExit = true;
+            };
+            script = cleanup;
+          };
+          extraBin = {
+            btrfs = "${pkgs.btrfs-progs}/bin/btrfs";
+          };
         };
       };
 

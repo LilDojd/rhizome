@@ -31,6 +31,7 @@
             };
             root = {
               size = "100%";
+              label = "disk-primary-root";
               content = {
                 type = "btrfs";
                 extraArgs = [
