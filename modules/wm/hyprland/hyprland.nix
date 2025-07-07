@@ -33,7 +33,7 @@
           extraConfig.XDG_SS_DIR = "${hmArgs.config.home.homeDirectory}/backgrounds";
         };
       };
-      imports = [ inputs.hyprland.homeModules.hyprland ];
+      imports = [ inputs.hyprland.homeManagerModules.default ];
       programs.zsh = {
         profileExtra = ''
           if uwsm check may-start; then
@@ -55,12 +55,8 @@
         psmisc
       ];
 
-      systemd.user.targets.hyprland-session.Unit.Wants = [
-        "xdg-desktop-autostart.target"
-      ];
-
       wayland.windowManager.hyprland = {
-        package = hmArgs.config.programs.hyprland.package;
+        package = inputs.hyprland.packages.${pkgs.system};
         systemd = {
           enable = true;
           enableXdgAutostart = true;
