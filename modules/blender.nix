@@ -1,4 +1,4 @@
-{inputs, ...}:
+{ inputs, ... }:
 let
   blenderModule =
     { pkgs, ... }:
@@ -10,8 +10,7 @@ in
 {
   nixpkgs.overlays = [
     inputs.blender.overlays.default
-  ]
-  ;
+  ];
   flake.modules = {
     nixos.foundation = blenderModule;
     darwin.foundation = blenderModule;

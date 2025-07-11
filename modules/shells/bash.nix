@@ -1,8 +1,7 @@
 {
-  flake.modules.homeManager.base =
-    {
-      programs.bash = {
-        enable = true;
-      };
+  flake.modules.homeManager.base = {
+    programs.bash = {
+      enable = true;
     };
+  };
 }

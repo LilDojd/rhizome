@@ -7,7 +7,13 @@
 {
   flake.modules.nixos.foundation =
     { pkgs, ... }:
+    let
+      hyprPackages = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+    in
     {
+      hardware.graphics = {
+        package = hyprPackages.mesa;
+      };
       programs.hyprland =
         let
           hyprland = inputs.hyprland.packages.${pkgs.system};
