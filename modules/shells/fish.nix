@@ -70,16 +70,6 @@
             name = "grc";
             inherit (pkgs.fishPlugins.grc) src;
           }
-          # Manually packaging and enable a plugin
-          {
-            name = "z";
-            src = pkgs.fetchFromGitHub {
-              owner = "jethrokuan";
-              repo = "z";
-              rev = "067e867debee59aee231e789fc4631f80fa5788e";
-              hash = "sha256-emmjTsqt8bdI5qpx1bAzhVACkg0MNB/uffaRjjeuFxU=";
-            };
-          }
           {
             name = "fzf";
             inherit (pkgs.fishPlugins.fzf-fish) src;
