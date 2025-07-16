@@ -27,6 +27,10 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    presenterm = {
+      url = "github:mfontanini/presenterm";
+      inputs.flake-utils.follows = "dedupe_flake-utils";
+    };
     fzf-preview = {
       url = "github:niksingh710/fzf-preview";
       inputs = {
