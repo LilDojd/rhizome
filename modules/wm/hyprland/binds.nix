@@ -15,7 +15,7 @@
           "$modifier,C,exec,hyprpicker -a"
           "$modifier,G,exec,gimp"
           "$modifier,T,exec,pypr toggle term"
-          "$modifier,M,exec,pavucontrol"
+          "$modifier,M,exec,pwvucontrol"
           "$modifier,Q,killactive,"
           "$modifier,P,pseudo,"
           "$modifier SHIFT,I,togglesplit,"

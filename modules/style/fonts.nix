@@ -12,8 +12,8 @@ let
         serif = lib.mkDefault polyArgs.config.stylix.fonts.sansSerif;
 
         monospace = {
-          package = pkgs.nerd-fonts.monaspace;
-          name = "Monaspace Neon";
+          package = pkgs.maple-mono.NF-unhinted;
+          name = "Maple Mono NF";
         };
 
         emoji = {
@@ -45,22 +45,9 @@ in
         ];
       };
 
-    # darwin.foundation =
-    # { pkgs, ... }:
-    # {
-    # imports = [ polyModule ];
-    # fonts.packages = with pkgs; [
-    # noto-fonts
-    # noto-fonts-cjk-sans
-    # noto-fonts-cjk-serif
-    # ];
-    # };
-
-    homeManager.gui =
-
-      {
-        imports = [ polyModule ];
-      };
+    homeManager.gui = {
+      imports = [ polyModule ];
+    };
 
   };
 }

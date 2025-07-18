@@ -1,11 +1,14 @@
 {
   flake.modules.homeManager.gui =
-    { pkgs, ... }:
+    hmArgs@{ pkgs, ... }:
     {
       programs.kitty = {
         enable = true;
         package = pkgs.kitty;
         settings = {
+          font_family = "family='${hmArgs.config.stylix.fonts.monospace.name}'";
+          font_features = "Maple Mono NF +calt +ss01 +zero +cv01";
+          disable_ligatures = "cursor";
           font_size = 12;
           wheel_scroll_min_lines = 1;
           window_padding_width = 4;
@@ -20,8 +23,8 @@
           tab_bar_edge = "top";
           tab_bar_margin_width = 0;
           tab_bar_style = "powerline";
-          #tab_bar_style = "fade";
           enabled_layouts = "splits";
+          copy_on_select = "yes";
         };
         extraConfig = ''
           # Clipboard
