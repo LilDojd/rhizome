@@ -13,7 +13,7 @@ let
 
         monospace = {
           package = pkgs.nerd-fonts.monaspace;
-          name = "Monaspace Neon";
+          name = "MonaspiceNe Nerd Font";
         };
 
         emoji = {
@@ -45,19 +45,7 @@ in
         ];
       };
 
-    # darwin.foundation =
-    # { pkgs, ... }:
-    # {
-    # imports = [ polyModule ];
-    # fonts.packages = with pkgs; [
-    # noto-fonts
-    # noto-fonts-cjk-sans
-    # noto-fonts-cjk-serif
-    # ];
-    # };
-
     homeManager.gui =
-
       {
         imports = [ polyModule ];
       };

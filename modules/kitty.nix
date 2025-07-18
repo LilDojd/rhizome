@@ -1,11 +1,14 @@
 {
   flake.modules.homeManager.gui =
-    { pkgs, ... }:
+    hmArgs@{ pkgs, ... }:
     {
       programs.kitty = {
         enable = true;
         package = pkgs.kitty;
         settings = {
+          font_family = "${hmArgs.config.stylix.fonts.monospace.name}";
+          font_features = "MonaspiceNeNF-Regular +calt +liga +ss01 +ss02 +ss03 +ss04 +ss05 +ss06 +ss07 +ss08 +ss09 +calt";
+          disable_ligatures = "cursor";
           font_size = 12;
           wheel_scroll_min_lines = 1;
           window_padding_width = 4;
@@ -20,10 +23,11 @@
           tab_bar_edge = "top";
           tab_bar_margin_width = 0;
           tab_bar_style = "powerline";
-          #tab_bar_style = "fade";
           enabled_layouts = "splits";
+          copy_on_select = "yes";
         };
         extraConfig = ''
+          modify_font cell_width 120%
           # Clipboard
           map ctrl+shift+v        paste_from_selection
           map shift+insert        paste_from_selection
