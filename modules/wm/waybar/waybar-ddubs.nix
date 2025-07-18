@@ -101,7 +101,7 @@
                   ""
                 ];
               };
-              on-click = "pavucontrol";
+              on-click = "pwvucontrol";
             };
             "custom/exit" = {
               tooltip = false;
@@ -327,7 +327,6 @@
       home.packages = with pkgs; [
         waybar
         swaynotificationcenter
-        pavucontrol
         wlogout
       ];
     };

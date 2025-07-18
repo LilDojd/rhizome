@@ -6,7 +6,10 @@
         enableFishIntegration = true;
         enableZshIntegration = true;
         enableBashIntegration = true;
-        options = [ "--cmd cd" "--cmd z" ];
+        options = [
+          "--cmd cd"
+          "--cmd z"
+        ];
       };
     };
   };

@@ -24,7 +24,7 @@ _: {
         "tag +settings, class:^([Rr]ofi)$"
         "tag +settings, class:^(file-roller|org.gnome.FileRoller)$"
         "tag +settings, class:^(nm-applet|nm-connection-editor|blueman-manager)$"
-        "tag +settings, class:^(pavucontrol|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$"
+        "tag +settings, class:^(pavucontrol|pwvcucontrol|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$"
         "tag +settings, class:^(nwg-look|qt5ct|qt6ct|[Yy]ad)$"
         "tag +settings, class:(xdg-desktop-portal-gtk)"
         "tag +settings, class:(.blueman-manager-wrapped)"
