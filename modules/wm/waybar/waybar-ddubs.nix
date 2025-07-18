@@ -24,7 +24,6 @@
               "idle_inhibitor"
               "custom/notification"
               "pulseaudio"
-              "battery"
               "clock"
               "custom/exit"
             ];
@@ -40,7 +39,7 @@
               on-scroll-down = "hyprctl dispatch workspace e-1";
             };
             "clock" = {
-              format = ''{:%H:%M}'';
+              format = '' {:L%I:%M %p}'';
               tooltip = true;
               tooltip-format = "<big>{:%A, %d.%B %Y }</big><tt><small>{calendar}</small></tt>";
             };
@@ -50,18 +49,18 @@
             };
             "memory" = {
               interval = 5;
-              format = " {}%";
+              format = " {}%";
               tooltip = true;
               on-click = "${terminal} -e btop";
             };
             "cpu" = {
               interval = 5;
-              format = " {usage:2}%";
+              format = " {usage:2}%";
               tooltip = true;
               on-click = "${terminal} -e btop";
             };
             "disk" = {
-              format = " {free}";
+              format = " {free}";
               tooltip = true;
             };
             "network" = {
@@ -110,14 +109,14 @@
             };
             "custom/startmenu" = {
               tooltip = false;
-              format = " ";
+              format = "";
               on-click = "rofi -show drun";
             };
             "idle_inhibitor" = {
               format = "{icon}";
               format-icons = {
-                activated = " ";
-                deactivated = " ";
+                activated = "";
+                deactivated = "";
               };
               tooltip = "true";
             };
@@ -125,14 +124,14 @@
               tooltip = false;
               format = "{icon} {}";
               format-icons = {
-                notification = "<span foreground='red'><sup></sup></span>";
-                none = "";
-                dnd-notification = "<span foreground='red'><sup></sup></span>";
-                dnd-none = "";
-                inhibited-notification = "<span foreground='red'><sup></sup></span>";
-                inhibited-none = "";
-                dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
-                dnd-inhibited-none = "";
+                notification = "<span foreground='red'><sup></sup></span>";
+                none = "";
+                dnd-notification = "<span foreground='red'><sup></sup></span>";
+                dnd-none = "";
+                inhibited-notification = "<span foreground='red'><sup></sup></span>";
+                inhibited-none = "";
+                dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
+                dnd-inhibited-none = "";
               };
               return-type = "json";
               exec-if = "which swaync-client";
