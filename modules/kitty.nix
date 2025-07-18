@@ -6,8 +6,8 @@
         enable = true;
         package = pkgs.kitty;
         settings = {
-          font_family = "${hmArgs.config.stylix.fonts.monospace.name}";
-          font_features = "MonaspiceNeNF-Regular +calt +liga +ss01 +ss02 +ss03 +ss04 +ss05 +ss06 +ss07 +ss08 +ss09 +calt";
+          font_family = "family='${hmArgs.config.stylix.fonts.monospace.name}'";
+          font_features = "Maple Mono NF +calt +ss01 +zero +cv01";
           disable_ligatures = "cursor";
           font_size = 12;
           wheel_scroll_min_lines = 1;
@@ -27,7 +27,6 @@
           copy_on_select = "yes";
         };
         extraConfig = ''
-          modify_font cell_width 120%
           # Clipboard
           map ctrl+shift+v        paste_from_selection
           map shift+insert        paste_from_selection

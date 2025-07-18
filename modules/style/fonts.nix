@@ -12,8 +12,8 @@ let
         serif = lib.mkDefault polyArgs.config.stylix.fonts.sansSerif;
 
         monospace = {
-          package = pkgs.nerd-fonts.monaspace;
-          name = "MonaspiceNe Nerd Font";
+          package = pkgs.maple-mono.NF-unhinted;
+          name = "Maple Mono NF";
         };
 
         emoji = {
@@ -45,10 +45,9 @@ in
         ];
       };
 
-    homeManager.gui =
-      {
-        imports = [ polyModule ];
-      };
+    homeManager.gui = {
+      imports = [ polyModule ];
+    };
 
   };
 }
