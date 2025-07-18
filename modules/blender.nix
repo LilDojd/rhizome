@@ -3,7 +3,7 @@ let
   blenderModule =
     { pkgs, ... }:
     {
-      environment.systemPackages = with pkgs; [ blender_4_4 ];
+      environment.systemPackages = with pkgs; [ blender_4_5 ];
     };
 
 in
