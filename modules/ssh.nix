@@ -64,7 +64,6 @@ in
           extraConfig = ''
             Host *
               SendEnv TERM
-              IdentitiesOnly yes
           '';
         };
       };
@@ -88,7 +87,6 @@ in
             {
               "*" = {
                 setEnv.TERM = "xterm-256color";
-                identitiesOnly = true;
               };
             }
           ]
