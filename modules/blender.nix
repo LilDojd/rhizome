@@ -13,6 +13,6 @@ in
   ];
   flake.modules = {
     nixos.foundation = blenderModule;
-    darwin.foundation = blenderModule;
+    # darwin.foundation = blenderModule;
   };
 }
