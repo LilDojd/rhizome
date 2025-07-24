@@ -47,6 +47,7 @@
 
           ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
           cat = "bat";
+          h = "history";
 
           grep = "grep --color=auto";
           mtar = "tar -zcvf";
