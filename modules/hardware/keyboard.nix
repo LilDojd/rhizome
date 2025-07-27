@@ -20,5 +20,6 @@
           via
         ];
       };
+    darwin.foundation.config.homebrew.casks = [ "vial" ];
   };
 }

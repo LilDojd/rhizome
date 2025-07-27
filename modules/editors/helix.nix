@@ -16,6 +16,7 @@
             color-modes = true;
             cursorline = true;
             default-yank-register = "+";
+            rainbow-brackets = true;
             line-number = "relative";
             mouse = true;
             rulers = [ 80 ];
