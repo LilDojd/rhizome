@@ -134,12 +134,12 @@
     };
 
     nvf = {
-      url = "github:notashelf/nvf?ref=pull/956/merge";
+      url = "github:notashelf/nvf";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
         systems.follows = "dedupe_systems";
-        flake-utils.follows = "dedupe_flake-utils";
+        flake-compat.follows = "dedupe_flake-compat";
       };
     };
 

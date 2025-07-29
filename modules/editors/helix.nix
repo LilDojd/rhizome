@@ -116,18 +116,6 @@
 
         languages.language = [
           {
-            name = "typescript";
-            language-servers = [ "typescript-language-server" ];
-            formatter = {
-              command = "prettier";
-              args = [
-                "--parser"
-                "typescript"
-              ];
-              binary = lib.getExe pkgs.nodePackages.prettier;
-            };
-          }
-          {
             name = "nix";
             language-servers = [
               "nixd"

@@ -29,12 +29,10 @@
             extensions.packages = with plugins; [
               privacy-badger
               vimium
-              darkreader
               refined-github
               enhanced-github
               clearurls
               adaptive-tab-bar-colour
-              qr-code-address-bar
             ];
           };
 
