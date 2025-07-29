@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.modules.homeManager.base = hmArgs: {
+  flake.modules.homeManager.base = hmArgs@{pkgs, ...}: {
     imports = [ inputs.nvf.homeManagerModules.default ];
 
     programs.nvf = {
@@ -24,8 +24,8 @@
           enable = true;
           registers = "unnamedplus";
           providers = {
-            wl-copy.enable = true;
-            xsel.enable = true;
+            wl-copy.enable = pkgs.stdenv.isLinux;
+            xsel.enable = pkgs.stdenv.isLinux;
           };
         };
 
