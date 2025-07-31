@@ -38,6 +38,13 @@
       url = "github:mfontanini/presenterm";
       inputs.flake-utils.follows = "dedupe_flake-utils";
     };
+    bluetui = {
+      url = "github:pythops/bluetui";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "dedupe_flake-utils";
+      };
+    };
     fzf-preview = {
       url = "github:niksingh710/fzf-preview";
       inputs = {
@@ -128,9 +135,11 @@
 
     ghostty = {
       url = "github:ghostty-org/ghostty";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "dedupe_flake-utils";
-      inputs.flake-compat.follows = "dedupe_flake-compat";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "dedupe_flake-utils";
+        flake-compat.follows = "dedupe_flake-compat";
+      };
     };
 
     nvf = {
