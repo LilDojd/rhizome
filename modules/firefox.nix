@@ -1,5 +1,6 @@
 { inputs, ... }:
 {
+  flake.modules.darwin.foundation.nixpkgs.overlays = [ inputs.nixpkgs-firefox-darwin.overlay ];
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     let
@@ -8,6 +9,7 @@
     {
       programs.firefox = {
         enable = true;
+        package = pkgs.firefox-bin;
         policies = {
           SanitizeOnShutdown = {
             Cache = false;

@@ -15,6 +15,7 @@
       flake = false;
       url = "github:platomav/CPUMicrocodes";
     };
+    nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
       inputs = {
