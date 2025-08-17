@@ -20,6 +20,7 @@
         ];
         networkmanager = {
           wifi.backend = "iwd";
+          wifi.powersave = false;
           enable = true;
           dns = "none";
         };
