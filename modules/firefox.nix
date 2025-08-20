@@ -1,6 +1,9 @@
 { inputs, ... }:
 {
-  nixpkgs.allowedUnfreePackages = [ "firefox-bin" "firefox-bin-unwrapped" ];
+  nixpkgs.allowedUnfreePackages = [
+    "firefox-bin"
+    "firefox-bin-unwrapped"
+  ];
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     let
