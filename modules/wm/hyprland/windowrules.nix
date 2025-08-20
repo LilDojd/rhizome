@@ -35,6 +35,7 @@ _: {
         "center, class:^(pavucontrol|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$"
         "center, class:([Tt]hunar), title:negative:(.*[Tt]hunar.*)"
         "center, title:^(Authentication Required)$"
+        "center, class:(1Password), floating:1"
         "idleinhibit fullscreen, class:^(.*)$"
         "idleinhibit fullscreen, title:^(.*)$"
         "idleinhibit fullscreen, fullscreen:1"
