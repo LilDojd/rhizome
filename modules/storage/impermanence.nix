@@ -124,6 +124,7 @@ in
             ".local/state/wireplumber"
             ".config/pulse"
             ".config/Mailspring"
+            ".cursor"
 
             "Downloads"
             "Pictures"
