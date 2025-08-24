@@ -54,7 +54,10 @@
       };
     };
     input-branches.url = "github:mightyiam/input-branches";
-
+    clipboard-sync = {
+      url = "github:dnut/clipboard-sync";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
