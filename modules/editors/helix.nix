@@ -157,7 +157,6 @@
           nixfmt-rfc-style
           nixd
           nil
-          cmake-language-server
           taplo
           python312Packages.python-lsp-server
           lua-language-server
