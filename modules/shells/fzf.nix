@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, inputs, ... }:
 {
   flake.modules.homeManager.base =
     hmArgs@{ pkgs, ... }:
@@ -6,7 +6,7 @@
       accent = "#" + hmArgs.config.lib.stylix.colors.base0D;
       foreground = "#" + hmArgs.config.lib.stylix.colors.base05;
       muted = "#" + hmArgs.config.lib.stylix.colors.base03;
-      # fzf-preview = inputs.fzf-preview.packages.${pkgs.system}.default;
+      fzf-preview = inputs.fzf-preview.packages.${pkgs.system}.default;
       binds = [
         "--bind='ctrl-d:preview-down'"
         "--bind='ctrl-u:preview-up'"
@@ -44,7 +44,7 @@
         defaultCommand = "${lib.getExe pkgs.fd} --type f";
         changeDirWidgetCommand = "${lib.getExe pkgs.fd} --type d";
         fileWidgetCommand = "${lib.getExe pkgs.fd} -t f -X ${sortFilesCmd}";
-        # fileWidgetOptions = binds ++ [ "--preview='${lib.getExe fzf-preview} {}'" ];
+        fileWidgetOptions = binds ++ [ "--preview='${lib.getExe fzf-preview} {}'" ];
         changeDirWidgetOptions = binds ++ [ "--preview='${lib.getExe pkgs.eza} -T {}'" ];
       };
     };
