@@ -104,6 +104,7 @@
           generator.script = "passphrase";
           rekeyFile = ./borgPassphrase.age;
         };
+        age.secrets.darkestForestSshKey.rekeyFile = ./darkestForestSshKey.age;
       }
 
       # Local job (waits for /backups to be mounted)
@@ -123,13 +124,13 @@
       }
 
       (mkBackupJob "borgbase" {
-        repo = "m8yoakd9@m8yoakd9.repo.borgbase.com:repo";
+        repo = "c68ll699@c68ll699.repo.borgbase.com:repo";
         encryption = {
           mode = "repokey-blake2";
           passCommand = "cat ${nixosArgs.config.age.secrets.borgPassphrase.path}";
         };
         environment = {
-          BORG_RSH = "ssh -i /root/borgbackup/ssh_key";
+          BORG_RSH = "ssh -i ${nixosArgs.config.age.secrets.darkestForestSshKey.path}";
         };
         compression = "auto,lzma";
       })
@@ -160,7 +161,7 @@
 
             preStart = mkIf (name == "borgbase") (mkBefore ''
               # wait until DNS/route works
-              until /run/wrappers/bin/ping -c1 -q m8yoakd9.repo.borgbase.com >/dev/null 2>&1; do
+              until /run/wrappers/bin/ping -c1 -q c68ll699@c68ll699.repo.borgbase.com >/dev/null 2>&1; do
                 sleep 2
               done
             '');
