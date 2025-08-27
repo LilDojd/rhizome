@@ -100,6 +100,7 @@
         systemd.tmpfiles.rules = [
           "d /backups/borg 0750 root root -"
         ];
+        age.secrets.borgPassphrase.rekeyFile = ./borgPassphrase.age;
       }
 
       # Local job (waits for /backups to be mounted)
@@ -122,7 +123,7 @@
         repo = "m8yoakd9@m8yoakd9.repo.borgbase.com:repo";
         encryption = {
           mode = "repokey-blake2";
-          passCommand = "cat /root/borgbackup/passphrase";
+          passCommand = "cat ${nixosArgs.config.age.secrets.borgPassphrase.path}";
         };
         environment = {
           BORG_RSH = "ssh -i /root/borgbackup/ssh_key";
