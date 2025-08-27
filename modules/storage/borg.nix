@@ -4,7 +4,7 @@
   ...
 }:
 {
-  flake.modules.nixos.foundation =
+  flake.modules.nixos.agenix =
     nixosArgs@{ pkgs, ... }:
     let
       inherit (lib)

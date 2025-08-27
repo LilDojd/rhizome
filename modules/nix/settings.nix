@@ -27,11 +27,9 @@
     };
     flake.modules = {
       nixos.foundation.nix = { inherit (config.nix) settings; };
-
+      nixos.agenix.nix = { inherit (config.nix) settings; };
       darwin.foundation.nix = { inherit (config.nix) settings; };
-
       homeManager.base.nix = { inherit (config.nix) settings; };
-
     };
   };
 }
