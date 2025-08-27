@@ -3,14 +3,37 @@
   description = "Yawner's Nix Environment";
 
   nixConfig = {
-    abort-on-warn = false;
-    extra-experimental-features = [ "pipe-operators" ];
+    abort-on-warn = true;
+    extra-experimental-features = [
+      "flakes"
+      "pipe-operators"
+    ];
     allow-import-from-derivation = false;
   };
 
   inputs.self.submodules = true;
 
   inputs = {
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
+    agenix-rekey = {
+      url = "github:oddlama/agenix-rekey";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+      };
+    };
+    devshell = {
+      url = "github:numtide/devshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     cpu-microcodes = {
       flake = false;
       url = "github:platomav/CPUMicrocodes";
@@ -116,11 +139,6 @@
     };
 
     import-tree.url = "github:vic/import-tree";
-
-    make-shell = {
-      url = "github:nicknovitski/make-shell";
-      inputs.flake-compat.follows = "dedupe_flake-compat";
-    };
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";

@@ -1,8 +1,7 @@
-{ lib, inputs, ... }:
+{ inputs, ... }:
 {
   imports = [ inputs.treefmt-nix.flakeModule ];
   perSystem =
-    { self', ... }:
     {
       treefmt = {
         projectRootFile = "flake.nix";
@@ -24,9 +23,6 @@
           ];
         };
       };
-      pre-commit.settings.hooks.nix-fmt = {
-        enable = true;
-        entry = lib.getExe self'.formatter;
-      };
+      pre-commit.settings.hooks.treefmt.enable = true;
     };
 }

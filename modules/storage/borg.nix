@@ -105,6 +105,7 @@
       # Local job (waits for /backups to be mounted)
       (mkBackupJob "local" {
         repo = "/backups/borg";
+        startAt = "weekly";
         encryption = {
           mode = "repokey-blake2";
           passCommand = "cat /root/borgbackup/passphrase";
@@ -118,7 +119,7 @@
       }
 
       (mkBackupJob "borgbase" {
-        repo = "ssh://m8yoakd9@m8yoakd9.repo.borgbase.com/./repo";
+        repo = "m8yoakd9@m8yoakd9.repo.borgbase.com:repo";
         encryption = {
           mode = "repokey-blake2";
           passCommand = "cat /root/borgbackup/passphrase";

@@ -34,7 +34,7 @@
   };
 
   perSystem = psArgs: {
-    make-shells.default.packages = psArgs.config.input-branches.commands.all;
+    devshells.default.packages = psArgs.config.input-branches.commands.all;
     treefmt.settings.global.excludes = [ "${config.input-branches.baseDir}/*" ];
   };
 }
