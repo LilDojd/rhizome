@@ -19,7 +19,6 @@
 
       persist = nixosArgs.config.environment.persistence."/persistent" or { };
       userName = config.flake.meta.owner.username;
-      userUid = toString (nixosArgs.config.users.users.${userName}.uid or 1000);
       userPersist = (
         persist.users.${userName} or {
           directories = [ ];
@@ -143,8 +142,8 @@
               Type = "simple";
               User = userName;
               Environment = [
-                "XDG_RUNTIME_DIR=/run/user/${userUid}"
-                "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/${userUid}/bus"
+                "XDG_RUNTIME_DIR=/run/user/1000"
+                "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus"
               ];
             };
             environment.SERVICE = "%i";
