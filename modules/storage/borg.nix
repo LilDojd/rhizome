@@ -17,9 +17,9 @@
         mkIf
         ;
 
-      persist = config.environment.persistence."/persistent" or { };
+      persist = nixosArgs.config.environment.persistence."/persistent" or { };
       userName = config.flake.meta.owner.username;
-      userUid = toString (config.users.users.${userName}.uid or 1000);
+      userUid = toString (nixosArgs.config.users.users.${userName}.uid or 1000);
       userPersist = (
         persist.users.${userName} or {
           directories = [ ];
@@ -37,9 +37,9 @@
       ) userFilesRaw;
 
       toHome = p: "/home/${userName}/${p}";
-      # Core paths to back up
       pathsCommon = [
         "/etc/nixos"
+        "/var/lib"
       ]
       ++ (map toHome userDirs)
       ++ (map toHome userFiles);
@@ -64,6 +64,7 @@
         "*/.tox"
         "*/venv"
         "*/.venv"
+        "**/1Password"
       ];
 
       pruneKeep = {
@@ -106,7 +107,7 @@
         repo = "/backups/borg";
         encryption = {
           mode = "repokey-blake2";
-          passCommand = "cat /backups/borg/passphrase";
+          passCommand = "cat /root/borgbackup/passphrase";
         };
         compression = "auto,zstd";
       })
@@ -120,10 +121,10 @@
         repo = "ssh://m8yoakd9@m8yoakd9.repo.borgbase.com/./repo";
         encryption = {
           mode = "repokey-blake2";
-          passCommand = "cat /backups/borg/passphrase";
+          passCommand = "cat /root/borgbackup/passphrase";
         };
         environment = {
-          BORG_RSH = "ssh -i /backups/borg/ssh_key";
+          BORG_RSH = "ssh -i /root/borgbackup/ssh_key";
         };
         compression = "auto,lzma";
       })
@@ -142,7 +143,7 @@
             };
             environment.SERVICE = "%i";
             script = ''
-              ${pkgs.libnotify}/bin/notify-send -u critical "$SERVICE FAILED!" \
+              ${pkgs.libnotify}/bin/notify-send -t 5000 -u critical "$SERVICE FAILED!" \
                 "Run: journalctl -u $SERVICE"
             '';
           };
