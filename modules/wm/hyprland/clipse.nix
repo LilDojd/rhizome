@@ -52,7 +52,7 @@
 
       wayland.windowManager.hyprland.settings = {
         exec-once = [
-          "uwsm app -- clipse -listen"
+          "clipse -listen"
         ];
         bind = [
           "$modifier,v,exec,uwsm app -- ${cmd}"
