@@ -12,7 +12,6 @@
   };
 
   inputs.self.submodules = true;
-
   inputs = {
 
     agenix = {

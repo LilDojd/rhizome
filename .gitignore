@@ -1,3 +1,4 @@
+!/.secrets/
+/.pre-commit-config.yaml
 /result
 /result.*
-/.pre-commit-config.yaml
