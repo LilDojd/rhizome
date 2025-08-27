@@ -51,11 +51,10 @@ in
     darwin.foundation = {
       config = {
         programs.ssh = {
-
           knownHosts =
             reachableNixoss
             |> lib.mapAttrs (
-              name: nixos: {
+              _name: nixos: {
                 hostNames = [ nixos.config.networking.fqdn ];
                 publicKey = nixos.config.services.openssh.publicKey;
               }
@@ -68,29 +67,29 @@ in
         };
       };
     };
+
     homeManager.base = args: {
       programs.ssh = {
         enable = true;
-        compression = true;
-        hashKnownHosts = false;
+        enableDefaultConfig = false;
         includes = [ "${args.config.home.homeDirectory}/.ssh/hosts/*" ];
-        matchBlocks =
-          reachableNixoss
-          |> lib.mapAttrsToList (
-            _name: nixos: {
-              "${nixos.config.networking.fqdn}" = {
-                identityFile = "~/.ssh/keys/rhizome_ed25519";
-              };
-            }
-          )
-          |> lib.concat [
+
+        matchBlocks = lib.mkMerge (
+          [
             {
               "*" = {
                 setEnv.TERM = "xterm-256color";
+                compression = true;
+                hashKnownHosts = false;
               };
             }
           ]
-          |> lib.mkMerge;
+          ++ (lib.mapAttrsToList (_: nixos: {
+            "${nixos.config.networking.fqdn}" = {
+              identityFile = "~/.ssh/keys/rhizome_ed25519";
+            };
+          }) reachableNixoss)
+        );
       };
     };
   };
