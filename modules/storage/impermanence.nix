@@ -126,6 +126,7 @@ in
             ".config/Mailspring"
             ".cursor"
 
+            ".local/share/fish"
             "Downloads"
             "Pictures"
             "Documents"
@@ -165,7 +166,6 @@ in
             ".temp.zsh"
             ".gtasks_credentials.pickle"
             "screen/.screenrc"
-            ".local/share/fish/fish_history"
           ];
         };
       };
