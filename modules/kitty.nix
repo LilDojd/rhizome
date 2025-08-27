@@ -30,7 +30,6 @@
         };
         extraConfig = ''
           # Clipboard
-          map ctrl+shift+v        paste_from_selection
           map shift+insert        paste_from_selection
 
           # Scrolling
