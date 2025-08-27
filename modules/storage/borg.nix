@@ -132,7 +132,7 @@
         environment = {
           BORG_RSH = "ssh -i ${nixosArgs.config.age.secrets.darkestForestSshKey.path}";
         };
-        compression = "auto,lzma";
+        compression = "auto,lz4";
       })
 
       {

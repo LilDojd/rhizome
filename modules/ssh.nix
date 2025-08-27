@@ -33,10 +33,6 @@ in
           '';
         };
 
-        users.users.${config.flake.meta.owner.username}.openssh.authorizedKeys.keys = [
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL5PWdUEpqaItuoH3dCUsuA1GQqOAB35pQoevVw2eUc7"
-        ];
-
         programs.ssh.knownHosts =
           reachableNixoss
           |> lib.mapAttrs (
@@ -45,6 +41,23 @@ in
               inherit (nixos.config.services.openssh) publicKey;
             }
           );
+      };
+    };
+
+    nixos.agenix = {
+
+      services.openssh = {
+        hostKeys = [
+          {
+            type = "ed25519";
+            path = "/persistent/etc/ssh/ssh_host_ed25519_key";
+          }
+          {
+            type = "rsa";
+            bits = 4096;
+            path = "/persistent/etc/ssh/ssh_host_rsa_key";
+          }
+        ];
       };
     };
 

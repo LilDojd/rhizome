@@ -116,6 +116,7 @@ in
 
             ".config/Proton"
             ".config/Proton Pass"
+            ".config/nix"
 
             ".local/share/TelegramDesktop"
             ".local/share/materialgram"
