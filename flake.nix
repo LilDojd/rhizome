@@ -136,15 +136,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "dedupe_flake-utils";
-        flake-compat.follows = "dedupe_flake-compat";
-      };
-    };
-
     nvf = {
       url = "github:notashelf/nvf";
       inputs = {
