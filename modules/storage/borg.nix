@@ -100,7 +100,10 @@
         systemd.tmpfiles.rules = [
           "d /backups/borg 0750 root root -"
         ];
-        age.secrets.borgPassphrase.rekeyFile = ./borgPassphrase.age;
+        age.secrets.borgPassphrase = {
+          generator.script = "passphrase";
+          rekeyFile = ./borgPassphrase.age;
+        };
       }
 
       # Local job (waits for /backups to be mounted)
@@ -109,7 +112,7 @@
         startAt = "weekly";
         encryption = {
           mode = "repokey-blake2";
-          passCommand = "cat /root/borgbackup/passphrase";
+          passCommand = "cat ${nixosArgs.config.age.secrets.borgPassphrase.path}";
         };
         compression = "auto,zstd";
       })
