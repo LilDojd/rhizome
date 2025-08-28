@@ -109,7 +109,7 @@
       # Local job (waits for /backups to be mounted)
       (mkBackupJob "local" {
         repo = "/backups/borg";
-        startAt = "weekly";
+        startAt = "Sun 14:00";
         encryption = {
           mode = "repokey-blake2";
           passCommand = "cat ${nixosArgs.config.age.secrets.borgPassphrase.path}";
@@ -124,12 +124,13 @@
 
       (mkBackupJob "borgbase" {
         repo = "c68ll699@c68ll699.repo.borgbase.com:repo";
+        startAt = "14:00";
         encryption = {
           mode = "repokey-blake2";
           passCommand = "cat ${nixosArgs.config.age.secrets.borgPassphrase.path}";
         };
         environment = {
-          BORG_RSH = "ssh -i ${nixosArgs.config.age.secrets.darkestForestSshKey.path}";
+          BORG_RSH = "ssh -o \"StrictHostKeyChecking no\" -i ${nixosArgs.config.age.secrets.darkestForestSshKey.path}";
         };
         compression = "auto,lz4";
       })

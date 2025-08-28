@@ -212,6 +212,18 @@ _: {
             prio = "high";
           }
         ];
+        prepend_fetchers = [
+          {
+            id = "jj";
+            name = "*";
+            run = "jj";
+          }
+          {
+            id = "jj";
+            name = "*/";
+            run = "jj";
+          }
+        ];
         spotters = [
           {
             name = "*/";

@@ -26,6 +26,7 @@ _: {
                   require("smart-enter"):setup {
                     open_multi = true,
                   }
+                  require("jj"):setup()
             		'';
         };
         bat.enable = true;
