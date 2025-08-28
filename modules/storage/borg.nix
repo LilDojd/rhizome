@@ -130,7 +130,7 @@
           passCommand = "cat ${nixosArgs.config.age.secrets.borgPassphrase.path}";
         };
         environment = {
-          BORG_RSH = "ssh -o \"StrictHostKeyChecking no\" -i ${nixosArgs.config.age.secrets.darkestForestSshKey.path}";
+          BORG_RSH = "ssh -o StrictHostKeyChecking=no -i ${nixosArgs.config.age.secrets.darkestForestSshKey.path}";
         };
         compression = "auto,lz4";
       })
