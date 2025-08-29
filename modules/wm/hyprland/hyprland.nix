@@ -94,7 +94,7 @@
 
           # TODO: At some point will need to re-add gestures as per
           # https://github.com/hyprwm/Hyprland/pull/11490
-          # 
+          #
           # gestures = {
           #   workspace_swipe = 1;
           #   workspace_swipe_fingers = 3;

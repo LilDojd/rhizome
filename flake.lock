@@ -356,11 +356,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1756410140,
-        "narHash": "sha256-KaobzAEYG9rlacHDDTKxYEC0H5KKWeLROtzu8A+LRx0=",
+        "lastModified": 1756463105,
+        "narHash": "sha256-Sfzjl/gHV08d0gkJ6j0qllTeWOfNDA481kpSKQtwzq0=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "4a87cbb97f2de584dffae7fd89184ed4f1bf7cc4",
+        "rev": "c2d968fa6f06f5fdd545408082e812a02d1ffd8a",
         "type": "github"
       },
       "original": {
@@ -538,11 +538,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1756353808,
-        "narHash": "sha256-JkCqOE0kjWbT7GnXgngL+baLF/OeeVfPCh71HXfRh6g=",
+        "lastModified": 1756440204,
+        "narHash": "sha256-WIdKBihmhVZ64Y90cTDOSH65segQSsedKjPZy50GlkQ=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "e47914363ccacc95994b567966d7fa1e25dd85ec",
+        "rev": "550f0ad4da6fe9910888d4bfbe9370ba650707fb",
         "type": "gitlab"
       },
       "original": {
@@ -945,11 +945,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1756409808,
-        "narHash": "sha256-t/yNw2FAjy/3U129YjZTwtccoatr8yLS4l3QDT0EQv0=",
+        "lastModified": 1756463705,
+        "narHash": "sha256-lTSznOvFsVF5o4KZqaK2sCEvRp67PxRzYB7yP5iQu8M=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "989233551b90a67503aa20508cba30fb4d5730c8",
+        "rev": "2ca230a467e0e6b614ae45d5e99f2060296426b3",
         "type": "github"
       },
       "original": {
@@ -961,11 +961,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1756409420,
-        "narHash": "sha256-5wH+FLOiCyN744LT6VYMJjgb/gwMp5BP/BZYTk+5/jY=",
+        "lastModified": 1756457547,
+        "narHash": "sha256-Rq07nDiVWCEfFq7uMEfzrkZcY/oGDXcVlU9Sx/zxDN0=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "e44992cb2923735eb373a2832921060ef659e518",
+        "rev": "47db540fad88b51d460f1e14bc95b9eb18d33d64",
         "type": "github"
       },
       "original": {
@@ -1048,11 +1048,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1756372920,
-        "narHash": "sha256-kUTDPrbBksfu/xbwyD8NAMUcu/D5jWwiCEfANgxCnG4=",
+        "lastModified": 1756458971,
+        "narHash": "sha256-PhHUk35W16Pm9eYOv6T+4YBRM4eKp28fQCDTWMD56jg=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "4b2bfbd85f1ea77a165d9ba92d62016cdf3abfcd",
+        "rev": "790e544689e7f7a906ee291a6715bc6833b15606",
         "type": "github"
       },
       "original": {
@@ -1098,11 +1098,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1756325158,
-        "narHash": "sha256-aJ9jAYtZ64MWBpWPfH1q+t6U9b6kJWc2yK9Vrlj6fZY=",
+        "lastModified": 1756461489,
+        "narHash": "sha256-MeRYPD6GTbBEcoEqwl8kqCSKtM8CJcYayvPfKGoQkzc=",
         "owner": "hyprwm",
         "repo": "hyprland-plugins",
-        "rev": "bf843fc6adf90d43a5dd7742e9df61d395ba780d",
+        "rev": "376d08bbbd861f2125f5ef86e0003e3636ce110f",
         "type": "github"
       },
       "original": {
@@ -1553,11 +1553,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1756349143,
-        "narHash": "sha256-65oRt2D57ST5Gsa2Q4WCtpgCmKHEWt4+CQ1chWQ3Fos=",
+        "lastModified": 1756381814,
+        "narHash": "sha256-tzo7YvAsGlzo4WiIHT0ooR59VHu+aKRQdHk7sIyoia4=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "c3e5d9f86b3f5678d0d8c9f0b9f081ab1ccdbe05",
+        "rev": "aca2499b79170038df0dbaec8bf2f689b506ad32",
         "type": "github"
       },
       "original": {
@@ -1683,11 +1683,11 @@
         "flakebox": "flakebox"
       },
       "locked": {
-        "lastModified": 1755214031,
-        "narHash": "sha256-T1r8GPtXKG73oFcl8qTgL4LSiz6wvWsMqT0xtUpuI5M=",
+        "lastModified": 1756421979,
+        "narHash": "sha256-wxh+jMMtuUufX8ZV80gs1L8j8W5jQwQppZm7o5rKxaY=",
         "owner": "mfontanini",
         "repo": "presenterm",
-        "rev": "d36e998ec86ac7d788a28feaf45406eec0be8ead",
+        "rev": "edc144043cdd893be3362140927b0e73416fc44d",
         "type": "github"
       },
       "original": {
