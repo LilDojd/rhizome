@@ -163,7 +163,12 @@
       };
     };
 
-    nix-darwin.url = "github:LnL7/nix-darwin";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
 
     sink-rotate = {
       url = "github:mightyiam/sink-rotate";
