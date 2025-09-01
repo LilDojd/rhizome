@@ -6,7 +6,7 @@
   ];
 
   flake.modules.darwin.foundation = {
-    config.homebrew.casks = [ "zotero" ];
+    config.homebrew.casks = [ "firefox" ];
   };
   flake.modules.homeManager.gui =
     { pkgs, ... }:
