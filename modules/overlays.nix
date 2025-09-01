@@ -14,6 +14,9 @@
       homeManager.base = args: {
         nixpkgs.overlays = lib.mkIf (!(args.hasGlobalPkgs or false)) config.nixpkgs.overlays;
       };
+      homeManager.gui = args: {
+        nixpkgs.overlays = lib.mkIf (!(args.hasGlobalPkgs or false)) config.nixpkgs.overlays;
+      };
     };
 
     meta.nixpkgs.overlays = config.nixpkgs.overlays;

@@ -153,6 +153,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixpkgs-firefox-darwin = {
+      url = "github:bandithedoge/nixpkgs-firefox-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nvf = {
       url = "github:notashelf/nvf";
       inputs = {

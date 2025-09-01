@@ -945,11 +945,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1756721539,
-        "narHash": "sha256-e+JfvIt2NSK2eHIXTG884mpf17hma5N40PtEsYWQvhA=",
+        "lastModified": 1756724003,
+        "narHash": "sha256-AJbkN2GlkgVsm9EkDCoPKNFEtCIvB1JXTysaD67M0Ek=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "254a86a0f61729c160cc6ed36952193dbe0c8a89",
+        "rev": "982493eef48a9c53bf97a45173c8e2833954c656",
         "type": "github"
       },
       "original": {
@@ -1505,6 +1505,26 @@
         "type": "indirect"
       }
     },
+    "nixpkgs-firefox-darwin": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1756689149,
+        "narHash": "sha256-Mm0cD4B4Z3HmJWWgpPWIa+zn2un+9Q7ZbraLrNfj9KU=",
+        "owner": "bandithedoge",
+        "repo": "nixpkgs-firefox-darwin",
+        "rev": "b1d6a0b390b61913dd4fef0e5b71be02da3f0a1b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "bandithedoge",
+        "repo": "nixpkgs-firefox-darwin",
+        "type": "github"
+      }
+    },
     "nixpkgs-lib": {
       "locked": {
         "lastModified": 1751949589,
@@ -1719,6 +1739,7 @@
         "nix-index-database": "nix-index-database",
         "nixos-facter-modules": "nixos-facter-modules",
         "nixpkgs": "nixpkgs_3",
+        "nixpkgs-firefox-darwin": "nixpkgs-firefox-darwin",
         "nvf": "nvf",
         "presenterm": "presenterm",
         "sink-rotate": "sink-rotate",

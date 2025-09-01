@@ -4,6 +4,10 @@
     "firefox-bin"
     "firefox-bin-unwrapped"
   ];
+
+  nixpkgs.overlays = [
+    inputs.nixpkgs-firefox-darwin.overlay
+  ];
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     let
