@@ -153,11 +153,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixpkgs-firefox-darwin = {
-      url = "github:bandithedoge/nixpkgs-firefox-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nvf = {
       url = "github:notashelf/nvf";
       inputs = {
@@ -184,8 +179,6 @@
         treefmt-nix.follows = "treefmt-nix";
       };
     };
-
-    blender.url = "github:edolstra/nix-warez?dir=blender";
 
     swww.url = "github:LGFae/swww";
 

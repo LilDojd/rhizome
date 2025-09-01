@@ -5,9 +5,9 @@
     "firefox-bin-unwrapped"
   ];
 
-  nixpkgs.overlays = [
-    inputs.nixpkgs-firefox-darwin.overlay
-  ];
+  flake.modules.darwin.foundation = {
+    config.homebrew.casks = [ "zotero" ];
+  };
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     let
@@ -16,7 +16,7 @@
     {
       programs.firefox = {
         enable = true;
-        package = pkgs.firefox-bin;
+        package = if pkgs.stdenv.isLinux then pkgs.firefox-bin else null;
         policies = {
           SanitizeOnShutdown = {
             Cache = false;
