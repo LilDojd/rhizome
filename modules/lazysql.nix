@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.linux = {
+  flake.modules.homeManager.base = {
     programs.lazysql = {
       enable = true;
       settings = {
