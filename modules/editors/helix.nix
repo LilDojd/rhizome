@@ -145,7 +145,7 @@
           llvmPackages_18.clang-tools
           gopls
           nodePackages.bash-language-server
-          dockerfile-language-server-nodejs
+          dockerfile-language-server
           vscode-langservers-extracted
           texlab
           ruff
