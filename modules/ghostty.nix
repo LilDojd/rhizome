@@ -13,7 +13,7 @@
       };
       home.file."./.config/ghostty/config".text = ''
 
-        theme = catppuccin-macchiato
+        theme = Catppuccin Macchiato
 
         adjust-cell-height = 10%
         window-theme = dark
