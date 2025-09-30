@@ -38,11 +38,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1757800857,
-        "narHash": "sha256-VajxFp0rgP1vec4+Y4WVgovjVx236pR67gQadvEtx7Q=",
+        "lastModified": 1759174959,
+        "narHash": "sha256-8JmI3y3B/PTeKzEDmHestjQlbvULTnLarIL42Pnte78=",
         "owner": "oddlama",
         "repo": "agenix-rekey",
-        "rev": "c1a7e59cd9ba915fcc03b82d3d7721dfa3d40ded",
+        "rev": "38dc6311bb3d54422c72ec097707e7a534f6d97a",
         "type": "github"
       },
       "original": {
@@ -336,11 +336,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1759164642,
-        "narHash": "sha256-Q0o04M/WKDEg2NrZxWTyry6jtG6I4rGpA0SokrxQViU=",
+        "lastModified": 1759208743,
+        "narHash": "sha256-gsQDpRxDf6EyON14ng4uRvwCsO+V0a/aUy7J/tDiZ2g=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "e46ad957db068a2a2f05576933e6a31bcfc3ae15",
+        "rev": "277bf80893db769e7c5b665fd62ebd23424543b5",
         "type": "github"
       },
       "original": {
@@ -518,11 +518,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1758879217,
-        "narHash": "sha256-vWk2iw/i5c0RHc/zLVyB51UYvmbzPq3uB14NN7kaouE=",
+        "lastModified": 1759172068,
+        "narHash": "sha256-gZZcpBuggJpoz6abCIILvxRM38MwmBAOsLLrcD5g24U=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "58402e09ad48f9f509d9249b8704c1a4f390c434",
+        "rev": "32143b55aab289393dea26a78098517a11187465",
         "type": "gitlab"
       },
       "original": {
@@ -873,11 +873,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1758833221,
-        "narHash": "sha256-c3fpREWUKGonlmV/aesmyRxbJZQypHgXStR7SwdcCo0=",
+        "lastModified": 1759201995,
+        "narHash": "sha256-3STv6fITv8Ar/kl0H7vIA7VV0d2gyLh8UL0BOiVacXg=",
         "owner": "helix-editor",
         "repo": "helix",
-        "rev": "109c812233e442addccf1739dec4406248bd3244",
+        "rev": "bfcbef10c513108c7b43317569416c2eefc4ed44",
         "type": "github"
       },
       "original": {
@@ -893,11 +893,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1759106866,
-        "narHash": "sha256-GjLvAl7qxGxKtop6ghasxjQ1biTT7pA+WU45byzMl/4=",
+        "lastModified": 1759172751,
+        "narHash": "sha256-E8W8sRXfrvkFW26GuuiWq6QfReU7m5+cngwHuRo/3jc=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "619ae569293b6427d23cce4854eb4f3c33af3eec",
+        "rev": "12fa8548feefa9a10266ba65152fd1a787cdde8f",
         "type": "github"
       },
       "original": {
@@ -925,11 +925,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1759165360,
-        "narHash": "sha256-+QpMMvubKtuIvt31E4GYnTkKP59sVsTnXN33fKPXGBs=",
+        "lastModified": 1759214724,
+        "narHash": "sha256-kaLht9iQObqo8QzpwJiejwvSvLhujEGDbTM3+2wvETM=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "69bce51a06aacfeb693e888b91c5677df4798efa",
+        "rev": "80881c9b4808310527ed528ece2aad28c4b9fc9d",
         "type": "github"
       },
       "original": {
@@ -941,11 +941,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1759165608,
-        "narHash": "sha256-Et1lhSf+crlv9JhtnmkLjPNaWXyKFuJ7T+ETjcLQ5hw=",
+        "lastModified": 1759213057,
+        "narHash": "sha256-/pNuxujzv9xxncy8EGfAbkBwPh0cXhgRVhcY/hDDthY=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "7f6978e0f4bd70fa4d363ae26dae6ea653f1935c",
+        "rev": "f6e7bb522030b1878e736e29781f69c5d9a8b544",
         "type": "github"
       },
       "original": {
@@ -1028,11 +1028,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1759148562,
-        "narHash": "sha256-kPSevFrZv/zmXy0rVhbZr2nQ4nXmt7lnI2/xqGoIVT4=",
+        "lastModified": 1759169434,
+        "narHash": "sha256-1u6kq88ICeE9IiJPditYa248ZoEqo00kz6iUR+jLvBQ=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "09596725910aab2a9defed250348aebeee40f842",
+        "rev": "38c1e72c9d81fcdad8f173e06102a5da18836230",
         "type": "github"
       },
       "original": {
