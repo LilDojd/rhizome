@@ -47,6 +47,28 @@
           };
         };
 
+      homeManager.hyprland = {
+
+        xdg.desktopEntries = {
+          "1password" = {
+            name = "1Password";
+            genericName = "Password Manager";
+            exec = "1password --ozone-platform=x11 %U";
+            terminal = false;
+            type = "Application";
+            icon = "1password";
+            categories = [
+              "Utility"
+              "Security"
+            ];
+            mimeType = [
+              "x-scheme-handler/onepassword"
+              "x-scheme-handler/op"
+            ];
+          };
+        };
+      };
+
       nixos.foundation = {
         imports = [ flakeCommon ];
       };
