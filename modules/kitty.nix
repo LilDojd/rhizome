@@ -1,20 +1,10 @@
 {
   flake.modules.homeManager.gui =
     hmArgs@{ pkgs, ... }:
-    let
-      kitty-patched = pkgs.kitty.overrideAttrs (old: {
-        patches = (old.patches or [ ]) ++ [
-          (pkgs.fetchpatch {
-            url = "https://github.com/kovidgoyal/kitty/commit/2f991691f9dca291c52bd619c800d3c2f3eb0d66.patch";
-            hash = "sha256-LIQz3e2qgiwpsMd5EbEcvd7ePEEPJvIH4NmNpxydQiU=";
-          })
-        ];
-      });
-    in
     {
       programs.kitty = {
         enable = true;
-        package = kitty-patched;
+        package = pkgs.kitty;
         settings = {
           font_family = "family='${hmArgs.config.stylix.fonts.monospace.name}'";
           font_features = "Maple Mono NF +calt +ss01 +zero +cv01";
