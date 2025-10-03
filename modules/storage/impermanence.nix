@@ -130,6 +130,7 @@ in
             ".local/share/fish"
             "Downloads"
             "Pictures"
+            "Games"
             "Documents"
             "Videos"
 
