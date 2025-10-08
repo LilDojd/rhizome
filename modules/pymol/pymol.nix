@@ -20,7 +20,7 @@
             libxml2
             freetype
             mmtf-cpp
-            msgpack
+            msgpack-cxx
             qt5
             ;
           python3Packages = pythonPackages;
