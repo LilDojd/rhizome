@@ -22,6 +22,13 @@
               bold = true;
             };
           };
+          signing = {
+            behavior = "own";
+            backend = "ssh";
+            key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIESOx5jXSV+jeGmIpVO3ASIByLflNIhnkfAlmXOnMsXk";
+          };
+          git.sign-on-push = true;
+          ui.show-cryptographic-signatures = true;
           ui.editor = lib.mkIf homeArgs.config.programs.helix.enable "hx";
           git = {
             private-commits = "description(glob:'private:*')";
