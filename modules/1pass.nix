@@ -37,6 +37,12 @@
               ''"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"''
             else
               "~/.1password/agent.sock";
+          onePassOpSshSign =
+            if pkgs.stdenv.isDarwin then
+              "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+            else
+              # TODO: Find out the path
+              "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
         in
         {
           programs.ssh = {
@@ -44,6 +50,17 @@
               Host *
                 IdentityAgent ${onePassPath}
             '';
+          };
+          programs.jujutsu = {
+
+            settings = {
+              signing = {
+                backends.ssh = {
+                  program = onePassOpSshSign;
+                };
+              };
+
+            };
           };
         };
 

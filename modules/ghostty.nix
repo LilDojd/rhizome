@@ -12,7 +12,6 @@
         package = if pkgs.stdenv.isDarwin then null else pkgs.ghostty;
       };
       home.file."./.config/ghostty/config".text = ''
-
         theme = Catppuccin Macchiato
 
         adjust-cell-height = 10%
