@@ -1,9 +1,9 @@
 { config, ... }:
 {
   flake.modules.homeManager.base.programs.git = {
-    userName = config.flake.meta.owner.githubUsername;
-    userEmail = config.flake.meta.owner.email;
-    extraConfig = {
+    settings = {
+      user.name = config.flake.meta.owner.githubUsername;
+      user.email = config.flake.meta.owner.email;
       init.defaultBranch = "main";
       push.default = "current";
       commit.verbose = true;
