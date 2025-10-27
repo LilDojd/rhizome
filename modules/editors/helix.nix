@@ -3,7 +3,7 @@
   flake.modules.homeManager.base =
     { pkgs, ... }:
     let
-      helixPkg = inputs.helix.packages.${pkgs.system}.default;
+      helixPkg = inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.default;
     in
     {
       programs.helix = {

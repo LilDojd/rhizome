@@ -20,6 +20,6 @@
   flake.modules.homeManager.base =
     { pkgs, ... }:
     {
-      home.packages = withSystem pkgs.system (psArgs: with psArgs.config.packages; [ git-worktree-add ]);
+      home.packages = withSystem pkgs.stdenv.hostPlatform.system (psArgs: with psArgs.config.packages; [ git-worktree-add ]);
     };
 }

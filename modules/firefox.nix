@@ -11,7 +11,7 @@
   flake.modules.homeManager.gui =
     { pkgs, ... }:
     let
-      plugins = inputs.firefox-addons.packages.${pkgs.system};
+      plugins = inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system};
     in
     {
       programs.firefox = {

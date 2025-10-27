@@ -5,7 +5,7 @@
       { pkgs, ... }:
       {
         home.packages = [
-          inputs.presenterm.packages.${pkgs.system}.default
+          inputs.presenterm.packages.${pkgs.stdenv.hostPlatform.system}.default
         ];
 
       };

@@ -4,7 +4,7 @@
     {
       home.packages = with pkgs; [
         atool
-        du-dust
+        dust
         fd
         file
         ripgrep

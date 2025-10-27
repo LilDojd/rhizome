@@ -6,7 +6,7 @@
       accent = "#" + hmArgs.config.lib.stylix.colors.base0D;
       foreground = "#" + hmArgs.config.lib.stylix.colors.base05;
       muted = "#" + hmArgs.config.lib.stylix.colors.base03;
-      fzf-preview = inputs.fzf-preview.packages.${pkgs.system}.default;
+      fzf-preview = inputs.fzf-preview.packages.${pkgs.stdenv.hostPlatform.system}.default;
       binds = [
         "--bind='ctrl-d:preview-down'"
         "--bind='ctrl-u:preview-up'"

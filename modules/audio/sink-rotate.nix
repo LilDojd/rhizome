@@ -7,7 +7,7 @@
       ...
     }:
     let
-      sink-rotate = withSystem pkgs.system ({ inputs', ... }: inputs'.sink-rotate.packages.default);
+      sink-rotate = withSystem pkgs.stdenv.hostPlatform.system ({ inputs', ... }: inputs'.sink-rotate.packages.default);
       mod = config.wayland.windowManager.sway.config.modifier;
     in
     {

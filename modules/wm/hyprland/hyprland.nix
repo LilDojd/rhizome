@@ -16,7 +16,7 @@
       };
       programs.hyprland =
         let
-          hyprland = inputs.hyprland.packages.${pkgs.system};
+          hyprland = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
         in
         {
           enable = true;
@@ -62,7 +62,7 @@
       ];
 
       wayland.windowManager.hyprland = {
-        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+        package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
         systemd = {
           enable = true;
           enableXdgAutostart = true;

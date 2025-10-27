@@ -13,6 +13,7 @@
 
     modules.nixos.yawner = {
       nix.settings.trusted-users = [ config.flake.meta.yawner.username ];
+      nix.settings.extra-sandbox-paths = [ "/etc/nix/netrc" ];
       users.users.${config.flake.meta.yawner.username} = {
         isNormalUser = true;
         extraGroups = [
