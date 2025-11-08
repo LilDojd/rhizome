@@ -41,8 +41,7 @@
             if pkgs.stdenv.isDarwin then
               "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
             else
-              # TODO: Find out the path
-              "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+              "${pkgs._1password-gui}/bin/op-ssh-sign";
         in
         {
           programs.ssh = {

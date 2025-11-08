@@ -17,7 +17,7 @@
       programs.gamemode.enable = true;
       environment.systemPackages = with pkgs; [
         mangohud
-        protonup
+        protonup-ng
       ];
     };
   nixpkgs.allowedUnfreePackages = [
