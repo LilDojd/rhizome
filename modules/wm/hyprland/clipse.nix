@@ -55,8 +55,8 @@
           "clipse -listen"
         ];
         bind = [
-          "$modifier,v,exec,uwsm app -- ${cmd}"
-          "$modifierSHIFT,v,exec,uwsm app -- clipse -clear"
+          "$modifier,v,exec,${cmd}"
+          "$modifierSHIFT,v,exec,clipse -clear"
         ];
         windowrulev2 = [
           "float, class:^(clipse)$"

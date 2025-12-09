@@ -7,8 +7,7 @@
           "killall -q waybar;sleep .5 && waybar"
           "killall -q swaync;sleep .5 && swaync"
           "nm-applet --indicator"
-          "uwsm finalize"
-          "uwsm app -- pypr"
+          "pypr"
           "sleep 1.5 && swww img ~/backgrounds/spacegoose.png"
         ];
       };

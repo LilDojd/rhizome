@@ -22,12 +22,21 @@
           enable = true;
           package = hyprland.hyprland;
           portalPackage = hyprland.xdg-desktop-portal-hyprland;
-          withUWSM = true;
+          withUWSM = false;
         };
 
       environment.sessionVariables.NIXOS_OZONE_WL = "1";
       hardware.graphics.enable32Bit = lib.mkForce true;
-      services.getty.autologinUser = "${config.flake.meta.owner.username}";
+      services.greetd = {
+        enable = true;
+
+        settings = {
+          default_session = {
+            command = "${pkgs.tuigreet}/bin/tuigreet --cmd start-hyprland";
+            user = "${config.flake.meta.owner.username}";
+          };
+        };
+      };
     };
   flake.modules.homeManager.hyprland =
     hmArgs@{ pkgs, ... }:
@@ -40,13 +49,6 @@
         };
       };
       imports = [ inputs.hyprland.homeManagerModules.default ];
-      programs.zsh = {
-        profileExtra = ''
-          if uwsm check may-start; then
-            exec uwsm start hyprland-uwsm.desktop
-          fi
-        '';
-      };
       home.packages = with pkgs; [
         grim
         slurp
