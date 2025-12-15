@@ -9,7 +9,8 @@
       extraSpecialArgs = {
         hasGlobalPkgs = true;
       };
-
+      
+      backupFileExtension = "hm-backup";
       users.${config.flake.meta.owner.username}.imports = [
         config.flake.modules.homeManager.base
         config.flake.modules.homeManager.gui or { }
