@@ -113,6 +113,8 @@
           };
         };
         languages.language-server.nixd.command = lib.getExe pkgs.nixd;
+        languages.language-server.ty.command = "ty";
+        languages.language-server.ty.args = ["server"];
 
         languages.language = [
           {
@@ -127,7 +129,7 @@
           {
             name = "python";
             language-servers = [
-              "basedpyright"
+              "ty"
               "ruff"
             ];
             auto-format = true;
