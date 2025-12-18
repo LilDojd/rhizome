@@ -33,6 +33,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-mineral = {
+      url = "github:cynicsketch/nix-mineral";
+      flake = false;
+    };
+
     cpu-microcodes = {
       flake = false;
       url = "github:platomav/CPUMicrocodes";
