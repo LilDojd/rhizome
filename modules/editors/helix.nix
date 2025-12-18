@@ -114,7 +114,7 @@
         };
         languages.language-server.nixd.command = lib.getExe pkgs.nixd;
         languages.language-server.ty.command = "ty";
-        languages.language-server.ty.args = ["server"];
+        languages.language-server.ty.args = [ "server" ];
 
         languages.language = [
           {
