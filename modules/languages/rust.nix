@@ -5,7 +5,7 @@
       {
         programs.nvf.settings.vim.languages.rust = {
           enable = true;
-          crates.enable = true;
+          extensions.crates-nvim.enable = true;
         };
         programs.helix = {
           languages = {
