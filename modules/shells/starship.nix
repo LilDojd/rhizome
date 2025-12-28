@@ -1,14 +1,21 @@
-_: {
+{ inputs, ... }:
+{
+  nixpkgs.overlays = [
+    inputs.jj-starship.overlays.default
+  ];
+  # flake.modules.nixos.base = {pkgs, ...}: {
+  #   environment.systemPackages = [ pkgs.jj-starship ];
+  # };
   flake.modules.homeManager.base =
-
+    { pkgs, ... }:
     {
-
+      home.packages = [ pkgs.jj-starship ];
       programs.starship = {
         enable = true;
         settings = {
           # General configuration
-          format = "$directory $git_branch $conda $nix_shell $character";
-          right_format = "$git_status$cmd_duration $rust";
+          format = "$directory \${custom.jj} $nix_shell $character";
+          right_format = "$cmd_duration $rust";
           add_newline = false;
 
           # Languages disabled
@@ -78,12 +85,14 @@ _: {
 
           # Git Branch
           git_branch = {
+            disabled = true;
             format = "[[ ](bg:none fg:green bold)$branch](bg:base fg:magenta)";
             style = "bg:none fg:base";
           };
 
           # Git Status
           git_status = {
+            disabled = true;
             format = "[$all_status$ahead_behind](fg:yellow)";
             conflicted = "=";
             ahead = "⇡$count";
@@ -95,6 +104,18 @@ _: {
             staged = "+$count";
             renamed = "»$count";
             deleted = "$count";
+          };
+
+          custom.jj = {
+            symbol = "";
+            style = "bg:base fg:green";
+            format = "[[ $symbol $output ](fg:magenta bg:base)]($style)";
+            command = "jj-starship --no-color --no-symbol --no-jj-prefix --no-git-prefix";
+            detect_folders = [
+              ".jj"
+              ".git"
+            ];
+            shell = [ "sh" ];
           };
 
           # Command Duration

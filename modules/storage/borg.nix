@@ -12,7 +12,6 @@
         mapAttrs'
         mkBefore
         nameValuePair
-        isString
         flip
         mkIf
         ;
@@ -29,10 +28,12 @@
       userFilesRaw = userPersist.files;
 
       normDir =
-        v: if isString v then v else (v.directory or (throw "impermanence: directory attr missing"));
+        v:
+        if builtins.isString v then v else (v.directory or (throw "impermanence: directory attr missing"));
       userDirs = map normDir userDirsRaw;
       userFiles = map (
-        v: if isString v then v else (v.path or v.file or (throw "impermanence: file path missing"))
+        v:
+        if builtins.isString v then v else (v.path or v.file or (throw "impermanence: file path missing"))
       ) userFilesRaw;
 
       toHome = p: "/home/${userName}/${p}";

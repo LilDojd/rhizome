@@ -10,7 +10,7 @@
         hash = "sha256-Oc0emnIUI4LV7QJLs4B2/FQtCFewRFVp7EDv8GawFsA=";
       };
       shellAliasAbbrs = lib.mapAttrs (
-        _: val: builtins.baseNameOf (lib.head (lib.splitString " " val))
+        _: val: baseNameOf (lib.head (lib.splitString " " val))
       ) config.home.shellAliases;
     in
     {

@@ -219,6 +219,12 @@
       inputs.cpu-microcodes.follows = "cpu-microcodes";
     };
 
+    jj-starship = {
+
+      url = "github:dmmulroy/jj-starship";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   # _additional_ `inputs` only for deduplication

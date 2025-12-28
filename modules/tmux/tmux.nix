@@ -4,7 +4,7 @@
     { pkgs, ... }:
     let
       inherit (pkgs.stdenv) isDarwin;
-      inherit (lib) optionals attrValues optionalString;
+      inherit (lib) optionals optionalString;
     in
     {
       programs.tmux = {
@@ -15,7 +15,7 @@
         keyMode = "vi";
         terminal = "tmux-256color";
         historyLimit = 50000;
-        plugins = attrValues {
+        plugins = lib.attrValues {
           inherit (pkgs.tmuxPlugins)
             battery
             copycat
