@@ -118,6 +118,11 @@
       flake = false;
     };
 
+    homebrew-mole = {
+      url = "github:tw93/homebrew-tap";
+      flake = false;
+    };
+
     homebrew-bundle = {
       url = "github:homebrew/homebrew-bundle";
       flake = false;

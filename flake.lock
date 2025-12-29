@@ -996,6 +996,22 @@
         "type": "github"
       }
     },
+    "homebrew-mole": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1767013157,
+        "narHash": "sha256-pbSw2sM89iCYq9kboCOO1Tlkr0qII1ZhfYliLioeWno=",
+        "owner": "tw93",
+        "repo": "homebrew-tap",
+        "rev": "27de0abcd57d18b24456ca9ee2c1b32589cadd83",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tw93",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "hyprcursor": {
       "inputs": {
         "hyprlang": [
@@ -1845,6 +1861,7 @@
         "homebrew-bundle": "homebrew-bundle",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
+        "homebrew-mole": "homebrew-mole",
         "hyprland": "hyprland",
         "hyprland-contrib": "hyprland-contrib",
         "hyprland-plugins": "hyprland-plugins",
