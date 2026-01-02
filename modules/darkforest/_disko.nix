@@ -98,7 +98,7 @@
 
       backups = {
         type = "disk";
-        device = "/dev/disk/by-id/ata-WDC_WD40NMZW-59A8NS1_WD-WXD2E205E3XW";
+        device = "/dev/disk/by-id/ata-Samsung_SSD_870_QVO_4TB_S5STNF0T506537B";
         content = {
           type = "gpt";
           partitions = {

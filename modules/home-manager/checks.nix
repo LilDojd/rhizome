@@ -30,7 +30,7 @@
             value =
               {
                 inherit pkgs;
-                modules = modules ++ [ { home.stateVersion = "25.05"; } ];
+                modules = modules ++ [ { home.stateVersion = "25.11"; } ];
               }
               |> inputs.home-manager.lib.homeManagerConfiguration
               |> lib.getAttrFromPath [

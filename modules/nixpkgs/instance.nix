@@ -35,9 +35,9 @@
         hostPlatform = nixosArgs.config.facter.report.system;
       };
     };
-    flake.modules.darwin.foundation = {pkgs, ...}: {
+    flake.modules.darwin.foundation = {
       nixpkgs = {
-        pkgs = withSystem (builtins.head config.systems)(psArgs: psArgs.pkgs);
+        pkgs = withSystem (builtins.head config.systems) (psArgs: psArgs.pkgs);
         hostPlatform = (builtins.head config.systems);
       };
     };
