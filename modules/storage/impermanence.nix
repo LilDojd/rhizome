@@ -77,7 +77,6 @@ in
             ".config/kde.org"
 
             ".local/share/task"
-            ".local/share/nix"
             ".config/syncall"
 
             ".local/share/Steam"
