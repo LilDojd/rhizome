@@ -109,7 +109,6 @@
           # };
 
           general = {
-            "$modifier" = "SUPER";
             layout = "dwindle";
             "col.active_border" =
               lib.mkForce "rgb(${hmArgs.config.lib.stylix.colors.base08}) rgb(${hmArgs.config.lib.stylix.colors.base0C}) 45deg";

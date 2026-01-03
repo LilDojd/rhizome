@@ -1,6 +1,6 @@
 {
   flake.modules.homeManager.hyprland = {
-    wayland.windowManager.hyprland.settings.general = {
+    wayland.windowManager.hyprland.settings = {
       "$modifier" = "SUPER";
     };
   };
