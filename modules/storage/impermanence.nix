@@ -94,12 +94,13 @@ in
             ".mozilla"
             ".librewolf"
 
+            ".local/share/nix/trusted-settings.json"
+
             ".local/share/zoxide"
             ".cache/zsh"
 
             ".cache/nsearch"
 
-            ".local/share/nvim"
             ".local/state/nvim"
             ".local/state/nix/profiles/channels" # determinate nix log spam fix
             ".config/github-copilot"
