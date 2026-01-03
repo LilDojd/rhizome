@@ -33,6 +33,9 @@ in
               module
               { networking = { inherit hostName; }; }
             ];
+            specialArgs = {
+              nixosModules = config.flake.modules.nixos;
+            };
           };
         }
       );

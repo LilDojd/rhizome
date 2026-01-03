@@ -29,6 +29,9 @@ in
                 system.stateVersion = 6;
               }
             ];
+            specialArgs = {
+              darwinModules = config.flake.modules.darwin;
+            };
           };
         }
       );

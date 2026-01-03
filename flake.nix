@@ -35,7 +35,7 @@
 
     nix-mineral = {
       url = "github:cynicsketch/nix-mineral";
-      flake = false;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     cpu-microcodes = {

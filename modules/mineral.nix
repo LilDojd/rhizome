@@ -2,7 +2,7 @@
 {
   flake.modules = {
     nixos.foundation = {
-      imports = [ "${inputs.nix-mineral}/nix-mineral.nix" ];
+      imports = [ inputs.nix-mineral.nixosModules.nix-mineral ];
       nix-mineral = {
         enable = true;
         settings = {
@@ -14,9 +14,6 @@
             # to potentially improve performance.
             # DO NOT disable all cpu mitigations,
             cpu-mitigations = "smt-on";
-
-            # Could increase I/O performance on ARM64 systems, with risk.
-            iommu-passthrough = true;
 
             # PTI (Page Table Isolation) may tax performance.
             pti = false;

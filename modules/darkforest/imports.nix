@@ -1,7 +1,11 @@
-{ config, ... }:
+{ ... }:
 {
   flake.modules.nixos."nixosConfigurations/darkforest" = {
-    imports = with config.flake.modules.nixos; [
+    nixosModules,
+    ...
+  }:
+  {
+    imports = with nixosModules; [
       foundation
       efi
       yawner
