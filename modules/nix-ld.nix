@@ -7,8 +7,8 @@
   flake.modules.nixos.foundation =
     { pkgs, ... }:
     {
-      environment.systemPackages = [
-        pkgs.nix-alien
+      environment.systemPackages = with inputs.nix-alien.packages."x86_64_linux"; [
+        nix-alien
       ];
       programs.nix-ld.enable = true;
       programs.nix-ld.libraries =
@@ -21,5 +21,4 @@
         ++ (appimageTools.defaultFhsEnvArgs.targetPkgs pkgs)
         ++ (appimageTools.defaultFhsEnvArgs.multiPkgs pkgs);
     };
-
 }

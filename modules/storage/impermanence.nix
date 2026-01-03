@@ -80,6 +80,7 @@ in
             ".local/share/nix"
             ".config/syncall"
 
+            ".local/share/nix"
             ".local/share/Steam"
             ".steam"
             ".config/heroic"
