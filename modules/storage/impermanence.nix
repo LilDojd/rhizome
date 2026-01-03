@@ -93,8 +93,6 @@ in
             ".mozilla"
             ".librewolf"
 
-            ".local/share/nix/trusted-settings.json"
-
             ".local/share/zoxide"
             ".cache/zsh"
 
@@ -169,6 +167,7 @@ in
             ".temp.zsh"
             ".gtasks_credentials.pickle"
             "screen/.screenrc"
+            ".local/share/nix/trusted-settings.json"
           ];
         };
       };
