@@ -77,6 +77,7 @@ in
             ".config/kde.org"
 
             ".local/share/task"
+            ".local/share/nix"
             ".config/syncall"
 
             ".local/share/Steam"
@@ -167,7 +168,6 @@ in
             ".temp.zsh"
             ".gtasks_credentials.pickle"
             "screen/.screenrc"
-            ".local/share/nix/trusted-settings.json"
           ];
         };
       };

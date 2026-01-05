@@ -5,6 +5,7 @@
       imports = [ inputs.nix-mineral.nixosModules.nix-mineral ];
       nix-mineral = {
         enable = true;
+        preset = "compatibility";
         settings = {
           kernel = {
             # if false, may prevent low resource systems from booting.
@@ -23,7 +24,23 @@
             ip-forwarding = true;
           };
         };
-
+        filesystems = {
+          enable = true;
+          normal = {
+            home = {
+              enable = true;
+              options.noexec = false;
+            };
+            tmp = {
+              enable = true;
+              options.noexec = false;
+            };
+            var = {
+              enable = true;
+              options.noexec = false;
+            };
+          };
+        };
       };
     };
   };
