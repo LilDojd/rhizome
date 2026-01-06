@@ -56,19 +56,19 @@
         ];
         bind = [
           "$modifier,v,exec,${cmd}"
-          "$modifierSHIFT,v,exec,clipse -clear"
+          "$modifier SHIFT,v,exec,clipse -clear"
         ];
-        windowrulev2 = [
-          "float, class:^(clipse)$"
-          "stayfocused, class:^(clipse)$"
-          # "move cursor 0 0, class:^(clipse)$"
-          "center, class:^(clipse)$"
-          "pin, class:^(clipse)$"
-          "opacity 1, class:^(clipse)$"
-          "noanim 1, class:^(clipse)$"
-          "noanim 1, class:^(clipse)$"
-          "immediate on, class:^(clipse)$"
-          "suppressevent fullscreen maximize, class:^(clipse)$"
+        windowrule = [
+          "float on, match:class ^(clipse)$"
+          "stay_focused on, match:class ^(clipse)$"
+          "move cursor 0 0, match:class ^(clipse)$"
+          "center on, match:class ^(clipse)$"
+          "pin on, match:class ^(clipse)$"
+          "opacity on, match:class ^(clipse)$"
+          "no_anim on, match:class ^(clipse)$"
+          "no_anim on, match:class ^(clipse)$"
+          "immediate on, match:class ^(clipse)$"
+          "suppress_event fullscreen maximize, match:class ^(clipse)$"
         ];
       };
     };

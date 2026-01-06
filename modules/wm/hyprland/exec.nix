@@ -4,7 +4,7 @@
       settings = {
         exec-once = [
           "killall -q swww;sleep .5 && swww-daemon"
-          "killall -q waybar;sleep .5 && waybar"
+          # ashell is started via systemd (programs.ashell.systemd.enable = true)
           "killall -q swaync;sleep .5 && swaync"
           "nm-applet --indicator"
           "pypr"

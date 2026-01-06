@@ -84,10 +84,10 @@
           ",XF86MonBrightnessDown,exec,brightnessctl set 5%-"
           ",XF86MonBrightnessUp,exec,brightnessctl set +5%"
 
-          "$modfierCTRL,h,resizeactive,-50 0"
-          "$modfierCTRL,l,resizeactive,50 0"
-          "$modfierCTRL,j,resizeactive,0 50"
-          "$modfierCTRL,k,resizeactive,0 -50"
+          "$modifier CTRL,h,resizeactive,-50 0"
+          "$modifier CTRL,l,resizeactive,50 0"
+          "$modifier CTRL,j,resizeactive,0 50"
+          "$modifier CTRL,k,resizeactive,0 -50"
         ];
 
         bindm = [
