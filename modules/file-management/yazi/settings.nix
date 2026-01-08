@@ -204,14 +204,6 @@ _: {
         suppress_preload = false;
       };
       plugin = {
-        fetchers = [
-          {
-            id = "mime";
-            name = "*";
-            run = "mime";
-            prio = "high";
-          }
-        ];
         prepend_fetchers = [
           {
             id = "jj";
@@ -222,6 +214,12 @@ _: {
             id = "jj";
             name = "*/";
             run = "jj";
+          }
+          {
+            id = "mime";
+            name = "*";
+            run = "mime-ext";
+            prio = "high";
           }
         ];
         spotters = [

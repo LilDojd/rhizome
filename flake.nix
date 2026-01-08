@@ -198,7 +198,7 @@
     swww.url = "github:LGFae/swww";
 
     stylix = {
-      url = "github:danth/stylix";
+      url = "github:nix-community/stylix/pull/2130/head";
       flake = true;
       inputs = {
         flake-parts.follows = "flake-parts";

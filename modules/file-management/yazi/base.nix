@@ -11,6 +11,14 @@
         ripgrep-all
         unzip
         tokei
+        ffmpeg
+        imagemagick
+        poppler-utils
+        jq
+        p7zip
+        resvg
+        exiftool
+        mediainfo
       ];
       programs = {
         yazi = {
@@ -20,9 +28,11 @@
             inherit (pkgs.yaziPlugins) lazygit;
             inherit (pkgs.yaziPlugins) full-border;
             inherit (pkgs.yaziPlugins) smart-enter;
+            inherit (pkgs.yaziPlugins) mime-ext;
           };
           initLua = ''
             			require("full-border"):setup()
+            			require("mime-ext"):setup()
                   require("smart-enter"):setup {
                     open_multi = true,
                   }
