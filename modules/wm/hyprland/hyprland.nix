@@ -70,9 +70,6 @@
           enableXdgAutostart = true;
           variables = [ "--all" ];
         };
-        xwayland = {
-          enable = true;
-        };
 
         extraConfig = ''
           xwayland {
