@@ -8,5 +8,6 @@
         addresses = true;
       };
     };
+    services.resolved.enable = true;
   };
 }

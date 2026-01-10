@@ -3,9 +3,6 @@
   nixpkgs.overlays = [
     inputs.jj-starship.overlays.default
   ];
-  # flake.modules.nixos.base = {pkgs, ...}: {
-  #   environment.systemPackages = [ pkgs.jj-starship ];
-  # };
   flake.modules.homeManager.base =
     { pkgs, ... }:
     {
@@ -110,12 +107,11 @@
             symbol = "";
             style = "bg:base fg:green";
             format = "[[ $symbol $output ](fg:magenta bg:base)]($style)";
-            command = "jj-starship --no-color --no-symbol --no-jj-prefix --no-git-prefix";
             detect_folders = [
               ".jj"
               ".git"
             ];
-            shell = [ "sh" ];
+            shell = [ "jj-starship" "--no-color" "--no-symbol" "--no-jj-prefix" "--no-git-prefix"];
           };
 
           # Command Duration
