@@ -15,6 +15,13 @@
             launchOptions = "LD_PRELOAD='' gamemoderun %command%";
           };
         };
+        apps = {
+          readyornot = {
+            id = 1144200;
+            compatTool = "GE-Proton";
+            launchOptions = "gamemoderun %command%";
+          };
+        };
       };
     };
 

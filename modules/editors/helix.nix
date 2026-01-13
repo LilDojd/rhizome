@@ -123,7 +123,7 @@
               "nixd"
               "nil"
             ];
-            formatter.binary = lib.getExe pkgs.nixfmt-rfc-style;
+            formatter.binary = lib.getExe pkgs.nixfmt;
             formatter.command = "nixfmt";
           }
           {
@@ -156,7 +156,7 @@
           marksman
           nodePackages.typescript-language-server
           nodePackages.prettier
-          nixfmt-rfc-style
+          nixfmt
           nixd
           nil
           taplo
