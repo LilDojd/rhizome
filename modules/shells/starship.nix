@@ -111,7 +111,13 @@
               ".jj"
               ".git"
             ];
-            shell = [ "jj-starship" "--no-color" "--no-symbol" "--no-jj-prefix" "--no-git-prefix"];
+            shell = [
+              "jj-starship"
+              "--no-color"
+              "--no-symbol"
+              "--no-jj-prefix"
+              "--no-git-prefix"
+            ];
           };
 
           # Command Duration

@@ -33,8 +33,8 @@
             settings."toolkit.legacyUserProfileCustomizations.stylesheets" = true;
             settings."browser.ctrlTab.sortByRecentlyUsed" = true;
             settings."browser.tabs.closeWindowWithLastTab" = false;
-            userChrome = '''';
-            userContent = '''';
+            userChrome = "";
+            userContent = "";
             extensions.packages = with plugins; [
               privacy-badger
               vimium
