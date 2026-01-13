@@ -40,6 +40,15 @@
             ];
           };
 
+          system_info = {
+            indicators = [
+              "Cpu"
+              "Memory"
+              "Temperature"
+            ];
+            temperature.sensor = "k10temp Tctl";
+          };
+
           app_launcher_cmd = "rofi-launcher";
 
           workspaces = {

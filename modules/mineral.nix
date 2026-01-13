@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 {
   flake.modules = {
     nixos.foundation = {
@@ -7,6 +7,7 @@
         enable = true;
         preset = "compatibility";
         settings = {
+          system.yama = lib.mkForce "none";
           kernel = {
             # if false, may prevent low resource systems from booting.
             busmaster-bit = true;
