@@ -1,12 +1,9 @@
 { inputs, ... }:
 {
-  nixpkgs.overlays = [
-    inputs.jj-starship.overlays.default
-  ];
   flake.modules.homeManager.base =
     { pkgs, ... }:
     {
-      home.packages = [ pkgs.jj-starship ];
+      home.packages = [ inputs.jj-starship.packages.${pkgs.stdenv.hostPlatform.system}.jj-starship ];
       programs.starship = {
         enable = true;
         settings = {

@@ -21,7 +21,10 @@
 
   config = {
     perSystem =
-      { system, ... }:
+      { inputs', ... }:
+      let
+        inherit (inputs'.nixpkgs.legacyPackages.stdenv.hostPlatform) system;
+      in
       {
         _module.args.pkgs = import inputs.nixpkgs {
           inherit system;
