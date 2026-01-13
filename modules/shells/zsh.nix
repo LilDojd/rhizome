@@ -23,6 +23,7 @@
       programs.zsh = {
         enable = true;
         initContent = lib.mkMerge [ earlyZshInit ];
+        dotDir = homeArgs.config.home.homeDirectory;
       };
     };
 }

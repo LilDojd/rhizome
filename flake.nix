@@ -3,7 +3,7 @@
   description = "Yawner's Nix Environment";
 
   nixConfig = {
-    abort-on-warn = false;
+    abort-on-warn = true;
     extra-experimental-features = [
       "flakes"
       "pipe-operators"
