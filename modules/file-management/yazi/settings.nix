@@ -217,8 +217,14 @@ _: {
           }
           {
             id = "mime";
-            name = "*";
-            run = "mime-ext";
+            name = "local://*";
+            run = "mime-ext.local";
+            prio = "high";
+          }
+          {
+            id = "mime";
+            name = "remote://*";
+            run = "mime-ext.remote";
             prio = "high";
           }
         ];
