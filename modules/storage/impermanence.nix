@@ -40,6 +40,10 @@ in
     config = {
       security.sudo.extraConfig = "Defaults lecture=never";
       fileSystems."/persistent".neededForBoot = true;
+      fileSystems."/home".neededForBoot = true;
+      fileSystems."/etc".neededForBoot = true;
+      fileSystems."/var".neededForBoot = true;
+      fileSystems."/var/lib".neededForBoot = true;
 
       boot.initrd = {
         systemd = {
@@ -77,7 +81,6 @@ in
             ".config/kde.org"
 
             ".local/share/task"
-            ".local/share/nix"
             ".config/syncall"
 
             ".local/share/nix"
