@@ -1,5 +1,5 @@
 {
-  nixpkgs.allowedUnfreePackages = [ "obsidian" ];
+  nixpkgs.config.allowUnfreePackages = [ "obsidian" ];
   flake.modules = {
     nixos.foundation =
       { pkgs, ... }:

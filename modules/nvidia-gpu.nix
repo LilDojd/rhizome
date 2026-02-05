@@ -18,7 +18,7 @@
       };
     };
 
-  nixpkgs.allowedUnfreePackages = [
+  nixpkgs.config.allowUnfreePackages = [
     "nvidia-x11"
     "nvidia-settings"
   ];

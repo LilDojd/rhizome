@@ -1,5 +1,5 @@
 {
-  nixpkgs.allowedUnfreePackages = [ "davinci-resolve-studio" ];
+  nixpkgs.config.allowUnfreePackages = [ "davinci-resolve-studio" ];
   flake.modules.nixos.foundation =
     { pkgs, ... }:
     {

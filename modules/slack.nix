@@ -30,5 +30,5 @@
       };
     };
   };
-  nixpkgs.allowedUnfreePackages = [ "slack" ];
+  nixpkgs.config.allowUnfreePackages = [ "slack" ];
 }

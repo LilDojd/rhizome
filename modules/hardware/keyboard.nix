@@ -1,5 +1,5 @@
 {
-  nixpkgs.allowedUnfreePackages = [ "via" ];
+  nixpkgs.config.allowUnfreePackages = [ "via" ];
   flake.modules = {
     nixos.foundation =
       { pkgs, ... }:

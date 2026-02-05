@@ -20,7 +20,7 @@
         protonup-ng
       ];
     };
-  nixpkgs.allowedUnfreePackages = [
+  nixpkgs.config.allowUnfreePackages = [
     "steam"
     "steam-original"
     "steam-unwrapped"

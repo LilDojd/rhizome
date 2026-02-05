@@ -4,7 +4,7 @@
   ...
 }:
 {
-  nixpkgs.allowedUnfreePackages = [
+  nixpkgs.config.allowUnfreePackages = [
     "1password"
     "1password-cli"
     "1password-gui"

@@ -45,7 +45,7 @@
         userDirs = {
           enable = true;
           createDirectories = true;
-          extraConfig.XDG_SS_DIR = "${hmArgs.config.home.homeDirectory}/backgrounds";
+          extraConfig.SS_DIR = "${hmArgs.config.home.homeDirectory}/backgrounds";
         };
       };
       imports = [ inputs.hyprland.homeManagerModules.default ];

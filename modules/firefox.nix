@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  nixpkgs.allowedUnfreePackages = [
+  nixpkgs.config.allowUnfreePackages = [
     "firefox-bin"
     "firefox-bin-unwrapped"
   ];

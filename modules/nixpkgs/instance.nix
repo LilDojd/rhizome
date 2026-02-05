@@ -12,6 +12,10 @@
         type = lib.types.functionTo lib.types.bool;
         default = _: false;
       };
+      allowUnfreePackages = lib.mkOption {
+        type = lib.types.listOf lib.types.singleLineStr;
+        default = [ ];
+      };
     };
     overlays = lib.mkOption {
       type = lib.types.listOf lib.types.unspecified;
@@ -21,10 +25,7 @@
 
   config = {
     perSystem =
-      { inputs', ... }:
-      let
-        inherit (inputs'.nixpkgs.legacyPackages.stdenv.hostPlatform) system;
-      in
+      { system, ... }:
       {
         _module.args.pkgs = import inputs.nixpkgs {
           inherit system;

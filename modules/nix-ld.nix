@@ -7,7 +7,7 @@
   flake.modules.nixos.foundation =
     { pkgs, ... }:
     {
-      environment.systemPackages = with inputs.nix-alien.packages."x86_64_linux"; [
+      environment.systemPackages = with inputs.nix-alien.packages."x86_64-linux"; [
         nix-alien
       ];
       programs.nix-ld.enable = true;
