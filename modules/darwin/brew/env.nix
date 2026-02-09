@@ -10,7 +10,7 @@
           HOMEBREW_NO_INSECURE_REDIRECT = "1";
           HOMEBREW_NO_ENV_HINTS = "0";
         };
-        systemPath = [ config.homebrew.brewPrefix ];
+        systemPath = [ config.homebrew.prefix ];
       };
     };
 }

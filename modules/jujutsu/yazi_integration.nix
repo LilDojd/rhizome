@@ -18,8 +18,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "LilDojd";
           repo = "plugins";
-          rev = "2dd1dbc21306739c1871dbe13c04ca0e39d2c168";
-          hash = "sha256-73+iDVByaTWOsDI5A3/0TI9p56bWW6Kt3rlPRIpLEgQ=";
+          rev = "ea851d1118f934fe260d8fb4917a89677af2445b";
+          hash = "sha256-tApxNM0j9TnX1mAb1l7dfl9hruU68Nnud2BAEByJ0FU=";
         };
 
         meta = {
