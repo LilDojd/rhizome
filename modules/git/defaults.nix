@@ -26,6 +26,7 @@
       "**/*.rs.bk"
       ".basedpyright/"
       ".vscode"
+      ".claude"
     ];
   };
 }

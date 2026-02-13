@@ -3050,7 +3050,7 @@
         "sysfs_id": "/class/block/zram0",
         "unix_device_names": [
           "/dev/disk/by-label/zram0",
-          "/dev/disk/by-uuid/a76bd4d6-7b85-4d7d-a9f2-3150106afac5",
+          "/dev/disk/by-uuid/47e187ae-7e71-48e1-a784-4338da85477b",
           "/dev/zram0"
         ],
         "resources": [
@@ -3236,7 +3236,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.18.7 xhci-hcd",
+          "name": "Linux 6.19.0 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -3246,11 +3246,11 @@
         },
         "revision": {
           "hex": "0000",
-          "name": "6.18",
+          "name": "6.19",
           "value": 0
         },
         "serial": "0000:78:00.0",
-        "model": "Linux 6.18.7 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.19.0 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:02.2/0000:12:00.0/0000:13:02.0/0000:78:00.0/usb6/6-0:1.0",
         "sysfs_bus_id": "6-0:1.0",
         "detail": {
@@ -3284,7 +3284,7 @@
         "driver_module": "usbcore",
         "drivers": ["hub"],
         "driver_modules": ["usbcore"],
-        "module_alias": "usb:v1D6Bp0003d0618dc09dsc00dp03ic09isc00ip00in00"
+        "module_alias": "usb:v1D6Bp0003d0619dc09dsc00dp03ic09isc00ip00in00"
       },
       {
         "index": 113,
@@ -3306,7 +3306,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.18.7 xhci-hcd",
+          "name": "Linux 6.19.0 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -3316,11 +3316,11 @@
         },
         "revision": {
           "hex": "0000",
-          "name": "6.18",
+          "name": "6.19",
           "value": 0
         },
         "serial": "0000:10:00.0",
-        "model": "Linux 6.18.7 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.19.0 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:02.1/0000:04:00.0/0000:05:0c.0/0000:10:00.0/usb3/3-0:1.0",
         "sysfs_bus_id": "3-0:1.0",
         "resources": [
@@ -3364,7 +3364,7 @@
         "driver_module": "usbcore",
         "drivers": ["hub"],
         "driver_modules": ["usbcore"],
-        "module_alias": "usb:v1D6Bp0002d0618dc09dsc00dp01ic09isc00ip00in00"
+        "module_alias": "usb:v1D6Bp0002d0619dc09dsc00dp01ic09isc00ip00in00"
       },
       {
         "index": 115,
@@ -3465,7 +3465,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.18.7 xhci-hcd",
+          "name": "Linux 6.19.0 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -3475,11 +3475,11 @@
         },
         "revision": {
           "hex": "0000",
-          "name": "6.18",
+          "name": "6.19",
           "value": 0
         },
         "serial": "0000:7a:00.3",
-        "model": "Linux 6.18.7 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.19.0 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:08.1/0000:7a:00.3/usb7/7-0:1.0",
         "sysfs_bus_id": "7-0:1.0",
         "resources": [
@@ -3523,7 +3523,7 @@
         "driver_module": "usbcore",
         "drivers": ["hub"],
         "driver_modules": ["usbcore"],
-        "module_alias": "usb:v1D6Bp0002d0618dc09dsc00dp01ic09isc00ip00in00"
+        "module_alias": "usb:v1D6Bp0002d0619dc09dsc00dp01ic09isc00ip00in00"
       },
       {
         "index": 120,
@@ -3545,7 +3545,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.18.7 xhci-hcd",
+          "name": "Linux 6.19.0 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -3555,11 +3555,11 @@
         },
         "revision": {
           "hex": "0000",
-          "name": "6.18",
+          "name": "6.19",
           "value": 0
         },
         "serial": "0000:7a:00.4",
-        "model": "Linux 6.18.7 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.19.0 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:08.1/0000:7a:00.4/usb10/10-0:1.0",
         "sysfs_bus_id": "10-0:1.0",
         "detail": {
@@ -3593,7 +3593,7 @@
         "driver_module": "usbcore",
         "drivers": ["hub"],
         "driver_modules": ["usbcore"],
-        "module_alias": "usb:v1D6Bp0003d0618dc09dsc00dp03ic09isc00ip00in00"
+        "module_alias": "usb:v1D6Bp0003d0619dc09dsc00dp03ic09isc00ip00in00"
       },
       {
         "index": 121,
@@ -3694,7 +3694,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.18.7 xhci-hcd",
+          "name": "Linux 6.19.0 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -3704,11 +3704,11 @@
         },
         "revision": {
           "hex": "0000",
-          "name": "6.18",
+          "name": "6.19",
           "value": 0
         },
         "serial": "0000:10:00.0",
-        "model": "Linux 6.18.7 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.19.0 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:02.1/0000:04:00.0/0000:05:0c.0/0000:10:00.0/usb4/4-0:1.0",
         "sysfs_bus_id": "4-0:1.0",
         "detail": {
@@ -3742,7 +3742,7 @@
         "driver_module": "usbcore",
         "drivers": ["hub"],
         "driver_modules": ["usbcore"],
-        "module_alias": "usb:v1D6Bp0003d0618dc09dsc00dp03ic09isc00ip00in00"
+        "module_alias": "usb:v1D6Bp0003d0619dc09dsc00dp03ic09isc00ip00in00"
       },
       {
         "index": 126,
@@ -3912,7 +3912,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.18.7 xhci-hcd",
+          "name": "Linux 6.19.0 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -3922,11 +3922,11 @@
         },
         "revision": {
           "hex": "0000",
-          "name": "6.18",
+          "name": "6.19",
           "value": 0
         },
         "serial": "0000:7a:00.3",
-        "model": "Linux 6.18.7 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.19.0 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:08.1/0000:7a:00.3/usb8/8-0:1.0",
         "sysfs_bus_id": "8-0:1.0",
         "detail": {
@@ -3960,7 +3960,7 @@
         "driver_module": "usbcore",
         "drivers": ["hub"],
         "driver_modules": ["usbcore"],
-        "module_alias": "usb:v1D6Bp0003d0618dc09dsc00dp03ic09isc00ip00in00"
+        "module_alias": "usb:v1D6Bp0003d0619dc09dsc00dp03ic09isc00ip00in00"
       },
       {
         "index": 134,
@@ -3982,7 +3982,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.18.7 xhci-hcd",
+          "name": "Linux 6.19.0 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -3992,11 +3992,11 @@
         },
         "revision": {
           "hex": "0000",
-          "name": "6.18",
+          "name": "6.19",
           "value": 0
         },
         "serial": "0000:0e:00.0",
-        "model": "Linux 6.18.7 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.19.0 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:02.1/0000:04:00.0/0000:05:08.0/0000:07:00.0/0000:08:0c.0/0000:0e:00.0/usb1/1-0:1.0",
         "sysfs_bus_id": "1-0:1.0",
         "resources": [
@@ -4040,7 +4040,7 @@
         "driver_module": "usbcore",
         "drivers": ["hub"],
         "driver_modules": ["usbcore"],
-        "module_alias": "usb:v1D6Bp0002d0618dc09dsc00dp01ic09isc00ip00in00"
+        "module_alias": "usb:v1D6Bp0002d0619dc09dsc00dp01ic09isc00ip00in00"
       },
       {
         "index": 137,
@@ -4062,7 +4062,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.18.7 xhci-hcd",
+          "name": "Linux 6.19.0 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -4072,11 +4072,11 @@
         },
         "revision": {
           "hex": "0000",
-          "name": "6.18",
+          "name": "6.19",
           "value": 0
         },
         "serial": "0000:7b:00.0",
-        "model": "Linux 6.18.7 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.19.0 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:08.3/0000:7b:00.0/usb11/11-0:1.0",
         "sysfs_bus_id": "11-0:1.0",
         "resources": [
@@ -4120,7 +4120,7 @@
         "driver_module": "usbcore",
         "drivers": ["hub"],
         "driver_modules": ["usbcore"],
-        "module_alias": "usb:v1D6Bp0002d0618dc09dsc00dp01ic09isc00ip00in00"
+        "module_alias": "usb:v1D6Bp0002d0619dc09dsc00dp01ic09isc00ip00in00"
       },
       {
         "index": 138,
@@ -4210,7 +4210,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.18.7 xhci-hcd",
+          "name": "Linux 6.19.0 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -4220,11 +4220,11 @@
         },
         "revision": {
           "hex": "0000",
-          "name": "6.18",
+          "name": "6.19",
           "value": 0
         },
         "serial": "0000:78:00.0",
-        "model": "Linux 6.18.7 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.19.0 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:02.2/0000:12:00.0/0000:13:02.0/0000:78:00.0/usb5/5-0:1.0",
         "sysfs_bus_id": "5-0:1.0",
         "resources": [
@@ -4268,7 +4268,7 @@
         "driver_module": "usbcore",
         "drivers": ["hub"],
         "driver_modules": ["usbcore"],
-        "module_alias": "usb:v1D6Bp0002d0618dc09dsc00dp01ic09isc00ip00in00"
+        "module_alias": "usb:v1D6Bp0002d0619dc09dsc00dp01ic09isc00ip00in00"
       },
       {
         "index": 143,
@@ -4359,7 +4359,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.18.7 xhci-hcd",
+          "name": "Linux 6.19.0 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -4369,11 +4369,11 @@
         },
         "revision": {
           "hex": "0000",
-          "name": "6.18",
+          "name": "6.19",
           "value": 0
         },
         "serial": "0000:7a:00.4",
-        "model": "Linux 6.18.7 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.19.0 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:08.1/0000:7a:00.4/usb9/9-0:1.0",
         "sysfs_bus_id": "9-0:1.0",
         "resources": [
@@ -4417,7 +4417,7 @@
         "driver_module": "usbcore",
         "drivers": ["hub"],
         "driver_modules": ["usbcore"],
-        "module_alias": "usb:v1D6Bp0002d0618dc09dsc00dp01ic09isc00ip00in00"
+        "module_alias": "usb:v1D6Bp0002d0619dc09dsc00dp01ic09isc00ip00in00"
       },
       {
         "index": 150,
@@ -4439,7 +4439,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.18.7 xhci-hcd",
+          "name": "Linux 6.19.0 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -4449,11 +4449,11 @@
         },
         "revision": {
           "hex": "0000",
-          "name": "6.18",
+          "name": "6.19",
           "value": 0
         },
         "serial": "0000:0e:00.0",
-        "model": "Linux 6.18.7 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.19.0 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:02.1/0000:04:00.0/0000:05:08.0/0000:07:00.0/0000:08:0c.0/0000:0e:00.0/usb2/2-0:1.0",
         "sysfs_bus_id": "2-0:1.0",
         "detail": {
@@ -4487,7 +4487,7 @@
         "driver_module": "usbcore",
         "drivers": ["hub"],
         "driver_modules": ["usbcore"],
-        "module_alias": "usb:v1D6Bp0003d0618dc09dsc00dp03ic09isc00ip00in00"
+        "module_alias": "usb:v1D6Bp0003d0619dc09dsc00dp03ic09isc00ip00in00"
       }
     ],
     "keyboard": [
@@ -4626,7 +4626,7 @@
           "/dev/input/by-id/usb-ALICE_QK_ALICE_1414D7D5_5680000-event-kbd",
           "/dev/input/by-path/pci-0000:0e:00.0-usb-0:3.3:1.0-event-kbd",
           "/dev/input/by-path/pci-0000:0e:00.0-usbv2-0:3.3:1.0-event-kbd",
-          "/dev/input/event1"
+          "/dev/input/event3"
         ],
         "resources": [
           {
@@ -5208,7 +5208,7 @@
         "resources": [
           {
             "type": "hwaddr",
-            "address": 51
+            "address": 57
           },
           {
             "type": "io",
@@ -5291,24 +5291,6 @@
     "network_interface": [
       {
         "index": 151,
-        "attached_to": 0,
-        "class_list": ["network_interface"],
-        "base_class": {
-          "hex": "0107",
-          "name": "Network Interface",
-          "value": 263
-        },
-        "sub_class": {
-          "hex": "0000",
-          "name": "Loopback",
-          "value": 0
-        },
-        "model": "Loopback network interface",
-        "sysfs_id": "/class/net/lo",
-        "unix_device_names": ["lo"]
-      },
-      {
-        "index": 152,
         "attached_to": 50,
         "class_list": ["network_interface"],
         "base_class": {
@@ -5328,7 +5310,7 @@
         "resources": [
           {
             "type": "hwaddr",
-            "address": 51
+            "address": 57
           },
           {
             "type": "phwaddr",
@@ -5339,6 +5321,24 @@
         "driver_module": "r8169",
         "drivers": ["r8169"],
         "driver_modules": ["r8169"]
+      },
+      {
+        "index": 152,
+        "attached_to": 0,
+        "class_list": ["network_interface"],
+        "base_class": {
+          "hex": "0107",
+          "name": "Network Interface",
+          "value": 263
+        },
+        "sub_class": {
+          "hex": "0000",
+          "name": "Loopback",
+          "value": 0
+        },
+        "model": "Loopback network interface",
+        "sysfs_id": "/class/net/lo",
+        "unix_device_names": ["lo"]
       }
     ],
     "pci": [
@@ -5803,7 +5803,7 @@
           },
           "interface_protocol": 0,
           "interface_number": 1,
-          "interface_alternate_setting": 0
+          "interface_alternate_setting": 1
         },
         "hotplug": "usb",
         "driver": "snd-usb-audio",
@@ -6184,7 +6184,7 @@
           },
           "interface_protocol": 0,
           "interface_number": 2,
-          "interface_alternate_setting": 0
+          "interface_alternate_setting": 2
         },
         "hotplug": "usb",
         "driver": "snd-usb-audio",
@@ -6911,12 +6911,7 @@
         "model": "Logitech PRO X Wireless Gaming Headset",
         "sysfs_id": "/devices/pci0000:00/0000:00:02.1/0000:04:00.0/0000:05:0c.0/0000:10:00.0/usb3/3-5/3-5.1/3-5.1:1.3",
         "sysfs_bus_id": "3-5.1:1.3",
-        "unix_device_names": [
-          "/dev/input/by-id/usb-Logitech_PRO_X_Wireless_Gaming_Headset-event-if03",
-          "/dev/input/by-path/pci-0000:10:00.0-usb-0:5.1:1.3-event",
-          "/dev/input/by-path/pci-0000:10:00.0-usbv2-0:5.1:1.3-event",
-          "/dev/input/event4"
-        ],
+        "unix_device_names": ["/dev/input/event1"],
         "resources": [
           {
             "type": "baud",

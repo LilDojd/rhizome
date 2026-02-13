@@ -1,5 +1,6 @@
 _: {
   flake.modules.homeManager.base = {
+    programs.yazi.shellWrapperName = "y";
     programs.yazi.settings = {
       mgr = {
         ratio = [

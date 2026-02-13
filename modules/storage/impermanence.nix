@@ -102,6 +102,8 @@ in
             ".cache/zsh"
 
             ".cache/nsearch"
+            ".cache/mesa_shader_cache"
+            ".cache/radv_builtin_shaders"
 
             ".local/state/nvim"
             ".local/state/nix/profiles/channels" # determinate nix log spam fix
@@ -129,7 +131,7 @@ in
             ".local/state/wireplumber"
             ".config/pulse"
             ".config/Mailspring"
-            ".cursor"
+            ".claude"
 
             ".local/share/fish"
             "Downloads"

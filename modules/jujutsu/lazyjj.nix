@@ -3,8 +3,8 @@
     { pkgs, ... }:
     {
       home.packages = [
-        pkgs.lazyjj
+        pkgs.jjui
       ];
-      home.shellAliases.lj = "lazyjj";
+      home.shellAliases.lj = "jjui";
     };
 }
