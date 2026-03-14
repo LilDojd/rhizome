@@ -90,6 +90,7 @@ in
 
             ".local/share/applications"
             ".local/share/onlyoffice"
+            ".local/share/Larian Studios"
 
             ".config/Slack"
 
@@ -123,6 +124,7 @@ in
             ".config/Proton"
             ".config/Proton Pass"
             ".config/nix"
+            ".config/jj"
 
             ".local/share/TelegramDesktop"
             ".local/share/materialgram"

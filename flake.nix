@@ -230,6 +230,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    mt7927 = {
+      url = "github:clemenscodes/linux-mt7927";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   # _additional_ `inputs` only for deduplication

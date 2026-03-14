@@ -11,6 +11,7 @@
         efi
         yawner
         nvidia-gpu
+        mt7927
         agenix
         ./_disko.nix
       ];
