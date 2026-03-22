@@ -6,10 +6,10 @@ Manages NixOS and nix-darwin hosts, home-manager modules, and development enviro
 > [!NOTE]
 > If you have any questions or suggestions, feel free to use the discussions feature or contact me.
 
-<a href="https://github.com/LilDojd/rhizome/actions/workflows/check.yaml?query=branch%3Amain">
+<a href="https://github.com/LilDojd/rhizome/actions/workflows/check.yaml?query=branch%3Amaster">
 <img
   alt="CI status"
-  src="https://img.shields.io/github/actions/workflow/status/LilDojd/rhizome/check.yaml?style=for-the-badge&branch=main&label=Check"
+  src="https://img.shields.io/github/actions/workflow/status/LilDojd/rhizome/check.yaml?style=for-the-badge&branch=master&label=Check"
 >
 </a>
 

@@ -61,7 +61,7 @@
       }
     },
     "flakehub-publish": {
-      "if": "github.ref == 'refs/heads/main'",
+      "if": "github.ref == 'refs/heads/master'",
       "needs": [
         "check-linux",
         "check-darwin"
