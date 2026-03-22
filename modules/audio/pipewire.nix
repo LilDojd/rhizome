@@ -39,7 +39,11 @@
 
           "pipewire/pipewire.conf.d/99-quality.conf".text = builtins.toJSON {
             "context.properties" = {
-              "default.clock.allowed-rates" = [ 44100 48000 96000 ];
+              "default.clock.allowed-rates" = [
+                44100
+                48000
+                96000
+              ];
             };
             "stream.properties" = {
               "resample.quality" = 10;
