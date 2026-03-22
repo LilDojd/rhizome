@@ -6,6 +6,7 @@
       "ci-badge"
       "flakehub"
       "attribution"
+      "determinate"
       "nixos-configurations"
       "github-actions"
       "files"
@@ -21,6 +22,17 @@
 
         > [!NOTE]
         > If you have any questions or suggestions, feel free to use the discussions feature or contact me.
+
+      '';
+
+    parts.determinate =
+      # markdown
+      ''
+        ## Determinate
+
+        Flake inputs are sourced from [FlakeHub](https://flakehub.com) where available.
+        macOS is managed by [Determinate Nix](https://determinate.systems),
+        which provides a curated Nix installation for darwin systems.
 
       '';
 

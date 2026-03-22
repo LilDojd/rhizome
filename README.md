@@ -22,6 +22,12 @@ Manages NixOS and nix-darwin hosts, home-manager modules, and development enviro
 > infrastructure repo. The architecture, patterns, and much of the tooling
 > originate from his work. All praise should go to him.
 
+## Determinate
+
+Flake inputs are sourced from [FlakeHub](https://flakehub.com) where available.
+macOS is managed by [Determinate Nix](https://determinate.systems),
+which provides a curated Nix installation for darwin systems.
+
 ## NixOS configurations
 
 Configurations are declared by prefixing a module's name.
