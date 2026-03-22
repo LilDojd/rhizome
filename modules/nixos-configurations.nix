@@ -10,10 +10,13 @@ in
   text.readme.parts.nixos-configurations =
     # markdown
     ''
-      ## Configurations are declared by prefixing a module's name
+      ## NixOS configurations
 
-      This spares me of some boilerplate.
-      For example, see [`darkforest/imports`](modules/darkforest/imports.nix) module.
+      Configurations are declared by prefixing a module's name.
+
+      > [!TIP]
+      > This spares me of some boilerplate.
+      > For example, see [`darkforest/imports`](modules/darkforest/imports.nix).
 
     '';
 

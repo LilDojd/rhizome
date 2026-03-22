@@ -10,6 +10,7 @@ let
     jobs = {
       getCheckNames = "get-check-names";
       check = "check";
+      flakehubPublish = "flakehub-publish";
     };
     steps.getCheckNames = "get-check-names";
     outputs = {
@@ -40,6 +41,14 @@ let
     };
     detsysNixInstaller.uses = "DeterminateSystems/nix-installer-action@main";
     magicNixCache.uses = "DeterminateSystems/magic-nix-cache-action@main";
+    flakehubPush = {
+      uses = "DeterminateSystems/flakehub-push@main";
+      "with" = {
+        name = "${repo.owner}/${repo.name}";
+        rolling = true;
+        visibility = "public";
+      };
+    };
   };
 in
 {
@@ -53,25 +62,29 @@ in
       </a>
 
     '';
+    flakehub = ''
+      [![FlakeHub](https://img.shields.io/endpoint?url=https://flakehub.com/f/${repo.owner}/${repo.name}/badge)](https://flakehub.com/flake/${repo.owner}/${repo.name})
+
+    '';
     github-actions = ''
       ## Running checks on GitHub Actions
 
-      Running this repository's flake checks on GitHub Actions is merely a bonus
-      and possibly more of a liability.
-
       Workflow files are generated using
       [the _files_ flake-parts module](https://github.com/mightyiam/files).
+      For better visibility, a job is spawned for each flake check dynamically.
 
-      For better visibility, a job is spawned for each flake check.
-      This is done dynamically.
+      > [!NOTE]
+      > Running this repository's flake checks on GitHub Actions is merely a bonus
+      > and possibly more of a liability.
 
     ''
     + (
       assert steps ? nothingButNix;
       ''
-        To prevent runners from running out of space,
-        The action [Nothing but Nix](https://github.com/marketplace/actions/nothing-but-nix)
-        is used.
+        > [!TIP]
+        > To prevent runners from running out of space,
+        > the action [Nothing but Nix](https://github.com/marketplace/actions/nothing-but-nix)
+        > is used.
 
       ''
     )
@@ -92,6 +105,10 @@ in
             on = {
               push = { };
               workflow_call = { };
+            };
+            permissions = {
+              id-token = "write";
+              contents = "read";
             };
             jobs = {
               ${ids.jobs.getCheckNames} = {
@@ -130,6 +147,17 @@ in
                       nix ${nixArgs} build '.#checks.${runner.system}."''${{ matrix.${matrixParam} }}"'
                     '';
                   }
+                ];
+              };
+
+              ${ids.jobs.flakehubPublish} = {
+                needs = ids.jobs.check;
+                "if" = "github.ref == 'refs/heads/${repo.defaultBranch}'";
+                runs-on = runner.name;
+                steps = [
+                  steps.checkout
+                  steps.detsysNixInstaller
+                  steps.flakehubPush
                 ];
               };
             };
