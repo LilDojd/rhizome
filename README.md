@@ -59,6 +59,7 @@ The following files in this repository are generated and checked
 using [the _files_ flake-parts module](https://github.com/mightyiam/files):
 
 - `.github/workflows/check.yaml`
+- `.github/workflows/publish.yaml`
 - `.github/workflows/update-flake-lock.yaml`
 - `.gitignore`
 - `LICENSE`

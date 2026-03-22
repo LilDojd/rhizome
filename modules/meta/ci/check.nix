@@ -20,8 +20,6 @@ let
 
   matrixParam = "checks";
 
-  flakehubPublishId = "flakehub-publish";
-
   nixArgs = "--accept-flake-config";
 
   runners = {
@@ -48,14 +46,6 @@ let
     };
     detsysNixInstaller.uses = "DeterminateSystems/nix-installer-action@main";
     flakehubCache.uses = "DeterminateSystems/flakehub-cache-action@main";
-    flakehubPush = {
-      uses = "DeterminateSystems/flakehub-push@main";
-      "with" = {
-        name = "${repo.owner}/${repo.name}";
-        rolling = true;
-        visibility = "public";
-      };
-    };
   };
 in
 {
@@ -169,22 +159,7 @@ in
                   };
               in
               (mkJobs "linux" runners.linux)
-              // (mkJobs "darwin" runners.darwin)
-              // {
-                ${flakehubPublishId} = {
-                  needs = [
-                    (mkIds "linux").jobs.check
-                    (mkIds "darwin").jobs.check
-                  ];
-                  "if" = "github.ref == 'refs/heads/${repo.defaultBranch}'";
-                  runs-on = runners.linux.name;
-                  steps = [
-                    steps.checkout
-                    steps.detsysNixInstaller
-                    steps.flakehubPush
-                  ];
-                };
-              };
+              // (mkJobs "darwin" runners.darwin);
           };
         }
       ];

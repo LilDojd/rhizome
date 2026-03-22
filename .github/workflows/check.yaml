@@ -60,33 +60,6 @@
         }
       }
     },
-    "flakehub-publish": {
-      "if": "github.ref == 'refs/heads/master'",
-      "needs": [
-        "check-linux",
-        "check-darwin"
-      ],
-      "runs-on": "ubuntu-latest",
-      "steps": [
-        {
-          "uses": "actions/checkout@v6",
-          "with": {
-            "submodules": true
-          }
-        },
-        {
-          "uses": "DeterminateSystems/nix-installer-action@main"
-        },
-        {
-          "uses": "DeterminateSystems/flakehub-push@main",
-          "with": {
-            "name": "LilDojd/rhizome",
-            "rolling": true,
-            "visibility": "public"
-          }
-        }
-      ]
-    },
     "get-check-names-darwin": {
       "outputs": {
         "checks": "${{ steps.get-check-names.outputs.checks }}"
