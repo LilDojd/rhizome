@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  flake.modules.homeManager.gui.services.wlsunset = {
+  flake.modules.homeManager.hyprland.services.wlsunset = {
     enable = true;
     latitude = toString config.location.latitude;
     longitude = toString config.location.longitude;
