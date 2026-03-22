@@ -1,4 +1,4 @@
-{ lib, inputs, ... }:
+{ lib, ... }:
 {
   flake.modules.homeManager.base =
     hmArgs@{ pkgs, ... }:
@@ -6,7 +6,7 @@
       accent = "#" + hmArgs.config.lib.stylix.colors.base0D;
       foreground = "#" + hmArgs.config.lib.stylix.colors.base05;
       muted = "#" + hmArgs.config.lib.stylix.colors.base03;
-      fzf-preview = inputs.fzf-preview.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      fzf-preview = pkgs.fzf-preview;
       binds = [
         "--bind='ctrl-d:preview-down'"
         "--bind='ctrl-u:preview-up'"

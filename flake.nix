@@ -60,25 +60,6 @@
     };
     # Hyprland
     hyprland.url = "github:hyprwm/Hyprland";
-    presenterm = {
-      url = "github:mfontanini/presenterm";
-      inputs.flake-utils.follows = "dedupe_flake-utils";
-    };
-    bluetui = {
-      url = "github:pythops/bluetui";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "dedupe_flake-utils";
-      };
-    };
-    fzf-preview = {
-      url = "github:niksingh710/fzf-preview";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-        systems.follows = "dedupe_systems";
-      };
-    };
     input-branches.url = "github:mightyiam/input-branches";
     clipboard-sync = {
       url = "github:dnut/clipboard-sync";
