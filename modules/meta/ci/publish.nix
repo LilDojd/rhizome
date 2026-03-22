@@ -47,7 +47,8 @@ in
             };
             jobs = {
               flakehub-publish = {
-                "if" = "github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'";
+                "if" =
+                  "github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'";
                 runs-on = "ubuntu-latest";
                 permissions = {
                   id-token = "write";

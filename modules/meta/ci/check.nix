@@ -158,8 +158,7 @@ in
                     };
                   };
               in
-              (mkJobs "linux" runners.linux)
-              // (mkJobs "darwin" runners.darwin);
+              (mkJobs "linux" runners.linux) // (mkJobs "darwin" runners.darwin);
           };
         }
       ];
