@@ -60,15 +60,6 @@
     };
     # Hyprland
     hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-    # Custom hyprland scripts
-    hyprland-contrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     presenterm = {
       url = "github:mfontanini/presenterm";
       inputs.flake-utils.follows = "dedupe_flake-utils";
@@ -128,11 +119,6 @@
 
     homebrew-mole = {
       url = "github:tw93/homebrew-tap";
-      flake = false;
-    };
-
-    homebrew-bundle = {
-      url = "github:homebrew/homebrew-bundle";
       flake = false;
     };
 
@@ -201,8 +187,6 @@
         treefmt-nix.follows = "treefmt-nix";
       };
     };
-
-    swww.url = "github:LGFae/swww";
 
     stylix = {
       url = "github:nix-community/stylix/pull/2130/head";
