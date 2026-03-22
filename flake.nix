@@ -18,14 +18,14 @@
     fh.url = "https://flakehub.com/f/DeterminateSystems/fh/*";
 
     agenix = {
-      url = "https://flakehub.com/f/ryantm/agenix/0.15.0.tar.gz";
+      url = "https://flakehub.com/f/ryantm/agenix/0.15.*";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
       };
     };
     agenix-rekey = {
-      url = "https://flakehub.com/f/oddlama/agenix-rekey/0.1.252.tar.gz";
+      url = "https://flakehub.com/f/oddlama/agenix-rekey/0.1.*";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
@@ -46,7 +46,7 @@
       url = "github:platomav/CPUMicrocodes";
     };
     nix-alien = {
-      url = "https://flakehub.com/f/thiagokokada/nix-alien/0.1.394.tar.gz";
+      url = "https://flakehub.com/f/thiagokokada/nix-alien/0.1.*";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         nix-index-database.follows = "nix-index-database";
@@ -54,20 +54,20 @@
       };
     };
     # Hyprland
-    hyprland.url = "https://flakehub.com/f/hyprwm/Hyprland/0.54.2.tar.gz";
+    hyprland.url = "https://flakehub.com/f/hyprwm/Hyprland/0.54.*";
     input-branches.url = "github:mightyiam/input-branches";
     clipboard-sync = {
       url = "github:dnut/clipboard-sync";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
-      url = "https://flakehub.com/f/nix-community/disko/1.13.0.tar.gz";
+      url = "https://flakehub.com/f/nix-community/disko/1.13.*";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    impermanence.url = "https://flakehub.com/f/nix-community/impermanence/0.1.203.tar.gz";
+    impermanence.url = "https://flakehub.com/f/nix-community/impermanence/0.1.*";
 
     helix = {
-      url = "https://flakehub.com/f/helix-editor/helix/0.1.7315.tar.gz";
+      url = "https://flakehub.com/f/helix-editor/helix/0.1.*";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -99,12 +99,12 @@
     };
 
     flake-parts = {
-      url = "https://flakehub.com/f/hercules-ci/flake-parts/0.1.445.tar.gz";
+      url = "https://flakehub.com/f/hercules-ci/flake-parts/0.1.*";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
     git-hooks = {
-      url = "https://flakehub.com/f/cachix/git-hooks.nix/0.1.1191.tar.gz";
+      url = "https://flakehub.com/f/cachix/git-hooks.nix/0.1.*";
       inputs = {
         flake-compat.follows = "dedupe_flake-compat";
         nixpkgs.follows = "nixpkgs";
@@ -112,7 +112,7 @@
     };
 
     home-manager = {
-      url = "https://flakehub.com/f/nix-community/home-manager/0.2511.5872.tar.gz";
+      url = "github:nix-community/home-manager";
       flake = true;
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -126,7 +126,7 @@
 
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
 
-    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.964859.tar.gz";
+    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
 
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
@@ -165,7 +165,7 @@
     };
 
     stylix = {
-      url = "https://flakehub.com/f/nix-community/stylix/0.1.1377.tar.gz";
+      url = "https://flakehub.com/f/nix-community/stylix/0.1.*";
       flake = true;
       inputs = {
         flake-parts.follows = "flake-parts";
@@ -182,7 +182,7 @@
     };
 
     treefmt-nix = {
-      url = "https://flakehub.com/f/numtide/treefmt-nix/0.1.545.tar.gz";
+      url = "https://flakehub.com/f/numtide/treefmt-nix/0.1.*";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -203,10 +203,10 @@
     };
 
     # _additional_ `inputs` only for deduplication
-    dedupe_flake-compat.url = "https://flakehub.com/f/edolstra/flake-compat/1.1.0.tar.gz";
+    dedupe_flake-compat.url = "https://flakehub.com/f/edolstra/flake-compat/1.1.*";
 
     dedupe_flake-utils = {
-      url = "https://flakehub.com/f/numtide/flake-utils/0.1.102.tar.gz";
+      url = "https://flakehub.com/f/numtide/flake-utils/0.1.*";
       inputs.systems.follows = "dedupe_systems";
     };
 
