@@ -17,19 +17,36 @@
         "https://cache.nixos.org"
         "https://hyprland.cachix.org"
         "https://helix.cachix.org"
-
+        "https://install.determinate.systems"
       ];
       extra-trusted-public-keys = [
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
       ];
 
     };
     flake.modules = {
-      nixos.foundation.nix = { inherit (config.nix) settings; };
+      nixos.foundation.nix = {
+        inherit (config.nix) settings;
+        gc = {
+          automatic = true;
+          dates = "weekly";
+          options = "--delete-older-than 7d";
+        };
+        optimise.automatic = true;
+      };
       nixos.agenix.nix = { inherit (config.nix) settings; };
-      darwin.foundation.nix = { inherit (config.nix) settings; };
+      darwin.foundation.nix = {
+        inherit (config.nix) settings;
+        gc = {
+          automatic = true;
+          interval = { Weekday = 0; Hour = 3; Minute = 0; };
+          options = "--delete-older-than 7d";
+        };
+        optimise.automatic = true;
+      };
       homeManager.base.nix = { inherit (config.nix) settings; };
     };
   };
