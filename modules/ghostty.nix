@@ -14,6 +14,7 @@
       home.file."./.config/ghostty/config".text = ''
         theme = Catppuccin Macchiato
 
+        macos-option-as-alt = left
         adjust-cell-height = 10%
         window-theme = dark
         window-height = 32

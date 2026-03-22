@@ -9,18 +9,13 @@
       "pipe-operators"
     ];
     allow-import-from-derivation = false;
-    extra-substituters = [
-      "https://install.determinate.systems"
-    ];
-    extra-trusted-public-keys = [
-      "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
-    ];
-  };
+};
 
   inputs.self.submodules = true;
   inputs = {
 
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+    fh.url = "https://flakehub.com/f/DeterminateSystems/fh/*";
 
     agenix = {
       url = "github:ryantm/agenix";

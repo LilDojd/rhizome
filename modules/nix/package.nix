@@ -17,6 +17,5 @@ in
   flake.modules = {
     nixos.foundation = polyModule;
     homeManager.base = polyModule;
-    darwin.foundation = polyModule;
   };
 }

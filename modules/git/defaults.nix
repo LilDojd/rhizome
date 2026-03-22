@@ -19,6 +19,7 @@
       ".env"
       ".env.local"
       ".jj"
+      ".claude/"
       "/.tool-versions"
       "*.key"
       "debug/"

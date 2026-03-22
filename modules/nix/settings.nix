@@ -38,19 +38,6 @@
         optimise.automatic = true;
       };
       nixos.agenix.nix = { inherit (config.nix) settings; };
-      darwin.foundation.nix = {
-        inherit (config.nix) settings;
-        gc = {
-          automatic = true;
-          interval = {
-            Weekday = 0;
-            Hour = 3;
-            Minute = 0;
-          };
-          options = "--delete-older-than 7d";
-        };
-        optimise.automatic = true;
-      };
       homeManager.base.nix = { inherit (config.nix) settings; };
     };
   };
