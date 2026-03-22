@@ -7,7 +7,7 @@
       };
       system.activationScripts."github-secret" = ''
         secret=$(cat ${config.age.secrets.githubToken.path})
-        configFile=/etc/nix/nix.conf
+        configFile=/etc/nix/nix.custom.conf
         ${pkgs.gnused}/bin/sed -i "s#@github-secret-token@#$secret#" "$configFile"
       '';
       nix.settings = {
