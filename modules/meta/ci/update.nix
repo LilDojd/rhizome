@@ -1,6 +1,4 @@
-{ config, ... }:
 let
-  inherit (config.flake.meta) repo;
   filename = "update-flake-lock.yaml";
   filePath = ".github/workflows/${filename}";
 
