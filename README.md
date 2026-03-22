@@ -51,7 +51,7 @@ For better visibility, a job is spawned for each flake check dynamically.
 > the action [Nothing but Nix](https://github.com/marketplace/actions/nothing-but-nix)
 > is used.
 
-See [`modules/meta/ci.nix`](modules/meta/ci.nix).
+See [`modules/meta/ci/check.nix`](modules/meta/ci/check.nix).
 
 ## Generated files
 

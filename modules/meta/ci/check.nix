@@ -4,9 +4,6 @@ let
   filename = "check.yaml";
   filePath = ".github/workflows/${filename}";
 
-  updateFilename = "update-flake-lock.yaml";
-  updateFilePath = ".github/workflows/${updateFilename}";
-
   workflowName = "Check";
 
   mkIds = platform: {
@@ -99,7 +96,7 @@ in
       ''
     )
     + ''
-      See [`modules/meta/ci.nix`](modules/meta/ci.nix).
+      See [`modules/meta/ci/check.nix`](modules/meta/ci/check.nix).
 
     '';
   };
@@ -109,39 +106,13 @@ in
     {
       files.files = [
         {
-          path_ = updateFilePath;
-          drv = pkgs.writers.writeJSON "gh-actions-workflow-update-flake-lock.yaml" {
-            name = "Update flake.lock";
-            on = {
-              workflow_dispatch = { };
-              schedule = [
-                { cron = "0 0 * * *"; }
-              ];
-            };
-            permissions = {
-              contents = "write";
-              pull-requests = "write";
-            };
-            jobs.update = {
-              runs-on = runners.linux.name;
-              steps = [
-                steps.checkout
-                steps.detsysNixInstaller
-                {
-                  uses = "DeterminateSystems/update-flake-lock@main";
-                  "with".pr-title = "chore: flake.lock update";
-                }
-              ];
-            };
-          };
-        }
-        {
           path_ = filePath;
           drv = pkgs.writers.writeJSON "gh-actions-workflow-check.yaml" {
             name = workflowName;
             on = {
               push = { };
               workflow_call = { };
+              workflow_dispatch = { };
             };
             permissions = {
               id-token = "write";
@@ -220,7 +191,6 @@ in
 
       treefmt.settings.global.excludes = [
         filePath
-        updateFilePath
       ];
     };
 }

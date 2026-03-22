@@ -4,7 +4,7 @@
       "runs-on": "ubuntu-latest",
       "steps": [
         {
-          "uses": "actions/checkout@v4",
+          "uses": "actions/checkout@v6",
           "with": {
             "submodules": true
           }
@@ -15,7 +15,9 @@
         {
           "uses": "DeterminateSystems/update-flake-lock@main",
           "with": {
-            "pr-title": "chore: flake.lock update"
+            "pr-labels": "dependencies\nautomated\n",
+            "pr-title": "chore: update Nix flake inputs",
+            "token": "${{ secrets.GH_TOKEN_FOR_UPDATES }}"
           }
         }
       ]
@@ -25,13 +27,15 @@
   "on": {
     "schedule": [
       {
-        "cron": "0 0 * * *"
+        "cron": "0 18 * * *"
       }
     ],
     "workflow_dispatch": {}
   },
   "permissions": {
     "contents": "write",
+    "id-token": "write",
+    "issues": "write",
     "pull-requests": "write"
   }
 }
