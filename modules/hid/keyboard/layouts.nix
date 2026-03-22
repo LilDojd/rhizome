@@ -7,15 +7,17 @@
   perSystem =
     { pkgs, ... }:
     {
-      packages.get-hyprland-main-keyboard-layout = pkgs.writeShellApplication {
-        name = "get-hyprland-main-keyboard-layout";
-        runtimeInputs = with pkgs; [
-          hyprland
-          jq
-        ];
-        text = ''
-          hyprctl devices -j | jq -r '.keyboards[] | select(.main == true) | .active_keymap | select(. == "English (US)" or . == "Russian") | if . == "English (US)" then "us" else "ru" end'
-        '';
+      packages = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
+        get-hyprland-main-keyboard-layout = pkgs.writeShellApplication {
+          name = "get-hyprland-main-keyboard-layout";
+          runtimeInputs = with pkgs; [
+            hyprland
+            jq
+          ];
+          text = ''
+            hyprctl devices -j | jq -r '.keyboards[] | select(.main == true) | .active_keymap | select(. == "English (US)" or . == "Russian") | if . == "English (US)" then "us" else "ru" end'
+          '';
+        };
       };
     };
 

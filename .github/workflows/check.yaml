@@ -14,7 +14,7 @@
           "uses": "DeterminateSystems/nix-installer-action@main"
         },
         {
-          "uses": "DeterminateSystems/magic-nix-cache-action@main"
+          "uses": "DeterminateSystems/flakehub-cache-action@main"
         },
         {
           "run": "nix --accept-flake-config build '.#checks.aarch64-darwin.\"${{ matrix.checks }}\"'\n"
@@ -47,7 +47,7 @@
           "uses": "DeterminateSystems/nix-installer-action@main"
         },
         {
-          "uses": "DeterminateSystems/magic-nix-cache-action@main"
+          "uses": "DeterminateSystems/flakehub-cache-action@main"
         },
         {
           "run": "nix --accept-flake-config build '.#checks.x86_64-linux.\"${{ matrix.checks }}\"'\n"
@@ -103,7 +103,7 @@
           "uses": "DeterminateSystems/nix-installer-action@main"
         },
         {
-          "uses": "DeterminateSystems/magic-nix-cache-action@main"
+          "uses": "DeterminateSystems/flakehub-cache-action@main"
         },
         {
           "id": "get-check-names",
@@ -127,7 +127,7 @@
           "uses": "DeterminateSystems/nix-installer-action@main"
         },
         {
-          "uses": "DeterminateSystems/magic-nix-cache-action@main"
+          "uses": "DeterminateSystems/flakehub-cache-action@main"
         },
         {
           "id": "get-check-names",

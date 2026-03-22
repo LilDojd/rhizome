@@ -46,11 +46,11 @@ let
       };
     };
     checkout = {
-      uses = "actions/checkout@v4";
+      uses = "actions/checkout@v6";
       "with".submodules = true;
     };
     detsysNixInstaller.uses = "DeterminateSystems/nix-installer-action@main";
-    magicNixCache.uses = "DeterminateSystems/magic-nix-cache-action@main";
+    flakehubCache.uses = "DeterminateSystems/flakehub-cache-action@main";
     flakehubPush = {
       uses = "DeterminateSystems/flakehub-push@main";
       "with" = {
@@ -162,7 +162,7 @@ in
                       steps = [
                         steps.checkout
                         steps.detsysNixInstaller
-                        steps.magicNixCache
+                        steps.flakehubCache
                         {
                           id = ids.steps.getCheckNames;
                           run = ''
@@ -187,7 +187,7 @@ in
                       ++ (if platform == "linux" then [ steps.nothingButNix ] else [ ])
                       ++ [
                         steps.detsysNixInstaller
-                        steps.magicNixCache
+                        steps.flakehubCache
                         {
                           run = ''
                             nix ${nixArgs} build '.#checks.${runner.system}."''${{ matrix.${matrixParam} }}"'
