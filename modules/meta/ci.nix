@@ -149,7 +149,8 @@ in
             };
             jobs =
               let
-                mkJobs = platform: runner:
+                mkJobs =
+                  platform: runner:
                   let
                     ids = mkIds platform;
                   in
