@@ -4,13 +4,15 @@ let
   filename = "check.yaml";
   filePath = ".github/workflows/${filename}";
 
+  updateFilename = "update-flake-lock.yaml";
+  updateFilePath = ".github/workflows/${updateFilename}";
+
   workflowName = "Check";
 
-  ids = {
+  mkIds = platform: {
     jobs = {
-      getCheckNames = "get-check-names";
-      check = "check";
-      flakehubPublish = "flakehub-publish";
+      getCheckNames = "get-check-names-${platform}";
+      check = "check-${platform}";
     };
     steps.getCheckNames = "get-check-names";
     outputs = {
@@ -21,11 +23,19 @@ let
 
   matrixParam = "checks";
 
+  flakehubPublishId = "flakehub-publish";
+
   nixArgs = "--accept-flake-config";
 
-  runner = {
-    name = "ubuntu-latest";
-    system = "x86_64-linux";
+  runners = {
+    linux = {
+      name = "ubuntu-latest";
+      system = "x86_64-linux";
+    };
+    darwin = {
+      name = "macos-latest";
+      system = "aarch64-darwin";
+    };
   };
 
   steps = {
@@ -99,6 +109,33 @@ in
     {
       files.files = [
         {
+          path_ = updateFilePath;
+          drv = pkgs.writers.writeJSON "gh-actions-workflow-update-flake-lock.yaml" {
+            name = "Update flake.lock";
+            on = {
+              workflow_dispatch = { };
+              schedule = [
+                { cron = "0 0 * * *"; }
+              ];
+            };
+            permissions = {
+              contents = "write";
+              pull-requests = "write";
+            };
+            jobs.update = {
+              runs-on = runners.linux.name;
+              steps = [
+                steps.checkout
+                steps.detsysNixInstaller
+                {
+                  uses = "DeterminateSystems/update-flake-lock@main";
+                  "with".pr-title = "chore: flake.lock update";
+                }
+              ];
+            };
+          };
+        }
+        {
           path_ = filePath;
           drv = pkgs.writers.writeJSON "gh-actions-workflow-check.yaml" {
             name = workflowName;
@@ -110,61 +147,79 @@ in
               id-token = "write";
               contents = "read";
             };
-            jobs = {
-              ${ids.jobs.getCheckNames} = {
-                runs-on = runner.name;
-                outputs.${ids.outputs.jobs.getCheckNames} =
-                  "\${{ steps.${ids.steps.getCheckNames}.outputs.${ids.outputs.steps.getCheckNames} }}";
-                steps = [
-                  steps.checkout
-                  steps.detsysNixInstaller
-                  steps.magicNixCache
+            jobs =
+              let
+                mkJobs = platform: runner:
+                  let
+                    ids = mkIds platform;
+                  in
                   {
-                    id = ids.steps.getCheckNames;
-                    run = ''
-                      checks="$(nix ${nixArgs} eval --json .#checks.${runner.system} --apply builtins.attrNames)"
-                      echo "${ids.outputs.steps.getCheckNames}=$checks" >> $GITHUB_OUTPUT
-                    '';
-                  }
-                ];
-              };
+                    ${ids.jobs.getCheckNames} = {
+                      runs-on = runner.name;
+                      outputs.${ids.outputs.jobs.getCheckNames} =
+                        "\${{ steps.${ids.steps.getCheckNames}.outputs.${ids.outputs.steps.getCheckNames} }}";
+                      steps = [
+                        steps.checkout
+                        steps.detsysNixInstaller
+                        steps.magicNixCache
+                        {
+                          id = ids.steps.getCheckNames;
+                          run = ''
+                            checks="$(nix ${nixArgs} eval --json .#checks.${runner.system} --apply builtins.attrNames)"
+                            echo "${ids.outputs.steps.getCheckNames}=$checks" >> $GITHUB_OUTPUT
+                          '';
+                        }
+                      ];
+                    };
 
-              ${ids.jobs.check} = {
-                needs = ids.jobs.getCheckNames;
-                runs-on = runner.name;
-                strategy = {
-                  fail-fast = false;
-                  matrix.${matrixParam} =
-                    "\${{ fromJson(needs.${ids.jobs.getCheckNames}.outputs.${ids.outputs.jobs.getCheckNames}) }}";
+                    ${ids.jobs.check} = {
+                      needs = ids.jobs.getCheckNames;
+                      runs-on = runner.name;
+                      strategy = {
+                        fail-fast = false;
+                        matrix.${matrixParam} =
+                          "\${{ fromJson(needs.${ids.jobs.getCheckNames}.outputs.${ids.outputs.jobs.getCheckNames}) }}";
+                      };
+                      steps = [
+                        steps.checkout
+                      ]
+                      ++ (if platform == "linux" then [ steps.nothingButNix ] else [ ])
+                      ++ [
+                        steps.detsysNixInstaller
+                        steps.magicNixCache
+                        {
+                          run = ''
+                            nix ${nixArgs} build '.#checks.${runner.system}."''${{ matrix.${matrixParam} }}"'
+                          '';
+                        }
+                      ];
+                    };
+                  };
+              in
+              (mkJobs "linux" runners.linux)
+              // (mkJobs "darwin" runners.darwin)
+              // {
+                ${flakehubPublishId} = {
+                  needs = [
+                    (mkIds "linux").jobs.check
+                    (mkIds "darwin").jobs.check
+                  ];
+                  "if" = "github.ref == 'refs/heads/${repo.defaultBranch}'";
+                  runs-on = runners.linux.name;
+                  steps = [
+                    steps.checkout
+                    steps.detsysNixInstaller
+                    steps.flakehubPush
+                  ];
                 };
-                steps = [
-                  steps.checkout
-                  steps.nothingButNix
-                  steps.detsysNixInstaller
-                  steps.magicNixCache
-                  {
-                    run = ''
-                      nix ${nixArgs} build '.#checks.${runner.system}."''${{ matrix.${matrixParam} }}"'
-                    '';
-                  }
-                ];
               };
-
-              ${ids.jobs.flakehubPublish} = {
-                needs = ids.jobs.check;
-                "if" = "github.ref == 'refs/heads/${repo.defaultBranch}'";
-                runs-on = runner.name;
-                steps = [
-                  steps.checkout
-                  steps.detsysNixInstaller
-                  steps.flakehubPush
-                ];
-              };
-            };
           };
         }
       ];
 
-      treefmt.settings.global.excludes = [ filePath ];
+      treefmt.settings.global.excludes = [
+        filePath
+        updateFilePath
+      ];
     };
 }

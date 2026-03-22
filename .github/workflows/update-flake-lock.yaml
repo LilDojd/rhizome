@@ -1,0 +1,37 @@
+{
+  "jobs": {
+    "update": {
+      "runs-on": "ubuntu-latest",
+      "steps": [
+        {
+          "uses": "actions/checkout@v4",
+          "with": {
+            "submodules": true
+          }
+        },
+        {
+          "uses": "DeterminateSystems/nix-installer-action@main"
+        },
+        {
+          "uses": "DeterminateSystems/update-flake-lock@main",
+          "with": {
+            "pr-title": "chore: flake.lock update"
+          }
+        }
+      ]
+    }
+  },
+  "name": "Update flake.lock",
+  "on": {
+    "schedule": [
+      {
+        "cron": "0 0 * * *"
+      }
+    ],
+    "workflow_dispatch": {}
+  },
+  "permissions": {
+    "contents": "write",
+    "pull-requests": "write"
+  }
+}

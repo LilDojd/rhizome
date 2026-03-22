@@ -1,7 +1,34 @@
 {
   "jobs": {
-    "check": {
-      "needs": "get-check-names",
+    "check-darwin": {
+      "needs": "get-check-names-darwin",
+      "runs-on": "macos-latest",
+      "steps": [
+        {
+          "uses": "actions/checkout@v4",
+          "with": {
+            "submodules": true
+          }
+        },
+        {
+          "uses": "DeterminateSystems/nix-installer-action@main"
+        },
+        {
+          "uses": "DeterminateSystems/magic-nix-cache-action@main"
+        },
+        {
+          "run": "nix --accept-flake-config build '.#checks.aarch64-darwin.\"${{ matrix.checks }}\"'\n"
+        }
+      ],
+      "strategy": {
+        "fail-fast": false,
+        "matrix": {
+          "checks": "${{ fromJson(needs.get-check-names-darwin.outputs.checks) }}"
+        }
+      }
+    },
+    "check-linux": {
+      "needs": "get-check-names-linux",
       "runs-on": "ubuntu-latest",
       "steps": [
         {
@@ -29,13 +56,16 @@
       "strategy": {
         "fail-fast": false,
         "matrix": {
-          "checks": "${{ fromJson(needs.get-check-names.outputs.checks) }}"
+          "checks": "${{ fromJson(needs.get-check-names-linux.outputs.checks) }}"
         }
       }
     },
     "flakehub-publish": {
       "if": "github.ref == 'refs/heads/main'",
-      "needs": "check",
+      "needs": [
+        "check-linux",
+        "check-darwin"
+      ],
       "runs-on": "ubuntu-latest",
       "steps": [
         {
@@ -57,7 +87,31 @@
         }
       ]
     },
-    "get-check-names": {
+    "get-check-names-darwin": {
+      "outputs": {
+        "checks": "${{ steps.get-check-names.outputs.checks }}"
+      },
+      "runs-on": "macos-latest",
+      "steps": [
+        {
+          "uses": "actions/checkout@v4",
+          "with": {
+            "submodules": true
+          }
+        },
+        {
+          "uses": "DeterminateSystems/nix-installer-action@main"
+        },
+        {
+          "uses": "DeterminateSystems/magic-nix-cache-action@main"
+        },
+        {
+          "id": "get-check-names",
+          "run": "checks=\"$(nix --accept-flake-config eval --json .#checks.aarch64-darwin --apply builtins.attrNames)\"\necho \"checks=$checks\" >> $GITHUB_OUTPUT\n"
+        }
+      ]
+    },
+    "get-check-names-linux": {
       "outputs": {
         "checks": "${{ steps.get-check-names.outputs.checks }}"
       },
