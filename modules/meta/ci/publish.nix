@@ -23,7 +23,7 @@ let
         name = "${repo.owner}/${repo.name}";
         rolling = true;
         visibility = "public";
-        include-output-paths = false;
+        include-output-paths = true;
       };
     };
   };

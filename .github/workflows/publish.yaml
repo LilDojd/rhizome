@@ -23,7 +23,7 @@
         {
           "uses": "DeterminateSystems/flakehub-push@main",
           "with": {
-            "include-output-paths": false,
+            "include-output-paths": true,
             "name": "LilDojd/rhizome",
             "rolling": true,
             "visibility": "public"
