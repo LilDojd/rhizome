@@ -120,6 +120,7 @@ in
             ".local/state/mpv"
 
             ".config/discord"
+            ".config/vesktop"
 
             ".config/Proton"
             ".config/Proton Pass"
