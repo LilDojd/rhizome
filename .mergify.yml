@@ -1,0 +1,12 @@
+pull_request_rules:
+  - name: Automatic merge for flake.lock update pull requests
+    conditions:
+      - label=automated
+      - label=dependencies
+      - head=update_flake_lock_action
+      - author=LilDojd
+      - check-success ~= ^check-darwin
+      - check-success ~= ^check-linux
+    actions:
+      merge:
+        method: squash
