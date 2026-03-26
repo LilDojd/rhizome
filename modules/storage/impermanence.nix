@@ -101,6 +101,7 @@ in
 
             ".local/share/zoxide"
             ".cache/zsh"
+            ".cache/tealdeer"
 
             ".cache/nsearch"
             ".cache/mesa_shader_cache"
