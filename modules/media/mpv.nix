@@ -1,4 +1,9 @@
+{ config, ... }:
 {
+  flake.modules.nixos.foundation.environment.persistence."/persistent".users.${config.flake.meta.owner.username}.directories =
+    [
+      ".local/state/mpv"
+    ];
   flake.modules.homeManager.linux =
     { pkgs, ... }:
     let

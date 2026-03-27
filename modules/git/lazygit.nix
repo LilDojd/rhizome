@@ -1,6 +1,9 @@
-{ lib, ... }:
+{ lib, config, ... }:
 {
-
+  flake.modules.nixos.foundation.environment.persistence."/persistent".users.${config.flake.meta.owner.username}.directories =
+    [
+      ".local/state/lazygit"
+    ];
   flake.modules.homeManager.base =
     hmArgs:
     let

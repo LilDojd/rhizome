@@ -20,6 +20,12 @@ in
       };
 
       config = {
+        environment.persistence."/persistent".users.${config.flake.meta.owner.username}.directories = [
+          {
+            directory = ".ssh";
+            mode = "0700";
+          }
+        ];
         services.openssh = {
           enable = true;
           openFirewall = true;

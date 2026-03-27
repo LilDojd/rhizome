@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   flake.modules.homeManager.base =
     { config, ... }:
@@ -7,6 +8,10 @@
   flake.modules.nixos.foundation =
     { pkgs, ... }:
     {
+      environment.persistence."/persistent".users.${config.flake.meta.owner.username}.directories = [
+        ".local/share/Steam"
+        ".steam"
+      ];
       programs.steam = {
         enable = true;
         gamescopeSession.enable = true;

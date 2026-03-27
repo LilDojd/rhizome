@@ -28,6 +28,12 @@
 
     };
     flake.modules = {
+      nixos.foundation.environment.persistence."/persistent".users.${config.flake.meta.owner.username}.directories =
+        [
+          ".config/nix"
+          ".local/share/nix"
+          ".cache/nix"
+        ];
       nixos.foundation.nix = {
         inherit (config.nix) settings;
         gc = {

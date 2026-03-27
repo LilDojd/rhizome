@@ -8,6 +8,9 @@
         inputs.agenix-rekey.nixosModules.default
       ];
 
+      environment.persistence."/persistent".directories = [
+        "/var/lib/sops/age"
+      ];
       age.rekey = {
         storageMode = "local";
         masterIdentities = [ ../../.secrets/identity.age ];

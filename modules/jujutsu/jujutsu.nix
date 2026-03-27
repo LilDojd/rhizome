@@ -4,6 +4,10 @@
   ...
 }:
 {
+  flake.modules.nixos.foundation.environment.persistence."/persistent".users.${config.flake.meta.owner.username}.directories =
+    [
+      ".config/jj"
+    ];
   flake.modules.homeManager.base =
     homeArgs@{ pkgs, ... }:
     {

@@ -87,6 +87,10 @@
 
       nixos.foundation = {
         imports = [ flakeCommon ];
+        environment.persistence."/persistent".users.${config.flake.meta.owner.username}.directories = [
+          ".config/1Password"
+          "1Password"
+        ];
       };
 
       darwin.foundation = {

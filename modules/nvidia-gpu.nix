@@ -1,7 +1,14 @@
+{ config, ... }:
+let
+  username = config.flake.meta.owner.username;
+in
 {
   flake.modules.nixos.nvidia-gpu =
     { config, ... }:
     {
+      environment.persistence."/persistent".users.${username}.directories = [
+        ".cache/mesa_shader_cache"
+      ];
       services.xserver.videoDrivers = [ "nvidia" ];
       hardware.nvidia = {
         modesetting.enable = true;

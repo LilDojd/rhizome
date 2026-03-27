@@ -1,6 +1,11 @@
+{ config, ... }:
 {
   flake.modules = {
     nixos.foundation = {
+      environment.persistence."/persistent".users.${config.flake.meta.owner.username}.directories = [
+        ".local/state/wireplumber"
+        ".config/pulse"
+      ];
       services.pipewire = {
         enable = true;
         alsa = {

@@ -1,7 +1,12 @@
+{ config, ... }:
 {
   flake = {
     meta.accounts.github.username = "LilDojd";
 
+    modules.nixos.foundation.environment.persistence."/persistent".users.${config.flake.meta.owner.username}.directories =
+      [
+        ".config/github-copilot"
+      ];
     modules.homeManager = {
       base =
         { pkgs, ... }:

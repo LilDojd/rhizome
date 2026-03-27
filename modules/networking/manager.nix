@@ -1,6 +1,9 @@
 {
   flake.modules = {
     nixos.foundation = {
+      environment.persistence."/persistent".directories = [
+        "/etc/NetworkManager/system-connections"
+      ];
       networking = {
         wireless.iwd = {
           enable = true;

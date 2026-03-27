@@ -67,9 +67,6 @@ in
           "/var/log"
           "/var/lib/nixos"
           "/var/lib/systemd/coredump"
-          "/etc/NetworkManager/system-connections"
-          "/var/lib/sops/age"
-          "/var/lib/bluetooth"
           "/var/lib/libvirt"
           # Systemd requires /usr dir to be populated
           # See: https://github.com/nix-community/impermanence/issues/253
@@ -83,61 +80,25 @@ in
             ".local/share/task"
             ".config/syncall"
 
-            ".local/share/nix"
-            ".local/share/Steam"
-            ".steam"
             ".config/heroic"
 
             ".local/share/applications"
             ".local/share/onlyoffice"
             ".local/share/Larian Studios"
 
-            ".config/Slack"
-
             ".config/google-chrome"
             ".zen"
-            ".mozilla"
             ".librewolf"
 
-            ".local/share/zoxide"
-            ".cache/zsh"
-            ".cache/tealdeer"
-
             ".cache/nsearch"
-            ".cache/mesa_shader_cache"
             ".cache/radv_builtin_shaders"
 
-            ".local/state/nvim"
-            ".local/state/nix/profiles/channels" # determinate nix log spam fix
-            ".config/github-copilot"
-            ".cache/nvim"
-
-            ".cache/nix-index"
             ".android"
 
-            ".local/state/lazygit"
-            ".local/share/direnv"
-
-            ".local/state/mpv"
-
-            ".config/discord"
-            ".config/vesktop"
-
-            ".config/Proton"
             ".config/Proton Pass"
-            ".config/nix"
-            ".config/jj"
-
-            ".local/share/TelegramDesktop"
-            ".local/share/materialgram"
-            ".cache/stylix-telegram-theme"
-
-            ".local/state/wireplumber"
-            ".config/pulse"
             ".config/Mailspring"
             ".claude"
 
-            ".local/share/fish"
             "Downloads"
             "Pictures"
             "Games"
@@ -149,19 +110,9 @@ in
             "share"
             "temp"
             "rhizome"
-            "backgrounds"
-            ".config/fish"
-            ".config/blender"
-            ".cache/nix"
-            ".config/1Password"
-            "1Password"
 
             {
               directory = ".gnupg";
-              mode = "0700";
-            }
-            {
-              directory = ".ssh";
               mode = "0700";
             }
             {
@@ -175,7 +126,6 @@ in
           ];
 
           files = [
-            ".temp.zsh"
             ".gtasks_credentials.pickle"
             "screen/.screenrc"
           ];

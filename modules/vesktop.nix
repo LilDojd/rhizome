@@ -1,4 +1,10 @@
+{ config, ... }:
 {
+  flake.modules.nixos.foundation.environment.persistence."/persistent".users.${config.flake.meta.owner.username}.directories =
+    [
+      ".config/discord"
+      ".config/vesktop"
+    ];
   nixpkgs.overlays = [
     (final: prev: {
       vesktop = prev.vesktop.overrideAttrs (old: {

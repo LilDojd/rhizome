@@ -1,5 +1,9 @@
-{ lib, ... }:
+{ lib, config, ... }:
 {
+  flake.modules.nixos.foundation.environment.persistence."/persistent".users.${config.flake.meta.owner.username}.directories =
+    [
+      "backgrounds"
+    ];
   flake.modules.homeManager.hyprland =
     hmArgs@{ config, pkgs, ... }:
 
