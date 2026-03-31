@@ -128,6 +128,7 @@ in
 
           files = [
             ".gtasks_credentials.pickle"
+            ".claude.json"
             "screen/.screenrc"
           ];
         };
