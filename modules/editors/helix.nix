@@ -144,23 +144,15 @@
         ];
 
         extraPackages = with pkgs; [
-          llvmPackages_18.clang-tools
-          gopls
-          nodePackages.bash-language-server
           dockerfile-language-server
-          vscode-langservers-extracted
           texlab
           ruff
-          basedpyright
           markdown-oxide
           marksman
-          nodePackages.typescript-language-server
-          nodePackages.prettier
           nixfmt
           nixd
           nil
           taplo
-          python312Packages.python-lsp-server
           lua-language-server
         ];
       };
