@@ -13,7 +13,7 @@
       wallsetter = pkgs.writeShellApplication {
         name = "wallsetter";
         runtimeInputs = with pkgs; [
-          swww
+          awww
           findutils
           coreutils
           libnotify
@@ -36,7 +36,7 @@
 
               PREVIOUS=$WALLPAPER
 
-              swww img "$WALLPAPER" --transition-type random --transition-step 1 --transition-fps 60
+              awww img "$WALLPAPER" --transition-type random --transition-step 1 --transition-fps 60
               sleep $TIMEOUT
             done
           '';
@@ -51,7 +51,7 @@
         extraConfig = ''
           submap = ${submap}
           binde = , n, exec, ${lib.getExe wallsetter}
-          binde = , p, exec, swww img ~/backgrounds/spacegoose.png
+          binde = , p, exec, awww img ~/backgrounds/spacegoose.png
           ${config.wayland.windowManager.hyprland.submapEnd}
           bind = $modifier, b, submap, ${submap}
         '';

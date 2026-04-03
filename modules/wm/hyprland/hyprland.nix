@@ -57,7 +57,7 @@
         swappy
         hyprpolkitagent
         hyprland-qtutils # needed for banners and ANR messages
-        swww
+        awww
         pyprland
         networkmanagerapplet
         psmisc
