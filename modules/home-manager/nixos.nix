@@ -14,7 +14,6 @@
           { osConfig, ... }:
           {
             home.stateVersion = osConfig.system.stateVersion;
-            xdg.userDirs.setSessionVariables = false;
           }
         )
         config.flake.modules.homeManager.base
