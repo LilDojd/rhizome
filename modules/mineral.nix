@@ -26,21 +26,7 @@
           };
         };
         filesystems = {
-          enable = true;
-          normal = {
-            home = {
-              enable = true;
-              options.noexec = false;
-            };
-            tmp = {
-              enable = true;
-              options.noexec = false;
-            };
-            var = {
-              enable = true;
-              options.noexec = false;
-            };
-          };
+          enable = false;
         };
       };
     };

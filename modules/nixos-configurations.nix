@@ -38,6 +38,7 @@ in
             ];
             specialArgs = {
               nixosModules = config.flake.modules.nixos;
+              diskoConfigurations = config.flake.diskoConfigurations or { };
             };
           };
         }

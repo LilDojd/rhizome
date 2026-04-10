@@ -28,7 +28,9 @@ let
       }
 
       # Deleting backup older than 30 days
-      find /btrfs_tmp/old_roots/ -maxdepth 1 -mtime +30 -exec bash -c 'delete_subvolume_recursively "$0"' {} \;
+      for i in $(find /btrfs_tmp/old_roots/ -maxdepth 1 -mtime +30); do
+          delete_subvolume_recursively "$i"
+      done
 
       btrfs subvolume create /btrfs_tmp/root
       umount /btrfs_tmp
@@ -40,17 +42,13 @@ in
     config = {
       security.sudo.extraConfig = "Defaults lecture=never";
       fileSystems."/persistent".neededForBoot = true;
-      fileSystems."/home".neededForBoot = true;
-      fileSystems."/etc".neededForBoot = true;
-      fileSystems."/var".neededForBoot = true;
-      fileSystems."/var/lib".neededForBoot = true;
 
       boot.initrd = {
         systemd = {
           services.wipe-my-fs = {
             wantedBy = [ "initrd.target" ];
-            wants = [ "-dev-disk-by\x2dpartlabel-disk\x2dprimary\x2droot.device" ];
-            after = [ "-dev-disk-by\x2dpartlabel-disk\x2dprimary\x2droot.device" ];
+            wants = [ "dev-disk-by\\x2dpartlabel-disk\\x2dprimary\\x2droot.device" ];
+            after = [ "dev-disk-by\\x2dpartlabel-disk\\x2dprimary\\x2droot.device" ];
             before = [ "sysroot.mount" ];
             unitConfig.DefaultDependencies = "no";
             serviceConfig.Type = "oneshot";

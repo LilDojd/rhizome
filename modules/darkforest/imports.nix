@@ -3,6 +3,7 @@
   flake.modules.nixos."nixosConfigurations/darkforest" =
     {
       nixosModules,
+      diskoConfigurations,
       ...
     }:
     {
@@ -13,7 +14,7 @@
         nvidia-gpu
         mt7927
         agenix
-        ./_disko.nix
+        diskoConfigurations.darkforest
       ];
       nixpkgs.hostPlatform = "x86_64-linux";
     };

@@ -6,19 +6,20 @@
         enable = true;
         userDirs =
           let
-            tmp = "${config.home.homeDirectory}/tmp";
+            home = config.home.homeDirectory;
           in
           {
             enable = true;
+            setSessionVariables = true;
             createDirectories = true;
-            desktop = tmp;
-            documents = tmp;
-            download = tmp;
-            music = tmp;
-            pictures = tmp;
-            publicShare = "${config.home.homeDirectory}/public";
-            templates = "${config.home.homeDirectory}/templates";
-            videos = tmp;
+            desktop = "${home}/Desktop";
+            documents = "${home}/Documents";
+            download = "${home}/Downloads";
+            music = "${home}/Music";
+            pictures = "${home}/Pictures";
+            publicShare = "${home}/Public";
+            templates = "${home}/Templates";
+            videos = "${home}/Videos";
           };
       };
     };
