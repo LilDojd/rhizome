@@ -1,4 +1,8 @@
 {
+  inputs,
+  ...
+}:
+{
   flake.modules.homeManager.hyprland =
     { pkgs, ... }:
     {
@@ -9,8 +13,10 @@
         "ignore_alpha 0.3, match:namespace ashell-main-layer"
       ];
 
+      # TODO: remove package override once https://github.com/NixOS/nixpkgs/pull/504175 is merged
       programs.ashell = {
         enable = true;
+        package = inputs.ashell.packages.${pkgs.stdenv.hostPlatform.system}.default;
         systemd = {
           enable = true;
           target = "hyprland-session.target";
@@ -24,9 +30,23 @@
             scale_factor = 1.3;
           };
 
+          CustomModule = [
+            {
+              name = "AppLauncher";
+              icon = "󱗼";
+              command = "rofi-launcher";
+            }
+            {
+              name = "Clipboard";
+              icon = "󰅍";
+              command = "kitty --class 'clipse' -e clipse";
+            }
+          ];
+
           modules = {
             left = [
-              "App Launcher"
+              "AppLauncher"
+              "Clipboard"
               "Tray"
               "WindowTitle"
             ];
@@ -35,7 +55,7 @@
               "SystemInfo"
               [
                 "Settings"
-                "Clock"
+                "Tempo"
               ]
             ];
           };
@@ -49,15 +69,13 @@
             temperature.sensor = "k10temp Tctl";
           };
 
-          app_launcher_cmd = "rofi-launcher";
-
           workspaces = {
             visibility_mode = "All";
             enable_workspace_filling = true;
           };
 
-          clock = {
-            format = "%a %d %b %I:%M %p";
+          tempo = {
+            clock_format = "%a %d %b %I:%M %p";
           };
 
           # Settings module configuration
@@ -73,15 +91,18 @@
             indicators = [
               "IdleInhibitor"
               "Audio"
+              "Microphone"
+              "Brightness"
               "Network"
               "Bluetooth"
               "Battery"
             ];
             battery_format = "IconAndPercentage";
-            custom_buttons = [
+            CustomButton = [
               {
-                label = "⏻";
-                cmd = "wlogout";
+                name = "Power";
+                icon = "⏻";
+                command = "wlogout";
               }
             ];
           };
