@@ -7,7 +7,7 @@
         # "quiet"
         # "systemd.show_status=error"
       ];
-      plymouth.enable = false;
+      plymouth.enable = true;
     };
   };
 }
