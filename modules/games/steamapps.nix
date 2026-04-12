@@ -25,8 +25,9 @@
           };
           factorio = {
             id = 427520;
-            launchOptionsStr = "SDL_VIDEODRIVER=wayland mangohud gamemoderun"
-          }
+            launchOptionsStr = "SDL_VIDEODRIVER=wayland mangohud gamemoderun";
+          };
+        };
       };
     };
   };
