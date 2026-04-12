@@ -4,8 +4,8 @@
 
     boot = {
       kernelParams = [
-        # "quiet"
-        # "systemd.show_status=error"
+        "quiet"
+        "systemd.show_status=error"
       ];
       plymouth.enable = true;
     };
