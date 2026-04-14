@@ -7,8 +7,8 @@ _: {
       ];
       keymap = "us";
       monitorSettings = ''
-        monitor=DP-2,3840x2160@144,0x0,1.5
-        monitor=HDMI-A-2,3840x2160@60,2560x-980,1.25,transform,3
+        monitor=DP-4,3840x2160@240,0x0,1.5
+        monitor=DP-3,3840x2160@144,2560x-560,1.5,transform,1
       '';
     };
   };
