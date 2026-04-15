@@ -204,7 +204,7 @@
     };
 
     mt7927 = {
-      url = "github:clemenscodes/linux-mt7927";
+      url = "github:cmspam/mt7927-nixos";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

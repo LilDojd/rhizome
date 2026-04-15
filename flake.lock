@@ -724,24 +724,6 @@
         "nixpkgs-lib": "nixpkgs-lib_2"
       },
       "locked": {
-        "lastModified": 1769996383,
-        "narHash": "sha256-AnYjnFWgS49RlqX7LrC4uA+sCCDBj0Ry/WOJ5XWAsa0=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "57928607ea566b5db3ad13af0e57e921e6b12381",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
-    "flake-parts_5": {
-      "inputs": {
-        "nixpkgs-lib": "nixpkgs-lib_3"
-      },
-      "locked": {
         "lastModified": 1754487366,
         "narHash": "sha256-pHYj8gUBapuUzKV/kN/tR3Zvqc7o6gdFB9XKXIp1SQ8=",
         "owner": "hercules-ci",
@@ -755,7 +737,7 @@
         "type": "github"
       }
     },
-    "flake-parts_6": {
+    "flake-parts_5": {
       "inputs": {
         "nixpkgs-lib": [
           "steam-config-nix",
@@ -1485,6 +1467,22 @@
         "type": "github"
       }
     },
+    "mediatek-mt7927-dkms": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1776258948,
+        "narHash": "sha256-vkz5v9Wz1G8e0s0kRmNGQGTrULH3K3kvQ1i1mBlJxIU=",
+        "owner": "jetm",
+        "repo": "mediatek-mt7927-dkms",
+        "rev": "fb2060c3a605c9641ff834ee356d46917e8417a8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jetm",
+        "repo": "mediatek-mt7927-dkms",
+        "type": "github"
+      }
+    },
     "mnw": {
       "locked": {
         "lastModified": 1770419553,
@@ -1502,22 +1500,22 @@
     },
     "mt7927": {
       "inputs": {
-        "flake-parts": "flake-parts_4",
+        "mediatek-mt7927-dkms": "mediatek-mt7927-dkms",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1772013169,
-        "narHash": "sha256-zoAWMgezawDhUTGjuG/V9KgDEi74WrYgXeI3bhi51Rc=",
-        "owner": "clemenscodes",
-        "repo": "linux-mt7927",
-        "rev": "6add3ebc92b4257fd0440cc8895b3d375825a0f9",
+        "lastModified": 1776287132,
+        "narHash": "sha256-QpBf9SIBDWnEpgPjFushqAW0TDtzQV8xepVDTUwp0s8=",
+        "owner": "cmspam",
+        "repo": "mt7927-nixos",
+        "rev": "4d77293131b2e81b6fcd6a4a3d1bbd6e16289e85",
         "type": "github"
       },
       "original": {
-        "owner": "clemenscodes",
-        "repo": "linux-mt7927",
+        "owner": "cmspam",
+        "repo": "mt7927-nixos",
         "type": "github"
       }
     },
@@ -1669,7 +1667,7 @@
     "nix-mineral": {
       "inputs": {
         "flake-compat": "flake-compat_4",
-        "flake-parts": "flake-parts_5",
+        "flake-parts": "flake-parts_4",
         "ndg": "ndg",
         "nixpkgs": [
           "nixpkgs"
@@ -1751,21 +1749,6 @@
       }
     },
     "nixpkgs-lib_2": {
-      "locked": {
-        "lastModified": 1769909678,
-        "narHash": "sha256-cBEymOf4/o3FD5AZnzC3J9hLbiZ+QDT/KDuyHXVJOpM=",
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
-        "rev": "72716169fe93074c333e8d0173151350670b824c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
-        "type": "github"
-      }
-    },
-    "nixpkgs-lib_3": {
       "locked": {
         "lastModified": 1753579242,
         "narHash": "sha256-zvaMGVn14/Zz8hnp4VWT9xVnhc8vuL3TStRqwk22biA=",
@@ -2099,7 +2082,7 @@
     },
     "steam-config-nix": {
       "inputs": {
-        "flake-parts": "flake-parts_6",
+        "flake-parts": "flake-parts_5",
         "nixpkgs": [
           "nixpkgs"
         ],
