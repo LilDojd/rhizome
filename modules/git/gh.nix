@@ -1,1 +1,10 @@
-{ flake.modules.homeManager.base.programs.gh.enable = true; }
+{
+  flake.modules.homeManager.base =
+    { pkgs, ... }:
+    {
+      programs.gh = {
+        enable = true;
+        extensions = [ pkgs.ghstack ];
+      };
+    };
+}
