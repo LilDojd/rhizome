@@ -8,6 +8,10 @@
         closeSteam = true;
 
         apps = {
+          factorio = {
+            id = 427520;
+            launchOptionsStr = "gamemoderun %command%";
+          };
           dota2 = {
             id = 570;
             compatTool = "steamlinuxruntime_sniper";
@@ -22,10 +26,6 @@
             id = 1422450;
             compatTool = "GE-Proton10-30";
             launchOptionsStr = "LD_PRELOAD='' PROTON_ENABLE_WAYLAND=1 gamemoderun gamescope -w 3840 -h 2160 -f --force-grab-cursor --mangoapp -- %command% -novid -nojoy -vulkan";
-          };
-          factorio = {
-            id = 427520;
-            launchOptionsStr = "SDL_VIDEODRIVER=wayland mangohud gamemoderun";
           };
         };
       };

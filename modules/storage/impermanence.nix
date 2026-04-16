@@ -82,7 +82,6 @@ in
 
             ".local/share/applications"
             ".local/share/onlyoffice"
-            ".local/share/Larian Studios"
 
             ".config/google-chrome"
             ".zen"
