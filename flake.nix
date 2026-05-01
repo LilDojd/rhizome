@@ -53,12 +53,6 @@
         flake-compat.follows = "dedupe_flake-compat";
       };
     };
-    # TODO: remove ashell input once https://github.com/NixOS/nixpkgs/pull/504175 is merged
-    ashell = {
-      url = "github:MalpenZibo/ashell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Hyprland
     hyprland = {
       url = "https://flakehub.com/f/hyprwm/Hyprland/0.54.*";
