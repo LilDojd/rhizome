@@ -1,8 +1,4 @@
 {
-  inputs,
-  ...
-}:
-{
   flake.modules.homeManager.hyprland =
     { pkgs, ... }:
     {
@@ -13,10 +9,8 @@
         "ignore_alpha 0.3, match:namespace ashell-main-layer"
       ];
 
-      # TODO: remove package override once https://github.com/NixOS/nixpkgs/pull/504175 is merged
       programs.ashell = {
         enable = true;
-        package = inputs.ashell.packages.${pkgs.stdenv.hostPlatform.system}.default;
         systemd = {
           enable = true;
           target = "hyprland-session.target";
