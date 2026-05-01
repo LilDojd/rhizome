@@ -149,6 +149,8 @@
 
           render = {
             direct_scanout = 0;
+            explicit_sync = 0;
+            explicit_sync_kms = 0;
           };
 
           master = {
