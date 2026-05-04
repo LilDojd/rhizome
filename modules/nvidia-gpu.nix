@@ -34,6 +34,8 @@ in
   nixpkgs.config.allowUnfreePackages = [
     "nvidia-x11"
     "nvidia-settings"
+    "nvidia-persistenced"
+    "nvidia-kernel-modules"
   ];
 
 }
