@@ -129,7 +129,7 @@
 
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
 
-    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
