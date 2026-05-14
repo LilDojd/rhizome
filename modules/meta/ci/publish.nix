@@ -34,7 +34,7 @@ in
     {
       files.files = [
         {
-          path_ = filePath;
+          path = filePath;
           drv = pkgs.writers.writeJSON "gh-actions-workflow-publish.yaml" {
             name = workflowName;
             on = {

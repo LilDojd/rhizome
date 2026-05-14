@@ -76,6 +76,7 @@
 
     files = {
       url = "github:mightyiam/files";
+      flake = false;
     };
 
     systems = {
