@@ -606,22 +606,6 @@
         "url": "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz"
       }
     },
-    "flake-compat_5": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1696426674,
-        "narHash": "sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U=",
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "rev": "0f9255e01c2351cc7d116c072cb317785dd33b33",
-        "type": "github"
-      },
-      "original": {
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "type": "github"
-      }
-    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -1415,24 +1399,6 @@
         "type": "github"
       }
     },
-    "make-shell": {
-      "inputs": {
-        "flake-compat": "flake-compat_5"
-      },
-      "locked": {
-        "lastModified": 1733933815,
-        "narHash": "sha256-9JjM7eT66W4NJAXpGUsdyAFXhBxFWR2Z9LZwUa7Hli0=",
-        "owner": "nicknovitski",
-        "repo": "make-shell",
-        "rev": "ffeceae9956df03571ea8e96ef77c2924f13a63c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nicknovitski",
-        "repo": "make-shell",
-        "type": "github"
-      }
-    },
     "mediatek-mt7927-dkms": {
       "flake": false,
       "locked": {
@@ -1936,7 +1902,6 @@
         "nixos-facter-modules": "nixos-facter-modules",
         "nixpkgs": "nixpkgs_6",
         "nvf": "nvf",
-        "sink-rotate": "sink-rotate",
         "steam-config-nix": "steam-config-nix",
         "stylix": "stylix",
         "systems": "systems_4",
@@ -1980,33 +1945,6 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "sink-rotate": {
-      "inputs": {
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "make-shell": "make-shell",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "treefmt-nix": [
-          "treefmt-nix"
-        ]
-      },
-      "locked": {
-        "lastModified": 1778374965,
-        "narHash": "sha256-IzjGswTCqT90K5nEdaudvdhbUySUNe7mWpHEhMP9o3o=",
-        "owner": "mightyiam",
-        "repo": "sink-rotate",
-        "rev": "84bc611a468ca7b38b80b7e405efcb6e1d14d0b9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mightyiam",
-        "repo": "sink-rotate",
         "type": "github"
       }
     },

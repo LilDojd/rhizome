@@ -1,4 +1,4 @@
-{ lib, withSystem, ... }:
+{ lib, ... }:
 {
   flake.modules.homeManager.linux =
     {
@@ -7,19 +7,16 @@
       ...
     }:
     let
-      sink-rotate = withSystem pkgs.stdenv.hostPlatform.system (
-        { inputs', ... }: inputs'.sink-rotate.packages.default
-      );
       mod = config.wayland.windowManager.sway.config.modifier;
     in
     {
-      home.packages = [ sink-rotate ];
+      home.packages = [ pkgs.sink-rotate ];
       wayland.windowManager = {
         sway.config.keybindings = {
-          "--no-repeat ${mod}+c" = "exec ${lib.getExe sink-rotate}";
+          "--no-repeat ${mod}+c" = "exec ${lib.getExe pkgs.sink-rotate}";
         };
         hyprland.settings.bind = [
-          "SUPER, C, exec, ${lib.getExe sink-rotate}"
+          "SUPER, C, exec, ${lib.getExe pkgs.sink-rotate}"
         ];
       };
     };

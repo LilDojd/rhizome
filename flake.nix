@@ -159,15 +159,6 @@
       };
     };
 
-    sink-rotate = {
-      url = "github:mightyiam/sink-rotate";
-      inputs = {
-        flake-parts.follows = "flake-parts";
-        nixpkgs.follows = "nixpkgs";
-        treefmt-nix.follows = "treefmt-nix";
-      };
-    };
-
     stylix = {
       url = "https://flakehub.com/f/nix-community/stylix/0.1.*";
       flake = true;
