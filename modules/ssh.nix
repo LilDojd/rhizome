@@ -93,19 +93,19 @@ in
         enableDefaultConfig = false;
         includes = [ "${args.config.home.homeDirectory}/.ssh/hosts/*" ];
 
-        matchBlocks = lib.mkMerge (
+        settings = lib.mkMerge (
           [
             {
               "*" = {
-                setEnv.TERM = "xterm-256color";
-                compression = true;
-                hashKnownHosts = false;
+                SetEnv.TERM = "xterm-256color";
+                Compression = true;
+                HashKnownHosts = false;
               };
             }
           ]
           ++ (lib.mapAttrsToList (_: nixos: {
             "${nixos.config.networking.fqdn}" = {
-              identityFile = "~/.ssh/keys/rhizome_ed25519";
+              IdentityFile = "~/.ssh/keys/rhizome_ed25519";
             };
           }) reachableNixoss)
         );
