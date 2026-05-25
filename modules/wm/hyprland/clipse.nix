@@ -1,6 +1,7 @@
 {
   flake.modules.homeManager.hyprland =
     {
+      lib,
       pkgs,
       ...
     }:
@@ -50,26 +51,67 @@
           }
         '';
 
-      wayland.windowManager.hyprland.settings = {
-        exec-once = [
-          "clipse -listen"
-        ];
-        bind = [
-          "$modifier,v,exec,${cmd}"
-          "$modifier SHIFT,v,exec,clipse -clear"
-        ];
-        windowrule = [
-          "float on, match:class ^(clipse)$"
-          "stay_focused on, match:class ^(clipse)$"
-          "move cursor 0 0, match:class ^(clipse)$"
-          "center on, match:class ^(clipse)$"
-          "pin on, match:class ^(clipse)$"
-          "opacity on, match:class ^(clipse)$"
-          "no_anim on, match:class ^(clipse)$"
-          "no_anim on, match:class ^(clipse)$"
-          "immediate on, match:class ^(clipse)$"
-          "suppress_event fullscreen maximize, match:class ^(clipse)$"
-        ];
-      };
+      wayland.windowManager.hyprland.settings =
+        let
+          inline = lib.generators.mkLuaInline;
+          clipseMatch = { class = "^(clipse)$"; };
+        in
+        {
+          exec_cmd = [
+            "clipse -listen"
+          ];
+          bind = [
+            {
+              _args = [
+                (inline ''modifier .. " + v"'')
+                (inline "hl.dsp.exec_cmd(${builtins.toJSON cmd})")
+              ];
+            }
+            {
+              _args = [
+                (inline ''modifier .. " + SHIFT + v"'')
+                (inline ''hl.dsp.exec_cmd("clipse -clear")'')
+              ];
+            }
+          ];
+          window_rule = [
+            {
+              match = clipseMatch;
+              float = true;
+            }
+            {
+              match = clipseMatch;
+              stay_focused = true;
+            }
+            {
+              match = clipseMatch;
+              move = "cursor 0 0";
+            }
+            {
+              match = clipseMatch;
+              center = true;
+            }
+            {
+              match = clipseMatch;
+              pin = true;
+            }
+            {
+              match = clipseMatch;
+              opacity = true;
+            }
+            {
+              match = clipseMatch;
+              no_anim = true;
+            }
+            {
+              match = clipseMatch;
+              immediate = true;
+            }
+            {
+              match = clipseMatch;
+              suppress_event = "fullscreen maximize";
+            }
+          ];
+        };
     };
 }

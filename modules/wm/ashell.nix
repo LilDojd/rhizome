@@ -4,9 +4,15 @@
     {
       stylix.targets.ashell.enable = true;
 
-      wayland.windowManager.hyprland.settings.layerrule = [
-        "blur on, match:namespace ashell-main-layer"
-        "ignore_alpha 0.3, match:namespace ashell-main-layer"
+      wayland.windowManager.hyprland.settings.layer_rule = [
+        {
+          match.namespace = "ashell-main-layer";
+          blur = true;
+        }
+        {
+          match.namespace = "ashell-main-layer";
+          ignore_alpha = 0.3;
+        }
       ];
 
       programs.ashell = {
