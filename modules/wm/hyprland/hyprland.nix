@@ -64,6 +64,7 @@
       ];
 
       wayland.windowManager.hyprland = {
+        configType = "lua";
         package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
         systemd = {
           enable = true;
@@ -71,13 +72,7 @@
           variables = [ "--all" ];
         };
 
-        extraConfig = ''
-          xwayland {
-            force_zero_scaling = true
-          }
-        '';
-
-        settings = {
+        settings.config = {
 
           input = {
             numlock_by_default = true;
@@ -93,9 +88,14 @@
 
           general = {
             layout = "dwindle";
-            "col.active_border" =
-              lib.mkForce "rgb(${hmArgs.config.lib.stylix.colors.base08}) rgb(${hmArgs.config.lib.stylix.colors.base0C}) 45deg";
-            "col.inactive_border" = lib.mkForce "rgb(${hmArgs.config.lib.stylix.colors.base01})";
+            col.active_border = lib.mkForce {
+              colors = [
+                "rgb(${hmArgs.config.lib.stylix.colors.base08})"
+                "rgb(${hmArgs.config.lib.stylix.colors.base0C})"
+              ];
+              angle = 45;
+            };
+            col.inactive_border = lib.mkForce "rgb(${hmArgs.config.lib.stylix.colors.base01})";
           };
 
           misc = {
@@ -135,7 +135,7 @@
               enabled = true;
               range = 4;
               render_power = 3;
-              color = lib.mkForce "rgba(1a1a1aee)";
+              color = lib.mkForce (lib.generators.mkLuaInline "0xee1a1a1a");
             };
           };
 
@@ -155,6 +155,10 @@
             new_status = "master";
             new_on_top = 1;
             mfact = 0.5;
+          };
+
+          xwayland = {
+            force_zero_scaling = true;
           };
         };
       };

@@ -2,7 +2,7 @@
   flake.modules.homeManager.hyprland = {
     wayland.windowManager.hyprland = {
       settings = {
-        exec-once = [
+        exec_cmd = [
           "killall -q awww;sleep .5 && awww-daemon"
           # ashell is started via systemd (programs.ashell.systemd.enable = true)
           "killall -q swaync;sleep .5 && swaync"

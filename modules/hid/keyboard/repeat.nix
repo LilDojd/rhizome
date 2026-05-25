@@ -7,7 +7,7 @@ in
     wayland.windowManager = {
       sway.config.input."type:keyboard" = { inherit repeat_delay repeat_rate; };
 
-      hyprland.settings.input = { inherit repeat_delay repeat_rate; };
+      hyprland.settings.config.input = { inherit repeat_delay repeat_rate; };
     };
   };
 }

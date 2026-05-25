@@ -5,7 +5,7 @@
     {
       home.packages = [ pkgs.sunsetr ];
 
-      wayland.windowManager.hyprland.settings.exec-once = [
+      wayland.windowManager.hyprland.settings.exec_cmd = [
         "sunsetr"
       ];
     };

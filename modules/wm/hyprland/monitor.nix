@@ -1,11 +1,6 @@
 { config, ... }:
-let
-  inherit (config.flake.meta.owner.preferences) monitorSettings;
-in
 {
   flake.modules.homeManager.hyprland = {
-    wayland.windowManager.hyprland.extraConfig = ''
-      ${monitorSettings}
-    '';
+    wayland.windowManager.hyprland.settings.monitor = config.flake.meta.owner.preferences.monitors;
   };
 }
