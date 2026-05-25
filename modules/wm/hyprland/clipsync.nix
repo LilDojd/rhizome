@@ -2,6 +2,15 @@
 {
   flake.modules.nixos.foundation =
     { pkgs, ... }:
+    let
+      clipboard-sync = pkgs.rustPlatform.buildRustPackage {
+        pname = "clipboard-sync";
+        version = "0.2.0";
+        src = inputs.clipboard-sync;
+        cargoLock.lockFile = "${inputs.clipboard-sync}/Cargo.lock";
+        buildInputs = [ pkgs.libxcb ];
+      };
+    in
     {
       systemd.user.services.clipboard-sync = {
         description = "Synchronize clipboards across all displays";
@@ -11,9 +20,7 @@
         partOf = [ "graphical-session.target" ];
         requisite = [ "graphical-session.target" ];
         serviceConfig = {
-          ExecStart = "${
-            inputs.clipboard-sync.packages.${pkgs.stdenv.hostPlatform.system}.default
-          }/bin/clipboard-sync --hide-timestamp --log-level debug";
+          ExecStart = "${clipboard-sync}/bin/clipboard-sync --hide-timestamp --log-level debug";
           Restart = "on-failure";
         };
       };
