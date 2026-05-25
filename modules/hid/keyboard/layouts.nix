@@ -42,11 +42,16 @@
 
         hyprland.settings = {
           bind = [
-            "ALT+SHIFT, SHIFT_L, exec, ${hyprland-rotate-keyboard-layout |> lib.getExe}"
+            {
+              _args = [
+                "ALT + SHIFT + SHIFT_L"
+                (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON (hyprland-rotate-keyboard-layout |> lib.getExe)})")
+              ];
+            }
           ];
-          input.kb_layout = layout;
+          config.input.kb_layout = layout;
           # Alternative way to switch keyboard layout
-          input.kb_options = [ "grp:ctrl_space_toggle" ];
+          config.input.kb_options = [ "grp:ctrl_space_toggle" ];
         };
       };
     };

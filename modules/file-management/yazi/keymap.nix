@@ -4,11 +4,14 @@
   flake.modules.homeManager.hyprland =
     { pkgs, ... }:
     {
-      wayland.windowManager.hyprland.settings = {
-        bind = [
-          "$modifier,Y,exec,${lib.getExe pkgs.kitty} -e yazi"
-        ];
-      };
+      wayland.windowManager.hyprland.settings.bind = [
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''modifier .. " + Y"'')
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON "${lib.getExe pkgs.kitty} -e yazi"})")
+          ];
+        }
+      ];
     };
   flake.modules.homeManager.base = {
     programs.yazi.keymap = {

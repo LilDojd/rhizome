@@ -51,13 +51,12 @@
         ]
         |> map (
           { key, target }:
-          [
-            "$modifier SHIFT"
-            key
-            "exec"
-            (mkScript target |> lib.getExe)
-          ]
-          |> lib.concatStringsSep ", "
+          {
+            _args = [
+              (lib.generators.mkLuaInline ''modifier .. " + SHIFT + ${key}"'')
+              (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON (mkScript target |> lib.getExe)})")
+            ];
+          }
         );
     };
 }

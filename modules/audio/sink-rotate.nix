@@ -16,7 +16,12 @@
           "--no-repeat ${mod}+c" = "exec ${lib.getExe pkgs.sink-rotate}";
         };
         hyprland.settings.bind = [
-          "SUPER, C, exec, ${lib.getExe pkgs.sink-rotate}"
+          {
+            _args = [
+              "SUPER + C"
+              (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON (lib.getExe pkgs.sink-rotate)})")
+            ];
+          }
         ];
       };
     };
