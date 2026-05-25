@@ -13,13 +13,14 @@
     config.homebrew.casks = [ "firefox" ];
   };
   flake.modules.homeManager.gui =
-    { pkgs, ... }:
+    hmArgs@{ pkgs, ... }:
     let
       plugins = inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system};
     in
     {
       programs.firefox = {
         enable = true;
+        configPath = "${hmArgs.config.xdg.configHome}/mozilla/firefox";
         package = if pkgs.stdenv.isLinux then pkgs.firefox-bin else null;
         policies = {
           SanitizeOnShutdown = {
