@@ -55,7 +55,7 @@
     };
     # Hyprland
     hyprland = {
-      url = "https://flakehub.com/f/hyprwm/Hyprland/0.54.*";
+      url = "https://flakehub.com/f/hyprwm/Hyprland/0.55.*";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     input-branches.url = "github:mightyiam/input-branches";
