@@ -45,17 +45,53 @@
     {
       home.packages = [ wallsetter ];
 
-      wayland.windowManager.hyprland = {
-        settings.misc.disable_hyprland_logo = true;
+      wayland.windowManager.hyprland =
+        let
+          inline = lib.generators.mkLuaInline;
+        in
+        {
+          settings = {
+            config.misc.disable_hyprland_logo = true;
 
-        extraConfig = ''
-          submap = ${submap}
-          binde = , n, exec, ${lib.getExe wallsetter}
-          binde = , p, exec, awww img ~/backgrounds/spacegoose.png
-          ${config.wayland.windowManager.hyprland.submapEnd}
-          bind = $modifier, b, submap, ${submap}
-        '';
-      };
+            bind = [
+              {
+                _args = [
+                  (inline ''modifier .. " + b"'')
+                  (inline ''hl.dsp.submap("${submap}")'')
+                ];
+              }
+            ];
+          };
+
+          submaps.${submap}.settings.bind = [
+            {
+              _args = [
+                ", n"
+                (inline ''hl.dsp.exec_cmd(${builtins.toJSON (lib.getExe wallsetter)})'')
+                { repeating = true; }
+              ];
+            }
+            {
+              _args = [
+                ", p"
+                (inline ''hl.dsp.exec_cmd("awww img ~/backgrounds/spacegoose.png")'')
+                { repeating = true; }
+              ];
+            }
+            {
+              _args = [
+                ", escape"
+                (inline ''hl.dsp.submap("")'')
+              ];
+            }
+            {
+              _args = [
+                ", catchall"
+                (inline ''hl.dsp.exec_cmd("true")'')
+              ];
+            }
+          ];
+        };
 
       # Ensure Pictures/Wallpapers directory exists for wallsetter script
       home.activation.wallpapersDir = hmArgs.lib.hm.dag.entryAfter [ "writeBoundary" ] ''
