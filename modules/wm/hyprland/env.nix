@@ -3,7 +3,12 @@
   flake.modules.homeManager.hyprland =
     { pkgs, ... }:
     let
-      mkEnv = name: value: { _args = [ name value ]; };
+      mkEnv = name: value: {
+        _args = [
+          name
+          value
+        ];
+      };
     in
     {
       wayland.windowManager.hyprland.settings = {

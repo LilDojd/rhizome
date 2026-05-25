@@ -1,12 +1,17 @@
 { config, ... }:
 {
   flake.modules.homeManager.hyprland =
-    { pkgs, ... }:
+    { lib, pkgs, ... }:
     {
       home.packages = [ pkgs.sunsetr ];
 
-      wayland.windowManager.hyprland.settings.exec_cmd = [
-        "sunsetr"
+      wayland.windowManager.hyprland.settings.on = [
+        {
+          _args = [
+            "hyprland.start"
+            (lib.generators.mkLuaInline ''function() hl.exec_cmd("sunsetr") end'')
+          ];
+        }
       ];
     };
 

@@ -5,8 +5,19 @@
     let
       inline = lib.generators.mkLuaInline;
 
-      bind = key: disp: { _args = [ key disp ]; };
-      bindOpts = key: disp: opts: { _args = [ key disp opts ]; };
+      bind = key: disp: {
+        _args = [
+          key
+          disp
+        ];
+      };
+      bindOpts = key: disp: opts: {
+        _args = [
+          key
+          disp
+          opts
+        ];
+      };
 
       withMod =
         extras: key:
@@ -30,16 +41,15 @@
       windowDrag = inline "hl.dsp.window.drag()";
       windowResize = inline "hl.dsp.window.resize()";
 
-      exec = cmd: inline ''hl.dsp.exec_cmd(${builtins.toJSON cmd})'';
+      exec = cmd: inline "hl.dsp.exec_cmd(${builtins.toJSON cmd})";
       movefocus = dir: inline ''hl.dsp.focus({ direction = "${dir}" })'';
       movewindow = dir: inline ''hl.dsp.window.move({ direction = "${dir}" })'';
       swapwindow = dir: inline ''hl.dsp.window.swap({ direction = "${dir}" })'';
-      workspace = ws: inline ''hl.dsp.focus({ workspace = ${builtins.toJSON ws} })'';
+      workspace = ws: inline "hl.dsp.focus({ workspace = ${builtins.toJSON ws} })";
       movetoworkspace =
-        ws: inline ''hl.dsp.window.move({ workspace = ${builtins.toJSON ws}, follow = false })'';
+        ws: inline "hl.dsp.window.move({ workspace = ${builtins.toJSON ws}, follow = false })";
       resizeactive =
-        x: y:
-        inline ''hl.dsp.window.resize({ x = ${toString x}, y = ${toString y}, relative = true })'';
+        x: y: inline "hl.dsp.window.resize({ x = ${toString x}, y = ${toString y}, relative = true })";
     in
     {
       wayland.windowManager.hyprland.settings = {
@@ -120,8 +130,14 @@
           (bind (withMod [ ] "mouse_down") (workspace "e+1"))
           (bind (withMod [ ] "mouse_up") (workspace "e-1"))
 
-          (bind (keys [ "ALT" "Tab" ]) cyclenext)
-          (bind (keys [ "ALT" "Tab" ]) bringtotop)
+          (bind (keys [
+            "ALT"
+            "Tab"
+          ]) cyclenext)
+          (bind (keys [
+            "ALT"
+            "Tab"
+          ]) bringtotop)
 
           (bind "XF86AudioRaiseVolume" (exec "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"))
           (bind "XF86AudioLowerVolume" (exec "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"))

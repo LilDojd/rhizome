@@ -5,7 +5,7 @@
       "backgrounds"
     ];
   flake.modules.homeManager.hyprland =
-    hmArgs@{ config, pkgs, ... }:
+    hmArgs@{ pkgs, ... }:
 
     let
       submap = "background";
@@ -66,27 +66,27 @@
           submaps.${submap}.settings.bind = [
             {
               _args = [
-                ", n"
-                (inline ''hl.dsp.exec_cmd(${builtins.toJSON (lib.getExe wallsetter)})'')
+                "n"
+                (inline "hl.dsp.exec_cmd(${builtins.toJSON (lib.getExe wallsetter)})")
                 { repeating = true; }
               ];
             }
             {
               _args = [
-                ", p"
+                "p"
                 (inline ''hl.dsp.exec_cmd("awww img ~/backgrounds/spacegoose.png")'')
                 { repeating = true; }
               ];
             }
             {
               _args = [
-                ", escape"
+                "escape"
                 (inline ''hl.dsp.submap("")'')
               ];
             }
             {
               _args = [
-                ", catchall"
+                "catchall"
                 (inline ''hl.dsp.exec_cmd("true")'')
               ];
             }

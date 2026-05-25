@@ -45,13 +45,15 @@
             {
               _args = [
                 "ALT + SHIFT + SHIFT_L"
-                (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON (hyprland-rotate-keyboard-layout |> lib.getExe)})")
+                (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${
+                  builtins.toJSON (hyprland-rotate-keyboard-layout |> lib.getExe)
+                })")
               ];
             }
           ];
           config.input.kb_layout = layout;
           # Alternative way to switch keyboard layout
-          config.input.kb_options = [ "grp:ctrl_space_toggle" ];
+          config.input.kb_options = "grp:ctrl_space_toggle";
         };
       };
     };

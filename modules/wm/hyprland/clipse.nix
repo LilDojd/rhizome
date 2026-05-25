@@ -54,11 +54,18 @@
       wayland.windowManager.hyprland.settings =
         let
           inline = lib.generators.mkLuaInline;
-          clipseMatch = { class = "^(clipse)$"; };
+          clipseMatch = {
+            class = "^(clipse)$";
+          };
         in
         {
-          exec_cmd = [
-            "clipse -listen"
+          on = [
+            {
+              _args = [
+                "hyprland.start"
+                (inline ''function() hl.exec_cmd("clipse -listen") end'')
+              ];
+            }
           ];
           bind = [
             {
@@ -97,7 +104,7 @@
             }
             {
               match = clipseMatch;
-              opacity = true;
+              opacity = "1.0";
             }
             {
               match = clipseMatch;
