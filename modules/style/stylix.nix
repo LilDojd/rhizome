@@ -6,6 +6,9 @@
       stylix = {
         enable = true;
         homeManagerIntegration.autoImport = false;
+        # stylix's kmscon target still sets services.kmscon.{extraConfig,fonts},
+        # which were removed from nixpkgs; we don't use kmscon anyway.
+        targets.kmscon.enable = false;
       };
     };
 
