@@ -6,6 +6,9 @@
       stylix = {
         enable = true;
         homeManagerIntegration.autoImport = false;
+        targets.kmscon.enable = false;
+        # TODO: https://github.com/nix-community/stylix/issues/2325
+        enableReleaseChecks = false;
       };
     };
 
@@ -14,6 +17,8 @@
       stylix = {
         enable = true;
         homeManagerIntegration.autoImport = false;
+        # TODO: https://github.com/nix-community/stylix/issues/2325
+        enableReleaseChecks = false;
       };
     };
 
@@ -21,6 +26,8 @@
       imports = [ inputs.stylix.homeModules.stylix ];
       stylix.enable = true;
       stylix.overlays.enable = false;
+      # TODO: https://github.com/nix-community/stylix/issues/2325
+      stylix.enableReleaseChecks = false;
     };
 
   };

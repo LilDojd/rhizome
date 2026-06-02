@@ -32,38 +32,33 @@ in
   perSystem =
     { pkgs, ... }:
     {
-      files.files = [
-        {
-          path = filePath;
-          drv = pkgs.writers.writeJSON "gh-actions-workflow-publish.yaml" {
-            name = workflowName;
-            on = {
-              workflow_run = {
-                workflows = [ "Check" ];
-                types = [ "completed" ];
-                branches = [ repo.defaultBranch ];
-              };
-              workflow_dispatch = { };
-            };
-            jobs = {
-              flakehub-publish = {
-                "if" =
-                  "github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'";
-                runs-on = "ubuntu-latest";
-                permissions = {
-                  id-token = "write";
-                  contents = "read";
-                };
-                steps = [
-                  steps.checkout
-                  steps.detsysNix
-                  steps.flakehubPush
-                ];
-              };
-            };
+      files.file.${filePath}.source = pkgs.writers.writeJSON "gh-actions-workflow-publish.yaml" {
+        name = workflowName;
+        on = {
+          workflow_run = {
+            workflows = [ "Check" ];
+            types = [ "completed" ];
+            branches = [ repo.defaultBranch ];
           };
-        }
-      ];
+          workflow_dispatch = { };
+        };
+        jobs = {
+          flakehub-publish = {
+            "if" =
+              "github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'";
+            runs-on = "ubuntu-latest";
+            permissions = {
+              id-token = "write";
+              contents = "read";
+            };
+            steps = [
+              steps.checkout
+              steps.detsysNix
+              steps.flakehubPush
+            ];
+          };
+        };
+      };
 
       treefmt.settings.global.excludes = [
         filePath

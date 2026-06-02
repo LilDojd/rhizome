@@ -39,8 +39,8 @@
 
   config = {
     text.readme.parts.files =
-      withSystem (builtins.head config.systems) (psArgs: psArgs.config.files.files)
-      |> map (file: "- `${file.path}`")
+      withSystem (builtins.head config.systems) (psArgs: lib.attrNames psArgs.config.files.file)
+      |> map (path: "- `${path}`")
       |> lib.naturalSort
       |> lib.concat [
         # markdown

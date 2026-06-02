@@ -49,14 +49,7 @@
       '';
   };
 
-  perSystem =
-    { pkgs, ... }:
-    {
-      files.files = [
-        {
-          path = "README.md";
-          drv = pkgs.writeText "README.md" config.text.readme;
-        }
-      ];
-    };
+  perSystem = {
+    files.file."README.md".text = config.text.readme;
+  };
 }
