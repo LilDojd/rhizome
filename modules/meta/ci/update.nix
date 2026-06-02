@@ -18,10 +18,9 @@ in
   perSystem =
     { pkgs, ... }:
     {
-      files.files = [
-        {
-          path = filePath;
-          drv = pkgs.writers.writeJSON "gh-actions-workflow-update-flake-lock.yaml" {
+      files.file.${filePath}.source =
+        pkgs.writers.writeJSON "gh-actions-workflow-update-flake-lock.yaml"
+          {
             name = "Update flake.lock";
             on = {
               workflow_dispatch = { };
@@ -54,8 +53,6 @@ in
               ];
             };
           };
-        }
-      ];
 
       treefmt.settings.global.excludes = [
         filePath
