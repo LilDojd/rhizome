@@ -50,12 +50,12 @@ _: {
         ];
         open = [
           {
-            run = ''xdg-open %s1'';
+            run = "xdg-open %s1";
             desc = "Open";
             for = "linux";
           }
           {
-            run = ''open %s'';
+            run = "open %s";
             desc = "Open";
             for = "macos";
           }
@@ -66,30 +66,30 @@ _: {
             for = "windows";
           }
           {
-            run = ''termux-open %s1'';
+            run = "termux-open %s1";
             desc = "Open";
             for = "android";
           }
         ];
         reveal = [
           {
-            run = ''xdg-open %d1'';
+            run = "xdg-open %d1";
             desc = "Reveal";
             for = "linux";
           }
           {
-            run = ''open -R %s1'';
+            run = "open -R %s1";
             desc = "Reveal";
             for = "macos";
           }
           {
-            run = ''explorer /select,%s1'';
+            run = "explorer /select,%s1";
             orphan = true;
             desc = "Reveal";
             for = "windows";
           }
           {
-            run = ''termux-open %d1'';
+            run = "termux-open %d1";
             desc = "Reveal";
             for = "android";
           }
@@ -102,7 +102,7 @@ _: {
         ];
         extract = [
           {
-            run = ''ya pub extract --list %s'';
+            run = "ya pub extract --list %s";
             desc = "Extract here";
             for = "unix";
           }
@@ -114,7 +114,7 @@ _: {
         ];
         play = [
           {
-            run = ''mpv --force-window %s'';
+            run = "mpv --force-window %s";
             orphan = true;
             for = "unix";
           }
