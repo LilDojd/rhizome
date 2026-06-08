@@ -1,7 +1,7 @@
 {
   flake.modules = {
     homeManager.base =
-      { pkgs, ... }:
+      { ... }:
       {
         programs.nvf.settings.vim.languages.rust = {
           enable = true;
@@ -55,17 +55,7 @@
               targetDir = true;
             };
           };
-          extraPackages = with pkgs; [
-            rust-analyzer
-          ];
         };
-        home.packages = with pkgs; [
-          cargo-watch
-          cargo-outdated
-          cargo-feature
-          cargo-deny
-          cargo-audit
-        ];
       };
   };
 }
