@@ -186,7 +186,7 @@
             surround.enable = true;
             diffview-nvim.enable = true;
             motion = {
-              hop.enable = true;
+              hop.enable = false;
               leap.enable = true;
               precognition.enable = false;
             };
