@@ -112,7 +112,7 @@
             };
           };
         };
-        languages.language-server.nixd.command = lib.getExe pkgs.nixd;
+        languages.language-server.nixd.command = "nixd";
         languages.language-server.ty.command = "ty";
         languages.language-server.ty.args = [ "server" ];
 
@@ -123,7 +123,6 @@
               "nixd"
               "nil"
             ];
-            formatter.binary = lib.getExe pkgs.nixfmt;
             formatter.command = "nixfmt";
           }
           {
@@ -141,19 +140,6 @@
               "markdown-oxide"
             ];
           }
-        ];
-
-        extraPackages = with pkgs; [
-          dockerfile-language-server
-          texlab
-          ruff
-          markdown-oxide
-          marksman
-          nixfmt
-          nixd
-          nil
-          taplo
-          lua-language-server
         ];
       };
     };
