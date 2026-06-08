@@ -81,7 +81,6 @@ in
             ".config/heroic"
 
             ".local/share/applications"
-            ".local/share/onlyoffice"
 
             ".config/google-chrome"
             ".zen"
