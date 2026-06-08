@@ -213,7 +213,7 @@
             nvim-session-manager.enable = false;
           };
           comments = {
-            comment-nvim.enable = true;
+            comment-nvim.enable = false;
           };
         };
       };
