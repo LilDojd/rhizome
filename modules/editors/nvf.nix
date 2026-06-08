@@ -182,7 +182,7 @@
             preview.markdownPreview.enable = true;
             ccc.enable = false;
             vim-wakatime.enable = false;
-            icon-picker.enable = true;
+            icon-picker.enable = false;
             surround.enable = true;
             diffview-nvim.enable = true;
             motion = {
