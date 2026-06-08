@@ -5,12 +5,11 @@ _: {
         dark = "";
         light = "";
       };
-      manager = {
+      mgr = {
         marker_marked = {
           fg = "lightcyan";
           bg = "lightcyan";
         };
-        tab_width = 1;
         border_symbol = "│";
       };
       mode = { };
@@ -18,14 +17,14 @@ _: {
         overall = {
           bold = true;
         };
-        sep_left = [
-          "░▒▓"
-          "▓▒░"
-        ];
-        sep_right = [
-          "░▒▓"
-          "▓▒░"
-        ];
+        sep_left = {
+          open = "░▒▓";
+          close = "▓▒░";
+        };
+        sep_right = {
+          open = "░▒▓";
+          close = "▓▒░";
+        };
       };
       which = {
         cols = 3;
@@ -39,7 +38,7 @@ _: {
           fg = "blue";
           bold = true;
         };
-        content = {
+        body = {
 
         };
         list = {

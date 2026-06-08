@@ -31,7 +31,6 @@ _: {
         image_delay = 30;
         image_filter = "triangle";
         image_quality = 75;
-        sixel_fraction = 15;
         ueberzug_scale = 1;
         ueberzug_offset = [
           0
@@ -43,7 +42,7 @@ _: {
       opener = {
         edit = [
           {
-            run = ''"$EDITOR" "$@"'';
+            run = ''"$EDITOR" %s'';
             desc = "$EDITOR";
             block = true;
             for = "unix";
@@ -51,51 +50,51 @@ _: {
         ];
         open = [
           {
-            run = ''xdg-open "$1"'';
+            run = ''xdg-open %s1'';
             desc = "Open";
             for = "linux";
           }
           {
-            run = ''open "$@"'';
+            run = ''open %s'';
             desc = "Open";
             for = "macos";
           }
           {
-            run = ''start "" "%1"'';
+            run = ''start "" %s1'';
             orphan = true;
             desc = "Open";
             for = "windows";
           }
           {
-            run = ''termux-open "$1"'';
+            run = ''termux-open %s1'';
             desc = "Open";
             for = "android";
           }
         ];
         reveal = [
           {
-            run = ''xdg-open "$(dirname "$1")"'';
+            run = ''xdg-open %d1'';
             desc = "Reveal";
             for = "linux";
           }
           {
-            run = ''open -R "$1"'';
+            run = ''open -R %s1'';
             desc = "Reveal";
             for = "macos";
           }
           {
-            run = ''explorer /select,"%1"'';
+            run = ''explorer /select,%s1'';
             orphan = true;
             desc = "Reveal";
             for = "windows";
           }
           {
-            run = ''termux-open "$(dirname "$1")"'';
+            run = ''termux-open %d1'';
             desc = "Reveal";
             for = "android";
           }
           {
-            run = ''exiftool "$1"; echo "Press enter to exit"; read _'';
+            run = ''exiftool %s1; echo "Press enter to exit"; read _'';
             block = true;
             desc = "Show EXIF";
             for = "unix";
@@ -103,29 +102,29 @@ _: {
         ];
         extract = [
           {
-            run = ''ya pub extract --list "$@"'';
+            run = ''ya pub extract --list %s'';
             desc = "Extract here";
             for = "unix";
           }
           {
-            run = "ya pub extract --list %*";
+            run = "ya pub extract --list %s";
             desc = "Extract here";
             for = "windows";
           }
         ];
         play = [
           {
-            run = ''mpv --force-window "$@"'';
+            run = ''mpv --force-window %s'';
             orphan = true;
             for = "unix";
           }
           {
-            run = "mpv --force-window %*";
+            run = "mpv --force-window %s";
             orphan = true;
             for = "windows";
           }
           {
-            run = ''mediainfo "$1"; echo "Press enter to exit"; read _'';
+            run = ''mediainfo %s1; echo "Press enter to exit"; read _'';
             block = true;
             desc = "Show media info";
             for = "unix";
@@ -135,7 +134,7 @@ _: {
       open = {
         rules = [
           {
-            name = "*/";
+            url = "*/";
             use = [
               "edit"
               "open"
@@ -194,8 +193,6 @@ _: {
         ];
       };
       tasks = {
-        micro_workers = 10;
-        macro_workers = 10;
         bizarre_retry = 3;
         image_alloc = 536870912;
         image_bound = [
@@ -207,31 +204,31 @@ _: {
       plugin = {
         prepend_fetchers = [
           {
-            id = "jj";
-            name = "*";
+            url = "*";
             run = "jj";
+            group = "jj";
           }
           {
-            id = "jj";
-            name = "*/";
+            url = "*/";
             run = "jj";
+            group = "jj";
           }
           {
-            id = "mime";
-            name = "local://*";
+            url = "local://*";
             run = "mime-ext.local";
             prio = "high";
+            group = "mime";
           }
           {
-            id = "mime";
-            name = "remote://*";
+            url = "remote://*";
             run = "mime-ext.remote";
             prio = "high";
+            group = "mime";
           }
         ];
         spotters = [
           {
-            name = "*/";
+            url = "*/";
             run = "folder";
           }
           {
@@ -255,7 +252,7 @@ _: {
             run = "video";
           }
           {
-            name = "*";
+            url = "*";
             run = "file";
           }
         ];
@@ -287,7 +284,7 @@ _: {
         ];
         previewers = [
           {
-            name = "*/";
+            url = "*/";
             run = "folder";
             sync = true;
           }
@@ -328,7 +325,7 @@ _: {
             run = "archive";
           }
           {
-            name = "*.{AppImage,appimage}";
+            url = "*.{AppImage,appimage}";
             run = "archive";
           }
           {
@@ -340,7 +337,7 @@ _: {
             run = "archive";
           }
           {
-            name = "*.{img,fat,ext,ext2,ext3,ext4,squashfs,ntfs,hfs,hfsx}";
+            url = "*.{img,fat,ext,ext2,ext3,ext4,squashfs,ntfs,hfs,hfsx}";
             run = "archive";
           }
           {
@@ -356,7 +353,7 @@ _: {
             run = "empty";
           }
           {
-            name = "*";
+            url = "*";
             run = "file";
           }
         ];
@@ -447,7 +444,7 @@ _: {
           20
         ];
         overwrite_title = "Overwrite file?";
-        overwrite_content = "Will overwrite the following file:";
+        overwrite_body = "Will overwrite the following file:";
         overwrite_origin = "center";
         overwrite_offset = [
           0
@@ -456,7 +453,7 @@ _: {
           15
         ];
         quit_title = "Quit?";
-        quit_content = "The following tasks are still running, are you sure you want to quit?";
+        quit_body = "The following tasks are still running, are you sure you want to quit?";
         quit_origin = "center";
         quit_offset = [
           0
