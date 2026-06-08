@@ -1,7 +1,7 @@
 { lib, ... }:
 {
   flake.modules.homeManager.base =
-    { pkgs, ... }:
+    { ... }:
     {
       programs.zed-editor = {
         enable = true;
@@ -37,17 +37,17 @@
           lsp = {
             nixd = {
               binary = {
-                path = lib.getExe pkgs.nixd;
+                path = "nixd";
               };
             };
             rust-analyzer = {
               binary = {
-                path = lib.getExe pkgs.rust-analyzer;
+                path = "rust-analyzer";
               };
             };
             ty = {
               binary = {
-                path = lib.getExe pkgs.ty;
+                path = "ty";
                 arguments = [ "server" ];
               };
             };
@@ -61,7 +61,7 @@
               ];
               formatter = {
                 external = {
-                  command = lib.getExe pkgs.nixfmt;
+                  command = "nixfmt";
                 };
               };
             };
