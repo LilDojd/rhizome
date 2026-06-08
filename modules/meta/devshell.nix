@@ -8,7 +8,12 @@
     { pkgs, ... }:
     {
       devshells.default = {
-        packages = [ pkgs.gnupg ];
+        packages = with pkgs; [
+          gnupg
+          nixd
+          nil
+          nixfmt
+        ];
         commands = [
           {
             name = "update";
