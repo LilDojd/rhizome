@@ -10,7 +10,7 @@
       let
         dicts = with pkgs.hunspellDicts; [ en_US ];
       in
-      {
+      lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
         home.packages = [
           pkgs.libreoffice-fresh
           pkgs.hunspell
