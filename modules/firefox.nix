@@ -7,20 +7,22 @@
   nixpkgs.config.allowUnfreePackages = [
     "firefox-bin"
     "firefox-bin-unwrapped"
+    "onepassword-password-manager"
   ];
+  nixpkgs.overlays = [ inputs.firefox-addons.overlays.default ];
 
   flake.modules.darwin.foundation = {
     config.homebrew.casks = [ "firefox" ];
   };
   flake.modules.homeManager.gui =
-    hmArgs@{ pkgs, ... }:
+    { lib, pkgs, ... }:
     let
-      plugins = inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system};
+      plugins = pkgs.firefox-addons;
     in
     {
       programs.firefox = {
         enable = true;
-        configPath = "${hmArgs.config.xdg.configHome}/mozilla/firefox";
+        configPath = lib.mkIf pkgs.stdenv.isLinux ".mozilla/firefox";
         package = if pkgs.stdenv.isLinux then pkgs.firefox-bin else null;
         policies = {
           SanitizeOnShutdown = {
@@ -41,6 +43,7 @@
             userChrome = "";
             userContent = "";
             extensions.packages = with plugins; [
+              onepassword-password-manager
               privacy-badger
               vimium
               refined-github
