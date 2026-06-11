@@ -19,6 +19,7 @@
               lock_cmd = "${lib.getExe config.programs.hyprlock.package}";
               unlock_cmd = "${lib.getExe pkgs.killall} -q -s SIGUSR1 hyprlock";
               before_sleep_cmd = "${loginctl} lock-session";
+              after_sleep_cmd = "hyprctl dispatch 'hl.dsp.dpms({ action = \"enable\" })'";
               ignore_dbus_inhibit = false;
             };
 
@@ -30,12 +31,12 @@
 
               {
                 inherit timeout;
-                on-timeout = "hyprctl dispatch dpms off";
-                on-resume = "hyprctl dispatch dpms on";
+                on-timeout = "hyprctl dispatch 'hl.dsp.dpms({ action = \"disable\" })'";
+                on-resume = "hyprctl dispatch 'hl.dsp.dpms({ action = \"enable\" })'";
               }
 
               {
-                timeout = timeout + 60;
+                timeout = timeout + 600;
                 on-timeout = "${lib.getExe' pkgs.systemd "systemctl"} suspend";
               }
             ];
