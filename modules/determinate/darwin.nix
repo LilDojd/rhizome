@@ -5,7 +5,7 @@
     environment.systemPackages = [ inputs.fh.packages."aarch64-darwin".default ];
     nix.enable = false;
     determinateNix.customSettings = config.nix.settings // {
-      trusted-users = [ config.flake.meta.yawner.username ];
+      trusted-users = [ config.flake.meta.owner.username ];
     };
   };
 }

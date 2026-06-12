@@ -8,15 +8,15 @@
           hasDifferentUsername = true;
         };
 
-        users.${config.flake.meta.yawner.username} = {
+        users.${config.flake.meta.owner.username} = {
           home = {
-            inherit (config.flake.meta.yawner) username;
+            inherit (config.flake.meta.owner) username;
             stateVersion = "25.11";
             homeDirectory =
               if pkgs.stdenv.isDarwin then
-                "/Users/${config.flake.meta.yawner.username}"
+                "/Users/${config.flake.meta.owner.username}"
               else
-                "/home/${config.flake.meta.yawner.username}";
+                "/home/${config.flake.meta.owner.username}";
           };
         };
       };

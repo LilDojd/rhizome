@@ -1,18 +1,16 @@
 { config, ... }:
 {
   flake = {
-    meta.yawner.username = "yawner";
-
     modules.darwin.yawner = {
-      users.users.${config.flake.meta.yawner.username}.home =
-        "/Users/${config.flake.meta.yawner.username}";
-      nix-homebrew.user = config.flake.meta.yawner.username;
-      system.primaryUser = config.flake.meta.yawner.username;
+      users.users.${config.flake.meta.owner.username}.home =
+        "/Users/${config.flake.meta.owner.username}";
+      nix-homebrew.user = config.flake.meta.owner.username;
+      system.primaryUser = config.flake.meta.owner.username;
     };
 
     modules.nixos.yawner = {
-      nix.settings.trusted-users = [ config.flake.meta.yawner.username ];
-      users.users.${config.flake.meta.yawner.username} = {
+      nix.settings.trusted-users = [ config.flake.meta.owner.username ];
+      users.users.${config.flake.meta.owner.username} = {
         isNormalUser = true;
         extraGroups = [
           "adbusers"
@@ -25,7 +23,7 @@
           "dialout"
         ];
         hashedPassword = "$y$j9T$vrOwuuW6ZjyNV8U27M8Ik.$0nmFU60b0l4sQ.kRlTv71pwaZAFMJbyGnvnWvSWu/F6";
-        home = "/home/${config.flake.meta.yawner.username}";
+        home = "/home/${config.flake.meta.owner.username}";
       };
     };
   };
