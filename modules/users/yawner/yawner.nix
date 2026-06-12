@@ -2,8 +2,7 @@
 {
   flake = {
     modules.darwin.yawner = {
-      users.users.${config.flake.meta.owner.username}.home =
-        "/Users/${config.flake.meta.owner.username}";
+      users.users.${config.flake.meta.owner.username}.home = "/Users/${config.flake.meta.owner.username}";
       nix-homebrew.user = config.flake.meta.owner.username;
       system.primaryUser = config.flake.meta.owner.username;
     };
