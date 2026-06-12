@@ -1,4 +1,4 @@
-{ inputs, lib, ... }:
+{ inputs, ... }:
 {
   flake.modules = {
     nixos.foundation = {
@@ -7,7 +7,6 @@
         enable = true;
         preset = "compatibility";
         settings = {
-          system.yama = lib.mkForce "none";
           kernel = {
             # if false, may prevent low resource systems from booting.
             busmaster-bit = true;
@@ -16,14 +15,8 @@
             # to potentially improve performance.
             # DO NOT disable all cpu mitigations,
             cpu-mitigations = "smt-on";
-
-            # PTI (Page Table Isolation) may tax performance.
-            pti = false;
           };
           system.multilib = true;
-          network = {
-            ip-forwarding = true;
-          };
         };
         filesystems = {
           enable = false;
