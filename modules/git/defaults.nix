@@ -2,7 +2,7 @@
 {
   flake.modules.homeManager.base.programs.git = {
     settings = {
-      user.name = config.flake.meta.owner.githubUsername;
+      user.name = config.flake.meta.accounts.github.username;
       user.email = config.flake.meta.owner.email;
       init.defaultBranch = "main";
       push.default = "current";

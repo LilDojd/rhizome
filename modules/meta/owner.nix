@@ -4,7 +4,6 @@ _: {
       email = "yawner@pm.me";
       name = "Georgy Andreev";
       username = "yawner";
-      githubUsername = "LilDojd";
     };
 
   };

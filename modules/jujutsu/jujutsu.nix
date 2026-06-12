@@ -17,7 +17,7 @@
         settings = {
           user = {
             inherit (config.flake.meta.owner) email;
-            name = config.flake.meta.owner.githubUsername;
+            name = config.flake.meta.accounts.github.username;
           };
           colors = {
             change_id = "#04a5e5";
