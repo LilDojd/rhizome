@@ -1,19 +1,22 @@
 {
   flake.modules.nixos.agenix =
-    { config, pkgs, ... }:
+    { config, ... }:
     {
       age.secrets.githubToken = {
         rekeyFile = ./githubToken.age;
       };
-      system.activationScripts."github-secret" = ''
-        secret=$(cat ${config.age.secrets.githubToken.path})
-        configFile=/etc/nix/nix.custom.conf
-        ${pkgs.gnused}/bin/sed -i "s#@github-secret-token@#$secret#" "$configFile"
-      '';
-      nix.settings = {
-        access-tokens = [
-          "github.com=@github-secret-token@"
+      system.activationScripts.github-access-token = {
+        deps = [
+          "agenix"
+          "etc"
         ];
+        text = ''
+          umask 0337
+          rm -f /etc/nix/access-tokens.conf
+          printf 'access-tokens = github.com=%s\n' "$(cat ${config.age.secrets.githubToken.path})" > /etc/nix/access-tokens.conf
+          chown root:wheel /etc/nix/access-tokens.conf
+        '';
       };
+      nix.extraOptions = "!include /etc/nix/access-tokens.conf";
     };
 }
