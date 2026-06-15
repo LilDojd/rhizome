@@ -4,6 +4,8 @@
     {
       stylix.targets.ashell.enable = true;
 
+      systemd.user.services.ashell.Service.Environment = [ "WGPU_BACKEND=gl" ];
+
       wayland.windowManager.hyprland.settings.layer_rule = [
         {
           match.namespace = "ashell-main-layer";
