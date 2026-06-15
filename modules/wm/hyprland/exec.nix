@@ -14,6 +14,7 @@
           "killall -q awww;sleep .5 && awww-daemon"
           "killall -q swaync;sleep .5 && swaync"
           "nm-applet --indicator"
+          "sleep 2 && 1password --ozone-platform=x11 --silent"
           "pypr"
           "sleep 1.5 && awww img ~/backgrounds/spacegoose.png"
         ];
