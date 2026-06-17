@@ -14,5 +14,9 @@
       home.packages = withSystem pkgs.stdenv.hostPlatform.system (
         psArgs: with psArgs.config.packages; [ devenv ]
       );
+
+      programs.fish.shellInit = ''
+        ${pkgs.devenv}/bin/devenv hook fish | source
+      '';
     };
 }
