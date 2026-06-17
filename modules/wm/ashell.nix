@@ -26,6 +26,7 @@
         settings = {
           outputs = "All";
           position = "Top";
+          region = "en-GB";
           enable_esc_key = true;
 
           appearance = {
