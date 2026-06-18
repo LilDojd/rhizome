@@ -162,7 +162,7 @@
 
             preStart = mkIf (name == "borgbase") (mkBefore ''
               # wait until DNS/route works
-              until /run/wrappers/bin/ping -c1 -q c68ll699.repo.borgbase.com >/dev/null 2>&1; do
+              until /run/wrappers/bin/ping -4 -c1 -q c68ll699.repo.borgbase.com >/dev/null 2>&1; do
                 sleep 2
               done
             '');
