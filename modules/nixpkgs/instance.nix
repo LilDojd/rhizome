@@ -16,6 +16,10 @@
         type = lib.types.listOf lib.types.singleLineStr;
         default = [ ];
       };
+      permittedInsecurePackages = lib.mkOption {
+        type = lib.types.listOf lib.types.singleLineStr;
+        default = [ ];
+      };
     };
     overlays = lib.mkOption {
       type = lib.types.listOf lib.types.unspecified;

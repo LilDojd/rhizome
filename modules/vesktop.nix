@@ -6,4 +6,5 @@
       ".config/vesktop"
     ];
   flake.modules.homeManager.gui.programs.vesktop.enable = true;
+  nixpkgs.config.permittedInsecurePackages = [ "pnpm-10.29.2" ];
 }
