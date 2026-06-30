@@ -13,7 +13,7 @@
         yawner
         nvidia-gpu
         # TODO: re-enable once cmspam/mt7927-nixos mt76 builds on kernel 7.1
-        # mt7927
+        mt7927
         agenix
         diskoConfigurations.darkforest
       ];
