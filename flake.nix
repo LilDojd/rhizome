@@ -153,7 +153,8 @@
     };
 
     nix-darwin = {
-      url = "github:LnL7/nix-darwin";
+      # TODO: back to master once nix-darwin#1818 merges
+      url = "github:nix-darwin/nix-darwin/pull/1818/head";
       inputs = {
         nixpkgs.follows = "nixpkgs";
       };
