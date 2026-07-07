@@ -3,7 +3,10 @@ let
   username = config.flake.meta.owner.username;
 in
 {
-  flake.modules.nixos.agenix.age.secrets.syncthingGuiPassword.rekeyFile = ./syncthingGuiPassword.age;
+  flake.modules.nixos.agenix.age.secrets.syncthingGuiPassword = {
+    rekeyFile = ./syncthingGuiPassword.age;
+    owner = username;
+  };
 
   flake.modules.nixos.foundation =
     { config, ... }:
