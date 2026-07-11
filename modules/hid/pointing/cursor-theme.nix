@@ -14,6 +14,9 @@ in
 {
   flake.modules = {
     nixos.foundation = polyModule;
-    homeManager.gui = polyModule;
+    homeManager.gui = { pkgs, ... }: {
+      imports = [ polyModule ];
+      home.pointerCursor.enable = pkgs.stdenv.isLinux;
+    };
   };
 }

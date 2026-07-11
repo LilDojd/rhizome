@@ -46,7 +46,7 @@
       url = "github:platomav/CPUMicrocodes";
     };
     nix-alien = {
-      url = "https://flakehub.com/f/thiagokokada/nix-alien/0.1.*";
+      url = "github:thiagokokada/nix-alien";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         nix-index-database.follows = "nix-index-database";
@@ -146,8 +146,6 @@
       url = "github:notashelf/nvf";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-parts.follows = "flake-parts";
-        systems.follows = "dedupe_systems";
         flake-compat.follows = "dedupe_flake-compat";
       };
     };

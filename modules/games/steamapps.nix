@@ -5,7 +5,7 @@
       imports = [ inputs.steam-config-nix.homeModules.default ];
       programs.steam.config = {
         enable = true;
-        closeSteam = true;
+        onSteamRunning = "close";
 
         apps = {
           factorio = {

@@ -42,10 +42,14 @@
         };
         inherit defaultOptions;
         defaultCommand = "${lib.getExe pkgs.fd} --type f";
-        changeDirWidgetCommand = "${lib.getExe pkgs.fd} --type d";
-        fileWidgetCommand = "${lib.getExe pkgs.fd} -t f -X ${sortFilesCmd}";
-        fileWidgetOptions = binds ++ [ "--preview='${lib.getExe fzf-preview} {}'" ];
-        changeDirWidgetOptions = binds ++ [ "--preview='${lib.getExe pkgs.eza} -T {}'" ];
+        changeDirWidget = {
+          command = "${lib.getExe pkgs.fd} --type d";
+          options = binds ++ [ "--preview='${lib.getExe pkgs.eza} -T {}'" ];
+        };
+        fileWidget = {
+          command = "${lib.getExe pkgs.fd} -t f -X ${sortFilesCmd}";
+          options = binds ++ [ "--preview='${lib.getExe fzf-preview} {}'" ];
+        };
       };
     };
 }

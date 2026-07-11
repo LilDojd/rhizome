@@ -6,5 +6,6 @@
       homeDirectory = "/home/${config.flake.meta.owner.username}";
     };
     programs.home-manager.enable = true;
+    manual.manpages.enable = false;
   };
 }

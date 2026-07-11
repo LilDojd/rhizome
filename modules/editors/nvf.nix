@@ -36,15 +36,6 @@
             };
           };
 
-          maps = {
-            normal = {
-              "<leader>e" = {
-                action = "<CMD>Neotree toggle<CR>";
-                silent = false;
-              };
-            };
-          };
-
           diagnostics = {
             enable = true;
             config = {
@@ -54,6 +45,12 @@
           };
 
           keymaps = [
+            {
+              key = "<leader>e";
+              mode = [ "n" ];
+              action = "<CMD>Neotree toggle<CR>";
+              silent = false;
+            }
             {
               key = "jk";
               mode = [ "i" ];
