@@ -12,7 +12,6 @@
         ripgrep
         ripgrep-all
         tokei
-        unar
         unzip
         zip
         zstd
