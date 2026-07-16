@@ -95,6 +95,7 @@ in
             ".config/Mailspring"
             ".config/glab-cli"
             ".claude"
+            ".codex"
 
             "Downloads"
             "Pictures"
