@@ -96,6 +96,10 @@ in
             ".config/glab-cli"
             ".claude"
             ".codex"
+            ".orchestra"
+            ".config/opencode"
+            ".local/share/opencode"
+            ".local/state/opencode"
 
             "Downloads"
             "Pictures"
