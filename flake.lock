@@ -281,11 +281,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785869730,
-        "narHash": "sha256-AEl8rsH+NrNfzfJ6kdJv+izGSCn8HvzRSNsAfvJ5tp8=",
+        "lastModified": 1785955903,
+        "narHash": "sha256-/zGt33jqEMb+IVL/jgumet5mABrjy3yCTXANS5jGpjI=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "344dd4577722bdf97604c89f2239fe8b2cfad301",
+        "rev": "83452596ee2f5207b3dd2315e0d59eaeee0a206e",
         "type": "github"
       },
       "original": {
@@ -515,11 +515,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1785816168,
-        "narHash": "sha256-RQ94B/IO+mJxEDxRnPjGhu4PjKrEUX64gTW0IGFRg0o=",
+        "lastModified": 1785902574,
+        "narHash": "sha256-HwlI13eiRLqxFCvk76ZVWdpkWb9kw2AZCoy0DnGeCZI=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "66f538cbd80fe70790a85a351560761c3fdfa56a",
+        "rev": "b856b4a1d1e3ffd7f917387bc7d2eda9b9dad3a7",
         "type": "gitlab"
       },
       "original": {
@@ -879,11 +879,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785531816,
-        "narHash": "sha256-vkMnV0JIyw+g/NmcfoajlGaAO+9a0ezia+FZohQJrik=",
+        "lastModified": 1785944609,
+        "narHash": "sha256-oVALwpE6ztz2Ll6vGlCHJs7fhblEmOFz3/TTcgZnrqM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "bf9ce9fec78f95f374e8dd3b503863a3ec128ebe",
+        "rev": "44a1a0ab16b1b6b8e6b673227d870c3a89cab35e",
         "type": "github"
       },
       "original": {
@@ -916,11 +916,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1785866354,
-        "narHash": "sha256-XYwrI52uvsEjGW3dRyyJYRkfgZsmu0j1f0SakR+6tm8=",
+        "lastModified": 1785952617,
+        "narHash": "sha256-waF4yCJgd02yUusOfNxw1PyrxKjjIHncodcJhcxzibg=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "80ef7fd8969c94e585f2880bc16b87177293fa4d",
+        "rev": "c17ec3591cf528d05e04be1fdf62bc8fdb4b7aed",
         "type": "github"
       },
       "original": {
@@ -932,11 +932,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1785870757,
-        "narHash": "sha256-qjwZIuEffz1KEKIFZVxPbAw+53EB9hpDZrpSbSI5SKs=",
+        "lastModified": 1785956097,
+        "narHash": "sha256-6RmnHUblCM4E9APD/WuBWtQFWF0PpPmcm2KFev2wwp8=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "d88718f89828062157eaeceda5f4986bd837c152",
+        "rev": "a4c9c64fb744604394a589fdc6624ff6c945165d",
         "type": "github"
       },
       "original": {
@@ -1895,11 +1895,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1785846281,
-        "narHash": "sha256-Fr/tXB6lPjSbfgiN1hH/kMtwpGYVibhDama/t7HeTYw=",
+        "lastModified": 1785918972,
+        "narHash": "sha256-rBlkT0PfPJPeGsCn5WNgLXFscQm3c2tvBkeGrSyMwFY=",
         "owner": "different-name",
         "repo": "steam-config-nix",
-        "rev": "bdd999982af858acaade63b16e038b08c13d7a4e",
+        "rev": "f2182afe4810980249717d939ffad0a56314c16e",
         "type": "github"
       },
       "original": {
@@ -2100,12 +2100,12 @@
         ]
       },
       "locked": {
-        "lastModified": 1785360170,
-        "narHash": "sha256-XE1lKgQ3eIO3E7zWryqcRsax+mYXod/5RHBn4YaR9YE=",
-        "rev": "d1187f8bc71fb8aab02395869ec3f5c1920f75c0",
-        "revCount": 554,
+        "lastModified": 1785945821,
+        "narHash": "sha256-NLSyTCW4K4ofhNBllt3omPasm6QpralXH1DBZOc91Dw=",
+        "rev": "ae7910970dddc408fe6ab1c8e4b277bb21d72dc0",
+        "revCount": 555,
         "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/numtide/treefmt-nix/0.1.554%2Brev-d1187f8bc71fb8aab02395869ec3f5c1920f75c0/019fb1af-47b1-7483-9b0a-8f3204c426fc/source.tar.gz"
+        "url": "https://api.flakehub.com/f/pinned/numtide/treefmt-nix/0.1.555%2Brev-ae7910970dddc408fe6ab1c8e4b277bb21d72dc0/019fd319-9d73-7871-93ca-8886e9d0fa71/source.tar.gz"
       },
       "original": {
         "type": "tarball",
