@@ -58,7 +58,7 @@ _: {
         tag = "+games";
       }
       {
-        match.class = "^(steam_app_d+)$";
+        match.class = "^(steam_app_[0-9]+)$";
         tag = "+games";
       }
       {
@@ -286,6 +286,12 @@ _: {
       {
         match.tag = "games*";
         fullscreen = true;
+        confine_pointer = true;
+      }
+      {
+        match.content = "game";
+        match.fullscreen = true;
+        confine_pointer = true;
       }
     ];
   };
