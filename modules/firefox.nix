@@ -75,32 +75,30 @@
       ];
     };
 
-  flake.modules.homeManager.hyprland =
-    hmArgs:
-    {
-      wayland.windowManager.hyprland.settings = {
-        env = [
-          {
-            _args = [
-              "MOZ_ENABLE_WAYLAND"
-              "1"
-            ];
-          }
-        ];
-        bind = [
-          {
-            _args = [
-              (lib.generators.mkLuaInline ''modifier .. " + W"'')
-              (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON (lib.getExe hmArgs.config.programs.firefox.package)})")
-            ];
-          }
-        ];
-        window_rule = lib.mkBefore [
-          {
-            match.class = "^(firefox)$";
-            tag = "+browser";
-          }
-        ];
-      };
+  flake.modules.homeManager.hyprland = hmArgs: {
+    wayland.windowManager.hyprland.settings = {
+      env = [
+        {
+          _args = [
+            "MOZ_ENABLE_WAYLAND"
+            "1"
+          ];
+        }
+      ];
+      bind = [
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''modifier .. " + W"'')
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON (lib.getExe hmArgs.config.programs.firefox.package)})")
+          ];
+        }
+      ];
+      window_rule = lib.mkBefore [
+        {
+          match.class = "^(firefox)$";
+          tag = "+browser";
+        }
+      ];
     };
+  };
 }

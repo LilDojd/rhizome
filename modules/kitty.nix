@@ -81,32 +81,30 @@
       };
     };
 
-  flake.modules.homeManager.hyprland =
-    hmArgs:
-    {
-      wayland.windowManager.hyprland.settings = {
-        env = [
-          {
-            _args = [
-              "TERMINAL"
-              (lib.getExe hmArgs.config.programs.kitty.package)
-            ];
-          }
-        ];
-        bind = [
-          {
-            _args = [
-              (lib.generators.mkLuaInline ''modifier .. " + Return"'')
-              (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON (lib.getExe hmArgs.config.programs.kitty.package)})")
-            ];
-          }
-        ];
-        window_rule = lib.mkBefore [
-          {
-            match.class = "^(kitty)$";
-            tag = "+terminal";
-          }
-        ];
-      };
+  flake.modules.homeManager.hyprland = hmArgs: {
+    wayland.windowManager.hyprland.settings = {
+      env = [
+        {
+          _args = [
+            "TERMINAL"
+            (lib.getExe hmArgs.config.programs.kitty.package)
+          ];
+        }
+      ];
+      bind = [
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''modifier .. " + Return"'')
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON (lib.getExe hmArgs.config.programs.kitty.package)})")
+          ];
+        }
+      ];
+      window_rule = lib.mkBefore [
+        {
+          match.class = "^(kitty)$";
+          tag = "+terminal";
+        }
+      ];
     };
+  };
 }

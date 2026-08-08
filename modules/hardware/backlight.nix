@@ -4,7 +4,9 @@
     { pkgs, ... }:
     let
       brightnessctl = lib.getExe pkgs.brightnessctl;
-      exec = command: lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON "${brightnessctl} ${command}"})";
+      exec =
+        command:
+        lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON "${brightnessctl} ${command}"})";
     in
     {
       home.packages = [ pkgs.brightnessctl ];

@@ -4,7 +4,8 @@
     hmArgs@{ pkgs, ... }:
     let
       playerctl = lib.getExe pkgs.playerctl;
-      exec = command: lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON "${playerctl} ${command}"})";
+      exec =
+        command: lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON "${playerctl} ${command}"})";
     in
     {
       home.packages = [ pkgs.playerctl ];
