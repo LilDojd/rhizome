@@ -50,11 +50,6 @@ _: {
         ];
         open = [
           {
-            run = "xdg-open %s1";
-            desc = "Open";
-            for = "linux";
-          }
-          {
             run = "open %s";
             desc = "Open";
             for = "macos";
@@ -66,11 +61,6 @@ _: {
           }
         ];
         reveal = [
-          {
-            run = "xdg-open %d1";
-            desc = "Reveal";
-            for = "linux";
-          }
           {
             run = "open -R %s1";
             desc = "Reveal";

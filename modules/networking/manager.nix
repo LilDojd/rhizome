@@ -43,6 +43,24 @@
         {
           home.packages = [ pkgs.networkmanagerapplet ];
 
+          xdg.autostart = {
+            enable = true;
+            entries = [
+              "${pkgs.writeTextDir "nm-applet.desktop" ''
+                [Desktop Entry]
+                Name=NetworkManager Applet
+                Comment=Manage your network connections
+                Icon=nm-device-wireless
+                Exec=${lib.getExe pkgs.networkmanagerapplet} --indicator
+                Terminal=false
+                Type=Application
+                NoDisplay=true
+                NotShowIn=KDE;GNOME;COSMIC;
+                X-GNOME-UsesNotifications=true
+              ''}/nm-applet.desktop"
+            ];
+          };
+
           wayland.windowManager.hyprland.settings.window_rule = lib.mkBefore [
             {
               match.class = "^(nm-applet|nm-connection-editor)$";
