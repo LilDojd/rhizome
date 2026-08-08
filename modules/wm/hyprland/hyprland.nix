@@ -57,10 +57,6 @@
         swappy
         hyprpolkitagent
         hyprland-qtutils # needed for banners and ANR messages
-        awww
-        pyprland
-        networkmanagerapplet
-        psmisc
       ];
 
       wayland.windowManager.hyprland = {

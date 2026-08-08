@@ -63,27 +63,38 @@
           };
         };
 
-      homeManager.hyprland = {
+      homeManager.hyprland =
+        { pkgs, ... }:
+        {
 
-        xdg.desktopEntries = {
-          "1password" = {
-            name = "1Password";
-            genericName = "Password Manager";
-            exec = "1password --ozone-platform=x11 %U";
-            terminal = false;
-            type = "Application";
-            icon = "1password";
-            categories = [
-              "Utility"
-              "Security"
-            ];
-            mimeType = [
-              "x-scheme-handler/onepassword"
-              "x-scheme-handler/op"
-            ];
+          xdg.desktopEntries = {
+            "1password" = {
+              name = "1Password";
+              genericName = "Password Manager";
+              exec = "1password --ozone-platform=x11 %U";
+              terminal = false;
+              type = "Application";
+              icon = "1password";
+              categories = [
+                "Utility"
+                "Security"
+              ];
+              mimeType = [
+                "x-scheme-handler/onepassword"
+                "x-scheme-handler/op"
+              ];
+            };
           };
+
+          wayland.windowManager.hyprland.settings.on = [
+            {
+              _args = [
+                "hyprland.start"
+                (lib.generators.mkLuaInline "function() hl.exec_cmd(${builtins.toJSON "${lib.getExe' pkgs.coreutils "sleep"} 2 && ${lib.getExe pkgs._1password-gui} --ozone-platform=x11 --silent"}) end")
+              ];
+            }
+          ];
         };
-      };
 
       nixos.foundation = {
         imports = [ flakeCommon ];

@@ -9,6 +9,10 @@
 
     let
       submap = "background";
+      awwwExe = lib.getExe pkgs.awww;
+      awwwDaemon = lib.getExe' pkgs.awww "awww-daemon";
+      killall = lib.getExe' pkgs.psmisc "killall";
+      sleep = lib.getExe' pkgs.coreutils "sleep";
 
       wallsetter = pkgs.writeShellApplication {
         name = "wallsetter";
@@ -17,6 +21,7 @@
           findutils
           coreutils
           libnotify
+          procps
         ];
         text = # sh
           ''
@@ -43,7 +48,10 @@
       };
     in
     {
-      home.packages = [ wallsetter ];
+      home.packages = [
+        pkgs.awww
+        wallsetter
+      ];
 
       wayland.windowManager.hyprland =
         let
@@ -52,6 +60,21 @@
         {
           settings = {
             config.misc.disable_hyprland_logo = true;
+
+            on = [
+              {
+                _args = [
+                  "hyprland.start"
+                  (inline "function() hl.exec_cmd(${builtins.toJSON "${killall} -q awww;${sleep} .5 && ${awwwDaemon}"}) end")
+                ];
+              }
+              {
+                _args = [
+                  "hyprland.start"
+                  (inline "function() hl.exec_cmd(${builtins.toJSON "${sleep} 1.5 && ${awwwExe} img ~/backgrounds/spacegoose.png"}) end")
+                ];
+              }
+            ];
 
             bind = [
               {

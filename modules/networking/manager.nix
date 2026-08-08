@@ -29,10 +29,27 @@
       };
     };
 
-    homeManager.linux =
-      { pkgs, ... }:
-      {
-        home.packages = [ pkgs.impala ];
-      };
+    homeManager = {
+      linux =
+        { pkgs, ... }:
+        {
+          home.packages = [ pkgs.impala ];
+        };
+
+      hyprland =
+        { lib, pkgs, ... }:
+        {
+          home.packages = [ pkgs.networkmanagerapplet ];
+
+          wayland.windowManager.hyprland.settings.on = [
+            {
+              _args = [
+                "hyprland.start"
+                (lib.generators.mkLuaInline "function() hl.exec_cmd(${builtins.toJSON "${lib.getExe pkgs.networkmanagerapplet} --indicator"}) end")
+              ];
+            }
+          ];
+        };
+    };
   };
 }

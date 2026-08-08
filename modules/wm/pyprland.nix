@@ -17,6 +17,15 @@
         }
       ];
 
+      wayland.windowManager.hyprland.settings.on = [
+        {
+          _args = [
+            "hyprland.start"
+            (lib.generators.mkLuaInline "function() hl.exec_cmd(${builtins.toJSON (lib.getExe pkgs.pyprland)}) end")
+          ];
+        }
+      ];
+
       home.file.".config/pypr/config.toml".text = ''
         [pyprland]
         plugins = [
