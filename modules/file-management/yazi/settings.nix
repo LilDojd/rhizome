@@ -60,12 +60,6 @@ _: {
             for = "macos";
           }
           {
-            run = ''start "" %s1'';
-            orphan = true;
-            desc = "Open";
-            for = "windows";
-          }
-          {
             run = "termux-open %s1";
             desc = "Open";
             for = "android";
@@ -81,12 +75,6 @@ _: {
             run = "open -R %s1";
             desc = "Reveal";
             for = "macos";
-          }
-          {
-            run = "explorer /select,%s1";
-            orphan = true;
-            desc = "Reveal";
-            for = "windows";
           }
           {
             run = "termux-open %d1";
@@ -106,23 +94,8 @@ _: {
             desc = "Extract here";
             for = "unix";
           }
-          {
-            run = "ya pub extract --list %s";
-            desc = "Extract here";
-            for = "windows";
-          }
         ];
         play = [
-          {
-            run = "mpv --force-window %s";
-            orphan = true;
-            for = "unix";
-          }
-          {
-            run = "mpv --force-window %s";
-            orphan = true;
-            for = "windows";
-          }
           {
             run = ''mediainfo %s1; echo "Press enter to exit"; read _'';
             block = true;
@@ -203,16 +176,6 @@ _: {
       };
       plugin = {
         prepend_fetchers = [
-          {
-            url = "*";
-            run = "jj";
-            group = "jj";
-          }
-          {
-            url = "*/";
-            run = "jj";
-            group = "jj";
-          }
           {
             url = "local://*";
             run = "mime-ext.local";

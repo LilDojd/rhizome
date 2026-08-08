@@ -30,17 +30,25 @@
       };
     in
     {
-      programs = {
-        yazi = {
-          enable = true;
-          enableFishIntegration = true;
-          plugins = {
-            inherit jj;
-          };
-          initLua = ''
-                  require("jj"):setup()
-            		'';
+      programs.yazi = {
+        plugins = {
+          inherit jj;
         };
+        initLua = ''
+                require("jj"):setup()
+          		'';
+        settings.plugin.prepend_fetchers = lib.mkBefore [
+          {
+            url = "*";
+            run = "jj";
+            group = "jj";
+          }
+          {
+            url = "*/";
+            run = "jj";
+            group = "jj";
+          }
+        ];
       };
     };
 }

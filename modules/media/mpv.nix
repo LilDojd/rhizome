@@ -16,17 +16,27 @@
       };
     in
     {
-      programs.mpv = {
-        enable = true;
+      programs = {
+        mpv = {
+          enable = true;
 
-        package = mpv-wayland;
+          package = mpv-wayland;
 
-        config = {
-          gpu-context = "wayland";
-          profile = "high-quality";
-          ytdl-format = "bestvideo+bestaudio";
-          cache-default = 4000000;
+          config = {
+            gpu-context = "wayland";
+            profile = "high-quality";
+            ytdl-format = "bestvideo+bestaudio";
+            cache-default = 4000000;
+          };
         };
+
+        yazi.settings.opener.play = lib.mkBefore [
+          {
+            run = "${lib.getExe mpv-wayland} --force-window %s";
+            orphan = true;
+            for = "unix";
+          }
+        ];
       };
     };
 
