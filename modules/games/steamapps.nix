@@ -8,10 +8,6 @@
         onSteamRunning = "close";
 
         apps = {
-          factorio = {
-            id = 427520;
-            launchOptionsStr = "gamemoderun %command%";
-          };
           dota2 = {
             id = 570;
             compatTool = "steamlinuxruntime_sniper";

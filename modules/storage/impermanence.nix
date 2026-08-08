@@ -40,7 +40,6 @@ in
   flake.modules.nixos.foundation = {
     imports = [ inputs.impermanence.nixosModules.impermanence ];
     config = {
-      security.sudo.extraConfig = "Defaults lecture=never";
       fileSystems."/persistent".neededForBoot = true;
 
       boot.initrd = {
