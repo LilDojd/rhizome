@@ -5,7 +5,7 @@
       ".local/state/lazygit"
     ];
   flake.modules.homeManager.base =
-    hmArgs:
+    hmArgs@{ pkgs, ... }:
     let
       accent = "#${hmArgs.config.lib.stylix.colors.base0D}";
       muted = "#${hmArgs.config.lib.stylix.colors.base03}";
@@ -39,6 +39,13 @@
           };
         };
       };
+      programs.helix.settings.keys.normal."space".l.g = [
+        ":new"
+        ":insert-output ${lib.getExe hmArgs.config.programs.lazygit.package}"
+        ":buffer-close!"
+        ":redraw"
+      ];
+      programs.yazi.plugins.lazygit = pkgs.yaziPlugins.lazygit;
       home.shellAliases.lg = "lazygit";
     };
 }

@@ -1,4 +1,4 @@
-{ lib, inputs, ... }:
+{ inputs, ... }:
 {
   flake.modules.homeManager.base =
     { pkgs, ... }:
@@ -81,27 +81,10 @@
                 "page_up"
                 "goto_window_top"
               ];
-              "C-y" = [
-                ":sh rm -f /tmp/unique-file"
-                ":insert-output ${lib.getExe pkgs.yazi} %{buffer_name} --chooser-file=/tmp/unique-file"
-                '':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty''
-                ":open %sh{cat /tmp/unique-file}"
-                ":redraw"
-                ":set mouse false"
-                ":set mouse true"
-              ];
-
               backspace = {
                 y = ":yank-diagnostic";
                 backspace = "suspend";
               };
-
-              "space".l.g = [
-                ":new"
-                ":insert-output ${lib.getExe pkgs.lazygit}"
-                ":buffer-close!"
-                ":redraw"
-              ];
 
               "space".b = {
                 f = "buffer_picker";

@@ -29,7 +29,6 @@
 
         userSettings = {
           base_keymap = "VSCode";
-          load_direnv = "shell_hook";
           helix_mode = true;
           inlay_hints = {
             enabled = true;

@@ -25,7 +25,6 @@
           enable = true;
           enableFishIntegration = true;
           plugins = {
-            inherit (pkgs.yaziPlugins) lazygit;
             inherit (pkgs.yaziPlugins) full-border;
             inherit (pkgs.yaziPlugins) smart-enter;
             inherit (pkgs.yaziPlugins) mime-ext;

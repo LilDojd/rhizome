@@ -11,6 +11,7 @@
         nix-direnv.enable = true;
         config.global.warn_timeout = 0;
       };
+      zed-editor.userSettings.load_direnv = "shell_hook";
       git.ignores = [
         ".envrc"
         ".direnv"
