@@ -128,16 +128,6 @@
             "Tab"
           ]) bringtotop)
 
-          (bind "XF86AudioRaiseVolume" (exec "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"))
-          (bind "XF86AudioLowerVolume" (exec "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"))
-          (bind "XF86AudioMute" (exec "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
-          (bind "XF86AudioPlay" (exec "playerctl play-pause"))
-          (bind "XF86AudioPause" (exec "playerctl play-pause"))
-          (bind "XF86AudioNext" (exec "playerctl next"))
-          (bind "XF86AudioPrev" (exec "playerctl previous"))
-          (bind "XF86MonBrightnessDown" (exec "brightnessctl set 5%-"))
-          (bind "XF86MonBrightnessUp" (exec "brightnessctl set +5%"))
-
           (bind (withMod [ "CTRL" ] "h") (resizeactive (-50) 0))
           (bind (withMod [ "CTRL" ] "l") (resizeactive 50 0))
           (bind (withMod [ "CTRL" ] "j") (resizeactive 0 50))

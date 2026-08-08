@@ -1,9 +1,9 @@
-{ lib, ... }:
+{ ... }:
 {
   flake.modules = {
     nixos.foundation.security.pam.services.hyprlock.text = "auth include login";
     homeManager.hyprland =
-      hmArgs@{ pkgs, ... }:
+      hmArgs:
       let
         inherit (hmArgs.config.lib.stylix) colors;
       in
@@ -97,17 +97,6 @@
                 font_size = "30";
                 font_family = "${hmArgs.config.stylix.fonts.monospace.name}";
                 position = "0, 80";
-                halign = "center";
-                valign = "bottom";
-              }
-
-              # CURRENT SONG
-              {
-                text = ''cmd[update:1000] echo "$(${lib.getExe pkgs.playerctl} metadata --format '{{title}} | {{artist}}')"'';
-                color = "rgba(255, 255, 255, 1)";
-                font_size = 17;
-                font_family = "${hmArgs.config.stylix.fonts.monospace.name}";
-                position = "0, 200";
                 halign = "center";
                 valign = "bottom";
               }
