@@ -49,6 +49,12 @@
               ];
             }
           ];
+          wayland.windowManager.hyprland.settings.window_rule = lib.mkBefore [
+            {
+              match.class = "^(nm-applet|nm-connection-editor)$";
+              tag = "+settings";
+            }
+          ];
         };
     };
   };

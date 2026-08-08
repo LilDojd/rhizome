@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   flake.modules.homeManager.gui.programs.ghostty.settings = {
     window-theme = "dark";
@@ -12,4 +13,13 @@
     mouse-scroll-multiplier = 2;
     gtk-single-instance = true;
   };
+
+  flake.modules.homeManager.hyprland.wayland.windowManager.hyprland.settings.window_rule =
+    lib.mkBefore
+      [
+        {
+          match.class = "^(com\\.mitchellh\\.ghostty)$";
+          tag = "+terminal";
+        }
+      ];
 }

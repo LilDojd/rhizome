@@ -55,6 +55,16 @@
             ];
           }
         ];
+        wayland.windowManager.hyprland.settings.window_rule = lib.mkBefore [
+          {
+            match.class = "^(com\\.saivert\\.pwvucontrol)$";
+            tag = "+settings";
+          }
+          {
+            match.class = "^(com\\.saivert\\.pwvucontrol)$";
+            center = true;
+          }
+        ];
 
         xdg.configFile = {
           "wireplumber/wireplumber.conf.d/50-pro-x-profile.conf".text = ''

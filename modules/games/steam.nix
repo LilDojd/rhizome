@@ -1,5 +1,27 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
+  flake.modules.homeManager.hyprland.wayland.windowManager.hyprland.settings.window_rule =
+    lib.mkBefore
+      [
+        {
+          match.class = "^(gamescope)$";
+          tag = "+games";
+        }
+        {
+          match.class = "^(steam_app_[0-9]+)$";
+          tag = "+games";
+        }
+        {
+          match.class = "^([Ss]team)$";
+          tag = "+gamestore";
+        }
+        {
+          match.class = "^([Ss]team)$";
+          match.title = "negative:^([Ss]team)$";
+          float = true;
+        }
+      ];
+
   flake.modules.homeManager.base =
     { config, ... }:
     {

@@ -91,6 +91,12 @@
             ];
           }
         ];
+        window_rule = lib.mkBefore [
+          {
+            match.class = "^(firefox)$";
+            tag = "+browser";
+          }
+        ];
       };
     };
 }

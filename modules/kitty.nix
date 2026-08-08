@@ -101,6 +101,12 @@
             ];
           }
         ];
+        window_rule = lib.mkBefore [
+          {
+            match.class = "^(kitty)$";
+            tag = "+terminal";
+          }
+        ];
       };
     };
 }

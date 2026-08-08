@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   flake.modules.nixos.foundation.environment.persistence."/persistent".users.${config.flake.meta.owner.username}.directories =
     [
@@ -29,4 +29,13 @@
         };
       };
     };
+
+  flake.modules.homeManager.hyprland.wayland.windowManager.hyprland.settings.window_rule =
+    lib.mkBefore
+      [
+        {
+          match.class = "^(mpv)$";
+          float = true;
+        }
+      ];
 }

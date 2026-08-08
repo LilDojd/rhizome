@@ -26,6 +26,13 @@
         }
       ];
 
+      wayland.windowManager.hyprland.settings.window_rule = lib.mkBefore [
+        {
+          match.class = "^${class}$";
+          tag = "+terminal";
+        }
+      ];
+
       home.file.".config/pypr/config.toml".text = ''
         [pyprland]
         plugins = [

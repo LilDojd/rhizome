@@ -94,6 +94,13 @@
               ];
             }
           ];
+          wayland.windowManager.hyprland.settings.window_rule = lib.mkBefore [
+            {
+              match.class = "^(1Password)$";
+              match.float = true;
+              center = true;
+            }
+          ];
         };
 
       nixos.foundation = {

@@ -17,5 +17,11 @@
           ];
         }
       ];
+      wayland.windowManager.hyprland.settings.window_rule = lib.mkBefore [
+        {
+          match.class = "^([Vv]esktop)$";
+          tag = "+im";
+        }
+      ];
     };
 }

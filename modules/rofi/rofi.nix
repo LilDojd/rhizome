@@ -21,6 +21,12 @@
           ];
         }
       ];
+      wayland.windowManager.hyprland.settings.window_rule = lib.mkBefore [
+        {
+          match.class = "^([Rr]ofi)$";
+          tag = "+settings";
+        }
+      ];
       stylix.targets.rofi.enable = false;
       programs = {
         rofi = {
