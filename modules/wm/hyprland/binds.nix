@@ -41,7 +41,6 @@
       windowDrag = inline "hl.dsp.window.drag()";
       windowResize = inline "hl.dsp.window.resize()";
 
-      exec = cmd: inline "hl.dsp.exec_cmd(${builtins.toJSON cmd})";
       movefocus = dir: inline ''hl.dsp.focus({ direction = "${dir}" })'';
       movewindow = dir: inline ''hl.dsp.window.move({ direction = "${dir}" })'';
       swapwindow = dir: inline ''hl.dsp.window.swap({ direction = "${dir}" })'';

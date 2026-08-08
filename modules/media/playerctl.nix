@@ -3,7 +3,6 @@
   flake.modules.homeManager.hyprland =
     hmArgs@{ pkgs, ... }:
     let
-      inherit (hmArgs.config.lib.stylix) colors;
       playerctl = lib.getExe pkgs.playerctl;
       exec = command: lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON "${playerctl} ${command}"})";
     in
