@@ -84,13 +84,23 @@
   flake.modules.homeManager.hyprland =
     hmArgs:
     {
-      wayland.windowManager.hyprland.settings.bind = [
-        {
-          _args = [
-            (lib.generators.mkLuaInline ''modifier .. " + Return"'')
-            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON (lib.getExe hmArgs.config.programs.kitty.package)})")
-          ];
-        }
-      ];
+      wayland.windowManager.hyprland.settings = {
+        env = [
+          {
+            _args = [
+              "TERMINAL"
+              (lib.getExe hmArgs.config.programs.kitty.package)
+            ];
+          }
+        ];
+        bind = [
+          {
+            _args = [
+              (lib.generators.mkLuaInline ''modifier .. " + Return"'')
+              (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON (lib.getExe hmArgs.config.programs.kitty.package)})")
+            ];
+          }
+        ];
+      };
     };
 }

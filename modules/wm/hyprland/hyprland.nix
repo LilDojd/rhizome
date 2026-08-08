@@ -25,7 +25,6 @@
           withUWSM = false;
         };
 
-      environment.sessionVariables.NIXOS_OZONE_WL = "1";
       hardware.graphics.enable32Bit = lib.mkForce true;
       services.greetd = {
         enable = true;

@@ -1,11 +1,29 @@
 { config, ... }:
 let
   username = config.flake.meta.owner.username;
+  homeManagerModule = {
+    wayland.windowManager.hyprland.settings.env = [
+      {
+        _args = [
+          "LIBVA_DRIVER_NAME"
+          "nvidia"
+        ];
+      }
+      {
+        _args = [
+          "__GLX_VENDOR_LIBRARY_NAME"
+          "nvidia"
+        ];
+      }
+    ];
+  };
 in
 {
+  flake.modules.homeManager.nvidia-gpu = homeManagerModule;
   flake.modules.nixos.nvidia-gpu =
     { config, ... }:
     {
+      home-manager.users.${username}.imports = [ homeManagerModule ];
       environment.persistence."/persistent".users.${username}.directories = [
         ".cache/mesa_shader_cache"
       ];

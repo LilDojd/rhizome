@@ -143,4 +143,14 @@
         ];
       };
     };
+  flake.modules.homeManager.hyprland.wayland.windowManager.hyprland.settings.env = [
+    {
+      _args = [
+        "EDITOR"
+        "hx"
+      ];
+    }
+  ];
+  flake.modules.nixos.foundation.environment.variables.EDITOR = "hx";
+  flake.modules.darwin.foundation.environment.variables.EDITOR = "hx";
 }

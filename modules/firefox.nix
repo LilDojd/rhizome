@@ -74,13 +74,23 @@
   flake.modules.homeManager.hyprland =
     hmArgs:
     {
-      wayland.windowManager.hyprland.settings.bind = [
-        {
-          _args = [
-            (lib.generators.mkLuaInline ''modifier .. " + W"'')
-            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON (lib.getExe hmArgs.config.programs.firefox.package)})")
-          ];
-        }
-      ];
+      wayland.windowManager.hyprland.settings = {
+        env = [
+          {
+            _args = [
+              "MOZ_ENABLE_WAYLAND"
+              "1"
+            ];
+          }
+        ];
+        bind = [
+          {
+            _args = [
+              (lib.generators.mkLuaInline ''modifier .. " + W"'')
+              (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON (lib.getExe hmArgs.config.programs.firefox.package)})")
+            ];
+          }
+        ];
+      };
     };
 }
