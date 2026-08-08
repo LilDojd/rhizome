@@ -1,6 +1,7 @@
+{ config, ... }:
 {
   flake.modules.nixos.foundation = {
-    hardware.nvidia-container-toolkit.enable = true;
+    users.users.${config.flake.meta.owner.username}.extraGroups = [ "docker" ];
     virtualisation.docker = {
       enable = true;
       storageDriver = "btrfs";

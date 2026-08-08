@@ -13,10 +13,8 @@
         isNormalUser = true;
         extraGroups = [
           "adbusers"
-          "docker"
           "libvirtd"
           "lp"
-          "networkmanager"
           "scanner"
           "wheel"
           "dialout"

@@ -34,6 +34,7 @@ in
         "nvidia_drm"
       ];
       services.xserver.videoDrivers = [ "nvidia" ];
+      hardware.nvidia-container-toolkit.enable = true;
       hardware.nvidia = {
         modesetting.enable = true;
         powerManagement.enable = true;
