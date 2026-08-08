@@ -18,7 +18,7 @@
         hyprland.settings.bind = [
           {
             _args = [
-              "SUPER + C"
+              (lib.generators.mkLuaInline ''modifier .. " + C"'')
               (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON (lib.getExe pkgs.sink-rotate)})")
             ];
           }
