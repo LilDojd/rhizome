@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   flake.modules.nixos.foundation = {
     environment.persistence."/persistent".directories = [
@@ -14,20 +14,21 @@
   };
   flake.modules.homeManager.linux =
     { pkgs, ... }:
+    let
+      transmission = pkgs.writeShellApplication {
+        name = "transmission";
+        runtimeInputs = [ pkgs.xdg-utils ];
+        text = ''
+          xdg-open http://localhost:9091
+        '';
+      };
+    in
     {
-      home.packages = [
-        (pkgs.writeShellApplication {
-          name = "transmission";
-          runtimeInputs = [ pkgs.xdg-utils ];
-          text = ''
-            xdg-open http://localhost:9091
-          '';
-        })
-      ];
+      home.packages = [ transmission ];
       xdg.desktopEntries.transmission = {
         name = "Transmission";
         genericName = "BitTorrent Client";
-        exec = "transmission";
+        exec = lib.getExe transmission;
         terminal = false;
         categories = [
           "Network"

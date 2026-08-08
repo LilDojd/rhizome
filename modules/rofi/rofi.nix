@@ -3,13 +3,20 @@
   flake.modules.homeManager.hyprland =
     hmArgs@{ pkgs, ... }:
     let
-      rofi-launcher = pkgs.writeShellScriptBin "rofi-launcher" ''
-        # check if rofi is already running
-        if pidof rofi > /dev/null; then
-          pkill rofi
-        fi
-        rofi -show drun
-      '';
+      rofi-launcher = pkgs.writeShellApplication {
+        name = "rofi-launcher";
+        runtimeInputs = [
+          hmArgs.config.programs.rofi.package
+          pkgs.procps
+        ];
+        text = ''
+          # check if rofi is already running
+          if pidof rofi > /dev/null; then
+            pkill rofi
+          fi
+          rofi -show drun
+        '';
+      };
     in
     {
       home.packages = [ rofi-launcher ];

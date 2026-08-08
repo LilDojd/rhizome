@@ -9,7 +9,7 @@
         {
           _args = [
             "hyprland.start"
-            (lib.generators.mkLuaInline ''function() hl.exec_cmd("sunsetr") end'')
+            (lib.generators.mkLuaInline "function() hl.exec_cmd(${builtins.toJSON (lib.getExe pkgs.sunsetr)}) end")
           ];
         }
       ];

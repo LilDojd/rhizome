@@ -19,6 +19,7 @@
         runtimeInputs = with pkgs; [
           awww
           findutils
+          gawk
           coreutils
           libnotify
           procps
@@ -67,7 +68,7 @@
               {
                 _args = [
                   "hyprland.start"
-                  (inline "function() hl.exec_cmd(${builtins.toJSON "${killall} -q awww;${sleep} .5 && ${awwwDaemon}"}) end")
+                  (inline "function() hl.exec_cmd(${builtins.toJSON "${killall} -q awww-daemon;${sleep} .5 && ${awwwDaemon}"}) end")
                 ];
               }
               {
@@ -99,7 +100,7 @@
             {
               _args = [
                 "p"
-                (inline ''hl.dsp.exec_cmd("awww img ~/backgrounds/spacegoose.png")'')
+                (inline "hl.dsp.exec_cmd(${builtins.toJSON "${awwwExe} img ~/backgrounds/spacegoose.png"})")
                 { repeating = true; }
               ];
             }

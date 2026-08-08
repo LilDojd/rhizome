@@ -71,7 +71,7 @@
             "1password" = {
               name = "1Password";
               genericName = "Password Manager";
-              exec = "1password --ozone-platform=x11 %U";
+              exec = "${lib.getExe pkgs._1password-gui} --ozone-platform=x11 %U";
               terminal = false;
               type = "Application";
               icon = "1password";

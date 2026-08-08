@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 let
   username = config.flake.meta.owner.username;
 in
@@ -30,20 +30,21 @@ in
 
   flake.modules.homeManager.linux =
     { pkgs, ... }:
+    let
+      syncthing-gui = pkgs.writeShellApplication {
+        name = "syncthing-gui";
+        runtimeInputs = [ pkgs.xdg-utils ];
+        text = ''
+          xdg-open http://localhost:8384
+        '';
+      };
+    in
     {
-      home.packages = [
-        (pkgs.writeShellApplication {
-          name = "syncthing-gui";
-          runtimeInputs = [ pkgs.xdg-utils ];
-          text = ''
-            xdg-open http://localhost:8384
-          '';
-        })
-      ];
+      home.packages = [ syncthing-gui ];
       xdg.desktopEntries.syncthing-gui = {
         name = "Syncthing";
         genericName = "File Synchronization";
-        exec = "syncthing-gui";
+        exec = lib.getExe syncthing-gui;
         terminal = false;
         categories = [
           "Network"

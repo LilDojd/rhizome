@@ -1,7 +1,7 @@
 { lib, ... }:
 {
   flake.modules.homeManager.hyprland =
-    { pkgs, ... }:
+    hmArgs@{ pkgs, ... }:
     let
       class = "kitty-dropterm";
     in
@@ -41,7 +41,7 @@
 
         [scratchpads.term]
         animation = "fromTop"
-        command = "kitty --class=${class}"
+        command = "${lib.getExe hmArgs.config.programs.kitty.package} --class=${class}"
         class = "${class}"
         size = "70% 70%"
         max_size = "1920px 100%"
