@@ -1,7 +1,7 @@
 { lib, ... }:
 {
   flake.modules.homeManager.hyprland =
-    { pkgs, ... }:
+    { ... }:
     let
       inline = lib.generators.mkLuaInline;
 
@@ -54,17 +54,6 @@
     {
       wayland.windowManager.hyprland.settings = {
         bind = [
-          (bind (withMod [ ] "Return") (exec (lib.getExe pkgs.kitty)))
-          (bind (withMod [ ] "K") (exec "list-keybinds"))
-          (bind (withMod [ "SHIFT" ] "Return") (exec "rofi-launcher"))
-          (bind (withMod [ ] "W") (exec (lib.getExe pkgs.firefox)))
-          (bind (withMod [ ] "D") (exec "vesktop"))
-          (bind (withMod [ ] "O") (exec "obs"))
-          (bind (withMod [ ] "C") (exec "hyprpicker -a"))
-          (bind (withMod [ ] "G") (exec "gimp"))
-          (bind (withMod [ ] "T") (exec "pypr toggle term"))
-          (bind (withMod [ ] "M") (exec "pwvucontrol"))
-
           (bind (withMod [ ] "Q") killactive)
           (bind (withMod [ ] "P") pseudo)
           (bind (withMod [ "SHIFT" ] "I") togglesplit)

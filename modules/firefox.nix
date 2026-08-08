@@ -1,4 +1,9 @@
-{ inputs, config, ... }:
+{
+  inputs,
+  config,
+  lib,
+  ...
+}:
 {
   flake.modules.nixos.foundation.environment.persistence."/persistent".users.${config.flake.meta.owner.username}.directories =
     [
@@ -63,6 +68,19 @@
       stylix.targets.firefox.profileNames = [
         "default"
         "vpn"
+      ];
+    };
+
+  flake.modules.homeManager.hyprland =
+    hmArgs:
+    {
+      wayland.windowManager.hyprland.settings.bind = [
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''modifier .. " + W"'')
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON (lib.getExe hmArgs.config.programs.firefox.package)})")
+          ];
+        }
       ];
     };
 }

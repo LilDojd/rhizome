@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   flake.modules.homeManager.gui =
     hmArgs@{ pkgs, ... }:
@@ -78,5 +79,18 @@
           map ctrl+shift+backspace restore_font_size
         '';
       };
+    };
+
+  flake.modules.homeManager.hyprland =
+    hmArgs:
+    {
+      wayland.windowManager.hyprland.settings.bind = [
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''modifier .. " + Return"'')
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON (lib.getExe hmArgs.config.programs.kitty.package)})")
+          ];
+        }
+      ];
     };
 }

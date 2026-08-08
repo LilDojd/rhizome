@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   flake.modules = {
     nixos.foundation = {
@@ -24,6 +24,15 @@
         home.packages = with pkgs; [
           pwvucontrol
           qpwgraph
+        ];
+
+        wayland.windowManager.hyprland.settings.bind = [
+          {
+            _args = [
+              (lib.generators.mkLuaInline ''modifier .. " + M"'')
+              (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON (lib.getExe pkgs.pwvucontrol)})")
+            ];
+          }
         ];
 
         xdg.configFile = {

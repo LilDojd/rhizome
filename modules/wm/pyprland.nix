@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   flake.modules.homeManager.hyprland =
     { pkgs, ... }:
@@ -6,6 +7,15 @@
     in
     {
       home.packages = with pkgs; [ pyprland ];
+
+      wayland.windowManager.hyprland.settings.bind = [
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''modifier .. " + T"'')
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON "${lib.getExe pkgs.pyprland} toggle term"})")
+          ];
+        }
+      ];
 
       home.file.".config/pypr/config.toml".text = ''
         [pyprland]

@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   flake.modules.homeManager.hyprland =
     hmArgs@{ pkgs, ... }:
@@ -12,6 +13,14 @@
     in
     {
       home.packages = [ rofi-launcher ];
+      wayland.windowManager.hyprland.settings.bind = [
+        {
+          _args = [
+            (lib.generators.mkLuaInline ''modifier .. " + SHIFT + Return"'')
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON (lib.getExe rofi-launcher)})")
+          ];
+        }
+      ];
       stylix.targets.rofi.enable = false;
       programs = {
         rofi = {
