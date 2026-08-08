@@ -113,15 +113,7 @@ in
             "rhizome"
 
             {
-              directory = ".gnupg";
-              mode = "0700";
-            }
-            {
               directory = ".nixops";
-              mode = "0700";
-            }
-            {
-              directory = ".local/share/keyrings";
               mode = "0700";
             }
           ];
