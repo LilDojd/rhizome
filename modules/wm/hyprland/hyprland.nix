@@ -40,20 +40,8 @@
   flake.modules.homeManager.hyprland =
     hmArgs@{ pkgs, ... }:
     {
-      xdg = {
-        userDirs = {
-          enable = true;
-          createDirectories = true;
-          extraConfig.SS_DIR = "${hmArgs.config.home.homeDirectory}/backgrounds";
-        };
-      };
       imports = [ inputs.hyprland.homeManagerModules.default ];
       home.packages = with pkgs; [
-        grim
-        slurp
-        wl-clipboard
-        ydotool
-        swappy
         hyprpolkitagent
         hyprland-qtutils # needed for banners and ANR messages
       ];
@@ -68,19 +56,6 @@
         };
 
         settings.config = {
-
-          input = {
-            numlock_by_default = true;
-            follow_mouse = 1;
-            float_switch_override_focus = 0;
-            sensitivity = 0;
-            touchpad = {
-              natural_scroll = true;
-              disable_while_typing = true;
-              scroll_factor = 0.8;
-            };
-          };
-
           general = {
             layout = "dwindle";
             col.active_border = lib.mkForce {
@@ -98,7 +73,6 @@
             initial_workspace_tracking = 0;
             mouse_move_enables_dpms = true;
             key_press_enables_dpms = false;
-            disable_hyprland_logo = true;
             disable_splash_rendering = true;
             enable_swallow = false;
             vrr = 0; # Variable Refresh Rate  Might need to set to 0 for NVIDIA/AQ_DRM_DEVICES
@@ -130,14 +104,6 @@
               render_power = 3;
               color = lib.mkForce (lib.generators.mkLuaInline "0xee1a1a1a");
             };
-          };
-
-          cursor = {
-            sync_gsettings_theme = true;
-            no_hardware_cursors = 2; # change to 1 if want to disable
-            enable_hyprcursor = false;
-            warp_on_change_workspace = 2;
-            no_warps = true;
           };
 
           render = {
