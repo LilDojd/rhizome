@@ -29,6 +29,13 @@
       ];
       stylix.targets.rofi.enable = false;
       programs = {
+        ashell.settings.CustomModule = lib.mkBefore [
+          {
+            name = "AppLauncher";
+            icon = "󱗼";
+            command = lib.getExe rofi-launcher;
+          }
+        ];
         rofi = {
           enable = true;
           package = pkgs.rofi;

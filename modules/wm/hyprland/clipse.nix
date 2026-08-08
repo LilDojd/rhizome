@@ -1,16 +1,25 @@
 {
   flake.modules.homeManager.hyprland =
     {
+      config,
       lib,
       pkgs,
       ...
     }:
     let
       type = "kitty";
-      cmd = "kitty --class 'clipse' -e clipse";
+      clipseExe = lib.getExe pkgs.clipse;
+      cmd = "${lib.getExe config.programs.kitty.package} --class 'clipse' -e ${clipseExe}";
     in
     {
       home.packages = with pkgs; [ clipse ];
+      programs.ashell.settings.CustomModule = [
+        {
+          name = "Clipboard";
+          icon = "󰅍";
+          command = cmd;
+        }
+      ];
       home.file.".config/clipse/config.json".text =
         # json
         ''
@@ -63,7 +72,7 @@
             {
               _args = [
                 "hyprland.start"
-                (inline ''function() hl.exec_cmd("clipse -listen") end'')
+                (inline "function() hl.exec_cmd(${builtins.toJSON "${clipseExe} -listen"}) end")
               ];
             }
           ];
@@ -77,7 +86,7 @@
             {
               _args = [
                 (inline ''modifier .. " + SHIFT + v"'')
-                (inline ''hl.dsp.exec_cmd("clipse -clear")'')
+                (inline "hl.dsp.exec_cmd(${builtins.toJSON "${clipseExe} -clear"})")
               ];
             }
           ];

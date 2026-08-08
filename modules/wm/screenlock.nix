@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   flake.modules = {
     nixos.foundation.security.pam.services.hyprlock.text = "auth include login";
@@ -10,6 +10,7 @@
       {
 
         stylix.targets.hyprlock.enable = false;
+        programs.ashell.settings.settings.lock_cmd = lib.getExe hmArgs.config.programs.hyprlock.package;
         programs.hyprlock = {
           enable = true;
           settings = {

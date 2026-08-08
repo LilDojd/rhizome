@@ -1,6 +1,6 @@
 {
   flake.modules.homeManager.hyprland =
-    { pkgs, ... }:
+    { ... }:
     {
       stylix.targets.ashell.enable = true;
 
@@ -32,19 +32,6 @@
           appearance = {
             scale_factor = 1.3;
           };
-
-          CustomModule = [
-            {
-              name = "AppLauncher";
-              icon = "󱗼";
-              command = "rofi-launcher";
-            }
-            {
-              name = "Clipboard";
-              icon = "󰅍";
-              command = "kitty --class 'clipse' -e clipse";
-            }
-          ];
 
           modules = {
             left = [
@@ -83,14 +70,11 @@
 
           # Settings module configuration
           settings = {
-            lock_cmd = "hyprlock";
             shutdown_cmd = "shutdown now";
             suspend_cmd = "systemctl suspend";
             hibernate_cmd = "systemctl hibernate";
             reboot_cmd = "systemctl reboot";
             logout_cmd = "hyprctl dispatch exit";
-            audio_sinks_more_cmd = "pwvucontrol";
-            audio_sources_more_cmd = "pwvucontrol";
             indicators = [
               "IdleInhibitor"
               "Audio"
@@ -101,19 +85,8 @@
               "Battery"
             ];
             battery_format = "IconAndPercentage";
-            CustomButton = [
-              {
-                name = "Power";
-                icon = "⏻";
-                command = "wlogout";
-              }
-            ];
           };
         };
       };
-
-      home.packages = with pkgs; [
-        wlogout
-      ];
     };
 }

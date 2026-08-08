@@ -21,6 +21,7 @@
     homeManager.hyprland =
       { pkgs, ... }:
       let
+        pwvucontrolExe = lib.getExe pkgs.pwvucontrol;
         wpctl = lib.getExe' pkgs.wireplumber "wpctl";
       in
       {
@@ -29,11 +30,16 @@
           qpwgraph
         ];
 
+        programs.ashell.settings.settings = {
+          audio_sinks_more_cmd = pwvucontrolExe;
+          audio_sources_more_cmd = pwvucontrolExe;
+        };
+
         wayland.windowManager.hyprland.settings.bind = [
           {
             _args = [
               (lib.generators.mkLuaInline ''modifier .. " + M"'')
-              (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON (lib.getExe pkgs.pwvucontrol)})")
+              (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON pwvucontrolExe})")
             ];
           }
           {
