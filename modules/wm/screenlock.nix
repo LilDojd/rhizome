@@ -3,14 +3,18 @@
   flake.modules = {
     nixos.foundation.security.pam.services.hyprlock.text = "auth include login";
     homeManager.hyprland =
-      hmArgs:
+      hmArgs@{ pkgs, ... }:
       let
         inherit (hmArgs.config.lib.stylix) colors;
+        hyprlock = lib.getExe hmArgs.config.programs.hyprlock.package;
       in
       {
-
         stylix.targets.hyprlock.enable = false;
-        programs.ashell.settings.settings.lock_cmd = lib.getExe hmArgs.config.programs.hyprlock.package;
+        services.hypridle.settings.general = {
+          lock_cmd = hyprlock;
+          unlock_cmd = "${lib.getExe' pkgs.psmisc "killall"} -q -s SIGUSR1 hyprlock";
+        };
+        programs.ashell.settings.settings.lock_cmd = hyprlock;
         programs.hyprlock = {
           enable = true;
           settings = {

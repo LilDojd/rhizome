@@ -48,11 +48,7 @@
       };
     in
     {
-      xdg.userDirs = {
-        enable = true;
-        createDirectories = true;
-        extraConfig.SS_DIR = "${hmArgs.config.home.homeDirectory}/backgrounds";
-      };
+      xdg.userDirs.extraConfig.SS_DIR = "${hmArgs.config.home.homeDirectory}/backgrounds";
 
       home.packages = [
         pkgs.awww

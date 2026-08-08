@@ -1,7 +1,6 @@
 {
   lib,
   inputs,
-  config,
   ...
 }:
 {
@@ -26,16 +25,6 @@
         };
 
       hardware.graphics.enable32Bit = lib.mkForce true;
-      services.greetd = {
-        enable = true;
-
-        settings = {
-          default_session = {
-            command = "${pkgs.tuigreet}/bin/tuigreet --cmd start-hyprland";
-            user = "${config.flake.meta.owner.username}";
-          };
-        };
-      };
     };
   flake.modules.homeManager.hyprland =
     hmArgs@{ pkgs, ... }:

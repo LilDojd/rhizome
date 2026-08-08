@@ -43,14 +43,6 @@
         {
           home.packages = [ pkgs.networkmanagerapplet ];
 
-          wayland.windowManager.hyprland.settings.on = [
-            {
-              _args = [
-                "hyprland.start"
-                (lib.generators.mkLuaInline "function() hl.exec_cmd(${builtins.toJSON "${lib.getExe pkgs.networkmanagerapplet} --indicator"}) end")
-              ];
-            }
-          ];
           wayland.windowManager.hyprland.settings.window_rule = lib.mkBefore [
             {
               match.class = "^(nm-applet|nm-connection-editor)$";

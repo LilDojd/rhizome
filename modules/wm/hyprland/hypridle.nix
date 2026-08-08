@@ -2,7 +2,6 @@
 {
   flake.modules.homeManager.hyprland =
     {
-      config,
       pkgs,
       ...
     }:
@@ -16,8 +15,6 @@
           in
           {
             general = {
-              lock_cmd = "${lib.getExe config.programs.hyprlock.package}";
-              unlock_cmd = "${lib.getExe pkgs.killall} -q -s SIGUSR1 hyprlock";
               before_sleep_cmd = "${loginctl} lock-session";
               after_sleep_cmd = "hyprctl dispatch 'hl.dsp.dpms({ action = \"enable\" })'";
               ignore_dbus_inhibit = false;
