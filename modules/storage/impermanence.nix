@@ -93,7 +93,6 @@ in
 
             ".config/Proton Pass"
             ".config/Mailspring"
-            ".config/glab-cli"
             ".claude"
             ".codex"
             ".orchestra"
