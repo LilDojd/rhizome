@@ -25,6 +25,7 @@
         configPath = lib.mkIf pkgs.stdenv.isLinux ".mozilla/firefox";
         package = if pkgs.stdenv.isLinux then pkgs.firefox-bin else null;
         policies = {
+          SearchEngines.Default = "DuckDuckGo";
           SanitizeOnShutdown = {
             Cache = false;
             Cookies = false;
