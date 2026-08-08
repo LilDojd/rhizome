@@ -1,14 +1,20 @@
 { lib, config, ... }:
 {
-  flake.modules.nixos.foundation.environment.persistence."/persistent".users.${config.flake.meta.owner.username} =
+  flake.modules.nixos.foundation =
+    { pkgs, ... }:
     {
-      directories = [
-        ".cache/zsh"
-      ];
-      files = [
-        ".temp.zsh"
-      ];
+      programs.zsh.enable = true;
+      users.defaultUserShell = pkgs.zsh;
+      environment.persistence."/persistent".users.${config.flake.meta.owner.username} = {
+        directories = [
+          ".cache/zsh"
+        ];
+        files = [
+          ".temp.zsh"
+        ];
+      };
     };
+
   flake.modules.homeManager.base =
     homeArgs@{ pkgs, ... }:
     let

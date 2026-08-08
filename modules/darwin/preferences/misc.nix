@@ -1,11 +1,6 @@
-let
-  vars = {
-    defaultbrowser = "firefox";
-  };
-in
 {
   flake.modules.darwin.foundation =
-    { pkgs, ... }:
+    { ... }:
     {
       system.defaults = {
         NSGlobalDomain = {
@@ -34,19 +29,5 @@ in
           };
         };
       };
-      environment.systemPackages = (
-        if (vars ? "defaultbrowser" && builtins.isString vars.defaultbrowser) then
-          [ pkgs.defaultbrowser ]
-        else
-          [ ]
-      );
-      system.activationScripts = (
-        if (vars ? "defaultbrowser" && builtins.isString vars.defaultbrowser) then
-          {
-            activateSettings.text = "defaultbrowser ${vars.defaultbrowser}";
-          }
-        else
-          { }
-      );
     };
 }

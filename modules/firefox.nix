@@ -16,9 +16,13 @@
   ];
   nixpkgs.overlays = [ inputs.firefox-addons.overlays.default ];
 
-  flake.modules.darwin.foundation = {
-    config.homebrew.casks = [ "firefox" ];
-  };
+  flake.modules.darwin.foundation =
+    { pkgs, ... }:
+    {
+      environment.systemPackages = [ pkgs.defaultbrowser ];
+      system.activationScripts.activateSettings.text = "${lib.getExe pkgs.defaultbrowser} firefox";
+      homebrew.casks = [ "firefox" ];
+    };
   flake.modules.homeManager.gui =
     { lib, pkgs, ... }:
     let
