@@ -96,9 +96,6 @@
                 96000
               ];
             };
-            "stream.properties" = {
-              "resample.quality" = 10;
-            };
           };
         };
       };
