@@ -62,6 +62,11 @@
       url = "git+https://github.com/hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    hyprspace = {
+      # KZDKM/Hyprspace#238: Hyprland 0.56 and Lua config support.
+      url = "github:ImanolBarba/Hyprspace/migrate-v2";
+      inputs.hyprland.follows = "hyprland";
+    };
     input-branches.url = "github:mightyiam/input-branches";
     clipboard-sync = {
       url = "github:dnut/clipboard-sync";
