@@ -1906,6 +1906,7 @@
         "nixpkgs": "nixpkgs_5",
         "nvf": "nvf",
         "steam-config-nix": "steam-config-nix",
+        "streaming-flake": "streaming-flake",
         "stylix": "stylix",
         "systems": "systems_5",
         "tinted-schemes": "tinted-schemes",
@@ -1991,6 +1992,29 @@
       "original": {
         "owner": "different-name",
         "repo": "steam-config-nix",
+        "type": "github"
+      }
+    },
+    "streaming-flake": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1786284576,
+        "narHash": "sha256-jDH4clDYW31D5rXpCt0EkSTn0tShBRufd0MJyIukN+I=",
+        "owner": "LilDojd",
+        "repo": "streaming-flake",
+        "rev": "8387f123c2274c67d978b823d1f436edcc79e883",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LilDojd",
+        "repo": "streaming-flake",
         "type": "github"
       }
     },

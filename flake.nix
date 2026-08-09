@@ -134,6 +134,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    streaming-flake = {
+      url = "github:LilDojd/streaming-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     import-tree.url = "github:vic/import-tree";
 
     nix-index-database = {
