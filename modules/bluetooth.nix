@@ -1,8 +1,11 @@
 { lib, ... }:
 {
-  flake.modules.nixos.foundation.environment.persistence."/persistent".directories = [
-    "/var/lib/bluetooth"
-  ];
+  flake.modules.nixos.foundation = {
+    environment.persistence."/persistent".directories = [
+      "/var/lib/bluetooth"
+    ];
+    hardware.bluetooth.enable = true;
+  };
   flake.modules.homeManager.base =
     { pkgs, ... }:
     {
