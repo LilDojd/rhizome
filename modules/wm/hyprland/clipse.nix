@@ -12,7 +12,10 @@
       cmd = "${lib.getExe config.programs.kitty.package} --class 'clipse' -e ${clipseExe}";
     in
     {
-      home.packages = with pkgs; [ clipse ];
+      home.packages = with pkgs; [
+        clipse
+        wl-clipboard
+      ];
       programs.ashell.settings.CustomModule = [
         {
           name = "Clipboard";
