@@ -1,6 +1,7 @@
+{ inputs, ... }:
 {
   flake.modules.homeManager.hyprland =
-    { ... }:
+    { pkgs, ... }:
     {
       stylix.targets.ashell.enable = true;
 
@@ -19,6 +20,7 @@
 
       programs.ashell = {
         enable = true;
+        package = inputs.ashell.packages.${pkgs.stdenv.hostPlatform.system}.default;
         systemd = {
           enable = true;
           target = "hyprland-session.target";
