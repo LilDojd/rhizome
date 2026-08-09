@@ -14,9 +14,7 @@
         rev = "6a85af2ff722ad0f9fbc8424ea0a5c454661dfed";
         hash = "sha256-Oc0emnIUI4LV7QJLs4B2/FQtCFewRFVp7EDv8GawFsA=";
       };
-      shellAliasAbbrs = lib.mapAttrs (
-        _: val: baseNameOf (lib.head (lib.splitString " " val))
-      ) config.home.shellAliases;
+      shellAliasAbbrs = config.home.shellAliases;
     in
     {
       home.packages = with pkgs; [ grc ];
@@ -48,27 +46,30 @@
           end
         '';
         preferAbbrs = true;
-        shellAbbrs = shellAliasAbbrs // {
+        shellAbbrs =
+          shellAliasAbbrs
+          // lib.optionalAttrs pkgs.stdenv.isLinux {
+            ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
+          }
+          // {
+            cat = "bat";
+            h = "history";
 
-          ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
-          cat = "bat";
-          h = "history";
+            grep = "grep --color=auto";
+            mtar = "tar -zcvf";
+            utar = "tar -zxvf";
+            uz = "unzip";
 
-          grep = "grep --color=auto";
-          mtar = "tar -zcvf";
-          utar = "tar -zxvf";
-          uz = "unzip";
+            mv = "mv -v";
+            cp = "cp -vr";
+            rm = "rm -vr";
 
-          mv = "mv -v";
-          cp = "cp -vr";
-          rm = "rm -vr";
-
-          ".." = "cd ..";
-          "..." = "cd ../..";
-          ".3" = "cd ../../..";
-          ".4" = "cd ../../../..";
-          ".5" = "cd ../../../../..";
-        };
+            ".." = "cd ..";
+            "..." = "cd ../..";
+            ".3" = "cd ../../..";
+            ".4" = "cd ../../../..";
+            ".5" = "cd ../../../../..";
+          };
 
         plugins = [
           # Enable a plugin (here grc for colorized command output) from nixpkgs

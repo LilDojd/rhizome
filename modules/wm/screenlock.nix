@@ -61,7 +61,7 @@
                 dots_size = 0.2;
                 dots_spacing = 0.2;
                 dots_center = true;
-                outer_color = "rgba (0, 0, 0, 0)";
+                outer_color = "rgba(0, 0, 0, 0)";
                 inner_color = "0x80${colors.base0F}";
                 font_color = "0xffc8c8c8";
                 fade_on_empty = false;
@@ -98,7 +98,7 @@
 
               # Day-Date-Month
               {
-                text = ''cmd[update:1000] echo "<span color='##ffffff00'>$(date '+%A, ')</span><span color='##928cff00'>$(date '+%d %B')</span>"'';
+                text = ''cmd[update:1000] echo "<span color='#ffffff00'>$(date '+%A, ')</span><span color='#928cff00'>$(date '+%d %B')</span>"'';
                 font_size = "30";
                 font_family = "${hmArgs.config.stylix.fonts.monospace.name}";
                 position = "0, 80";

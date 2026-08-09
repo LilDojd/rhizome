@@ -19,13 +19,12 @@
     homeArgs@{ pkgs, ... }:
     let
       fish = lib.getExe homeArgs.config.programs.fish.package;
-      procps = lib.getExe' homeArgs.pkgs.procps "ps";
 
       psCommand =
         if pkgs.stdenv.isDarwin then
-          "${procps} -p $PPID -o comm="
+          "/bin/ps -p $PPID -o comm="
         else
-          "${procps} --no-header --pid=$PPID --format=comm";
+          "${lib.getExe' homeArgs.pkgs.procps "ps"} --no-header --pid=$PPID --format=comm";
 
       earlyZshInit = lib.mkOrder 1000 ''
         if [[ $(${psCommand}) != "fish" && -z ''${ZSH_EXECUTION_STRING} ]]; then

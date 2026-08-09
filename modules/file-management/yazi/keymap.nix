@@ -2,20 +2,24 @@
 {
 
   flake.modules.homeManager.hyprland =
-    { pkgs, ... }:
+    hmArgs:
+    let
+      kitty = lib.getExe hmArgs.config.programs.kitty.package;
+      yazi = lib.getExe hmArgs.config.programs.yazi.package;
+    in
     {
       wayland.windowManager.hyprland.settings.bind = [
         {
           _args = [
             (lib.generators.mkLuaInline ''modifier .. " + Y"'')
-            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON "${lib.getExe pkgs.kitty} -e yazi"})")
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(${builtins.toJSON "${kitty} -e ${yazi}"})")
           ];
         }
       ];
     };
   flake.modules.homeManager.base = {
     programs.yazi.keymap = {
-      manager = {
+      mgr = {
         keymap = [
           {
             on = "<Esc>";

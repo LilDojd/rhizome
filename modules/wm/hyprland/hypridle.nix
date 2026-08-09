@@ -2,6 +2,7 @@
 {
   flake.modules.homeManager.hyprland =
     {
+      config,
       pkgs,
       ...
     }:
@@ -12,11 +13,12 @@
           let
             timeout = 300;
             loginctl = "${lib.getExe' pkgs.systemd "loginctl"}";
+            hyprctl = lib.getExe' config.wayland.windowManager.hyprland.package "hyprctl";
           in
           {
             general = {
               before_sleep_cmd = "${loginctl} lock-session";
-              after_sleep_cmd = "hyprctl dispatch 'hl.dsp.dpms({ action = \"enable\" })'";
+              after_sleep_cmd = "${hyprctl} dispatch dpms on";
               ignore_dbus_inhibit = false;
             };
 
@@ -28,8 +30,8 @@
 
               {
                 inherit timeout;
-                on-timeout = "hyprctl dispatch 'hl.dsp.dpms({ action = \"disable\" })'";
-                on-resume = "hyprctl dispatch 'hl.dsp.dpms({ action = \"enable\" })'";
+                on-timeout = "${hyprctl} dispatch dpms off";
+                on-resume = "${hyprctl} dispatch dpms on";
               }
 
               {
