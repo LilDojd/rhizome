@@ -90,8 +90,6 @@
           persistentTimer = true;
           user = extra.user or "root";
         };
-
-        systemd.services."borgbackup-job-${name}".unitConfig.OnFailure = [ "notify-problems@%i.service" ];
       };
 
     in
