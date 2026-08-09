@@ -1089,15 +1089,15 @@
       "locked": {
         "lastModified": 1786227627,
         "narHash": "sha256-bc4jNVx0agB40xwxJ0r7hAAk5tk5Lm0uKtwP5rNyvZQ=",
-        "ref": "refs/heads/main",
+        "owner": "hyprwm",
+        "repo": "hyprland-plugins",
         "rev": "faf5ef1bd5916051ed3252463697dd2ae479f629",
-        "revCount": 423,
-        "type": "git",
-        "url": "https://github.com/hyprwm/hyprland-plugins"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://github.com/hyprwm/hyprland-plugins"
+        "owner": "hyprwm",
+        "repo": "hyprland-plugins",
+        "type": "github"
       }
     },
     "hyprland-protocols": {
