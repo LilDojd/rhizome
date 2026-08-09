@@ -104,15 +104,7 @@
 
         extraConfig = ''
           keybinds {
-              unbind "Ctrl q"
-              shared_except "tmux" "locked" {
-                  bind "Ctrl q" { SwitchToMode "Tmux"; }
-              }
-              locked {
-                  bind "Ctrl q" { SwitchToMode "Tmux"; }
-              }
               tmux {
-                  bind "Ctrl q" { Write 17; SwitchToMode "Normal"; }
                   bind "Q" { Quit; }
                   bind "?" {
                       LaunchOrFocusPlugin "file:${pluginDir}/forgot.wasm" {
