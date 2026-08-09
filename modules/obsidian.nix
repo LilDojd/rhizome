@@ -8,5 +8,6 @@
           obsidian
         ];
       };
+    homeManager.gui.stylix.targets.obsidian.vaultNames = [ "vault" ];
   };
 }
