@@ -8,13 +8,21 @@
     }:
     let
       type = "kitty";
-      clipseExe = lib.getExe pkgs.clipse;
+      clipse = pkgs.writeShellApplication {
+        name = "clipse";
+        runtimeInputs = [
+          pkgs.clipse
+          pkgs.wl-clipboard
+        ];
+        text = ''exec ${lib.getExe pkgs.clipse} "$@"'';
+      };
+      clipseExe = lib.getExe clipse;
       cmd = "${lib.getExe config.programs.kitty.package} --class 'clipse' -e ${clipseExe}";
     in
     {
-      home.packages = with pkgs; [
+      home.packages = [
         clipse
-        wl-clipboard
+        pkgs.wl-clipboard
       ];
       programs.ashell.settings.CustomModule = [
         {
