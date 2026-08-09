@@ -97,6 +97,10 @@
     in
     mkMerge [
       {
+        programs.ssh.knownHosts."c68ll699.repo.borgbase.com" = {
+          hostNames = [ "c68ll699.repo.borgbase.com" ];
+          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMS3185JdDy7ffnr0nLWqVy8FaAQeVh1QYUSiNpW5ESq";
+        };
         systemd.tmpfiles.rules = [
           "d /backups/borg 0750 root root -"
         ];
@@ -131,7 +135,7 @@
           passCommand = "cat ${nixosArgs.config.age.secrets.borgPassphrase.path}";
         };
         environment = {
-          BORG_RSH = "ssh -o StrictHostKeyChecking=no -i ${nixosArgs.config.age.secrets.darkestForestSshKey.path}";
+          BORG_RSH = "ssh -i ${nixosArgs.config.age.secrets.darkestForestSshKey.path}";
         };
         compression = "auto,lz4";
       })
