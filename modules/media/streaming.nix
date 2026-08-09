@@ -1,9 +1,16 @@
 {
+  config,
   inputs,
   lib,
   ...
 }:
 {
+  flake.modules.nixos.agenix.age.secrets.twitchStreamKey = {
+    rekeyFile = ./twitchStreamKey.age;
+    owner = config.flake.meta.owner.username;
+    mode = "0400";
+  };
+
   flake.modules.homeManager.linux = {
     imports = [ inputs.streaming-flake.homeManagerModules.default ];
     programs.streaming-obs = {
