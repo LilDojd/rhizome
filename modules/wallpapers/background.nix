@@ -19,7 +19,6 @@
         runtimeInputs = with pkgs; [
           awww
           findutils
-          gawk
           coreutils
           libnotify
           procps
@@ -33,12 +32,19 @@
             done
 
             if ! [ -d "$HOME"/backgrounds ]; then notify-send -t 5000 "$HOME/backgrounds does not exist" && exit 1; fi
-            if [ "$(find "$HOME"/backgrounds -maxdepth 1 | wc -l)" -lt 1 ]; then	notify-send -t 9000 "The wallpaper folder is expected to have more than 1 image. Exiting Wallsetter." && exit 1; fi
+            mapfile -d "" WALLPAPERS < <(find "$HOME"/backgrounds -maxdepth 1 -type f -print0)
+            if [ "''${#WALLPAPERS[@]}" -eq 0 ]; then notify-send -t 9000 "The wallpaper folder is empty. Exiting Wallsetter." && exit 1; fi
 
+            PREVIOUS=
             while true; do
-            while [ "$WALLPAPER" == "$PREVIOUS" ]; do
-            WALLPAPER=$(find "$HOME"/backgrounds -name '*' | awk '!/.git/' | tail -n +2 | shuf -n 1)
-            done
+              if [ "''${#WALLPAPERS[@]}" -eq 1 ]; then
+                WALLPAPER="''${WALLPAPERS[0]}"
+              else
+                WALLPAPER=$PREVIOUS
+                while [ "$WALLPAPER" = "$PREVIOUS" ]; do
+                  WALLPAPER="''${WALLPAPERS[RANDOM % ''${#WALLPAPERS[@]}]}"
+                done
+              fi
 
               PREVIOUS=$WALLPAPER
 
