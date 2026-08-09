@@ -3,6 +3,23 @@
   inputs,
   ...
 }:
+let
+  hyprlandPackage =
+    system:
+    let
+      pkgs = inputs.hyprland.inputs.nixpkgs.legacyPackages.${system};
+    in
+    inputs.hyprland.packages.${system}.hyprland.overrideAttrs (old: {
+      buildInputs = (old.buildInputs or [ ]) ++ [ pkgs.glaze ];
+      # TODO: Remove when https://github.com/hyprwm/Hyprland/commit/91f29f2 is in unstable.
+      postPatch = (old.postPatch or "") + ''
+        substituteInPlace CMakeLists.txt \
+          --replace-fail 'find_package(glaze 7...<8 QUIET)' 'find_package(glaze QUIET)'
+        substituteInPlace src/config/values/ConfigValues.cpp \
+          --replace-fail '.deprecationNotice = "no longer does anything, use debug:invalidate_buffers instead."' ""
+      '';
+    });
+in
 {
   flake.modules.nixos.foundation =
     { pkgs, ... }:
@@ -19,7 +36,7 @@
         in
         {
           enable = true;
-          package = hyprland.hyprland;
+          package = hyprlandPackage pkgs.stdenv.hostPlatform.system;
           portalPackage = hyprland.xdg-desktop-portal-hyprland;
           withUWSM = false;
         };
@@ -37,7 +54,7 @@
 
       wayland.windowManager.hyprland = {
         configType = "lua";
-        package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+        package = hyprlandPackage pkgs.stdenv.hostPlatform.system;
         systemd = {
           enable = true;
           enableXdgAutostart = true;
