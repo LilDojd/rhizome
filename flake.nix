@@ -58,6 +58,10 @@
       url = "https://flakehub.com/f/hyprwm/Hyprland/0.56.*";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland-plugins = {
+      url = "git+https://github.com/hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
     input-branches.url = "github:mightyiam/input-branches";
     clipboard-sync = {
       url = "github:dnut/clipboard-sync";

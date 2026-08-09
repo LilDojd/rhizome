@@ -1070,6 +1070,36 @@
         "type": "github"
       }
     },
+    "hyprland-plugins": {
+      "inputs": {
+        "hyprland": [
+          "hyprland"
+        ],
+        "nixpkgs": [
+          "hyprland-plugins",
+          "hyprland",
+          "nixpkgs"
+        ],
+        "systems": [
+          "hyprland-plugins",
+          "hyprland",
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1786227627,
+        "narHash": "sha256-bc4jNVx0agB40xwxJ0r7hAAk5tk5Lm0uKtwP5rNyvZQ=",
+        "ref": "refs/heads/main",
+        "rev": "faf5ef1bd5916051ed3252463697dd2ae479f629",
+        "revCount": 423,
+        "type": "git",
+        "url": "https://github.com/hyprwm/hyprland-plugins"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://github.com/hyprwm/hyprland-plugins"
+      }
+    },
     "hyprland-protocols": {
       "inputs": {
         "nixpkgs": [
@@ -1800,6 +1830,7 @@
         "homebrew-core": "homebrew-core",
         "homebrew-mole": "homebrew-mole",
         "hyprland": "hyprland",
+        "hyprland-plugins": "hyprland-plugins",
         "impermanence": "impermanence",
         "import-tree": "import-tree",
         "input-branches": "input-branches",
