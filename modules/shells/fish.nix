@@ -14,7 +14,13 @@
         rev = "6a85af2ff722ad0f9fbc8424ea0a5c454661dfed";
         hash = "sha256-Oc0emnIUI4LV7QJLs4B2/FQtCFewRFVp7EDv8GawFsA=";
       };
-      shellAliasAbbrs = config.home.shellAliases;
+      shortAlias =
+        alias:
+        let
+          match = builtins.match "^/nix/store/[^/ ]+/bin/([^ ]+)(.*)$" alias;
+        in
+        if match == null then alias else builtins.concatStringsSep "" match;
+      shellAliasAbbrs = lib.mapAttrs (_: shortAlias) config.home.shellAliases;
     in
     {
       home.packages = with pkgs; [ grc ];
@@ -41,7 +47,7 @@
               history merge
           end
 
-          if status --is-interactive && test -z "$TMUX"
+          if status --is-interactive
               fish_config theme choose "Catppuccin Macchiato"
           end
         '';
