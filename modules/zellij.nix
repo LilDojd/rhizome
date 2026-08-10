@@ -55,8 +55,6 @@
       programs.zellij = {
         enable = true;
         enableFishIntegration = false;
-        attachExistingSession = true;
-        exitShellOnExit = true;
         plugins = [
           pkgs.zellijPlugins.autolock
           attention
