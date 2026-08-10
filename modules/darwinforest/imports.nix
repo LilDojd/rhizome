@@ -9,6 +9,8 @@
       imports = with darwinModules; [
         foundation
         yawner
+        agenix
+        slop
       ];
     };
 }

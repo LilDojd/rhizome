@@ -13,6 +13,7 @@
         yawner
         nvidia-gpu
         mt7927
+        slop
         agenix
         diskoConfigurations.darkforest
       ];

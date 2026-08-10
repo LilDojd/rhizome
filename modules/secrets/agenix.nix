@@ -1,11 +1,12 @@
 { inputs, ... }:
-{
-  flake.modules.nixos.agenix =
+let
+  mkAgenixModule =
+    agenixModule: rekeyModule:
     { config, ... }:
     {
       imports = [
-        inputs.agenix.nixosModules.default
-        inputs.agenix-rekey.nixosModules.default
+        agenixModule
+        rekeyModule
       ];
 
       age.rekey = {
@@ -14,4 +15,13 @@
         localStorageDir = ../../.secrets/${config.networking.hostName};
       };
     };
+in
+{
+  flake.modules.nixos.agenix = mkAgenixModule inputs.agenix.nixosModules.default inputs.agenix-rekey.nixosModules.default;
+  flake.modules.darwin.agenix = {
+    imports = [
+      (mkAgenixModule inputs.agenix.darwinModules.default inputs.agenix-rekey.darwinModules.default)
+    ];
+    age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+  };
 }
