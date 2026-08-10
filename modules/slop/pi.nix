@@ -1,5 +1,8 @@
-{ inputs, ... }:
+{ inputs, config, ... }:
 {
+  flake.modules.nixos.foundation.environment.persistence."/persistent".users.${config.flake.meta.owner.username}.directories =
+    [ ".pi/agent" ];
+
   flake.modules.homeManager.slop = {
     imports = [ inputs.pi.homeModules.default ];
 
