@@ -8,11 +8,6 @@
 
     programs.pi.coding-agent = {
       enable = true;
-      rules = ./rules.md;
-
-      skills = [ (inputs.herdr + "/skills/herdr") ];
-      extensions = [ (inputs.herdr + "/src/integration/assets/pi/herdr-agent-state.ts") ];
-
       settings.packages = [ "npm:pi-mcp-adapter@2.21.2" ];
     };
   };

@@ -1,5 +1,5 @@
 {
-  perSystem.files.file."modules/slop/rules.md".text =
+  flake.modules.homeManager.slop.programs.pi.coding-agent.rules =
     # markdown
     ''
       # Declarative self-management
