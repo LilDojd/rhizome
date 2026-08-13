@@ -64,5 +64,4 @@ using [the _files_ flake-parts module](https://github.com/mightyiam/files):
 - `.gitignore`
 - `LICENSE`
 - `README.md`
-- `modules/slop/rules.md`
 

@@ -15,5 +15,9 @@
       5. Format changed Nix files and validate both hosts with `nix flake check --no-eval-cache --no-build --all-systems`.
 
       Project-local Pi or MCP configuration may still be changed when explicitly requested.
+
+      # Herdr agent selection
+
+      When working in Herdr, only spawn Pi agents unless the user explicitly requests another agent kind.
     '';
 }
