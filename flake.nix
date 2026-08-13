@@ -60,7 +60,11 @@
     # Hyprland
     hyprland = {
       url = "https://flakehub.com/f/hyprwm/Hyprland/0.56.*";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        # hyprwm/hyprland-guiutils#23: build guiutils with GCC 16 like hyprtoolkit.
+        hyprland-guiutils.url = "github:hyprwm/hyprland-guiutils/4c30cf3097ea963c0e250749ee0c59f8b08816d6";
+      };
     };
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
