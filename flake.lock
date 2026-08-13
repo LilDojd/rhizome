@@ -399,6 +399,50 @@
         "type": "github"
       }
     },
+    "dendritic-slop": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "herdr": [
+          "herdr"
+        ],
+        "home-manager": [
+          "home-manager"
+        ],
+        "impermanence": [
+          "impermanence"
+        ],
+        "import-tree": [
+          "import-tree"
+        ],
+        "nix-darwin": [
+          "nix-darwin"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "pi": [
+          "pi"
+        ],
+        "systems": [
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1786663799,
+        "narHash": "sha256-SXHR/eTMpVifBsRkQPLukktqgx/QiRfkcClxKq/JEiw=",
+        "owner": "LilDojd",
+        "repo": "dendritic-slop",
+        "rev": "804f1a7afa89d84dc599b82e7fd353768b560151",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LilDojd",
+        "repo": "dendritic-slop",
+        "type": "github"
+      }
+    },
     "determinate": {
       "inputs": {
         "determinate-nixd-aarch64-darwin": "determinate-nixd-aarch64-darwin",
@@ -1988,6 +2032,7 @@
         "dedupe_nur": "dedupe_nur",
         "dedupe_nuschtos-search": "dedupe_nuschtos-search",
         "dedupe_systems": "dedupe_systems",
+        "dendritic-slop": "dendritic-slop",
         "determinate": "determinate",
         "devshell": "devshell_2",
         "disko": "disko",

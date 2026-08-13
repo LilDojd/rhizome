@@ -96,6 +96,21 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    dendritic-slop = {
+      url = "github:LilDojd/dendritic-slop";
+      inputs = {
+        flake-parts.follows = "flake-parts";
+        herdr.follows = "herdr";
+        home-manager.follows = "home-manager";
+        impermanence.follows = "impermanence";
+        import-tree.follows = "import-tree";
+        nix-darwin.follows = "nix-darwin";
+        nixpkgs.follows = "nixpkgs";
+        pi.follows = "pi";
+        systems.follows = "systems";
+      };
+    };
+
     pi = {
       url = "github:lukasl-dev/pi.nix";
       inputs = {

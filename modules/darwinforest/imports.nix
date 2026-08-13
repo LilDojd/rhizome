@@ -1,4 +1,4 @@
-{ ... }:
+{ config, inputs, ... }:
 {
   flake.modules.darwin."darwinConfigurations/darwinforest" =
     {
@@ -10,7 +10,12 @@
         foundation
         yawner
         agenix
-        slop
+        inputs.dendritic-slop.modules.darwin.slop
       ];
+
+      dendriticSlop = {
+        enable = true;
+        username = config.flake.meta.owner.username;
+      };
     };
 }
