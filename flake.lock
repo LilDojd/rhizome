@@ -2153,27 +2153,6 @@
         "type": "github"
       }
     },
-    "shader-desk": {
-      "inputs": {
-        "nixpkgs": [
-          "streaming-flake",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1786289690,
-        "narHash": "sha256-ksKW8UGeSiJdeD5B4PXlU2Ued57AOZXCbVXiwbKt2XU=",
-        "owner": "KMartianov",
-        "repo": "shader-desk",
-        "rev": "c63d758336962a9097f0b6bc3c8f1a5b61edbddb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "KMartianov",
-        "repo": "shader-desk",
-        "type": "github"
-      }
-    },
     "steam-config-nix": {
       "inputs": {
         "flake-parts": "flake-parts_6",
@@ -2203,15 +2182,14 @@
         ],
         "nixpkgs": [
           "nixpkgs"
-        ],
-        "shader-desk": "shader-desk"
+        ]
       },
       "locked": {
-        "lastModified": 1786295654,
-        "narHash": "sha256-3+GZjGZKCYcRhFGQhm7p0H6/pcDfRsl7Ak5V9S9C1lQ=",
+        "lastModified": 1786665985,
+        "narHash": "sha256-Lnz0yyDwaXgVmMwwg5IKW/8ORpCSKlTFKkg4qHQXuUg=",
         "owner": "LilDojd",
         "repo": "streaming-flake",
-        "rev": "36f72553e3eb3df67db8f2588a763b25290af14f",
+        "rev": "1a4de3d543e71e9bf1ccd086b81d2cc1e20410f0",
         "type": "github"
       },
       "original": {
