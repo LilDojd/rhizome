@@ -12,7 +12,10 @@ let
         mode = "0400";
       };
 
-      dendriticSlop.context7ApiKeyFile = config.age.secrets.context7ApiKey.path;
+      dendriticSlop.mcps.context7 = {
+        enable = true;
+        secrets.apiKeyFile = config.age.secrets.context7ApiKey.path;
+      };
     };
 in
 {

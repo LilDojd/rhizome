@@ -21,7 +21,7 @@
       fish = lib.getExe homeArgs.config.programs.fish.package;
 
       psCommand =
-        if pkgs.stdenv.isDarwin then
+        if pkgs.stdenv.hostPlatform.isDarwin then
           "/bin/ps -p $PPID -o comm="
         else
           "${lib.getExe' homeArgs.pkgs.procps "ps"} --no-header --pid=$PPID --format=comm";

@@ -54,7 +54,7 @@
         preferAbbrs = true;
         shellAbbrs =
           shellAliasAbbrs
-          // lib.optionalAttrs pkgs.stdenv.isLinux {
+          // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
             ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
           }
           // {

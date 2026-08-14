@@ -31,8 +31,8 @@
     {
       programs.firefox = {
         enable = true;
-        configPath = lib.mkIf pkgs.stdenv.isLinux ".mozilla/firefox";
-        package = if pkgs.stdenv.isLinux then pkgs.firefox-bin else null;
+        configPath = lib.mkIf pkgs.stdenv.hostPlatform.isLinux ".mozilla/firefox";
+        package = if pkgs.stdenv.hostPlatform.isLinux then pkgs.firefox-bin else null;
         policies = {
           SearchEngines.Default = "DuckDuckGo";
           SanitizeOnShutdown = {

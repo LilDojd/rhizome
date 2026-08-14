@@ -23,7 +23,7 @@
           programs._1password-gui = {
             enable = true;
           }
-          // lib.optionalAttrs (pkgs.stdenv.isLinux) {
+          // lib.optionalAttrs (pkgs.stdenv.hostPlatform.isLinux) {
             polkitPolicyOwners = [ username ];
           };
         };
@@ -33,12 +33,12 @@
         { pkgs, ... }:
         let
           onePassPath =
-            if pkgs.stdenv.isDarwin then
+            if pkgs.stdenv.hostPlatform.isDarwin then
               ''"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"''
             else
               "~/.1password/agent.sock";
           onePassOpSshSign =
-            if pkgs.stdenv.isDarwin then
+            if pkgs.stdenv.hostPlatform.isDarwin then
               "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
             else
               "${pkgs._1password-gui}/bin/op-ssh-sign";

@@ -13,7 +13,7 @@
             inherit (config.flake.meta.owner) username;
             stateVersion = "25.11";
             homeDirectory =
-              if pkgs.stdenv.isDarwin then
+              if pkgs.stdenv.hostPlatform.isDarwin then
                 "/Users/${config.flake.meta.owner.username}"
               else
                 "/home/${config.flake.meta.owner.username}";

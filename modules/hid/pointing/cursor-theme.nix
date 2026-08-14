@@ -16,7 +16,7 @@ in
     nixos.foundation = polyModule;
     homeManager.gui = { pkgs, ... }: {
       imports = [ polyModule ];
-      home.pointerCursor.enable = pkgs.stdenv.isLinux;
+      home.pointerCursor.enable = pkgs.stdenv.hostPlatform.isLinux;
     };
     homeManager.hyprland.wayland.windowManager.hyprland.settings.config.cursor = {
       sync_gsettings_theme = true;

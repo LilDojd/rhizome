@@ -9,6 +9,10 @@
       "pipe-operators"
     ];
     allow-import-from-derivation = false;
+    extra-substituters = [ "https://cache.numtide.com" ];
+    extra-trusted-public-keys = [
+      "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
+    ];
   };
 
   inputs.self.submodules = true;
@@ -97,6 +101,7 @@
         flake-parts.follows = "flake-parts";
         home-manager.follows = "home-manager";
         impermanence.follows = "impermanence";
+        llm-agents.follows = "llm-agents";
         import-tree.follows = "import-tree";
         nix-darwin.follows = "nix-darwin";
         nixpkgs.follows = "nixpkgs";
@@ -165,6 +170,8 @@
     };
 
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
+
+    llm-agents.url = "github:numtide/llm-agents.nix";
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 

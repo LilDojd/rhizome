@@ -31,8 +31,8 @@
             enable = true;
             registers = "unnamedplus";
             providers = {
-              wl-copy.enable = pkgs.stdenv.isLinux;
-              xsel.enable = pkgs.stdenv.isLinux;
+              wl-copy.enable = pkgs.stdenv.hostPlatform.isLinux;
+              xsel.enable = pkgs.stdenv.hostPlatform.isLinux;
             };
           };
 

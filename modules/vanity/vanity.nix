@@ -38,7 +38,7 @@
               separator = " ➜  ";
             };
 
-            logo = if pkgs.stdenv.isDarwin then macLogo else nixosLogo;
+            logo = if pkgs.stdenv.hostPlatform.isDarwin then macLogo else nixosLogo;
 
             modules = [
               "break"

@@ -5,8 +5,8 @@
     let
       overlayBtop = final: prev: {
         btop = prev.btop.override {
-          rocmSupport = final.stdenv.isLinux;
-          cudaSupport = final.stdenv.isLinux;
+          rocmSupport = final.stdenv.hostPlatform.isLinux;
+          cudaSupport = final.stdenv.hostPlatform.isLinux;
         };
       };
 
