@@ -430,11 +430,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1786663799,
-        "narHash": "sha256-SXHR/eTMpVifBsRkQPLukktqgx/QiRfkcClxKq/JEiw=",
+        "lastModified": 1786665748,
+        "narHash": "sha256-JDRl+Ee75/f3llSJ04TNUDEoUVgCGc6o8j1OhCZ/HK8=",
         "owner": "LilDojd",
         "repo": "dendritic-slop",
-        "rev": "804f1a7afa89d84dc599b82e7fd353768b560151",
+        "rev": "3bd516a5c0a71dd4e551747082e3a68b89c9e392",
         "type": "github"
       },
       "original": {

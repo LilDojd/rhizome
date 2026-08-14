@@ -58,9 +58,9 @@ See [`modules/meta/ci/check.nix`](modules/meta/ci/check.nix).
 The following files in this repository are generated and checked
 using [the _files_ flake-parts module](https://github.com/mightyiam/files):
 
+- `.github/dependabot.yml`
 - `.github/workflows/check.yaml`
 - `.github/workflows/publish.yaml`
-- `.github/workflows/update-flake-lock.yaml`
 - `.gitignore`
 - `LICENSE`
 - `README.md`

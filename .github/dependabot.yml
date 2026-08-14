@@ -1,0 +1,19 @@
+{
+  "updates": [
+    {
+      "commit-message": {
+        "prefix": "chore"
+      },
+      "directory": "/",
+      "labels": [
+        "dependencies",
+        "automated"
+      ],
+      "package-ecosystem": "nix",
+      "schedule": {
+        "interval": "daily"
+      }
+    }
+  ],
+  "version": 2
+}
