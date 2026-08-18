@@ -11,13 +11,6 @@ let
     in
     inputs.hyprland.packages.${system}.hyprland.overrideAttrs (old: {
       buildInputs = (old.buildInputs or [ ]) ++ [ pkgs.glaze ];
-      # TODO: Remove when https://github.com/hyprwm/Hyprland/commit/91f29f2 is in unstable.
-      postPatch = (old.postPatch or "") + ''
-        substituteInPlace CMakeLists.txt \
-          --replace-fail 'find_package(glaze 7...<8 QUIET)' 'find_package(glaze QUIET)'
-        substituteInPlace src/config/values/ConfigValues.cpp \
-          --replace-fail '.deprecationNotice = "no longer does anything, use debug:invalidate_buffers instead."' ""
-      '';
     });
 in
 {
