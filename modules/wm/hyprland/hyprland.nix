@@ -6,11 +6,11 @@
 let
   hyprlandPackage =
     system:
-    let
-      pkgs = inputs.hyprland.inputs.nixpkgs.legacyPackages.${system};
-    in
     inputs.hyprland.packages.${system}.hyprland.overrideAttrs (old: {
-      buildInputs = (old.buildInputs or [ ]) ++ [ pkgs.glaze ];
+      postPatch = (old.postPatch or "") + ''
+        substituteInPlace CMakeLists.txt \
+          --replace-fail "glaze 7...<8" "glaze"
+      '';
     });
 in
 {

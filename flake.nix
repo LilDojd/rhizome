@@ -62,10 +62,7 @@
       };
     };
     # Hyprland
-    hyprland = {
-      url = "github:hyprwm/Hyprland/v0.56.2";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    hyprland.url = "github:hyprwm/Hyprland/v0.56.2";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
