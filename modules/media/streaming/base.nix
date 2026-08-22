@@ -21,6 +21,7 @@
       enable = true;
       profileName = "Programming";
       sceneCollectionName = "Programming";
+      graphics.nvidiaOnly = true;
       video = {
         baseWidth = 2560;
         baseHeight = 1440;

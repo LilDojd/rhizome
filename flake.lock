@@ -2394,11 +2394,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787389247,
-        "narHash": "sha256-J8uyPuwBOfOx5dUvgHVplWBvHfi2EGdQ/KF/c5wgA7A=",
+        "lastModified": 1787391200,
+        "narHash": "sha256-oTYm6okUA5p6g85ahTfBeMD9WBkQMpt+TJC4FDhD/ps=",
         "owner": "LilDojd",
         "repo": "streaming-flake",
-        "rev": "7f413dab016cb96c64055dc5640eab6ce4582de7",
+        "rev": "2e057d02f54024d0e02897bf2f1ba6db6ee51e8d",
         "type": "github"
       },
       "original": {
