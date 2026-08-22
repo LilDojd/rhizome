@@ -1,5 +1,12 @@
-{ lib, ... }:
+{ config, lib, ... }:
+let
+  username = config.flake.meta.owner.username;
+in
 {
+  # Automatic key visualization reads raw keyboard events. Limit the process
+  # lifetime to the streaming dashboard, even though group membership persists.
+  flake.modules.nixos.yawner.users.users.${username}.extraGroups = [ "input" ];
+
   flake.modules.homeManager.hyprland =
     {
       config,
@@ -230,7 +237,10 @@
 
       stylix.targets.firefox.profileNames = lib.mkAfter [ "stream-dashboard" ];
 
-      home.packages = [ dashboard ];
+      home.packages = [
+        dashboard
+        pkgs.showmethekey
+      ];
 
       systemd.user = {
         targets.stream-dashboard.Unit = {
@@ -238,6 +248,7 @@
           Requires = [
             "stream-dashboard-dnd.service"
             "stream-dashboard-inhibit.service"
+            "stream-dashboard-keys.service"
           ];
         };
 
@@ -268,8 +279,32 @@
               "${lib.getExe' pkgs.systemd "systemd-inhibit"} --what=idle --who=stream-dashboard "
               + "--why=\"Streaming dashboard active\" --mode=block ${lib.getExe' pkgs.coreutils "sleep"} infinity";
           };
+
+          stream-dashboard-keys = {
+            Unit = {
+              Description = "Show typed keys while the streaming dashboard is active";
+              PartOf = [ dashboardTarget ];
+              Before = [ dashboardTarget ];
+              After = [ "graphical-session.target" ];
+            };
+            Service = {
+              ExecStart = "${lib.getExe' pkgs.showmethekey "showmethekey-gtk"} --no-app-win --keys-win --no-clickable";
+              Restart = "on-failure";
+              RestartSec = 1;
+            };
+          };
         };
       };
+
+      wayland.windowManager.hyprland.settings.window_rule = lib.mkAfter [
+        {
+          match.class = "^(one\\.alynx\\.showmethekey)$";
+          float = true;
+          pin = true;
+          no_focus = true;
+          monitor = "DP-4";
+        }
+      ];
 
       # SUPER+ALT: S starts, X stops, O focuses OBS, T focuses Stream Manager,
       # and H focuses chat.
