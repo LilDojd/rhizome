@@ -4,6 +4,11 @@
   ...
 }:
 {
+  flake.modules.nixos.foundation.environment.persistence."/persistent".users.${config.flake.meta.owner.username}.directories =
+    [
+      ".config/obs-studio"
+    ];
+
   flake.modules.nixos.agenix.age.secrets.twitchStreamKey = {
     rekeyFile = ./twitchStreamKey.age;
     owner = config.flake.meta.owner.username;
