@@ -222,6 +222,8 @@
         id = 2;
         settings = {
           "browser.shell.checkDefaultBrowser" = false;
+          "browser.startup.homepage" = managerUrl;
+          "browser.startup.page" = 1;
           "browser.tabs.closeWindowWithLastTab" = false;
         };
       };
