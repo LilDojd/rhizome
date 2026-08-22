@@ -15,7 +15,25 @@
     imports = [ inputs.streaming-flake.homeManagerModules.default ];
     programs.streaming-obs = {
       enable = true;
-      twitchStreamKeyFile = "/run/agenix/twitchStreamKey";
+      profileName = "Programming";
+      sceneCollectionName = "Programming";
+      video = {
+        baseWidth = 2560;
+        baseHeight = 1440;
+        outputWidth = 1920;
+        outputHeight = 1080;
+        fps = 60;
+      };
+      twitch = {
+        enable = true;
+        streamKeyFile = "/run/agenix/twitchStreamKey";
+        channel = "yawnere";
+        chat.enable = true;
+      };
+      scenes = {
+        overwrite = false;
+        backup = true;
+      };
     };
   };
 
