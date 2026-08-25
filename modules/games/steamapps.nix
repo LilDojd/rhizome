@@ -8,18 +8,18 @@
         onSteamRunning = "close";
 
         apps = {
-          dota2 = {
-            id = 570;
+          "570" = {
+            name = "dota2";
             compatTool = "steamlinuxruntime_sniper";
             rawLaunchOptions = "gamemoderun %command% +cl_dota_alt_unit_movetodirection '1'";
           };
-          readyornot = {
-            id = 1144200;
+          "1144200" = {
+            name = "readyornot";
             compatTool = "GE-Proton";
             rawLaunchOptions = "gamemoderun %command%";
           };
-          readyornot2 = {
-            id = 1422450;
+          "1422450" = {
+            name = "readyornot2";
             compatTool = "GE-Proton10-30";
             rawLaunchOptions = "LD_PRELOAD='' PROTON_ENABLE_WAYLAND=1 gamemoderun gamescope -w 3840 -h 2160 -f --force-grab-cursor --mangoapp -- %command% -novid -nojoy -vulkan";
           };

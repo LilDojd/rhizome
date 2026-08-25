@@ -1,7 +1,7 @@
 { config, ... }:
 {
-  flake.modules.homeManager.hyprland.programs.steam.config.apps.factorio = {
-    id = 427520;
+  flake.modules.homeManager.hyprland.programs.steam.config.apps."427520" = {
+    name = "factorio";
     rawLaunchOptions = "gamemoderun %command%";
   };
   flake.modules.nixos.foundation = {
