@@ -83,8 +83,8 @@
     };
     impermanence.url = "https://flakehub.com/f/nix-community/impermanence/0.1.*";
 
-    helix = {
-      url = "https://flakehub.com/f/helix-editor/helix/0.1.*";
+    nhx = {
+      url = "github:Ra77a3l3-jar/nhx";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

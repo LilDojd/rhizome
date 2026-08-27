@@ -7,7 +7,7 @@
           enable = true;
           extensions.crates-nvim.enable = true;
         };
-        programs.helix = {
+        programs.nhx = {
           languages = {
             language = [
 

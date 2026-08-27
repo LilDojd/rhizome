@@ -1055,26 +1055,6 @@
         "type": "gitlab"
       }
     },
-    "helix": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "rust-overlay": "rust-overlay_2"
-      },
-      "locked": {
-        "lastModified": 1784822617,
-        "narHash": "sha256-IYDL6Vnf13Sa+wbeXZTAxvdLA4h8Ew5ha0spcJy/Yk0=",
-        "rev": "079a789e8cb08ead67f19e1971a1b7438b37354b",
-        "revCount": 7689,
-        "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/helix-editor/helix/0.1.7689%2Brev-079a789e8cb08ead67f19e1971a1b7438b37354b/019f9021-71e7-7ea3-a161-b8ee31caae3e/source.tar.gz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://flakehub.com/f/helix-editor/helix/0.1.%2A"
-      }
-    },
     "herdr-plugin-jj-workspace": {
       "flake": false,
       "locked": {
@@ -1773,6 +1753,26 @@
         "type": "github"
       }
     },
+    "nhx": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787771170,
+        "narHash": "sha256-FB6YeTDPGLl82yv7mTzsq5i2WX8N+Q+xjDzV3NabUCc=",
+        "owner": "Ra77a3l3-jar",
+        "repo": "nhx",
+        "rev": "781794cc107dca4b2b930d30bb22bd56f3f8878e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Ra77a3l3-jar",
+        "repo": "nhx",
+        "type": "github"
+      }
+    },
     "nix": {
       "inputs": {
         "flake-parts": "flake-parts_2",
@@ -2290,7 +2290,6 @@
         "firefox-addons": "firefox-addons",
         "flake-parts": "flake-parts_3",
         "git-hooks": "git-hooks",
-        "helix": "helix",
         "home-manager": "home-manager",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
@@ -2304,6 +2303,7 @@
         "jj-starship": "jj-starship",
         "llm-agents": "llm-agents",
         "mt7927": "mt7927",
+        "nhx": "nhx",
         "nix-alien": "nix-alien",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
@@ -2351,27 +2351,6 @@
         "owner": "oxalica",
         "repo": "rust-overlay",
         "rev": "27b7e78c6935293ee868469cc4172e9b8b17823b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "rust-overlay_2": {
-      "inputs": {
-        "nixpkgs": [
-          "helix",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1775358767,
-        "narHash": "sha256-f2eC+WIfhjevCPQILuV08i/kmKZzYZpUvkom/33VxCA=",
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "rev": "20fd44bc663daa53a2575e01293e24e681d62244",
         "type": "github"
       },
       "original": {

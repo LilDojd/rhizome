@@ -39,7 +39,7 @@
           };
           git.sign-on-push = true;
           ui.show-cryptographic-signatures = true;
-          ui.editor = lib.mkIf homeArgs.config.programs.helix.enable "hx";
+          ui.editor = lib.mkIf homeArgs.config.programs.nhx.enable "hx";
           git.private-commits = "description(glob:'private:*')";
           fix.tools = {
             rustfmt = {

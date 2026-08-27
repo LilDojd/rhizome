@@ -3,7 +3,7 @@
     homeManager.base =
       { ... }:
       {
-        programs.helix = {
+        programs.nhx = {
           languages = {
             language = [
               {

@@ -39,7 +39,7 @@
           };
         };
       };
-      programs.helix.settings.keys.normal."space".l.g = [
+      programs.nhx.settings.keys.normal."space".l.g = [
         ":new"
         ":insert-output ${lib.getExe hmArgs.config.programs.lazygit.package}"
         ":buffer-close!"
