@@ -18,18 +18,18 @@
   inputs.self.submodules = true;
   inputs = {
 
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
-    fh.url = "https://flakehub.com/f/DeterminateSystems/fh/*";
+    determinate.url = "github:DeterminateSystems/determinate";
+    fh.url = "github:DeterminateSystems/fh";
 
     agenix = {
-      url = "https://flakehub.com/f/ryantm/agenix/0.15.*";
+      url = "github:ryantm/agenix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
       };
     };
     agenix-rekey = {
-      url = "https://flakehub.com/f/oddlama/agenix-rekey/0.1.*";
+      url = "github:oddlama/agenix-rekey";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
@@ -78,10 +78,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
-      url = "https://flakehub.com/f/nix-community/disko/1.13.*";
+      url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    impermanence.url = "https://flakehub.com/f/nix-community/impermanence/0.1.*";
+    impermanence.url = "github:nix-community/impermanence";
 
     nhx = {
       url = "github:Ra77a3l3-jar/nhx";
@@ -131,12 +131,12 @@
     };
 
     flake-parts = {
-      url = "https://flakehub.com/f/hercules-ci/flake-parts/0.1.*";
+      url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
     git-hooks = {
-      url = "https://flakehub.com/f/cachix/git-hooks.nix/0.1.*";
+      url = "github:cachix/git-hooks.nix";
       inputs = {
         flake-compat.follows = "dedupe_flake-compat";
         nixpkgs.follows = "nixpkgs";
@@ -194,7 +194,7 @@
     };
 
     stylix = {
-      url = "https://flakehub.com/f/nix-community/stylix/0.1.*";
+      url = "github:nix-community/stylix";
       flake = true;
       inputs = {
         flake-parts.follows = "flake-parts";
@@ -211,7 +211,7 @@
     };
 
     treefmt-nix = {
-      url = "https://flakehub.com/f/numtide/treefmt-nix/0.1.*";
+      url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -232,10 +232,10 @@
     };
 
     # _additional_ `inputs` only for deduplication
-    dedupe_flake-compat.url = "https://flakehub.com/f/edolstra/flake-compat/1.1.*";
+    dedupe_flake-compat.url = "github:NixOS/flake-compat";
 
     dedupe_flake-utils = {
-      url = "https://flakehub.com/f/numtide/flake-utils/0.1.*";
+      url = "github:numtide/flake-utils";
       inputs.systems.follows = "dedupe_systems";
     };
 

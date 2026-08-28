@@ -12,11 +12,12 @@ in
             package-ecosystem = "nix";
             directory = "/";
             schedule.interval = "daily";
+            open-pull-requests-limit = 20;
             labels = [
               "dependencies"
               "automated"
             ];
-            commit-message.prefix = "chore";
+            commit-message.prefix = "chore(deps)";
           }
         ];
       };

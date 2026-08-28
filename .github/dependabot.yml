@@ -2,13 +2,14 @@
   "updates": [
     {
       "commit-message": {
-        "prefix": "chore"
+        "prefix": "chore(deps)"
       },
       "directory": "/",
       "labels": [
         "dependencies",
         "automated"
       ],
+      "open-pull-requests-limit": 20,
       "package-ecosystem": "nix",
       "schedule": {
         "interval": "daily"
