@@ -26,6 +26,7 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
+        systems.follows = "systems";
       };
     };
     agenix-rekey = {
@@ -69,15 +70,17 @@
       };
     };
     # Hyprland
-    hyprland.url = "github:hyprwm/Hyprland/v0.56.2";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
+    hyprland = {
+      url = "github:hyprwm/Hyprland/v0.56.2";
+      inputs.systems.follows = "systems";
     };
     hyprspace = {
       # KZDKM/Hyprspace#238: Hyprland 0.56 and Lua config support.
       url = "github:ImanolBarba/Hyprspace/migrate-v2";
-      inputs.hyprland.follows = "hyprland";
+      inputs = {
+        hyprland.follows = "hyprland";
+        systems.follows = "systems";
+      };
     };
     input-branches.url = "github:mightyiam/input-branches";
     clipboard-sync = {
@@ -88,7 +91,13 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    impermanence.url = "github:nix-community/impermanence";
+    impermanence = {
+      url = "github:nix-community/impermanence";
+      inputs = {
+        home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
 
     nhx = {
       url = "github:Ra77a3l3-jar/nhx";
@@ -171,7 +180,14 @@
 
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
 
-    llm-agents.url = "github:numtide/llm-agents.nix";
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs = {
+        flake-parts.follows = "flake-parts";
+        systems.follows = "systems";
+        treefmt-nix.follows = "treefmt-nix";
+      };
+    };
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
@@ -182,7 +198,10 @@
 
     steam-config-nix = {
       url = "github:different-name/steam-config-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+      };
     };
 
     nvf = {
@@ -207,7 +226,7 @@
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
         nur.follows = "dedupe_nur";
-        systems.follows = "dedupe_systems";
+        systems.follows = "systems";
         tinted-schemes.follows = "tinted-schemes";
       };
     };
@@ -241,25 +260,10 @@
     # _additional_ `inputs` only for deduplication
     dedupe_flake-compat.url = "github:NixOS/flake-compat";
 
-    dedupe_flake-utils = {
-      url = "github:numtide/flake-utils";
-      inputs.systems.follows = "dedupe_systems";
-    };
-
     dedupe_nur = {
       url = "github:nix-community/NUR";
       inputs = {
         flake-parts.follows = "flake-parts";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
-
-    dedupe_systems.url = "github:nix-systems/default";
-
-    dedupe_nuschtos-search = {
-      url = "github:NuschtOS/search";
-      inputs = {
-        flake-utils.follows = "dedupe_flake-utils";
         nixpkgs.follows = "nixpkgs";
       };
     };
