@@ -34,6 +34,10 @@
         configPath = lib.mkIf pkgs.stdenv.hostPlatform.isLinux ".mozilla/firefox";
         package = if pkgs.stdenv.hostPlatform.isLinux then pkgs.firefox-bin else null;
         policies = {
+          Preferences."dom.webgpu.enabled" = {
+            Value = true;
+            Status = "locked";
+          };
           SearchEngines.Default = "DuckDuckGo";
           SanitizeOnShutdown = {
             Cache = false;
