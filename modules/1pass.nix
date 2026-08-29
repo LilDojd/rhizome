@@ -12,6 +12,13 @@
 
   flake.modules =
     let
+      getOnePassGui =
+        {
+          osConfig ? null,
+          pkgs,
+          ...
+        }:
+        if osConfig == null then pkgs._1password-gui else osConfig.programs._1password-gui.package;
       flakeCommon =
         { pkgs, ... }:
         let
@@ -30,8 +37,9 @@
     in
     {
       homeManager.base =
-        { pkgs, ... }:
+        hmArgs@{ pkgs, ... }:
         let
+          onePassGui = getOnePassGui hmArgs;
           onePassPath =
             if pkgs.stdenv.hostPlatform.isDarwin then
               ''"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"''
@@ -41,7 +49,7 @@
             if pkgs.stdenv.hostPlatform.isDarwin then
               "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
             else
-              "${pkgs._1password-gui}/bin/op-ssh-sign";
+              "${onePassGui}/bin/op-ssh-sign";
         in
         {
           programs.ssh = {
@@ -64,14 +72,17 @@
         };
 
       homeManager.hyprland =
-        { pkgs, ... }:
+        hmArgs@{ pkgs, ... }:
+        let
+          onePassGui = getOnePassGui hmArgs;
+        in
         {
 
           xdg.desktopEntries = {
             "1password" = {
               name = "1Password";
               genericName = "Password Manager";
-              exec = "${lib.getExe pkgs._1password-gui} --ozone-platform=x11 %U";
+              exec = "${lib.getExe onePassGui} --ozone-platform=x11 %U";
               terminal = false;
               type = "Application";
               icon = "1password";
@@ -90,7 +101,7 @@
             {
               _args = [
                 "hyprland.start"
-                (lib.generators.mkLuaInline "function() hl.exec_cmd(${builtins.toJSON "${lib.getExe' pkgs.coreutils "sleep"} 2 && ${lib.getExe pkgs._1password-gui} --ozone-platform=x11 --silent"}) end")
+                (lib.generators.mkLuaInline "function() hl.exec_cmd(${builtins.toJSON "${lib.getExe' pkgs.coreutils "sleep"} 2 && ${lib.getExe onePassGui} --ozone-platform=x11 --silent"}) end")
               ];
             }
           ];
