@@ -152,6 +152,10 @@
           statusline.lualine = {
             enable = true;
             theme = "base16";
+            integrations.breadcrumbs = {
+              navbuddy.enable = false;
+              nvim-navic.enable = false;
+            };
           };
 
           autopairs.nvim-autopairs.enable = true;
@@ -196,10 +200,6 @@
             noice.enable = true;
             colorizer.enable = true;
             illuminate.enable = true;
-            breadcrumbs = {
-              enable = false;
-              navbuddy.enable = false;
-            };
             smartcolumn = {
               enable = true;
             };

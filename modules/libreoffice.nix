@@ -12,7 +12,7 @@
       in
       lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
         home.packages = [
-          pkgs.libreoffice-fresh
+          pkgs.libreoffice-stable
           pkgs.hunspell
         ]
         ++ dicts;
