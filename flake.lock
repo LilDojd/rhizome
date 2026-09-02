@@ -1631,11 +1631,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787945459,
-        "narHash": "sha256-YvZOqXPq/D0zo3kGtd18wQXgWm1976v7GSVW6y1wTfk=",
+        "lastModified": 1788025533,
+        "narHash": "sha256-9Q9/kNjVAjSoeQrhWEhdpF6WwmFfKYcfbBebhKUPhkg=",
         "owner": "Ra77a3l3-jar",
         "repo": "nhx",
-        "rev": "f23a56472c14c5a579aa562a3ebd53c261d2c13a",
+        "rev": "cb862c8602720aa9664b76c7b0efc7dc20c6154e",
         "type": "github"
       },
       "original": {
