@@ -10,6 +10,9 @@
     {
       imports = [ inputs.nvf.homeManagerModules.default ];
 
+      # Avoid Stylix's deprecated lualine option until its nvf target is updated.
+      stylix.targets.nvf.plugin = "mini-base16";
+
       programs.nvf = {
         enable = true;
 
@@ -151,7 +154,7 @@
 
           statusline.lualine = {
             enable = true;
-            theme = "base16";
+            setupOpts.options.theme = "base16";
             integrations.breadcrumbs = {
               navbuddy.enable = false;
               nvim-navic.enable = false;

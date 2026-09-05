@@ -20,7 +20,7 @@
           match = builtins.match "^/nix/store/[^/ ]+/bin/([^ ]+)(.*)$" alias;
         in
         if match == null then alias else builtins.concatStringsSep "" match;
-      shellAliasAbbrs = lib.mapAttrs (_: shortAlias) config.home.shellAliases;
+      shellAliasAbbrs = lib.mapAttrs (_: alias: lib.mkForce (shortAlias alias)) config.home.shellAliases;
     in
     {
       home.packages = with pkgs; [ grc ];
