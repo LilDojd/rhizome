@@ -19,7 +19,7 @@
             "etc"
           ];
           text = ''
-            umask 0377
+            umask 0337
             rm -f /etc/nix/access-tokens.conf
             printf 'access-tokens = github.com=%s\n' "$(cat ${config.age.secrets.githubToken.path})" > /etc/nix/access-tokens.conf
             chown root:wheel /etc/nix/access-tokens.conf
