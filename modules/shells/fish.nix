@@ -26,6 +26,11 @@
       home.packages = with pkgs; [ grc ];
       xdg.configFile."fish/themes/Catppuccin Macchiato.theme".source =
         "${catppuccin-fish}/themes/Catppuccin Macchiato.theme";
+      programs.nix-your-shell = {
+        enable = true;
+        enableFishIntegration = true;
+      };
+
       programs.fish = {
         enable = true;
 
@@ -33,7 +38,6 @@
 
         shellInit = ''
           set fish_greeting ""
-          ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
           set fzf_fd_opts --hidden --max-depth 5
 
           function __ls_after_cd__on_variable_pwd --on-variable PWD
