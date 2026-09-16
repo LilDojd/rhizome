@@ -125,7 +125,6 @@
       };
       languages = {
         language-server = {
-          nixd.command = "nixd";
           ty = {
             command = "ty";
             args = [ "server" ];
@@ -135,10 +134,7 @@
         language = [
           {
             name = "nix";
-            language-servers = [
-              "nixd"
-              "nil"
-            ];
+            language-servers = [ "nixd" ];
             formatter.command = "nixfmt";
           }
           {

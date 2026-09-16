@@ -38,11 +38,6 @@
           buffer_font_size = lib.mkForce 14;
 
           lsp = {
-            nixd = {
-              binary = {
-                path = "nixd";
-              };
-            };
             rust-analyzer = {
               binary = {
                 path = "rust-analyzer";
