@@ -52,17 +52,6 @@
           };
 
           languages = {
-            Nix = {
-              language_servers = [
-                "nixd"
-                "!nil"
-              ];
-              formatter = {
-                external = {
-                  command = "nixfmt";
-                };
-              };
-            };
             Python = {
               language_servers = [
                 "ty"

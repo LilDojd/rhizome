@@ -138,11 +138,6 @@
 
         language = [
           {
-            name = "nix";
-            language-servers = [ "nixd" ];
-            formatter.command = "nixfmt";
-          }
-          {
             name = "python";
             language-servers = [
               "ty"

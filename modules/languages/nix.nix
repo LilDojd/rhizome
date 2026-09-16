@@ -20,20 +20,38 @@
         options = {
           nixos.expr = "${flake}.nixosConfigurations.darkforest.options";
           darwin.expr = "${flake}.darwinConfigurations.darwinforest.options";
-          home-manager.expr = "${host}.options.home-manager.users.type.getSubOptions []";
+          home-manager.expr = "${host}.options.home-manager.users.valueMeta.attrs.${builtins.toJSON config.home.username}.configuration.options";
           flake-parts.expr = "${flake}.debug.partitions.dev.module.flake.debug.options";
           per-system.expr = "${flake}.debug.partitions.dev.module.flake.allSystems.${pkgs.stdenv.hostPlatform.system}.options";
         };
       };
     in
     {
-      programs.nhx.languages.language-server.nixd = {
-        command = lib.getExe pkgs.nixd;
-        config.nixd = settings;
+      programs.nhx.languages = {
+        language-server.nixd = {
+          command = lib.getExe pkgs.nixd;
+          config.nixd = settings;
+        };
+        language = [
+          {
+            name = "nix";
+            language-servers = [ "nixd" ];
+            formatter.command = lib.getExe pkgs.nixfmt;
+          }
+        ];
       };
-      programs.zed-editor.userSettings.lsp.nixd = {
-        binary.path = lib.getExe pkgs.nixd;
-        inherit settings;
+      programs.zed-editor.userSettings = {
+        lsp.nixd = {
+          binary.path = lib.getExe pkgs.nixd;
+          inherit settings;
+        };
+        languages.Nix = {
+          language_servers = [
+            "nixd"
+            "!nil"
+          ];
+          formatter.external.command = lib.getExe pkgs.nixfmt;
+        };
       };
     };
 }
