@@ -1,13 +1,5 @@
+{ lib, ... }:
 {
-  inputs,
-  config,
-  withSystem,
-  lib,
-  ...
-}:
-{
-  imports = [ (inputs.files + "/flake-module.nix") ];
-
   options.text = lib.mkOption {
     default = { };
     type = lib.types.lazyAttrsOf (
@@ -20,6 +12,7 @@
             };
             order = lib.mkOption {
               type = lib.types.listOf lib.types.str;
+              default = [ ];
             };
           };
         })
@@ -43,24 +36,36 @@
       flake = false;
     };
 
-    text.readme.parts.files =
-      withSystem (builtins.head config.systems) (psArgs: lib.attrNames psArgs.config.files.file)
-      |> map (path: "- `${path}`")
-      |> lib.naturalSort
-      |> lib.concat [
-        # markdown
-        ''
-          ## Generated files
+    partitions.dev.module =
+      {
+        inputs,
+        config,
+        withSystem,
+        ...
+      }:
+      {
+        imports = [ (inputs.files + "/flake-module.nix") ];
 
-          The following files in this repository are generated and checked
-          using [the _files_ flake-parts module](https://github.com/mightyiam/files):
-        ''
-      ]
-      |> lib.concatLines
-      |> (s: s + "\n");
+        text.readme.parts.files =
+          withSystem (builtins.head config.systems) (psArgs: lib.attrNames psArgs.config.files.file)
+          |> map (path: "- `${path}`")
+          |> lib.naturalSort
+          |> lib.concat [
+            # markdown
+            ''
+              ## Generated files
 
-    perSystem = psArgs: {
-      devshells.default.packages = [ psArgs.config.files.writer.drv ];
-    };
+              The following files in this repository are generated and checked
+              using [the _files_ flake-parts module](https://github.com/mightyiam/files):
+            ''
+          ]
+          |> lib.concatLines
+          |> (s: s + "\n");
+
+        perSystem = psArgs: {
+          files.writer.app = true;
+          devshells.default.packages = [ psArgs.config.files.writer.drv ];
+        };
+      };
   };
 }

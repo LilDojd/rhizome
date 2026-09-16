@@ -1,34 +1,35 @@
-{ inputs, ... }:
 {
   flake-file.inputs.treefmt-nix = {
     url = "github:numtide/treefmt-nix";
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  imports = [ inputs.treefmt-nix.flakeModule ];
-  perSystem = {
-    treefmt = {
-      projectRootFile = "flake.nix";
-      programs = {
-        nixfmt.enable = true;
-        prettier.enable = true;
-        rustfmt.enable = true;
-        shfmt.enable = true;
-        yamlfmt.enable = true;
+  partitions.dev.module = { inputs, ... }: {
+    imports = [ inputs.treefmt-nix.flakeModule ];
+    perSystem = {
+      treefmt = {
+        projectRootFile = "flake.nix";
+        programs = {
+          nixfmt.enable = true;
+          prettier.enable = true;
+          rustfmt.enable = true;
+          shfmt.enable = true;
+          yamlfmt.enable = true;
+        };
+        settings = {
+          on-unmatched = "fatal";
+          global.excludes = [
+            "*.jpg"
+            "*.png"
+            "*.toml"
+            "*/.gitignore"
+            "LICENSE"
+            "README*"
+            "*.age"
+          ];
+        };
       };
-      settings = {
-        on-unmatched = "fatal";
-        global.excludes = [
-          "*.jpg"
-          "*.png"
-          "*.toml"
-          "*/.gitignore"
-          "LICENSE"
-          "README*"
-          "*.age"
-        ];
-      };
+      pre-commit.settings.hooks.treefmt.enable = true;
     };
-    pre-commit.settings.hooks.treefmt.enable = true;
   };
 }

@@ -1,42 +1,43 @@
-{ config, inputs, ... }:
 {
   flake-file.inputs.input-branches.url = "github:mightyiam/input-branches";
 
-  text.readme.parts.patching-of-inputs =
-    # markdown
-    ''
-      ## Patching of inputs
+  partitions.dev.module = { config, inputs, ... }: {
+    text.readme.parts.patching-of-inputs =
+      # markdown
+      ''
+        ## Patching of inputs
 
-      I attempt to maintain an upstream-first approach.
-      While collaborating with upstream on the refinement and merge of those changes,
-      I maintain a branch of that input with those changes cherry-picked.
+        I attempt to maintain an upstream-first approach.
+        While collaborating with upstream on the refinement and merge of those changes,
+        I maintain a branch of that input with those changes cherry-picked.
 
-      > [!IMPORTANT]
-      > This repository is the origin of the
-      > [_input branches_](https://github.com/mightyiam/input-branches)
-      > project, which is used here.
+        > [!IMPORTANT]
+        > This repository is the origin of the
+        > [_input branches_](https://github.com/mightyiam/input-branches)
+        > project, which is used here.
 
-    '';
+      '';
 
-  imports = [ inputs.input-branches.flakeModules.default ];
+    imports = [ inputs.input-branches.flakeModules.default ];
 
-  input-branches.inputs = {
-    nixpkgs.upstream = {
-      url = "https://github.com/NixOS/nixpkgs.git";
-      ref = "nixpkgs-unstable";
+    input-branches.inputs = {
+      nixpkgs.upstream = {
+        url = "https://github.com/NixOS/nixpkgs.git";
+        ref = "nixpkgs-unstable";
+      };
+      home-manager.upstream = {
+        url = "https://github.com/nix-community/home-manager.git";
+        ref = "master";
+      };
+      stylix.upstream = {
+        url = "https://github.com/nix-community/stylix.git";
+        ref = "master";
+      };
     };
-    home-manager.upstream = {
-      url = "https://github.com/nix-community/home-manager.git";
-      ref = "master";
-    };
-    stylix.upstream = {
-      url = "https://github.com/nix-community/stylix.git";
-      ref = "master";
-    };
-  };
 
-  perSystem = psArgs: {
-    devshells.default.packages = psArgs.config.input-branches.commands.all;
-    treefmt.settings.global.excludes = [ "${config.input-branches.baseDir}/*" ];
+    perSystem = psArgs: {
+      devshells.default.packages = psArgs.config.input-branches.commands.all;
+      treefmt.settings.global.excludes = [ "${config.input-branches.baseDir}/*" ];
+    };
   };
 }

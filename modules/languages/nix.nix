@@ -21,8 +21,8 @@
           nixos.expr = "${flake}.nixosConfigurations.darkforest.options";
           darwin.expr = "${flake}.darwinConfigurations.darwinforest.options";
           home-manager.expr = "${host}.options.home-manager.users.type.getSubOptions []";
-          flake-parts.expr = "${flake}.debug.options";
-          per-system.expr = "${flake}.allSystems.${pkgs.stdenv.hostPlatform.system}.options";
+          flake-parts.expr = "${flake}.debug.partitions.dev.module.flake.debug.options";
+          per-system.expr = "${flake}.debug.partitions.dev.module.flake.allSystems.${pkgs.stdenv.hostPlatform.system}.options";
         };
       };
     in

@@ -1,1 +1,1 @@
-{ perSystem.treefmt.programs.nixf-diagnose.enable = true; }
+{ partitions.dev.module.perSystem.treefmt.programs.nixf-diagnose.enable = true; }

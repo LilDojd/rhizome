@@ -21,7 +21,7 @@
     "!/.secrets/"
   ];
 
-  perSystem =
+  partitions.dev.module.perSystem =
     {
       inputs',
       ...

@@ -2,7 +2,7 @@ let
   filePath = ".github/dependabot.yml";
 in
 {
-  perSystem =
+  partitions.dev.module.perSystem =
     { pkgs, ... }:
     {
       files.file.${filePath}.source = pkgs.writers.writeJSON "dependabot.yml" {
