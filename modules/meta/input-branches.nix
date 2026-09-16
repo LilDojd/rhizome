@@ -1,5 +1,7 @@
 { config, inputs, ... }:
 {
+  flake-file.inputs.input-branches.url = "github:mightyiam/input-branches";
+
   text.readme.parts.patching-of-inputs =
     # markdown
     ''

@@ -6,5 +6,7 @@ let
   ];
 in
 {
+  flake-file.inputs.systems.url = "github:nix-systems/default";
+
   systems = import inputs.systems |> lib.filter (s: !(lib.elem s excluded));
 }

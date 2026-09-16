@@ -4,6 +4,12 @@
   ...
 }:
 {
+  flake-file.inputs.streaming-flake = {
+    url = "github:LilDojd/streaming-flake";
+    inputs.nixpkgs.follows = "nixpkgs";
+    inputs.home-manager.follows = "home-manager";
+  };
+
   flake.modules.nixos.foundation.environment.persistence."/persistent".users.${config.flake.meta.owner.username}.directories =
     [
       ".config/obs-studio"

@@ -1,5 +1,10 @@
 { inputs, ... }:
 {
+  flake-file.inputs.jj-starship = {
+    url = "github:dmmulroy/jj-starship";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   flake.modules.homeManager.base =
     { pkgs, ... }:
     {

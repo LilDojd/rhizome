@@ -37,6 +37,14 @@ let
     '';
 in
 {
+  flake-file.inputs.impermanence = {
+    url = "github:nix-community/impermanence";
+    inputs = {
+      home-manager.follows = "home-manager";
+      nixpkgs.follows = "nixpkgs";
+    };
+  };
+
   flake.modules.nixos.foundation = {
     imports = [ inputs.impermanence.nixosModules.impermanence ];
     config = {

@@ -1,5 +1,10 @@
 { inputs, ... }:
 {
+  flake-file.inputs.nhx = {
+    url = "github:Ra77a3l3-jar/nhx";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   flake.modules.homeManager.base = { config, ... }: {
     imports = [ inputs.nhx.homeManagerModules.default ];
 

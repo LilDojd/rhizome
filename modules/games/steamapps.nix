@@ -1,5 +1,13 @@
 { inputs, ... }:
 {
+  flake-file.inputs.steam-config-nix = {
+    url = "github:different-name/steam-config-nix";
+    inputs = {
+      nixpkgs.follows = "nixpkgs";
+      systems.follows = "systems";
+    };
+  };
+
   flake.modules = {
     homeManager.hyprland = {
       imports = [ inputs.steam-config-nix.homeModules.default ];

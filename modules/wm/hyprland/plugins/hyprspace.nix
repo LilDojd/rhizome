@@ -1,5 +1,14 @@
 { inputs, lib, ... }:
 {
+  flake-file.inputs.hyprspace = {
+    # KZDKM/Hyprspace#238: Hyprland 0.56 and Lua config support.
+    url = "github:ImanolBarba/Hyprspace/migrate-v2";
+    inputs = {
+      hyprland.follows = "hyprland";
+      systems.follows = "systems";
+    };
+  };
+
   flake.modules.homeManager.hyprland =
     hmArgs@{ pkgs, ... }:
     let

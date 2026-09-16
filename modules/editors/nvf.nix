@@ -1,5 +1,13 @@
 { inputs, config, ... }:
 {
+  flake-file.inputs.nvf = {
+    url = "github:notashelf/nvf";
+    inputs = {
+      nixpkgs.follows = "nixpkgs";
+      flake-compat.follows = "dedupe_flake-compat";
+    };
+  };
+
   flake.modules.nixos.foundation.environment.persistence."/persistent".users.${config.flake.meta.owner.username}.directories =
     [
       ".local/state/nvim"

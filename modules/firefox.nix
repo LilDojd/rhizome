@@ -5,6 +5,11 @@
   ...
 }:
 {
+  flake-file.inputs.firefox-addons = {
+    url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   flake.modules.nixos.foundation.environment.persistence."/persistent".users.${config.flake.meta.owner.username}.directories =
     [
       ".mozilla"

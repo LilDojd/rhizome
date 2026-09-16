@@ -1,5 +1,10 @@
 { inputs, ... }:
 {
+  flake-file.inputs.nix-mineral = {
+    url = "github:cynicsketch/nix-mineral";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   flake.modules = {
     nixos.foundation = {
       imports = [ inputs.nix-mineral.nixosModules.nix-mineral ];

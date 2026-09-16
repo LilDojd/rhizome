@@ -1,5 +1,14 @@
 { inputs, ... }:
 {
+  flake-file.inputs.nix-alien = {
+    url = "github:thiagokokada/nix-alien";
+    inputs = {
+      nixpkgs.follows = "nixpkgs";
+      nix-index-database.follows = "nix-index-database";
+      flake-compat.follows = "dedupe_flake-compat";
+    };
+  };
+
   nixpkgs.overlays = [
     inputs.nix-alien.overlays.default
   ];

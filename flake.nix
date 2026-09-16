@@ -1,39 +1,35 @@
+# DO-NOT-EDIT. This file was auto-generated using github:denful/flake-file.
+# Use `nix run .#write-flake` to regenerate it.
 {
-
   description = "Yawner's Nix Environment";
+
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   nixConfig = {
     abort-on-warn = true;
+    allow-import-from-derivation = false;
     extra-experimental-features = [
       "flakes"
       "pipe-operators"
     ];
-    allow-import-from-derivation = false;
     extra-substituters = [ "https://cache.numtide.com" ];
-    extra-trusted-public-keys = [
-      "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
-    ];
+    extra-trusted-public-keys = [ "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g=" ];
   };
 
-  inputs.self.submodules = true;
   inputs = {
-
-    determinate.url = "github:DeterminateSystems/determinate";
-    fh.url = "github:DeterminateSystems/fh";
-
     agenix = {
       url = "github:ryantm/agenix";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
       };
     };
     agenix-rekey = {
       url = "github:oddlama/agenix-rekey";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
+        nixpkgs.follows = "nixpkgs";
       };
     };
     ashell = {
@@ -43,53 +39,91 @@
         rust-overlay.follows = "rust-overlay";
       };
     };
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
+    clipboard-sync = {
+      url = "github:dnut/clipboard-sync";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    devshell = {
-      url = "github:numtide/devshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-mineral = {
-      url = "github:cynicsketch/nix-mineral";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     cpu-microcodes = {
-      flake = false;
       url = "github:platomav/CPUMicrocodes";
+      flake = false;
     };
-    nix-alien = {
-      url = "github:thiagokokada/nix-alien";
+    dedupe_flake-compat.url = "github:NixOS/flake-compat";
+    dedupe_nur = {
+      url = "github:nix-community/NUR";
       inputs = {
+        flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
-        nix-index-database.follows = "nix-index-database";
-        flake-compat.follows = "dedupe_flake-compat";
       };
     };
-    # Hyprland
-    hyprland = {
-      url = "github:hyprwm/Hyprland/v0.56.2";
-      inputs.systems.follows = "systems";
-    };
-    hyprspace = {
-      # KZDKM/Hyprspace#238: Hyprland 0.56 and Lua config support.
-      url = "github:ImanolBarba/Hyprspace/migrate-v2";
+    dendritic-slop = {
+      url = "github:LilDojd/dendritic-slop";
       inputs = {
-        hyprland.follows = "hyprland";
+        flake-parts.follows = "flake-parts";
+        home-manager.follows = "home-manager";
+        impermanence.follows = "impermanence";
+        import-tree.follows = "import-tree";
+        llm-agents.follows = "llm-agents";
+        nix-darwin.follows = "nix-darwin";
+        nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
       };
     };
-    input-branches.url = "github:mightyiam/input-branches";
-    clipboard-sync = {
-      url = "github:dnut/clipboard-sync";
+    determinate.url = "github:DeterminateSystems/determinate";
+    devshell = {
+      url = "github:numtide/devshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    fh.url = "github:DeterminateSystems/fh";
+    files = {
+      url = "github:mightyiam/files";
+      flake = false;
+    };
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    flake-file.url = "github:denful/flake-file";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs = {
+        flake-compat.follows = "dedupe_flake-compat";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-mole = {
+      url = "github:tw93/homebrew-tap";
+      flake = false;
+    };
+    hyprland = {
+      url = "github:hyprwm/Hyprland/v0.56.2";
+      inputs.systems.follows = "systems";
+    };
+    hyprspace = {
+      url = "github:ImanolBarba/Hyprspace/migrate-v2";
+      inputs = {
+        hyprland.follows = "hyprland";
+        systems.follows = "systems";
+      };
     };
     impermanence = {
       url = "github:nix-community/impermanence";
@@ -98,88 +132,12 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
-
-    nhx = {
-      url = "github:Ra77a3l3-jar/nhx";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    dendritic-slop = {
-      url = "github:LilDojd/dendritic-slop";
-      inputs = {
-        flake-parts.follows = "flake-parts";
-        home-manager.follows = "home-manager";
-        impermanence.follows = "impermanence";
-        llm-agents.follows = "llm-agents";
-        import-tree.follows = "import-tree";
-        nix-darwin.follows = "nix-darwin";
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
-      };
-    };
-
-    files = {
-      url = "github:mightyiam/files";
-      flake = false;
-    };
-
-    systems = {
-      url = "github:nix-systems/default";
-    };
-
-    nix-homebrew = {
-      url = "github:zhaofengli/nix-homebrew";
-    };
-
-    homebrew-core = {
-      url = "github:homebrew/homebrew-core";
-      flake = false;
-    };
-
-    homebrew-cask = {
-      url = "github:homebrew/homebrew-cask";
-      flake = false;
-    };
-
-    homebrew-mole = {
-      url = "github:tw93/homebrew-tap";
-      flake = false;
-    };
-
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-
-    git-hooks = {
-      url = "github:cachix/git-hooks.nix";
-      inputs = {
-        flake-compat.follows = "dedupe_flake-compat";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      flake = true;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    streaming-flake = {
-      url = "github:LilDojd/streaming-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
-
     import-tree.url = "github:vic/import-tree";
-
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
+    input-branches.url = "github:mightyiam/input-branches";
+    jj-starship = {
+      url = "github:dmmulroy/jj-starship";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
-
     llm-agents = {
       url = "github:numtide/llm-agents.nix";
       inputs = {
@@ -188,14 +146,49 @@
         treefmt-nix.follows = "treefmt-nix";
       };
     };
-
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    mt7927 = {
+      url = "github:cmspam/mt7927-nixos";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    nhx = {
+      url = "github:Ra77a3l3-jar/nhx";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-alien = {
+      url = "github:thiagokokada/nix-alien";
+      inputs = {
+        flake-compat.follows = "dedupe_flake-compat";
+        nix-index-database.follows = "nix-index-database";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-mineral = {
+      url = "github:cynicsketch/nix-mineral";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs = {
+        flake-compat.follows = "dedupe_flake-compat";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    self.submodules = true;
     steam-config-nix = {
       url = "github:different-name/steam-config-nix";
       inputs = {
@@ -203,25 +196,15 @@
         systems.follows = "systems";
       };
     };
-
-    nvf = {
-      url = "github:notashelf/nvf";
+    streaming-flake = {
+      url = "github:LilDojd/streaming-flake";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "dedupe_flake-compat";
-      };
-    };
-
-    nix-darwin = {
-      url = "github:nix-darwin/nix-darwin";
-      inputs = {
+        home-manager.follows = "home-manager";
         nixpkgs.follows = "nixpkgs";
       };
     };
-
     stylix = {
       url = "github:nix-community/stylix";
-      flake = true;
       inputs = {
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
@@ -230,101 +213,18 @@
         tinted-schemes.follows = "tinted-schemes";
       };
     };
-
+    systems.url = "github:nix-systems/default";
     tinted-schemes = {
-      flake = false;
       url = "github:tinted-theming/schemes";
+      flake = false;
     };
-
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     ucodenix = {
       url = "github:e-tho/ucodenix";
       inputs.cpu-microcodes.follows = "cpu-microcodes";
     };
-
-    jj-starship = {
-
-      url = "github:dmmulroy/jj-starship";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    mt7927 = {
-      url = "github:cmspam/mt7927-nixos";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # _additional_ `inputs` only for deduplication
-    dedupe_flake-compat.url = "github:NixOS/flake-compat";
-
-    dedupe_nur = {
-      url = "github:nix-community/NUR";
-      inputs = {
-        flake-parts.follows = "flake-parts";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
-
   };
-
-  outputs =
-    inputs@{ flake-parts, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      text.readme.parts = {
-        disallow-warnings =
-          # markdown
-          ''
-            ## Trying to disallow warnings
-
-            This at the top level of the `flake.nix` file:
-
-            ```nix
-            nixConfig.abort-on-warn = true;
-            ```
-
-            > [!NOTE]
-            > It does not currently catch all warnings Nix can produce, but perhaps only evaluation warnings.
-          '';
-
-        flake-inputs-dedupe-prefix =
-          # markdown
-          ''
-            ## Flake inputs for deduplication are prefixed
-
-            Some explicit flake inputs exist solely for the purpose of deduplication.
-            They are the target of at least one `<input>.inputs.<input>.follows`.
-            But what if in the future all of those targeting `follows` are removed?
-            Ideally, Nix would detect that and warn.
-            Until that feature is available those inputs are prefixed with `dedupe_`
-            and placed in an additional separate `inputs` attribute literal
-            for easy identification.
-
-          '';
-
-        automatic-import =
-          # markdown
-          ''
-            ## Automatic import
-
-            Nix files (they're all flake-parts modules) are automatically imported.
-            Nix files prefixed with an underscore are ignored.
-            No literal path imports are used.
-            This means files can be moved around and nested in directories freely.
-
-            > [!NOTE]
-            > This pattern has been the inspiration of [an auto-imports library, import-tree](https://github.com/vic/import-tree).
-
-          '';
-
-      };
-
-      imports = [
-        (inputs.import-tree ./modules)
-      ];
-
-      _module.args.rootPath = ./.;
-    };
 }

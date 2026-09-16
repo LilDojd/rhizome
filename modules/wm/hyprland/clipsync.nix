@@ -1,5 +1,10 @@
 { inputs, ... }:
 {
+  flake-file.inputs.clipboard-sync = {
+    url = "github:dnut/clipboard-sync";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   flake.modules.nixos.foundation =
     { pkgs, ... }:
     let

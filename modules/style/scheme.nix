@@ -6,6 +6,11 @@ let
   };
 in
 {
+  flake-file.inputs.tinted-schemes = {
+    flake = false;
+    url = "github:tinted-theming/schemes";
+  };
+
   flake.modules = {
     nixos.foundation = polyModule;
     darwin.foundation = polyModule;

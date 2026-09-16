@@ -1,5 +1,10 @@
 { inputs, ... }:
 {
+  flake-file.inputs.mt7927 = {
+    url = "github:cmspam/mt7927-nixos";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   flake.modules.nixos.mt7927 =
     { pkgs, ... }:
     {

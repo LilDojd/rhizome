@@ -1,5 +1,13 @@
 { inputs, ... }:
 {
+  flake-file.inputs.git-hooks = {
+    url = "github:cachix/git-hooks.nix";
+    inputs = {
+      flake-compat.follows = "dedupe_flake-compat";
+      nixpkgs.follows = "nixpkgs";
+    };
+  };
+
   imports = [ inputs.git-hooks.flakeModule ];
 
   gitignore = [

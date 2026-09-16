@@ -1,5 +1,16 @@
 { inputs, ... }:
 {
+  flake-file.inputs.stylix = {
+    url = "github:nix-community/stylix";
+    inputs = {
+      flake-parts.follows = "flake-parts";
+      nixpkgs.follows = "nixpkgs";
+      nur.follows = "dedupe_nur";
+      systems.follows = "systems";
+      tinted-schemes.follows = "tinted-schemes";
+    };
+  };
+
   flake.modules = {
     nixos.foundation = {
       imports = [ inputs.stylix.nixosModules.stylix ];
