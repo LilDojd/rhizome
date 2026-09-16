@@ -6,6 +6,8 @@
         nix-output-monitor
         nix-fast-build
         nix-tree
+        nix-inspect
+        nix-melt
         nvd
         nix-diff
       ];
