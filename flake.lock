@@ -2221,11 +2221,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789421244,
-        "narHash": "sha256-93vCWx9NnvzhShdNmbm8I9Q2cpaAF1op3ynxvnK9wRY=",
+        "lastModified": 1789505453,
+        "narHash": "sha256-F2TpWLnr8p0/ZwnVEeRZwjO4Fn+bkvg5LGC6RVYEz78=",
         "owner": "LilDojd",
         "repo": "streaming-flake",
-        "rev": "2ec973537016a96c22ec2eb33690dbcca958a79e",
+        "rev": "5980f15a113369151f446b5d966763da3e059ef6",
         "type": "github"
       },
       "original": {
