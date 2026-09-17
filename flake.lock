@@ -458,11 +458,11 @@
         "typesafe-skills": "typesafe-skills"
       },
       "locked": {
-        "lastModified": 1789634727,
-        "narHash": "sha256-4IIy/aA3p4pDZC0E93Rii7tlAdvca/AlJrLmuyl7h0k=",
+        "lastModified": 1789645089,
+        "narHash": "sha256-b6RO3N9GtSKn2uLxbTal2vMINDpG4kJ7RkQmPfeHHSk=",
         "owner": "LilDojd",
         "repo": "dendritic-slop",
-        "rev": "e18306bfc968e61b579cd0a3b613caaf0ebef160",
+        "rev": "e19e11092abee2c7d9c077a6dd02ff5c2880b3e0",
         "type": "github"
       },
       "original": {
