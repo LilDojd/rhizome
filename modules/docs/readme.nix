@@ -54,27 +54,6 @@
           nix fmt
           nix flake check --no-eval-cache --no-build --all-systems
           ```
-
-          Development shells, formatting, generated-file apps, and checks use the
-          `dev` flake-parts partition. Host and ordinary package evaluation do not
-          import those tooling modules. There is still one shared lockfile;
-          `all-check-store-paths` intentionally evaluates the development checks.
-
-          Helix and Zed share flake-aware nixd settings for NixOS, Darwin, the current
-          user's Home Manager modules, and development flake-parts options. These
-          follow the live checkout configured by `programs.nh.flake` (normally
-          `~/rhizome`), not the immutable source of the last system rebuild.
-
-          After rebuilding, use `nix-inspect -p ~/rhizome` to browse evaluated
-          configuration and `nix-melt` from this directory to inspect the lockfile.
-          `nix-your-shell` keeps Fish in interactive Nix shells; it replaces
-          `any-nix-shell` and its package-list right prompt.
-
-          For REPL inspection, run `nix repl` then `:lf .`. Root options are under
-          `debug.options`; development options are under
-          `debug.partitions.dev.module.flake.debug.options`, with per-system options
-          under `debug.partitions.dev.module.flake.allSystems.<system>.options`.
-
         '';
 
       parts.attribution =
