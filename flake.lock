@@ -434,6 +434,7 @@
         "import-tree": [
           "import-tree"
         ],
+        "jevons": "jevons",
         "leonardomso-rust-skills": "leonardomso-rust-skills",
         "llm-agents": [
           "llm-agents"
@@ -456,11 +457,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789769199,
-        "narHash": "sha256-Hd4qVgEBD89LizefPxB2Co6FfLIf7bPNx56AupfYjkc=",
+        "lastModified": 1789781478,
+        "narHash": "sha256-H7xxeGm1UGxfxmWZOmMWm1SOSNr8KkB2w6EPTFaQ29I=",
         "owner": "LilDojd",
         "repo": "dendritic-slop",
-        "rev": "8f1858c84a78c856967c840afe02c6ea9535710c",
+        "rev": "a2ae02fa653c3414e59cd04e6da16c8d4b322452",
         "type": "github"
       },
       "original": {
@@ -1505,6 +1506,23 @@
         "owner": "~alexdavid",
         "repo": "jail.nix",
         "type": "sourcehut"
+      }
+    },
+    "jevons": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1789780372,
+        "narHash": "sha256-v7vOckYoVmUkDYHs28FSgeS3yFTi6z4ywxI7SgsIdT8=",
+        "owner": "LilDojd",
+        "repo": "jevons",
+        "rev": "ea5a11faddf552fe76562eee6667fc8146f74f10",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LilDojd",
+        "ref": "v0.2.0",
+        "repo": "jevons",
+        "type": "github"
       }
     },
     "jj-starship": {
