@@ -1577,11 +1577,11 @@
     "mediatek-mt7927-dkms": {
       "flake": false,
       "locked": {
-        "lastModified": 1787329668,
-        "narHash": "sha256-Xha4HBF6zuK+kxJ5d4pHTkJktH9WtpF/EYGN7Hv/S+I=",
+        "lastModified": 1789666901,
+        "narHash": "sha256-apygKvayW+3TljjRTrGxriDcMju7njCdQHH3pRgHESo=",
         "owner": "jetm",
         "repo": "mediatek-mt7927-dkms",
-        "rev": "05614ebc5dec99daef52098ab25b18d53473a936",
+        "rev": "c1c3d78dc3922a6e7c794300ae5f45ced687c05b",
         "type": "github"
       },
       "original": {
@@ -1613,11 +1613,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789588431,
-        "narHash": "sha256-xH2XDCw1ILAj2JPZI76pd4IT8VHEKT7i9UCrVMnAXw4=",
+        "lastModified": 1789679901,
+        "narHash": "sha256-Exf3EtM4AJQty9jaOw2/w1xWCtSQCjSnuQ3RaASkLg8=",
         "owner": "cmspam",
         "repo": "mt7927-nixos",
-        "rev": "1f970337e7e23847ade51583d88f7b7eeabd775c",
+        "rev": "bb52f1a60c1da6631dea867184e1be72ed91f481",
         "type": "github"
       },
       "original": {
