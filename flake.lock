@@ -139,7 +139,6 @@
       "original": {
         "owner": "astral-sh",
         "repo": "claude-code-plugins",
-        "rev": "f3ce88a7ba830f53afd6d944c1d0278ed318e142",
         "type": "github"
       }
     },
@@ -421,6 +420,7 @@
       "inputs": {
         "actionbook-rust-skills": "actionbook-rust-skills",
         "astral-agent-skills": "astral-agent-skills",
+        "firstmate": "firstmate",
         "flake-parts": [
           "flake-parts"
         ],
@@ -448,20 +448,20 @@
         "pi": "pi",
         "pi-ask-user": "pi-ask-user",
         "pi-mcp-adapter": "pi-mcp-adapter",
-        "pi-playwright": "pi-playwright",
         "pi-web-access": "pi-web-access",
         "ponytail": "ponytail",
         "superpowers": "superpowers",
         "systems": [
           "systems"
-        ]
+        ],
+        "treehouse": "treehouse"
       },
       "locked": {
-        "lastModified": 1789781478,
-        "narHash": "sha256-H7xxeGm1UGxfxmWZOmMWm1SOSNr8KkB2w6EPTFaQ29I=",
+        "lastModified": 1789786479,
+        "narHash": "sha256-AcjBZ8equjBHe0z/UHMSJQ5ppMzsLizFfWNrluxX6p0=",
         "owner": "LilDojd",
         "repo": "dendritic-slop",
-        "rev": "a2ae02fa653c3414e59cd04e6da16c8d4b322452",
+        "rev": "94a728cc9a82823532e2f0c067ffe5132da4757b",
         "type": "github"
       },
       "original": {
@@ -684,6 +684,22 @@
         "type": "github"
       }
     },
+    "firstmate": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1789773152,
+        "narHash": "sha256-15jmEgrU8J86ywhZdY7YQygTxdr13/WSP1/rDJpb3N8=",
+        "owner": "kunchenguid",
+        "repo": "firstmate",
+        "rev": "1bb72cc5f88014c86e3d03244efa0bb26c22d001",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kunchenguid",
+        "repo": "firstmate",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -705,13 +721,13 @@
       "locked": {
         "lastModified": 1767039857,
         "narHash": "sha256-vNpUSpF5Nuw8xvDLj2KCwwksIbjua2LZCqhV1LNRDns=",
-        "owner": "NixOS",
+        "owner": "edolstra",
         "repo": "flake-compat",
         "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
+        "owner": "edolstra",
         "repo": "flake-compat",
         "type": "github"
       }
@@ -733,6 +749,22 @@
       }
     },
     "flake-compat_4": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1767039857,
+        "narHash": "sha256-vNpUSpF5Nuw8xvDLj2KCwwksIbjua2LZCqhV1LNRDns=",
+        "owner": "NixOS",
+        "repo": "flake-compat",
+        "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "flake-compat_5": {
       "locked": {
         "lastModified": 1733328505,
         "narHash": "sha256-NeCCThCEP3eCl2l/+27kNNK7QrwZB1IJCrXfrbv5oqU=",
@@ -944,7 +976,7 @@
     },
     "git-hooks-nix": {
       "inputs": {
-        "flake-compat": "flake-compat_2",
+        "flake-compat": "flake-compat_3",
         "nixpkgs": [
           "determinate",
           "nix",
@@ -1018,7 +1050,6 @@
       "original": {
         "owner": "NathanFlurry",
         "repo": "herdr-plugin-jj-workspace",
-        "rev": "a9f1d3bcdaa2354e336a5173da85cbe4970c0f2e",
         "type": "github"
       }
     },
@@ -1520,7 +1551,6 @@
       },
       "original": {
         "owner": "LilDojd",
-        "ref": "v0.2.0",
         "repo": "jevons",
         "type": "github"
       }
@@ -1769,7 +1799,7 @@
     },
     "nix-mineral": {
       "inputs": {
-        "flake-compat": "flake-compat_4",
+        "flake-compat": "flake-compat_5",
         "flake-parts": "flake-parts_5",
         "nixpkgs": [
           "nixpkgs"
@@ -2021,7 +2051,6 @@
       "original": {
         "owner": "edlsh",
         "repo": "pi-ask-user",
-        "rev": "705fdc60eaea5b9588f3aa6a6cb6a577516b17af",
         "type": "github"
       }
     },
@@ -2038,21 +2067,7 @@
       "original": {
         "owner": "nicobailon",
         "repo": "pi-mcp-adapter",
-        "rev": "23c28529083a369f704d036fb8231c590f41ea80",
         "type": "github"
-      }
-    },
-    "pi-playwright": {
-      "flake": false,
-      "locked": {
-        "lastModified": 499162500,
-        "narHash": "sha256-DjR9bHFjsdxB0WyDFa5HOHYTEf03gWJgt4gfuYbvOHE=",
-        "type": "tarball",
-        "url": "https://registry.npmjs.org/@lebronj/pi-playwright/-/pi-playwright-0.0.1.tgz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://registry.npmjs.org/@lebronj/pi-playwright/-/pi-playwright-0.0.1.tgz"
       }
     },
     "pi-web-access": {
@@ -2068,7 +2083,6 @@
       "original": {
         "owner": "nicobailon",
         "repo": "pi-web-access",
-        "rev": "192ac1875e3b8f88c78953dbc314949ec9fcaa27",
         "type": "github"
       }
     },
@@ -2085,7 +2099,6 @@
       "original": {
         "owner": "DietrichGebert",
         "repo": "ponytail",
-        "rev": "356918eba965ee1eac64bd3a7f0dd02108350de5",
         "type": "github"
       }
     },
@@ -2114,7 +2127,7 @@
     },
     "pre-commit-hooks_2": {
       "inputs": {
-        "flake-compat": "flake-compat_3",
+        "flake-compat": "flake-compat_4",
         "nixpkgs": [
           "hyprland",
           "nixpkgs"
@@ -2480,6 +2493,28 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "treehouse": {
+      "inputs": {
+        "flake-compat": "flake-compat_2",
+        "nixpkgs": [
+          "dendritic-slop",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789732701,
+        "narHash": "sha256-n0QTxyUs90h+OjzpyWfnpPB5WhGtB+l6DXLnc1onOtc=",
+        "owner": "kunchenguid",
+        "repo": "treehouse",
+        "rev": "99f4db2bbeececc1e6f136a88f79002e5a707174",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kunchenguid",
+        "repo": "treehouse",
         "type": "github"
       }
     },

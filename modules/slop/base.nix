@@ -5,7 +5,6 @@ let
     dendriticSlop = {
       enable = true;
       username = config.flake.meta.owner.username;
-      migrations.globalSkills.takeOver = true;
     };
   };
 in
