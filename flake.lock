@@ -1803,11 +1803,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789361465,
-        "narHash": "sha256-heNtKBugtE7E7godTz23OlIMgj4eRXhy7q+15tnThkM=",
+        "lastModified": 1789944153,
+        "narHash": "sha256-yfktx294VvqAwHEPbInbP2rsV/x733k7REeZBTex7g0=",
         "owner": "cynicsketch",
         "repo": "nix-mineral",
-        "rev": "b7cee65733e228efad825eb5c7d648fbf669c59b",
+        "rev": "0d2d2e5de0c22145034af609ac927de804571646",
         "type": "github"
       },
       "original": {
