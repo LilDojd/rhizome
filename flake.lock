@@ -493,11 +493,11 @@
         "tsk": "tsk"
       },
       "locked": {
-        "lastModified": 1789982887,
-        "narHash": "sha256-7016B5ZuulamBhwa1Ln/0zvXitwrV5XC2uyzQvxsnRE=",
+        "lastModified": 1789988792,
+        "narHash": "sha256-e+11iMjC9ohsJUyG826kkUN3gWLHjMMyimjxU4ZyfZY=",
         "owner": "LilDojd",
         "repo": "dendritic-slop",
-        "rev": "0c101031e04994f0dfa392f64c405232c2d6de83",
+        "rev": "393201e34d51c4c54aec2bca50ec6b57b9fdcda4",
         "type": "github"
       },
       "original": {
@@ -1541,11 +1541,11 @@
     "jevons": {
       "flake": false,
       "locked": {
-        "lastModified": 1789817189,
-        "narHash": "sha256-g1+14W9CGa+/MOdH6iPs2gSU74YEAg6AddEWW/uzka0=",
+        "lastModified": 1789988637,
+        "narHash": "sha256-Usi5yfBKgLcofEgOgFT2g86kJf9YLYwq+E/meu9nQuY=",
         "owner": "LilDojd",
         "repo": "jevons",
-        "rev": "2741606fd88818259be7aa5043abc1979b6cd351",
+        "rev": "f1e47f7b7c21b70cafb5dcd172f788ba5ab6737d",
         "type": "github"
       },
       "original": {
