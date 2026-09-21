@@ -488,14 +488,15 @@
         "superpowers": "superpowers",
         "systems": [
           "systems"
-        ]
+        ],
+        "tsk": "tsk"
       },
       "locked": {
-        "lastModified": 1789817341,
-        "narHash": "sha256-PJ+5oQYXZgCndnI9Tnv+cNl81NuUVyWRaOH0z8aBUvk=",
+        "lastModified": 1789819060,
+        "narHash": "sha256-HaEy40JnqPUU3cWXusFgUk3bFmKM+NPSLkwy5hLzlT8=",
         "owner": "LilDojd",
         "repo": "dendritic-slop",
-        "rev": "67985084f452dd50b6b4c026b46ae4db779cec71",
+        "rev": "4470b7e5fcc657448326ae38e46595578eb41a73",
         "type": "github"
       },
       "original": {
@@ -2575,6 +2576,22 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "tsk": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1789639588,
+        "narHash": "sha256-e2yNZ5U/7FezbPwQOYZLnXxGuxw898gkHkTbTvWghOE=",
+        "owner": "smarzban",
+        "repo": "tsk",
+        "rev": "7daa68ba0b8044548fe4daa6734a0b4342a091cb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "smarzban",
+        "repo": "tsk",
         "type": "github"
       }
     },
