@@ -473,6 +473,7 @@
         "llm-agents": [
           "llm-agents"
         ],
+        "narumitw-pi-extensions": "narumitw-pi-extensions",
         "nix-darwin": [
           "nix-darwin"
         ],
@@ -492,11 +493,11 @@
         "tsk": "tsk"
       },
       "locked": {
-        "lastModified": 1789819060,
-        "narHash": "sha256-HaEy40JnqPUU3cWXusFgUk3bFmKM+NPSLkwy5hLzlT8=",
+        "lastModified": 1789982887,
+        "narHash": "sha256-7016B5ZuulamBhwa1Ln/0zvXitwrV5XC2uyzQvxsnRE=",
         "owner": "LilDojd",
         "repo": "dendritic-slop",
-        "rev": "4470b7e5fcc657448326ae38e46595578eb41a73",
+        "rev": "0c101031e04994f0dfa392f64c405232c2d6de83",
         "type": "github"
       },
       "original": {
@@ -1667,6 +1668,22 @@
       "original": {
         "owner": "cmspam",
         "repo": "mt7927-nixos",
+        "type": "github"
+      }
+    },
+    "narumitw-pi-extensions": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1789938153,
+        "narHash": "sha256-/Px8CBH9Jf9gl+b5FMMFeQA6JzZ3ERbBMDPQivlTPAs=",
+        "owner": "narumiruna",
+        "repo": "pi-extensions",
+        "rev": "617cac04bca3b27487006537fff5fb96bf3b7857",
+        "type": "github"
+      },
+      "original": {
+        "owner": "narumiruna",
+        "repo": "pi-extensions",
         "type": "github"
       }
     },
