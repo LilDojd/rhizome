@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 {
   flake-file.inputs.nhx = {
     url = "github:Ra77a3l3-jar/nhx";
@@ -157,6 +157,14 @@
       };
     };
 
+    # Keep Steel wrappers from shadowing built-in commands and bypassing their
+    # argument parsing (notably :insert-output and :open in the Yazi binding).
+    home.file.".config/helix/init.scm".text = lib.mkForce (
+      lib.replaceStrings
+        [ ''(require "helix/commands.scm")'' ]
+        [ ''(require (prefix-in hx. "helix/commands.scm"))'' ]
+        ((import "${inputs.nhx}/modules/init-scm.nix" { inherit lib; }).render config.programs.nhx)
+    );
     home.file.".config/helix/themes/stylix.toml".source = config.programs.helix.themes.stylix;
   };
   flake.modules.homeManager.hyprland.wayland.windowManager.hyprland.settings.env = [
