@@ -25,6 +25,7 @@
       settings = {
         theme = config.programs.helix.settings.theme;
         editor = {
+          insecure = true;
           auto-format = true;
           bufferline = "multiple";
           color-modes = true;
