@@ -5,7 +5,7 @@
     let
       jj = pkgs.yaziPlugins.mkYaziPlugin {
         pname = "jj.yazi";
-        version = "25.5.31-unstable-2025-07-05";
+        version = "26.8.15-unstable-2026-09-22";
 
         installPhase = ''
           runHook preInstall
@@ -18,8 +18,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "LilDojd";
           repo = "plugins";
-          rev = "ea851d1118f934fe260d8fb4917a89677af2445b";
-          hash = "sha256-tApxNM0j9TnX1mAb1l7dfl9hruU68Nnud2BAEByJ0FU=";
+          rev = "7c2e3751d0e8d3de65a17df3f943afa906d6905d";
+          hash = "sha256-WnGwMgha6DHrO5fPESd4IU9y2+fBWgH5bVE4E+PaG6s=";
         };
 
         meta = {
@@ -35,8 +35,8 @@
           inherit jj;
         };
         initLua = ''
-                require("jj"):setup()
-          		'';
+          require("jj"):setup()
+        '';
         settings.plugin.prepend_fetchers = lib.mkBefore [
           {
             url = "*";
