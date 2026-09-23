@@ -1107,11 +1107,11 @@
     "homebrew-mole": {
       "flake": false,
       "locked": {
-        "lastModified": 1789824862,
-        "narHash": "sha256-ruzhSrQs9vapUpUVXRYlA1IQL3TM+QT+Jsfv8SmfC/4=",
+        "lastModified": 1790065590,
+        "narHash": "sha256-By8i0VmIhjjLrjX2bZ0UK/0Qmtqgh5zatcPY/OpU6Mg=",
         "owner": "tw93",
         "repo": "homebrew-tap",
-        "rev": "d03bb00a1618d0c61ebe4aeac9024dbceab66f48",
+        "rev": "60e142e5b775f68d3fe5a1ff680cb1978fcf3df0",
         "type": "github"
       },
       "original": {
