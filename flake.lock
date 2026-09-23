@@ -510,11 +510,11 @@
         "tsk": "tsk"
       },
       "locked": {
-        "lastModified": 1790149839,
-        "narHash": "sha256-ovH7tHRrqeCIfdMlRhWDEXtRqGO/THziomnbKLJrHJQ=",
+        "lastModified": 1790150031,
+        "narHash": "sha256-S2Co5Rvql7Nv2wEdoB5sOyX2OzCNv4BPt6qlzMHI5HI=",
         "owner": "LilDojd",
         "repo": "dendritic-slop",
-        "rev": "7513cb3f01f7614cdc3c8aae5faf86173fa16313",
+        "rev": "e8854bbfc76aaf7c1c5ed0ae05c6a9129cb43b57",
         "type": "github"
       },
       "original": {
