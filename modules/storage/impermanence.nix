@@ -100,7 +100,6 @@ in
 
             ".config/Proton Pass"
             ".config/Mailspring"
-            ".claude"
             ".codex"
             ".orchestra"
             ".config/opencode"
