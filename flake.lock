@@ -476,7 +476,6 @@
           "flake-parts"
         ],
         "herdr-plugin-jj-workspace": "herdr-plugin-jj-workspace",
-        "herdr-projects": "herdr-projects",
         "home-manager": [
           "home-manager"
         ],
@@ -511,11 +510,11 @@
         "tsk": "tsk"
       },
       "locked": {
-        "lastModified": 1790238327,
-        "narHash": "sha256-6Kw4nTQhZp3n/zEMrFzi8bwF/atR32MTu8X8zpWvxFY=",
+        "lastModified": 1790239059,
+        "narHash": "sha256-NfVr6bGrnI64r8e+qNd82VLcbcZnwAujCjE3bQb/VB4=",
         "owner": "LilDojd",
         "repo": "dendritic-slop",
-        "rev": "a2bfb474d92eb50f6b3b9597b314d2e461f3d45a",
+        "rev": "7a46646bcf1132113a953b53bf8987ca5fa5c6de",
         "type": "github"
       },
       "original": {
@@ -1067,22 +1066,6 @@
       "original": {
         "owner": "NathanFlurry",
         "repo": "herdr-plugin-jj-workspace",
-        "type": "github"
-      }
-    },
-    "herdr-projects": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1790221674,
-        "narHash": "sha256-zGxQCZArx6p5zur5kiXw1AcT9gkdf5SVUECHbvFELrQ=",
-        "owner": "eliasstravik",
-        "repo": "herdr-projects",
-        "rev": "1bbe606dcff694caf821072928d141f8dc03eda7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "eliasstravik",
-        "repo": "herdr-projects",
         "type": "github"
       }
     },
