@@ -1,6 +1,9 @@
 let
   plugin = {
-    dendriticSlop.herdr.plugins.jj-workspace.enable = true;
+    dendriticSlop.herdr.plugins = {
+      jj-workspace.enable = true;
+      projects.enable = true;
+    };
   };
 in
 {
