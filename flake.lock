@@ -686,11 +686,11 @@
     "files": {
       "flake": false,
       "locked": {
-        "lastModified": 1790189291,
-        "narHash": "sha256-hzzL2GoRRWzZZ6m6MiNGyh05L6oUAv/9rGfwfdnc4BA=",
+        "lastModified": 1790275726,
+        "narHash": "sha256-TYa6toqwTm+hj27dh4LG+ETlT42JMmVxIh1Ij9PcdF0=",
         "owner": "mightyiam",
         "repo": "files",
-        "rev": "352848b7eb821f890cffe99d47cbc965a7f2bb19",
+        "rev": "2965b7d6d681488bbc0ea7464c6ae19ac9a7ee90",
         "type": "github"
       },
       "original": {
