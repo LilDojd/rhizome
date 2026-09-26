@@ -66,6 +66,7 @@ in
       environment.persistence."/persistent" = {
         enable = true;
         hideMounts = true;
+        files = [ "/etc/machine-id" ];
         directories = [
           "/etc/nixos"
           "/etc/secureboot"

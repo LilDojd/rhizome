@@ -5,6 +5,7 @@
 
     home-manager = {
       useGlobalPkgs = true;
+      backupFileExtension = "hm-backup";
       extraSpecialArgs.hasGlobalPkgs = true;
       # https://github.com/nix-community/home-manager/issues/6770
       #useUserPackages = true;
