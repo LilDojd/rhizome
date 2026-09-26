@@ -10,22 +10,31 @@
     modules.nixos.agenix =
       { config, ... }:
       {
-        age.secrets.githubToken = {
-          rekeyFile = ./githubToken.age;
+        age.secrets = {
+          githubToken = {
+            rekeyFile = ./githubToken.age;
+            intermediary = true;
+          };
+          nixAccessTokens = {
+            rekeyFile = ./nixAccessTokens.age;
+            group = "wheel";
+            mode = "0440";
+            generator = {
+              dependencies = [ config.age.secrets.githubToken ];
+              script =
+                {
+                  lib,
+                  decrypt,
+                  deps,
+                  ...
+                }:
+                ''
+                  printf 'access-tokens = github.com=%s\n' "$(${decrypt} ${lib.escapeShellArg (lib.head deps).file})"
+                '';
+            };
+          };
         };
-        system.activationScripts.github-access-token = {
-          deps = [
-            "agenix"
-            "etc"
-          ];
-          text = ''
-            umask 0337
-            rm -f /etc/nix/access-tokens.conf
-            printf 'access-tokens = github.com=%s\n' "$(cat ${config.age.secrets.githubToken.path})" > /etc/nix/access-tokens.conf
-            chown root:wheel /etc/nix/access-tokens.conf
-          '';
-        };
-        nix.extraOptions = "!include /etc/nix/access-tokens.conf";
+        nix.extraOptions = "!include ${config.age.secrets.nixAccessTokens.path}";
       };
     modules.homeManager = {
       base =
