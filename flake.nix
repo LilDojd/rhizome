@@ -60,10 +60,8 @@
       inputs = {
         flake-parts.follows = "flake-parts";
         home-manager.follows = "home-manager";
-        impermanence.follows = "impermanence";
         import-tree.follows = "import-tree";
         llm-agents.follows = "llm-agents";
-        nix-darwin.follows = "nix-darwin";
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
       };

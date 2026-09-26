@@ -1,9 +1,4 @@
-let
-  profile = {
-    dendriticSlop.profiles.rust.enable = true;
-  };
-in
+{ inputs, ... }:
 {
-  flake.modules.nixos.slop = profile;
-  flake.modules.darwin.slop = profile;
+  flake.modules.homeManager.slop.dendriticSlop.skills = inputs.dendritic-slop.skillSets.rust;
 }

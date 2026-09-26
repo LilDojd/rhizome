@@ -1,12 +1,15 @@
 { config, inputs, ... }:
 let
-  mkSlopModule = module: {
-    imports = [ module ];
-    dendriticSlop = {
-      enable = true;
-      username = config.flake.meta.owner.username;
-    };
-  };
+  owner = config.flake.meta.owner.username;
+  home-manager.users.${owner}.imports = [
+    inputs.dendritic-slop.modules.homeManager.default
+    config.flake.modules.homeManager.slop
+  ];
+  persistentDirectories = [
+    ".claude"
+    ".pi/agent"
+    ".tsk"
+  ];
 in
 {
   flake-file.inputs = {
@@ -15,10 +18,8 @@ in
       inputs = {
         flake-parts.follows = "flake-parts";
         home-manager.follows = "home-manager";
-        impermanence.follows = "impermanence";
         llm-agents.follows = "llm-agents";
         import-tree.follows = "import-tree";
-        nix-darwin.follows = "nix-darwin";
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
       };
@@ -33,6 +34,14 @@ in
     };
   };
 
-  flake.modules.nixos.slop = mkSlopModule inputs.dendritic-slop.modules.nixos.slop;
-  flake.modules.darwin.slop = mkSlopModule inputs.dendritic-slop.modules.darwin.slop;
+  flake.modules.nixos.slop =
+    { config, ... }:
+    {
+      inherit home-manager;
+      environment.persistence."/persistent".users.${owner}.directories = persistentDirectories;
+      systemd.services."home-manager-${owner}".unitConfig.RequiresMountsFor = map (
+        directory: "${config.users.users.${owner}.home}/${directory}"
+      ) persistentDirectories;
+    };
+  flake.modules.darwin.slop = { inherit home-manager; };
 }

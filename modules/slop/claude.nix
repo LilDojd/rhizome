@@ -1,25 +1,24 @@
-let
-  selection = {
-    dendriticSlop = {
-      targets.claude.enable = true;
-      skills = {
-        frontend-design.enable = true;
-        uncomplect.enable = true;
-      };
-    };
-  };
-in
+{ inputs, ... }:
 {
-  flake.modules.nixos.slop = selection;
-  flake.modules.darwin.slop = selection;
-
-  flake.modules.homeManager.base.programs.claude-code = {
-    settings = {
-      skipDangerousModePermissionPrompt = true;
+  flake.modules.homeManager.slop = {
+    dendriticSlop.skills = {
+      inherit (inputs.dendritic-slop.skills) frontend-design uncomplect;
     };
-    lspServers.rust-analyzer = {
-      command = "rust-analyzer";
-      extensionToLanguage.".rs" = "rust";
+
+    programs.claude-code = {
+      enable = true;
+      settings = {
+        skipDangerousModePermissionPrompt = true;
+        attribution = {
+          commit = "";
+          pr = "";
+          sessionUrl = false;
+        };
+      };
+      lspServers.rust-analyzer = {
+        command = "rust-analyzer";
+        extensionToLanguage.".rs" = "rust";
+      };
     };
   };
 }

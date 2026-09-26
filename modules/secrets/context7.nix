@@ -5,6 +5,9 @@ let
 
   secretModule =
     { config, ... }:
+    let
+      secretPath = config.age.secrets.context7ApiKey.path;
+    in
     {
       age.secrets.context7ApiKey = {
         rekeyFile = secretFile;
@@ -12,9 +15,12 @@ let
         mode = "0400";
       };
 
-      dendriticSlop.mcps.context7 = {
-        enable = true;
-        secrets.apiKeyFile = config.age.secrets.context7ApiKey.path;
+      home-manager.users.${owner} = {
+        programs.mcp.servers.context7 = {
+          url = "https://mcp.context7.com/mcp";
+          headers.Authorization = "Bearer \${CONTEXT7_API_KEY}";
+        };
+        dendriticSlop.mcpHeaderSecrets.context7.CONTEXT7_API_KEY = secretPath;
       };
     };
 in

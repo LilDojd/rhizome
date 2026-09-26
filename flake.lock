@@ -479,9 +479,6 @@
         "home-manager": [
           "home-manager"
         ],
-        "impermanence": [
-          "impermanence"
-        ],
         "import-tree": [
           "import-tree"
         ],
@@ -492,9 +489,6 @@
           "llm-agents"
         ],
         "narumitw-pi-extensions": "narumitw-pi-extensions",
-        "nix-darwin": [
-          "nix-darwin"
-        ],
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -510,11 +504,11 @@
         "tsk": "tsk"
       },
       "locked": {
-        "lastModified": 1790377591,
-        "narHash": "sha256-MnBs19jYThKiNXykzdiei3FNOv60NfGk5qyR7bodBuE=",
+        "lastModified": 1790421524,
+        "narHash": "sha256-E4DWNM44Xz+L3bqnwUwwHXl2EgCTzu3oxHNOW/MxncA=",
         "owner": "LilDojd",
         "repo": "dendritic-slop",
-        "rev": "7440d692db5b62de773311c4d9562bb68d952d7e",
+        "rev": "d26cb753214a68100375c1ff63bdfc5027082146",
         "type": "github"
       },
       "original": {

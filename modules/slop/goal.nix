@@ -1,9 +1,10 @@
-let
-  selection = {
-    dendriticSlop.extensions.pi-goal.enable = true;
-  };
-in
+{ inputs, ... }:
 {
-  flake.modules.nixos.slop = selection;
-  flake.modules.darwin.slop = selection;
+  flake.modules.homeManager.slop =
+    { pkgs, ... }:
+    {
+      dendriticSlop.piPackages = [
+        inputs.dendritic-slop.packages.${pkgs.stdenv.hostPlatform.system}.pi-goal
+      ];
+    };
 }

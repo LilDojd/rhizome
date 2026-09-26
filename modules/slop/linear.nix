@@ -1,9 +1,6 @@
-let
-  mcp = {
-    dendriticSlop.mcps.linear.enable = true;
-  };
-in
 {
-  flake.modules.nixos.slop = mcp;
-  flake.modules.darwin.slop = mcp;
+  flake.modules.homeManager.slop.programs.mcp.servers.linear = {
+    url = "https://mcp.linear.app/mcp";
+    auth = "oauth";
+  };
 }
