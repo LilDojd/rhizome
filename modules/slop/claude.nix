@@ -15,8 +15,6 @@ in
 
   flake.modules.homeManager.base.programs.claude-code = {
     settings = {
-      model = "opus[1m]";
-      effortLevel = "xhigh";
       skipDangerousModePermissionPrompt = true;
     };
     lspServers.rust-analyzer = {
