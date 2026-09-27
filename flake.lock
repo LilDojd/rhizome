@@ -498,17 +498,18 @@
         "pi-mcp-adapter": "pi-mcp-adapter",
         "pi-web-access": "pi-web-access",
         "ponytail": "ponytail",
+        "pydantic-skills": "pydantic-skills",
         "systems": [
           "systems"
         ],
         "tsk": "tsk"
       },
       "locked": {
-        "lastModified": 1790421524,
-        "narHash": "sha256-E4DWNM44Xz+L3bqnwUwwHXl2EgCTzu3oxHNOW/MxncA=",
+        "lastModified": 1790527298,
+        "narHash": "sha256-vB0brAiIF3m3ao1btOmrLPPgXARQ7zRh0scBYcuW5Qo=",
         "owner": "LilDojd",
         "repo": "dendritic-slop",
-        "rev": "d26cb753214a68100375c1ff63bdfc5027082146",
+        "rev": "ba0c3fdd53df610bdf71c31ee71aecd430a6d9d1",
         "type": "github"
       },
       "original": {
@@ -2233,6 +2234,22 @@
       "original": {
         "owner": "cachix",
         "repo": "git-hooks.nix",
+        "type": "github"
+      }
+    },
+    "pydantic-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1789788340,
+        "narHash": "sha256-0uMY4UPsdgbCsPtwxrFJbz5vkYRSEhdjvJkmhH3DFDs=",
+        "owner": "pydantic",
+        "repo": "skills",
+        "rev": "238d97102650c1caa51f35027aee13c469c59542",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pydantic",
+        "repo": "skills",
         "type": "github"
       }
     },
