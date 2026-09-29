@@ -14,6 +14,7 @@
           wheel_scroll_min_lines = 1;
           middle_click_paste = true;
           window_padding_width = 0;
+          remember_window_size = "no";
           confirm_os_window_close = 0;
           scrollback_lines = 10000;
           enable_audio_bell = false;
