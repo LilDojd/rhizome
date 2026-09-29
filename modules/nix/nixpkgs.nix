@@ -1,6 +1,6 @@
 {
   flake.modules.nixos.foundation = nixosArgs: {
-    nix.nixPath = [
+    nix.settings.nix-path = [
       "nixpkgs=${nixosArgs.config.nixpkgs.flake.source}"
     ];
   };
