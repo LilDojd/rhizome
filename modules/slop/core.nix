@@ -10,6 +10,10 @@
 
       programs.pi.coding-agent = {
         enable = true;
+        settings = {
+          defaultProvider = "openai-codex";
+          defaultModel = "gpt-6.1-sol";
+        };
         environment.PI_ASK_USER_DISPLAY_MODE.value = "inline";
       };
 
