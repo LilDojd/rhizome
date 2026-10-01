@@ -476,11 +476,11 @@
         "tsk": "tsk"
       },
       "locked": {
-        "lastModified": 1790842487,
-        "narHash": "sha256-6SAP0SgQCRSqMQw0DR4xfYC2iAXCxEFvbwHKJnFR0HI=",
+        "lastModified": 1790888360,
+        "narHash": "sha256-FnyQ6nFy4lyngWxIHkCJxpAGKwKgUr7y645cvR4Nu88=",
         "owner": "LilDojd",
         "repo": "dendritic-slop",
-        "rev": "e3f34f951979262fde2e43233e2d59298f942a16",
+        "rev": "2367ab7c6275023bc68459ea94055c547bf21daa",
         "type": "github"
       },
       "original": {
