@@ -5,7 +5,6 @@
 
     programs.mcp.servers.logfire = {
       url = "https://logfire-us.pydantic.dev/mcp";
-      auth = "oauth";
     };
   };
 }
