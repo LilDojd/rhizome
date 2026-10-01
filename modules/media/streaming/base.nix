@@ -10,6 +10,22 @@
     inputs.home-manager.follows = "home-manager";
   };
 
+  # TODO: Remove when Nixpkgs includes obs-composite-blur's upstream fix #138.
+  nixpkgs.overlays = [
+    (_final: prev: {
+      obs-studio-plugins = prev.obs-studio-plugins // {
+        obs-composite-blur = prev.obs-studio-plugins.obs-composite-blur.overrideAttrs (old: {
+          postPatch = (old.postPatch or "") + ''
+            substituteInPlace src/obs-utils.c \
+              --replace-fail \
+                "char *pos = strrchr(file_name, '/');" \
+                "const char *pos = strrchr(file_name, '/');"
+          '';
+        });
+      };
+    })
+  ];
+
   flake.modules.nixos.foundation.environment.persistence."/persistent".users.${config.flake.meta.owner.username}.directories =
     [
       ".config/obs-studio"
