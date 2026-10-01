@@ -35,8 +35,7 @@ in
         {
           enable = true;
           package = hyprlandPackage pkgs.stdenv.hostPlatform.system;
-          # Keep the picker compatible with the host's Qt theme plugins.
-          portalPackage = hyprland.xdg-desktop-portal-hyprland.override { qt6 = pkgs.qt6; };
+          portalPackage = hyprland.xdg-desktop-portal-hyprland;
           withUWSM = false;
         };
 
