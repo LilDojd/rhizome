@@ -79,7 +79,7 @@
         {
 
           xdg.desktopEntries = {
-            "1password" = {
+            "com.onepassword.OnePassword" = {
               name = "1Password";
               genericName = "Password Manager";
               exec = "${lib.getExe onePassGui} --ozone-platform=x11 %U";
