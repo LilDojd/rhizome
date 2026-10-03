@@ -39,6 +39,16 @@ in
           withUWSM = false;
         };
 
+      # The pinned portal must not load Qt theme/plugins from the host's newer Qt.
+      systemd.user.services.xdg-desktop-portal-hyprland = {
+        overrideStrategy = "asDropin";
+        serviceConfig.UnsetEnvironment = [
+          "QT_PLUGIN_PATH"
+          "QT_QPA_PLATFORMTHEME"
+          "QT_STYLE_OVERRIDE"
+        ];
+      };
+
       hardware.graphics.enable32Bit = lib.mkForce true;
     };
   flake.modules.homeManager.hyprland =
