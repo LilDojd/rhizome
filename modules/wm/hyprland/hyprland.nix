@@ -15,7 +15,7 @@ let
 in
 {
   flake-file.inputs.hyprland = {
-    url = "github:hyprwm/Hyprland";
+    url = "github:hyprwm/Hyprland/v0.56.2";
     inputs.systems.follows = "systems";
   };
 

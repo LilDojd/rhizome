@@ -113,7 +113,7 @@
       flake = false;
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      url = "github:hyprwm/Hyprland/v0.56.2";
       inputs.systems.follows = "systems";
     };
     hyprspace = {
