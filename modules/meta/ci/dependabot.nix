@@ -13,7 +13,8 @@ in
             directory = "/";
             schedule.interval = "daily";
             cooldown.default-days = 0;
-            open-pull-requests-limit = 20;
+            open-pull-requests-limit = 1;
+            groups.nix-inputs.patterns = [ "*" ];
             labels = [
               "dependencies"
               "automated"

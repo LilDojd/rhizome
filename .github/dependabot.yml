@@ -8,11 +8,18 @@
         "default-days": 0
       },
       "directory": "/",
+      "groups": {
+        "nix-inputs": {
+          "patterns": [
+            "*"
+          ]
+        }
+      },
       "labels": [
         "dependencies",
         "automated"
       ],
-      "open-pull-requests-limit": 20,
+      "open-pull-requests-limit": 1,
       "package-ecosystem": "nix",
       "schedule": {
         "interval": "daily"

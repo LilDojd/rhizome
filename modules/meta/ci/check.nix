@@ -37,17 +37,20 @@
 
       steps = {
         nothingButNix = {
-          uses = "wimpysworld/nothing-but-nix@main";
+          uses = "wimpysworld/nothing-but-nix@baf7355748bb5651f08b839669d6bb39051b2874";
           "with" = {
             hatchet-protocol = "holster";
           };
         };
         checkout = {
-          uses = "actions/checkout@v6";
-          "with".submodules = true;
+          uses = "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803"; # v6
+          "with" = {
+            submodules = true;
+            persist-credentials = false;
+          };
         };
-        detsysNixInstaller.uses = "DeterminateSystems/nix-installer-action@main";
-        flakehubCache.uses = "DeterminateSystems/flakehub-cache-action@main";
+        detsysNixInstaller.uses = "DeterminateSystems/determinate-nix-action@4d65ea9cab522b6d9f29a170aed23ededc1b27af"; # v3.23.0
+        flakehubCache.uses = "DeterminateSystems/flakehub-cache-action@88740a21e786360ba66bdd8fecabcbf852db3a5a"; # v3.23.0
       };
     in
     {
@@ -94,14 +97,19 @@
       };
 
       perSystem =
-        { pkgs, ... }:
+        { pkgs, config, ... }:
         {
           files.file.${filePath}.source = pkgs.writers.writeJSON "gh-actions-workflow-check.yaml" {
             name = workflowName;
             on = {
-              push = { };
+              push.branches = [ repo.defaultBranch ];
+              pull_request = { };
               workflow_call = { };
               workflow_dispatch = { };
+            };
+            concurrency = {
+              group = "\${{ github.workflow }}-\${{ github.event_name }}-\${{ github.event.pull_request.number || github.ref }}";
+              cancel-in-progress = "\${{ github.event_name == 'pull_request' }}";
             };
             permissions = {
               id-token = "write";
@@ -127,7 +135,7 @@
                           id = ids.steps.getCheckNames;
                           run = ''
                             checks="$(nix ${nixArgs} eval --json .#checks.${runner.system} --apply builtins.attrNames)"
-                            echo "${ids.outputs.steps.getCheckNames}=$checks" >> $GITHUB_OUTPUT
+                            echo "${ids.outputs.steps.getCheckNames}=$checks" >> "$GITHUB_OUTPUT"
                           '';
                         }
                       ];
@@ -157,8 +165,65 @@
                     };
                   };
               in
-              (mkJobs "linux" runners.linux) // (mkJobs "darwin" runners.darwin);
+              (mkJobs "linux" runners.linux)
+              // (mkJobs "darwin" runners.darwin)
+              // {
+                ready = {
+                  name = "ready";
+                  "if" = "\${{ always() }}";
+                  needs = [
+                    "get-check-names-linux"
+                    "get-check-names-darwin"
+                    "check-linux"
+                    "check-darwin"
+                  ];
+                  runs-on = "ubuntu-latest";
+                  permissions.contents = "none";
+                  steps = [
+                    {
+                      name = "Require every build job to succeed";
+                      env.NEEDS = "\${{ toJSON(needs) }}";
+                      run = ''
+                        printf '%s\n' "$NEEDS" | jq -e 'length > 0 and all(.[]; .result == "success")'
+                      '';
+                    }
+                  ];
+                };
+              };
           };
+
+          checks.ci-workflows =
+            pkgs.runCommand "ci-workflows-check"
+              {
+                nativeBuildInputs = [
+                  pkgs.actionlint
+                  pkgs.jq
+                ];
+              }
+              ''
+                actionlint ${config.files.file.${filePath}.source} ${
+                  config.files.file.".github/workflows/publish.yaml".source
+                }
+                jq -r '.jobs.ready.steps[0].run' ${config.files.file.${filePath}.source} > gate.sh
+                success=$(jq '.jobs.ready.needs | map({key: ., value: {result: "success"}}) | from_entries' ${
+                  config.files.file.${filePath}.source
+                })
+                NEEDS="$success" bash gate.sh
+                if NEEDS='{}' bash gate.sh; then
+                  echo "ready incorrectly accepted missing build results" >&2
+                  exit 1
+                fi
+                for job in $(printf '%s\n' "$success" | jq -r 'keys[]'); do
+                  for result in failure cancelled skipped; do
+                    needs=$(printf '%s\n' "$success" | jq --arg job "$job" --arg result "$result" '.[$job].result = $result')
+                    if NEEDS="$needs" bash gate.sh; then
+                      echo "ready incorrectly accepted $job: $result" >&2
+                      exit 1
+                    fi
+                  done
+                done
+                touch "$out"
+              '';
 
           treefmt.settings.global.excludes = [
             filePath

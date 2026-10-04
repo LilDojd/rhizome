@@ -1,7 +1,7 @@
 {
   "jobs": {
     "flakehub-publish": {
-      "if": "github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'",
+      "if": "github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push' && github.event.workflow_run.head_repository.full_name == github.repository",
       "permissions": {
         "contents": "read",
         "id-token": "write"
@@ -9,23 +9,26 @@
       "runs-on": "ubuntu-latest",
       "steps": [
         {
-          "uses": "actions/checkout@v6",
+          "uses": "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
           "with": {
-            "persist-credentials": false
+            "persist-credentials": false,
+            "ref": "${{ github.event.workflow_run.head_sha }}",
+            "submodules": true
           }
         },
         {
-          "uses": "DeterminateSystems/determinate-nix-action@v3",
+          "uses": "DeterminateSystems/determinate-nix-action@4d65ea9cab522b6d9f29a170aed23ededc1b27af",
           "with": {
             "extra-conf": "extra-experimental-features = pipe-operators\n"
           }
         },
         {
-          "uses": "DeterminateSystems/flakehub-push@main",
+          "uses": "DeterminateSystems/flakehub-push@e001ee821cdb763ef120c01f1048bfb2f938bb9c",
           "with": {
             "include-output-paths": true,
             "name": "LilDojd/rhizome",
             "rolling": true,
+            "source-revision": "e001ee821cdb763ef120c01f1048bfb2f938bb9c",
             "visibility": "public"
           }
         }
@@ -34,7 +37,6 @@
   },
   "name": "Publish to FlakeHub",
   "on": {
-    "workflow_dispatch": {},
     "workflow_run": {
       "branches": [
         "master"
