@@ -11,6 +11,7 @@
         plugins = [
           inputs.dendritic-slop.packages.${pkgs.stdenv.hostPlatform.system}.herdr-plugin-jj-workspace
         ];
+        settings.onboarding = false;
         settings.keys.command = [
           {
             key = "prefix+a";
