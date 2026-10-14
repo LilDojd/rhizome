@@ -32,6 +32,7 @@
         profiles = lib.mkMerge [
           (lib.genAttrs config.stylix.targets.librewolf.profileNames (_: {
             settings."extensions.autoDisableScopes" = 0;
+            extensions.packages = [ plugins.darkreader ];
             extensions.settings."FirefoxColor@mozilla.com".force = true;
             userChrome = ''
               * { font-family: "${browserFont}" !important; }
