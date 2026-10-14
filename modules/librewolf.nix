@@ -31,7 +31,11 @@
         package = if pkgs.stdenv.hostPlatform.isLinux then pkgs.librewolf else null;
         profiles = lib.mkMerge [
           (lib.genAttrs config.stylix.targets.librewolf.profileNames (_: {
-            settings."extensions.autoDisableScopes" = 0;
+            settings = {
+              "extensions.autoDisableScopes" = 0;
+              # Keep login cookies and site storage while retaining other shutdown cleanup.
+              "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
+            };
             extensions.packages = [ plugins.darkreader ];
             extensions.settings."FirefoxColor@mozilla.com".force = true;
             userChrome = ''
