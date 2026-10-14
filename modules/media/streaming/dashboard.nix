@@ -77,7 +77,7 @@ in
           hyprctl=${lib.escapeShellArg hyprctl}
           obs=${lib.escapeShellArg (lib.getExe config.programs.obs-studio.finalPackage)}
           chatterino=${lib.escapeShellArg (lib.getExe pkgs.chatterino2)}
-          firefox=${lib.escapeShellArg (lib.getExe config.programs.firefox.package)}
+          librewolf=${lib.escapeShellArg (lib.getExe config.programs.librewolf.finalPackage)}
           manager_url=${lib.escapeShellArg managerUrl}
 
           runtime_dir="''${XDG_RUNTIME_DIR:?XDG_RUNTIME_DIR is not set}"
@@ -153,18 +153,18 @@ in
 
           show_manager() {
             local address
-            local previous_firefox
+            local previous_librewolf
             if ! address="$(find_window manager)"; then
-              previous_firefox="$("$hyprctl" -j clients | jq -c '[.[] | select(((.class // "") | ascii_downcase) == "firefox") | .address]')"
-              "$firefox" --new-instance -P stream-dashboard --new-window "$manager_url" >/dev/null 2>&1 &
+              previous_librewolf="$("$hyprctl" -j clients | jq -c '[.[] | select(((.class // "") | ascii_downcase) == "librewolf") | .address]')"
+              "$librewolf" --new-instance -P stream-dashboard --new-window "$manager_url" >/dev/null 2>&1 &
 
               for _ in $(seq 1 200); do
                 if address="$(
                   "$hyprctl" -j clients \
-                    | jq -er --argjson previous "$previous_firefox" '
+                    | jq -er --argjson previous "$previous_librewolf" '
                         first(
                           .[]
-                          | select(((.class // "") | ascii_downcase) == "firefox")
+                          | select(((.class // "") | ascii_downcase) == "librewolf")
                           | select(.address as $address | $previous | index($address) | not)
                           | .address
                         )
@@ -225,7 +225,7 @@ in
       };
     in
     {
-      programs.firefox.profiles.stream-dashboard = {
+      programs.librewolf.profiles.stream-dashboard = {
         id = 2;
         settings = {
           "browser.shell.checkDefaultBrowser" = false;
@@ -235,7 +235,7 @@ in
         };
       };
 
-      stylix.targets.firefox.profileNames = lib.mkAfter [ "stream-dashboard" ];
+      stylix.targets.librewolf.profileNames = lib.mkAfter [ "stream-dashboard" ];
 
       home.packages = [
         dashboard

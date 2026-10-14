@@ -71,6 +71,29 @@
           };
         };
 
+      homeManager.gui =
+        { config, pkgs, ... }:
+        let
+          nativeHosts =
+            if pkgs.stdenv.hostPlatform.isDarwin then
+              "Library/Application Support/LibreWolf/NativeMessagingHosts"
+            else
+              "${config.programs.librewolf.configPath}/native-messaging-hosts";
+          mozillaHosts =
+            if pkgs.stdenv.hostPlatform.isDarwin then
+              "Library/Application Support/Mozilla/NativeMessagingHosts"
+            else
+              ".mozilla/native-messaging-hosts";
+        in
+        {
+          # 1Password maintains this manifest; LibreWolf uses a different directory.
+          home.file."${nativeHosts}/com.1password.1password.json" =
+            lib.mkIf config.programs.librewolf.enable
+              {
+                source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${mozillaHosts}/com.1password.1password.json";
+              };
+        };
+
       homeManager.hyprland =
         hmArgs@{ pkgs, ... }:
         let
@@ -116,7 +139,9 @@
 
       nixos.foundation = {
         imports = [ flakeCommon ];
+        environment.etc."1password/custom_allowed_browsers".text = "librewolf\n";
         environment.persistence."/persistent".users.${config.flake.meta.owner.username}.directories = [
+          ".mozilla"
           ".config/1Password"
           "1Password"
         ];

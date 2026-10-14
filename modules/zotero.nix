@@ -1,4 +1,6 @@
 _: {
+  nixpkgs.config.allowUnfreePackages = [ "firefox-bin-unwrapped" ];
+
   flake.modules = {
     darwin.foundation = {
       config.homebrew.casks = [ "zotero" ];

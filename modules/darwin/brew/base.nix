@@ -38,8 +38,8 @@
           global.autoUpdate = false;
           onActivation = {
             upgrade = true;
-            # 'zap': uninstalls all formulae (and related files) not listed here.
-            cleanup = "zap";
+            # Uninstall removed casks without deleting their user data.
+            cleanup = "uninstall";
           };
 
           # If we don't do this, nix-darwin may attempt to remove our taps even
