@@ -28,7 +28,10 @@
     {
       programs.librewolf = {
         enable = true;
-        settings."dom.webgpu.enabled" = true;
+        settings = {
+          "dom.webgpu.enabled" = true;
+          "privacy.resistFingerprinting" = false;
+        };
         package = if pkgs.stdenv.hostPlatform.isLinux then pkgs.librewolf else null;
         profiles = lib.mkMerge [
           (lib.genAttrs config.stylix.targets.librewolf.profileNames (_: {
