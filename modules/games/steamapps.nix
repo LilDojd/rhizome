@@ -31,6 +31,12 @@
             compatTool = "GE-Proton10-30";
             rawLaunchOptions = "LD_PRELOAD='' PROTON_ENABLE_WAYLAND=1 gamemoderun gamescope -w 3840 -h 2160 -f --force-grab-cursor --mangoapp -- %command% -novid -nojoy -vulkan";
           };
+          "4954910" = {
+            name = "scamwithyourfriends";
+            compatTool = "proton_experimental";
+            # Unity defaults to uncapped native 4K; reduce load and stabilize frame pacing.
+            rawLaunchOptions = "MANGOHUD_CONFIG=fps_limit=120 gamemoderun mangohud %command% -screen-fullscreen 1 -screen-width 2560 -screen-height 1440";
+          };
         };
       };
     };
