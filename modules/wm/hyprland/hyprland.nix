@@ -6,12 +6,15 @@
 let
   hyprlandPackage =
     system:
-    inputs.hyprland.packages.${system}.hyprland.overrideAttrs (old: {
-      postPatch = (old.postPatch or "") + ''
-        substituteInPlace CMakeLists.txt \
-          --replace-fail "glaze 7...<8" "glaze"
-      '';
-    });
+    (inputs.hyprland.packages.${system}.hyprland.override {
+      makeWrapper = inputs.hyprland.inputs.nixpkgs.legacyPackages.${system}.makeBinaryWrapper;
+    }).overrideAttrs
+      (old: {
+        postPatch = (old.postPatch or "") + ''
+          substituteInPlace CMakeLists.txt \
+            --replace-fail "glaze 7...<8" "glaze"
+        '';
+      });
 in
 {
   flake-file.inputs.hyprland = {

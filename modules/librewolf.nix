@@ -28,6 +28,7 @@
     {
       programs.librewolf = {
         enable = true;
+        settings."dom.webgpu.enabled" = true;
         package = if pkgs.stdenv.hostPlatform.isLinux then pkgs.librewolf else null;
         profiles = lib.mkMerge [
           (lib.genAttrs config.stylix.targets.librewolf.profileNames (_: {
