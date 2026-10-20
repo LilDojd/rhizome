@@ -144,10 +144,6 @@
         treefmt-nix.follows = "treefmt-nix";
       };
     };
-    mt7927 = {
-      url = "github:cmspam/mt7927-nixos";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nhx = {
       url = "github:Ra77a3l3-jar/nhx";
       inputs.nixpkgs.follows = "nixpkgs";

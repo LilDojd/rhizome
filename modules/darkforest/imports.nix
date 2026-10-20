@@ -11,7 +11,6 @@
         efi
         yawner
         nvidia-gpu
-        mt7927
         mudfish
         agenix
         slop
