@@ -12,6 +12,8 @@
         enable = true;
         preset = "compatibility";
         settings = {
+          # Boot visuals are managed in boot/visuals.nix, without obsolete initrd options.
+          debug.quiet-boot = false;
           kernel = {
             # if false, may prevent low resource systems from booting.
             busmaster-bit = true;
