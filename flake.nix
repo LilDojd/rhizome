@@ -19,11 +19,7 @@
   inputs = {
     agenix = {
       url = "github:ryantm/agenix";
-      inputs = {
-        darwin.follows = "nix-darwin";
-        home-manager.follows = "home-manager";
-        nixpkgs.follows = "nixpkgs";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix-rekey = {
       url = "github:oddlama/agenix-rekey";
@@ -113,11 +109,11 @@
       flake = false;
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland/v0.56.2";
+      url = "github:hyprwm/Hyprland/0aa6745f705f2c4b0a5004eb019ef76e5bbdb426";
       inputs.systems.follows = "systems";
     };
     hyprspace = {
-      url = "github:ImanolBarba/Hyprspace/migrate-v2";
+      url = "github:KZDKM/Hyprspace/8345bf6f623d486ca3f87f416ccf1412416eef08";
       inputs = {
         hyprland.follows = "hyprland";
         systems.follows = "systems";

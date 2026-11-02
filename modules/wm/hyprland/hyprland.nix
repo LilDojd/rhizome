@@ -3,22 +3,9 @@
   inputs,
   ...
 }:
-let
-  hyprlandPackage =
-    system:
-    (inputs.hyprland.packages.${system}.hyprland.override {
-      makeWrapper = inputs.hyprland.inputs.nixpkgs.legacyPackages.${system}.makeBinaryWrapper;
-    }).overrideAttrs
-      (old: {
-        postPatch = (old.postPatch or "") + ''
-          substituteInPlace CMakeLists.txt \
-            --replace-fail "glaze 7...<8" "glaze"
-        '';
-      });
-in
 {
   flake-file.inputs.hyprland = {
-    url = "github:hyprwm/Hyprland/v0.56.2";
+    url = "github:hyprwm/Hyprland/0aa6745f705f2c4b0a5004eb019ef76e5bbdb426"; # v0.57.0
     inputs.systems.follows = "systems";
   };
 
@@ -37,7 +24,7 @@ in
         in
         {
           enable = true;
-          package = hyprlandPackage pkgs.stdenv.hostPlatform.system;
+          package = hyprland.hyprland;
           portalPackage = hyprland.xdg-desktop-portal-hyprland;
           withUWSM = false;
         };
@@ -60,12 +47,11 @@ in
       imports = [ inputs.hyprland.homeManagerModules.default ];
       home.packages = with pkgs; [
         hyprpolkitagent
-        hyprland-qtutils # needed for banners and ANR messages
       ];
 
       wayland.windowManager.hyprland = {
         configType = "lua";
-        package = hyprlandPackage pkgs.stdenv.hostPlatform.system;
+        package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
         systemd = {
           enable = true;
           enableXdgAutostart = true;
@@ -85,8 +71,9 @@ in
             col.inactive_border = lib.mkForce "rgb(${hmArgs.config.lib.stylix.colors.base01})";
           };
 
+          layers.layers_hog_keyboard_focus = true;
+
           misc = {
-            layers_hog_keyboard_focus = true;
             initial_workspace_tracking = 0;
             mouse_move_enables_dpms = true;
             key_press_enables_dpms = false;
