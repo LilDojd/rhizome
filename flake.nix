@@ -35,10 +35,6 @@
         rust-overlay.follows = "rust-overlay";
       };
     };
-    clipboard-sync = {
-      url = "github:dnut/clipboard-sync";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     cpu-microcodes = {
       url = "github:platomav/CPUMicrocodes";
       flake = false;

@@ -353,26 +353,6 @@
         "type": "github"
       }
     },
-    "clipboard-sync": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1793141678,
-        "narHash": "sha256-vIQuWzE2N0X3K+7YMr4xdZO49s7i7iHYjRSxzSlfJTw=",
-        "owner": "dnut",
-        "repo": "clipboard-sync",
-        "rev": "23eeade11468dffe03d09012ce2fb2c555f63f79",
-        "type": "github"
-      },
-      "original": {
-        "owner": "dnut",
-        "repo": "clipboard-sync",
-        "type": "github"
-      }
-    },
     "cpu-microcodes": {
       "flake": false,
       "locked": {
@@ -2226,7 +2206,6 @@
         "agenix": "agenix",
         "agenix-rekey": "agenix-rekey",
         "ashell": "ashell",
-        "clipboard-sync": "clipboard-sync",
         "cpu-microcodes": "cpu-microcodes",
         "dedupe_flake-compat": "dedupe_flake-compat",
         "dedupe_nur": "dedupe_nur",
