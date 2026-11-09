@@ -37,7 +37,7 @@
               format_signed_off_by_trailer(self)
               ++ if(!trailers.contains_key("Change-Id"), format_gerrit_change_id_trailer(self))'';
           };
-          git.sign-on-push = true;
+          revsets.git-sign-on-push = "~signed() & mine()";
           ui.show-cryptographic-signatures = true;
           ui.editor = lib.mkIf homeArgs.config.programs.nhx.enable "hx";
           git.private-commits = "description(glob:'private:*')";
