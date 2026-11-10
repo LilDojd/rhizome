@@ -1088,11 +1088,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1794322378,
-        "narHash": "sha256-7A9bn7SlJbato8b+kOFcwcIt6nZKB8rFxOfcnhsoQPQ=",
+        "lastModified": 1794323731,
+        "narHash": "sha256-sxptC2t5rzM1oYbbHA3gsiuGl4T5P7hNf1IPTI3YyHU=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "0774c2f1a33882bde4c201ff9079777575bcf7df",
+        "rev": "551cae4fd3a63cd640964d9f20a30599d031ab7c",
         "type": "github"
       },
       "original": {
