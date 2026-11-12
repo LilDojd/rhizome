@@ -5,14 +5,21 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.modules.homeManager.base = { config, ... }: {
+  flake.modules.homeManager.base = { config, pkgs, ... }: {
     imports = [ inputs.nhx.homeManagerModules.default ];
 
     programs.nhx = {
       enable = true;
       steel.enable = true;
       plugins = {
-        scooter.enable = true;
+        scooter = {
+          enable = true;
+          # TODO: Remove when nhx's scooter package declares pkg-config and oniguruma.
+          package = config.programs.nhx.availablePlugins.scooter.overrideAttrs (old: {
+            nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ pkgs.pkg-config ];
+            buildInputs = (old.buildInputs or [ ]) ++ [ pkgs.oniguruma ];
+          });
+        };
         show-keys = {
           enable = true;
           requirePath = "showkeys/showkeys.scm";
