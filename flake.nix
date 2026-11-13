@@ -170,6 +170,13 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+    prismnix = {
+      url = "github:qacow37/prismnix";
+      inputs = {
+        home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
