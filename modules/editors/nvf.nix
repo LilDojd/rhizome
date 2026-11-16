@@ -16,7 +16,7 @@
   flake.modules.homeManager.base =
     hmArgs@{ pkgs, ... }:
     {
-      imports = [ inputs.nvf.homeManagerModules.default ];
+      imports = [ inputs.nvf.homeModules.default ];
 
       # Avoid Stylix's deprecated lualine option until its nvf target is updated.
       stylix.targets.nvf.plugin = "mini-base16";
