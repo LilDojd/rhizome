@@ -12,7 +12,6 @@
           disable_ligatures = "cursor";
           font_size = 12;
           wheel_scroll_min_lines = 1;
-          middle_click_paste = true;
           window_padding_width = 0;
           remember_window_size = "no";
           confirm_os_window_close = 0;
@@ -32,6 +31,7 @@
         };
         extraConfig = ''
           # Clipboard
+          mouse_map middle release ungrabbed
           map shift+insert        paste_from_selection
 
           # Scrolling

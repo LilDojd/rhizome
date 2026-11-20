@@ -30,6 +30,7 @@
         enable = true;
         settings = {
           "dom.webgpu.enabled" = true;
+          "middlemouse.paste" = false;
           "privacy.resistFingerprinting" = false;
         };
         package = if pkgs.stdenv.hostPlatform.isLinux then pkgs.librewolf else null;

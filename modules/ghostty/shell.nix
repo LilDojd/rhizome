@@ -6,6 +6,7 @@
     shell-integration = "detect";
     shell-integration-features = "cursor,sudo,title,ssh-env,ssh-terminfo";
     copy-on-select = "clipboard";
+    middle-click-action = "ignore";
     app-notifications = "no-clipboard-copy";
     quick-terminal-position = "center";
     linux-cgroup = "single-instance";
