@@ -33,6 +33,8 @@
       imports = [ inputs.stylix.homeModules.stylix ];
       stylix.enable = true;
       stylix.overlays.enable = false;
+      # TODO: Remove when Stylix drops wayprompt.
+      stylix.targets.wayprompt.enable = false;
     };
 
   };
