@@ -37,20 +37,20 @@
 
       steps = {
         nothingButNix = {
-          uses = "wimpysworld/nothing-but-nix@baf7355748bb5651f08b839669d6bb39051b2874";
+          uses = "wimpysworld/nothing-but-nix@b2574ec1cf1462bee0a34de0fb6ff11ad3c43cb2"; # v12
           "with" = {
             hatchet-protocol = "holster";
           };
         };
         checkout = {
-          uses = "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803"; # v6
+          uses = "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"; # v7.0.1
           "with" = {
             submodules = true;
             persist-credentials = false;
           };
         };
-        detsysNixInstaller.uses = "DeterminateSystems/determinate-nix-action@4d65ea9cab522b6d9f29a170aed23ededc1b27af"; # v3.23.0
-        flakehubCache.uses = "DeterminateSystems/flakehub-cache-action@88740a21e786360ba66bdd8fecabcbf852db3a5a"; # v3.23.0
+        detsysNixInstaller.uses = "DeterminateSystems/determinate-nix-action@4b040423529d49b1a19ba918742e0aa9aa95031a"; # v3.24.3
+        flakehubCache.uses = "DeterminateSystems/flakehub-cache-action@599f4b231216aed692532bc717021b9b0aafb35d"; # v3.24.3
       };
     in
     {
