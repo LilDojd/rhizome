@@ -57,6 +57,7 @@
         a fix onto the PR (at most ${toString maxAttempts} times). Mergify merges it once Check passes.
 
         Setup: install the [Claude GitHub App](https://github.com/apps/claude) and add
+        `CLAUDE_CODE_OAUTH_TOKEN` (from `claude setup-token`, uses your Claude subscription) or
         `ANTHROPIC_API_KEY` as both an **Actions** and a **Dependabot** secret.
 
       '';
@@ -123,6 +124,7 @@
                   uses = "anthropics/claude-code-action@4411a9e9b0283becf4b924f7bce360fd7756c78c"; # v1.0.290
                   "with" = {
                     anthropic_api_key = "\${{ secrets.ANTHROPIC_API_KEY }}";
+                    claude_code_oauth_token = "\${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}";
                     allowed_bots = "dependabot[bot],claude[bot]";
                     inherit prompt;
                     settings = builtins.toJSON {

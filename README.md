@@ -74,6 +74,7 @@ When Check fails on a Dependabot nix PR, the Repair Dependabot workflow runs
 a fix onto the PR (at most 3 times). Mergify merges it once Check passes.
 
 Setup: install the [Claude GitHub App](https://github.com/apps/claude) and add
+`CLAUDE_CODE_OAUTH_TOKEN` (from `claude setup-token`, uses your Claude subscription) or
 `ANTHROPIC_API_KEY` as both an **Actions** and a **Dependabot** secret.
 
 ## Generated files
