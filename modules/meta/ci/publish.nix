@@ -10,7 +10,7 @@
 
       steps = {
         checkout = {
-          uses = "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803"; # v6
+          uses = "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"; # v7.0.1
           "with" = {
             ref = "\${{ github.event.workflow_run.head_sha }}";
             submodules = true;
@@ -18,13 +18,13 @@
           };
         };
         detsysNix = {
-          uses = "DeterminateSystems/determinate-nix-action@4d65ea9cab522b6d9f29a170aed23ededc1b27af"; # v3.23.0
+          uses = "DeterminateSystems/determinate-nix-action@4b040423529d49b1a19ba918742e0aa9aa95031a"; # v3.24.3
           "with".extra-conf = ''
             extra-experimental-features = pipe-operators
           '';
         };
         flakehubPush = {
-          uses = "DeterminateSystems/flakehub-push@e001ee821cdb763ef120c01f1048bfb2f938bb9c";
+          uses = "DeterminateSystems/flakehub-push@e001ee821cdb763ef120c01f1048bfb2f938bb9c"; # v7
           "with" = {
             source-revision = "e001ee821cdb763ef120c01f1048bfb2f938bb9c";
             name = "${repo.owner}/${repo.name}";
