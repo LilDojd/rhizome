@@ -70,20 +70,11 @@ See [`modules/meta/ci/check.nix`](modules/meta/ci/check.nix).
 ## Repairing Dependabot flake updates
 
 When Check fails on a Dependabot nix PR, the Repair Dependabot workflow runs
-[Claude Code](https://docs.claude.com/en/docs/claude-code) to fix the modules and pushes
-the fix as a commit onto the PR (at most 3 times). Check runs again and
-Mergify merges as usual once it passes. Changes to `flake.lock`, `flake.nix`, `.github/`,
-`.mergify.yml`, secrets or `modules/meta/ci/` are rejected. Claude runs without GitHub
-credentials; only the push uses a GitHub App token.
+[claude-code-action](https://github.com/anthropics/claude-code-action), which pushes
+a fix onto the PR (at most 3 times). Mergify merges it once Check passes.
 
-Setup: add these as both **Actions** and **Dependabot** secrets, and give the GitHub App
-only **Contents: read and write**.
-
-| Secret | Purpose |
-| --- | --- |
-| `ANTHROPIC_API_KEY` or `CLAUDE_CODE_OAUTH_TOKEN` | Authenticates Claude Code |
-| `REPAIR_APP_CLIENT_ID` | Client ID of the GitHub App installed on this repository |
-| `REPAIR_APP_PRIVATE_KEY` | Private key of that GitHub App |
+Setup: install the [Claude GitHub App](https://github.com/apps/claude) and add
+`ANTHROPIC_API_KEY` as both an **Actions** and a **Dependabot** secret.
 
 ## Generated files
 
