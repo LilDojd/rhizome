@@ -67,6 +67,16 @@ For better visibility, a job is spawned for each flake check dynamically.
 
 See [`modules/meta/ci/check.nix`](modules/meta/ci/check.nix).
 
+## Repairing Dependabot flake updates
+
+When Check fails on a Dependabot nix PR, the Repair Dependabot workflow runs
+[claude-code-action](https://github.com/anthropics/claude-code-action), which pushes
+a fix onto the PR (at most 3 times). Mergify merges it once Check passes.
+
+Setup: install the [Claude GitHub App](https://github.com/apps/claude) and add
+`CLAUDE_CODE_OAUTH_TOKEN` (from `claude setup-token`, uses your Claude subscription) or
+`ANTHROPIC_API_KEY` as both an **Actions** and a **Dependabot** secret.
+
 ## Generated files
 
 The following files in this repository are generated and checked
@@ -75,6 +85,7 @@ using [the _files_ flake-parts module](https://github.com/mightyiam/files):
 - `.github/dependabot.yml`
 - `.github/workflows/check.yaml`
 - `.github/workflows/publish.yaml`
+- `.github/workflows/repair.yaml`
 - `.gitignore`
 - `LICENSE`
 - `README.md`

@@ -203,7 +203,7 @@
               ''
                 actionlint ${config.files.file.${filePath}.source} ${
                   config.files.file.".github/workflows/publish.yaml".source
-                }
+                } ${config.files.file.".github/workflows/repair.yaml".source}
                 jq -r '.jobs.ready.steps[0].run' ${config.files.file.${filePath}.source} > gate.sh
                 success=$(jq '.jobs.ready.needs | map({key: ., value: {result: "success"}}) | from_entries' ${
                   config.files.file.${filePath}.source
