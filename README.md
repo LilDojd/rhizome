@@ -69,42 +69,21 @@ See [`modules/meta/ci/check.nix`](modules/meta/ci/check.nix).
 
 ## Repairing Dependabot flake updates
 
-Dependabot opens a daily PR updating every flake input, and Mergify merges it
-once the `ready` check passes. When the Check workflow fails on such a PR,
-the Repair Dependabot workflow asks Claude to fix it:
+When Check fails on a Dependabot nix PR, the Repair Dependabot workflow runs
+[Claude Code](https://docs.claude.com/en/docs/claude-code) to fix the modules and pushes
+the fix as a commit onto the PR (at most 3 times). Check runs again and
+Mergify merges as usual once it passes. Changes to `flake.lock`, `flake.nix`, `.github/`,
+`.mergify.yml`, secrets or `modules/meta/ci/` are rejected. Claude runs without GitHub
+credentials; only the push uses a GitHub App token.
 
-1. **plan** finds the Dependabot PR and counts earlier attempts (at most 3
-   per Dependabot head commit, tracked by comments on the PR).
-2. **repair** collects the failed CI logs and the old and new source trees of each
-   updated input, then runs [Claude Code](https://docs.claude.com/en/docs/claude-code)
-   from the `llm-agents` input. Claude edits modules only; changes to `flake.lock`,
-   `flake.nix`, `.github/`, `.mergify.yml`, secrets or `modules/meta/ci/` are rejected.
-3. **validate** applies the patch and builds every check on both
-   `x86_64-linux` and `aarch64-darwin`.
-4. **publish** pushes `claude-repair/dependabot-<number>` and opens a **draft** PR for review.
-   Mergify does not merge it automatically. If Check fails on that PR, the next
-   attempt builds on the previous one.
-5. **report** comments the outcome on the Dependabot PR.
-
-Only `publish` and `report` hold write credentials, a GitHub App token minted in
-the job. The jobs that run Claude or untrusted code get a read-only `GITHUB_TOKEN`,
-and the step running Claude gets no GitHub token at all.
-
-Required configuration (add each secret as both an **Actions** secret and a
-**Dependabot** secret, because runs triggered from Dependabot PRs can only read
-Dependabot secrets):
+Setup: add these as both **Actions** and **Dependabot** secrets, and give the GitHub App
+only **Contents: read and write**.
 
 | Secret | Purpose |
 | --- | --- |
-| `ANTHROPIC_API_KEY` or `CLAUDE_CODE_OAUTH_TOKEN` | Authenticates Claude Code (`claude setup-token` creates the latter) |
-| `REPAIR_APP_CLIENT_ID` | Client ID of a GitHub App installed on this repository |
+| `ANTHROPIC_API_KEY` or `CLAUDE_CODE_OAUTH_TOKEN` | Authenticates Claude Code |
+| `REPAIR_APP_CLIENT_ID` | Client ID of the GitHub App installed on this repository |
 | `REPAIR_APP_PRIVATE_KEY` | Private key of that GitHub App |
-
-The GitHub App needs the repository permissions **Contents: read and write**,
-**Pull requests: read and write** and **Issues: read and write**, and nothing else.
-Pushes made with its token trigger Check on the repair PR, which
-`GITHUB_TOKEN` pushes would not. See
-[`modules/meta/ci/repair.nix`](modules/meta/ci/repair.nix).
 
 ## Generated files
 
