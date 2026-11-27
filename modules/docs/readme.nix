@@ -10,6 +10,7 @@
         "development"
         "nixos-configurations"
         "github-actions"
+        "dependabot-repair"
         "files"
       ];
 
